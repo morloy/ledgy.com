@@ -37,8 +37,6 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-netlify',
       options: {
-        headers: {},
-        allPageHeaders: [],
         mergeSecurityHeaders: true,
         mergeLinkHeaders: true,
         mergeCachingHeaders: false,

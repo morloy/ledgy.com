@@ -46,9 +46,8 @@ const IndexPage = () => (
           <div className="row gap-y">
             <div className="col-12 col-md-6">
 
-              <form action="assets/php/sendmail.php" method="POST" data-form="mailer">
-                <div className="alert alert-success">We received your message and will contact you back soon.</div>
-
+              <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact" />
                 <div className="form-group">
                   <input className="form-control form-control-lg" type="text" name="name" placeholder="Your Name" />
                 </div>
