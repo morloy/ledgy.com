@@ -39,6 +39,7 @@ const Nav = () => (
             </div>
           </li>
           <li className="nav-item"><Link className="nav-link active" href to="/about">About</Link></li>
+          <li className="nav-item"><a className="nav-link active" href="https://blog.ledgy.com">Blog</a></li>
           <li className="nav-item"><Link className="nav-link active" href to="/contact">Contact</Link></li>
           <div className="hidden-md-up lh-2">
             <a className="btn btn-block btn-outline btn-primary" href="https://app.ledgy.com/login">Login</a>
