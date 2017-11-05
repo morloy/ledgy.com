@@ -54,7 +54,7 @@ export default ({ data }: Object) => (
 
       <Feature
         title="Export and share pdf"
-        text="Legally in Switzerland your share register has to be signed by
+        text="Legally in Switzerland your stock ledger has to be signed by
         the board of directors to be valid. For this purpose it can be exported as pdf on Ledgy."
         img={data.feature3}
       />

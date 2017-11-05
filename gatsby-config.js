@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://www.ledgy.com',
-    title: 'Ledgy - Online Share Register',
+    title: 'Ledgy - Online Stock Ledger',
   },
   plugins: [
     'gatsby-plugin-sass',

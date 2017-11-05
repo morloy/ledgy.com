@@ -16,13 +16,13 @@ const Header = () => (
       <div className="row h-full">
         <div className="col-12 col-lg-10 offset-lg-1 align-self-center">
 
-          <h1 className="display-2">Online Share Register</h1>
+          <h1 className="display-2">Online Stock Ledger</h1>
           <br />
           <p className="fs-20 w-400 mx-auto hidden-sm-down">
-            Make your life easy with the leading share register and cap table tool for Switzerland.
+            Make your life easy with the leading stock ledger and cap table tool for Switzerland.
           </p>
           <p className="fs-18 w-250 mx-auto hidden-md-up">
-            Make your life easy with the leading share register and cap table tool for Switzerland.
+            Make your life easy with the leading stock ledger and cap table tool for Switzerland.
           </p>
 
           <div className="col-10 offset-1 col-md-8 offset-md-2">
