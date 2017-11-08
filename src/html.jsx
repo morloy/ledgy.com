@@ -24,9 +24,9 @@ module.exports = class HTML extends React.Component {
     return (
       <html {...this.props.htmlAttributes}>
         <head>
-          <title>Ledgy - Online Stock Ledger</title>
-          <meta name="description" content="Make your life easy with the leading stock ledger and cap table tool for Switzerland." />
-          <meta name="keywords" content="cap table, stock ledger" />
+          <title>Ledgy - Online Cap Table</title>
+          <meta name="description" content="Make your life easy with the cap table tool for Switzerland." />
+          <meta name="keywords" content="cap table, stock ledger, shares register" />
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <script src="script.min.js" async />
