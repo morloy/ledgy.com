@@ -84,7 +84,7 @@ const IndexPage = () => (
 
                 <div>
                   <span className="d-inline-block w-20 text-lighter" title="Phone">P:</span>
-                  <span className="fs-14">+41 (0) 79 280 99 87</span>
+                  <span className="fs-14">+41 44 585 21 23</span>
                 </div>
 
               </div>
