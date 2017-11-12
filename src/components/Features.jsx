@@ -33,9 +33,9 @@ export default ({ data }: Object) => (
 
     <div className="container">
       <Feature
-        title="All information in one place"
-        text="Always have the current cap table ready and save all related documents in the Ledgy cloud.
-        Understand who owns what in your company at a glance through the interactive charts."
+        title="All your information located in one place"
+        text="The current cap table is always accessible and all related documents are saved on the Ledgy cloud.
+        Use the interactive charts to understand who owns what in your company at a glance."
         img={data.feature1}
       />
 
@@ -44,18 +44,17 @@ export default ({ data }: Object) => (
       <Feature
         right
         title="Avoid costly errors"
-        text="Your cap table is built up from the past transactions.
-        Its history ensures transparency and inconsistencies are automatically detected by the software.
-        This prepares your company for legal requirements and audits in the future."
+        text="Your cap table is built up from past transactions. Its history ensures transparency.
+        Inconsistencies are automatically detected by Ledgy’s software, preparing your company for legal requirements and audits in the future."
         img={data.feature2}
       />
 
       <hr />
 
       <Feature
-        title="Export and share pdf"
-        text="Legally in Switzerland your stock ledger has to be signed by
-        the board of directors to be valid. For this purpose it can be exported as pdf on Ledgy."
+        title="Export and share PDFs"
+        text="Per Swiss law, your share register must be signed by the Board of Directors to be valid.
+        For this purpose, it can be exported as a PDF on Ledgy."
         img={data.feature3}
       />
     </div>

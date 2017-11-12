@@ -69,8 +69,8 @@ const IndexPage = () => (
 
             <div className="col-12 col-md-5 offset-md-1">
               <div className="bg-grey h-full p-20">
-                <p>Give us a call or stop by our door anytime,
-                  we try to answer all enquiries within 24 hours on business days.
+                <p>Give us a call or stop by our door anytime.
+                  We will do our best to answer all enquiries within 24 hours on business days.
                 </p>
 
                 <hr className="w-80" />

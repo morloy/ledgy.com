@@ -75,9 +75,11 @@ const IndexPage = ({ data }: Object) => (
               <h2>Our Mission</h2>
               <p className="lead">
                  We want to empower entrepreneurs. They should be able to focus on their business,
-                 not on bureaucratic paperwork. This is why we want to establish a new state of
-                 the art of how securities in private companies are managed, exchanged, and traded.
-                 With the goal to make it a breeze for both companies and shareholders.
+                 not on bureaucratic paperwork. This is why we want to establish a new,
+                 state-of-the-art tool to manage, exchange,
+                 and trade securities in private companies.
+                 Our goal is to make security management a breeze
+                 for both companies and shareholders.
               </p>
             </div>
             <div className="col-12 col-lg-6 p-50 align-self-center">

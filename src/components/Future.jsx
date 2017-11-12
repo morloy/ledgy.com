@@ -46,7 +46,7 @@ export default () => (
           <p className="feature-icon text-success"><i className="icon-profile-female" /></p>
           <h5>Shareholder Login</h5>
           <p>
-                Your shareholders can see all their investments anytime on Ledgy.
+                Your shareholders will be able to see all of their investments at any time on Ledgy.
           </p>
         </div>
 
