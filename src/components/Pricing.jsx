@@ -11,7 +11,7 @@ export default () => (
     <div className="container">
       <div className="row gap-y align-items-center">
         <div className="col-12 col-md-6 offset-md-1 col-lg-4 offset-lg-2 text-center text-md-left">
-          <h4 className="mb-0">First 3 months free<br />Then 19 CHF/month per company</h4>
+          <h4 className="mb-0">First 2 months free<br />Then 19 CHF/month per company</h4>
         </div>
 
         <div className="col-12 col-md-4 col-lg-3">
