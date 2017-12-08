@@ -47,6 +47,10 @@ const Header = () => (
           </div>
         </div>
 
+        <div className="col-12 align-self-end text-center">
+          <a className="scroll-down-3 scroll-down-inverse" href="#testimonials" data-scrollto="testimonials"><span /></a>
+        </div>
+
       </div>
 
     </div>
