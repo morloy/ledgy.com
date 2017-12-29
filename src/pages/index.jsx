@@ -9,7 +9,7 @@ import Future from '../components/Future';
 import Subscribe from '../components/Subscribe';
 
 const Header = () => (
-  <header className="header header-inverse h-fullscreen pb-80" style={{ backgroundImage: 'url(/InitialCookieOffering.jpg)' }} id="start">
+  <header className="header header-inverse h-fullscreen pb-80" style={{ backgroundColor: '#20a8d8' }} id="start">
 
     <div className="container text-center">
 
