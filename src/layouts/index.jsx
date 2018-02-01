@@ -122,6 +122,7 @@ const Footer = (props: LayoutProps) => {
             <div className="social text-center text-lg-right">
               <a className="social-twitter" href="https://twitter.com/LedgyCom"><i className="fa fa-twitter" /></a>
               <a className="social-facebook" href="https://www.facebook.com/LedgyCom/"><i className="fa fa-facebook" /></a>
+              <a className="social-linkedin" href="https://www.linkedin.com/company/ledgy"><i className="fa fa-linkedin" /></a>
             </div>
           </div>
         </div>
