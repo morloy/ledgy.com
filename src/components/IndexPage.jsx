@@ -4,9 +4,7 @@ import React from 'react';
 import { translate } from 'react-i18next';
 
 import References from './References';
-import Pricing from './Pricing';
 import Features from './Features';
-import Future from './Future';
 import Subscribe from './Subscribe';
 
 const Header = ({ t }: Object) => (
@@ -19,7 +17,7 @@ const Header = ({ t }: Object) => (
 
           <h1 className="display-2">{t('title')}</h1>
           <br />
-          <p className="fs-20 w-400 mx-auto hidden-sm-down">
+          <p className="fs-20 w-450 mx-auto hidden-sm-down">
             {t('description')}
           </p>
           <p className="fs-18 w-250 mx-auto hidden-md-up">
@@ -58,38 +56,18 @@ const Header = ({ t }: Object) => (
   </header>
 );
 
-const IndexPage = (props: Object) => {
-  const { t } = props;
-  return (
-    <div>
-      <Header {...props} />
-      <main className="main-content">
+const IndexPage = (props: Object) => (
+  <div>
+    <Header {...props} />
+    <main className="main-content">
 
-        <References {...props} />
-        <Pricing {...props} />
-        <Features {...props} />
+      <References {...props} />
+      <Subscribe {...props} />
+      <Features {...props} />
 
-
-        <section id="demo" className="section section-inverse" style={{ backgroundColor: '#60ae50' }} >
-
-          <header className="section-header mb-40">
-            <small>{t('demo')}</small>
-          </header>
-
-          <div className="text-center">
-            <a className="btn btn-lg btn-success" href="https://demo.ledgy.com">{t('checkDemo')}</a>
-          </div>
-
-        </section>
-
-
-        <Future {...props} />
-        <Subscribe {...props} />
-
-      </main>
-    </div>
-  );
-};
+    </main>
+  </div>
+);
 
 export default translate()(IndexPage);
 

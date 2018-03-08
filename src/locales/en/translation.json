@@ -1,6 +1,6 @@
 {
   "19month": "Then 19 CHF/month per company",
-  "about": "About",
+  "about": "About us",
   "aboutPage": {
     "aboutUs": "About us",
     "adrian": "Investor & Consultant (Farmy.ch, Flatfox.ch), Founder of Students.ch",
@@ -36,7 +36,7 @@
   "convertibles": "Convertible notes and employee stock options",
   "convertiblesDescription": "You create convertible notes, Ledgy takes care of all the calculations. Enter employee incentive plans with vesting and track them over time.",
   "demo": "Demo",
-  "description": "Make your life easy with the leading cap table tool in Switzerland.",
+  "description": "Having headaches with your cap table in Excel? Make your life easy with Ledgy.",
   "enterEmail": "Enter email …",
   "export": "Export PDFs and send tax certificates",
   "exportDescription": "Per Swiss law, a share register must be signed by the board of directors to be valid. For this purpose, it can be exported as a PDF. Automatically generate tax certificates and send them to your shareholders.",

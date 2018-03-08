@@ -42,18 +42,7 @@ const Nav = (props: LayoutProps) => {
 
         <div className="topbar-right">
           <ul className="topbar-nav nav">
-            <li className="nav-item">
-              <button className="nav-link active btn-link text-left">{t('product')} <i className="fa fa-caret-down" /></button>
-              <div className="nav-submenu">
-                <Link className="nav-link active" href to={`${props.prefix}/#testimonials`}>{t('testimonials')}</Link>
-                <Link className="nav-link active" href to={`${props.prefix}/#pricing`}>{t('pricing')}</Link>
-                <Link className="nav-link active" href to={`${props.prefix}/#features`}>{t('features')}</Link>
-                <Link className="nav-link active" href to={`${props.prefix}/#demo`}>{t('demo')}</Link>
-                <Link className="nav-link active" href to={`${props.prefix}/#future`}>{t('theFuture')}</Link>
-              </div>
-            </li>
             <li className="nav-item"><Link className="nav-link active" href to={`${props.prefix}/about`}>{t('about')}</Link></li>
-            <li className="nav-item"><Link className="nav-link active" href to={`${props.prefix}/contact`}>{t('contact')}</Link></li>
             <li className="nav-item"><a className="nav-link active" href="https://blog.ledgy.com">{t('blog')}</a></li>
             <div className="nav-item d-block">
               <Link href className="nav-link d-inline active" to="/#start">
@@ -95,9 +84,6 @@ const Footer = (props: LayoutProps) => {
 
           <div className="col-12 col-lg-6">
             <ul className="nav nav-primary nav-hero d-block d-sm-flex text-center">
-              <li className="nav-item">
-                <Link className="nav-link" href to={`${props.prefix}/#product`}>{t('product')}</Link>
-              </li>
               <li className="nav-item">
                 <Link className="nav-link" href to={`${props.prefix}/about`}>{t('about')}</Link>
               </li>
