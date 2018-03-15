@@ -91,7 +91,7 @@ const Footer = (props: LayoutProps) => (
           </div>
 
           <div className="col-6 col-md-3 col-xl-3">
-            <h6 className="mb-4 mt-1"><strong>Product</strong></h6>
+            <h6 className="mb-4 mt-1"><strong><Trans>Product</Trans></strong></h6>
             <div className="nav flex-column">
               <Link className="nav-link" href to={`${props.prefix}/features`}><Trans>Why it’s awesome</Trans></Link>
               <Link className="nav-link" href to={`${props.prefix}/features/consistency`}><Trans>Consistency</Trans></Link>
