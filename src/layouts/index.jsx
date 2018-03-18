@@ -142,7 +142,7 @@ const TemplateWrapper = withI18n()((props: SiteProps) => {
   return (
     <div>
       <Title
-        title={i18n.t`Build trust around your cap table`}
+        title={i18n.t`Build trust in your cap table`}
         description={i18n.t`Manage your cap table with Ledgy. The single place to track all your shares, manage your ESOPs and model detailed financing rounds.`}
       />
       <Helmet>
