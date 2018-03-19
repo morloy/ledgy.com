@@ -40,7 +40,7 @@ export default withI18n()(({ i18n, ...props }: Props) => (
                 <Trans>
                   As an investor, you can profit a lot from Ledgy.
                   Any of your portfolio companies that use the platform will
-                  appear in your investment dashboard.
+                  appear on your investment dashboard.
                   See your key performance indicators of your investments at a glance.
                   <br /><br />
                   Never lose track of how much you invested in which company and what’s

@@ -98,8 +98,8 @@ export default withI18n()(({ i18n, ...props }: Props) => (
                   lawyers and investors.
                   The document includes the pre- and post-money valuation of your company,
                   all investments, and convertibles with their resulting share price
-                  and number of shares and, of course, the resulting cap table.
-                  At the end, you will also find valuable plots to visualize the new
+                  and the number of shares and, of course, the resulting cap table.
+                  At the end of the document, you will also find valuable plots to visualize the new
                   development step of your company.
                 </Trans>
               </p>
