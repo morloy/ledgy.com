@@ -38,7 +38,7 @@ export default withI18n()(({ i18n, ...props }: Props) => (
               <h2><Trans>Make your cap table legally binding</Trans></h2>
               <p>
                 <Trans>
-                  In order to create a legally binding share register it
+                  In order to create a legally binding share register, it
                   is necessary to add a handwritten signature.
                   With Ledgy you can download a beautiful snapshot
                   of your company’s shares structure.
@@ -75,7 +75,7 @@ export default withI18n()(({ i18n, ...props }: Props) => (
                   holding confirmations to each shareholder, filling out boring
                   Word templates by hand?
                   <br /><br />
-                  We’ve got the solution for you. With a single click Ledgy creates
+                  We’ve got the solution for you. With a single click, Ledgy creates
                   nicely formatted holding confirmations for all of your shareholders
                   and send them directly via email.
                   <br /><br />
@@ -85,7 +85,7 @@ export default withI18n()(({ i18n, ...props }: Props) => (
             </div>
 
             <div className="col-md-5" data-aos="fade-left">
-              <Img {...props.data.sendHoldingConfirmation} alt={i18n.t`Dialog to holding confirmation`} />
+              <Img {...props.data.sendHoldingConfirmation} alt={i18n.t`Dialog for holding confirmation`} />
             </div>
           </div>
 
@@ -116,14 +116,14 @@ export default withI18n()(({ i18n, ...props }: Props) => (
 
           <div>
             <header className="section-header text-left">
-              <h2><Trans>Bring order into your documents</Trans></h2>
+              <h2><Trans>Bring order to your documents</Trans></h2>
               <p>
                 <Trans>
                   Every transaction in your share register usually comes with a
                   pile of additional documents, like contracts.
                   Get rid of complicated folder structures and simply attach them
                   directly to your transactions.
-                  Ledgy gives you an overview over all documents that you uploaded and
+                  Ledgy gives you an overview of all documents that you uploaded and
                   their corresponding transactions.
                   Also in your transaction history you can select any transaction and see
                   all connected documents at a glance.

@@ -65,7 +65,7 @@ export default withI18n()(({ i18n, ...props }: Props) => (
             <div className="col-md-4">
               <p>
                 <Trans>
-                  Ooops, there was an error in your share register?
+                  Oops, there was an error in your share register?
                   Don’t worry, Ledgy will assist you in getting your cap table straight.<br />
                   Once finished, sit back and relax. Now you can be assured that
                   your cap table is error-free!
@@ -82,7 +82,7 @@ export default withI18n()(({ i18n, ...props }: Props) => (
             <div className="col-md-4 ml-auto">
               <p>
                 <Trans>
-                  Did you notice the number in the center bottom? Anytime you transfer
+                  Did you notice the number in the center bottom? Any time you transfer
                   shares from one shareholder to another, Ledgy will show you
                   how many shares that particular shareholder has <i>available</i> at
                   that given point in time.
@@ -99,7 +99,7 @@ export default withI18n()(({ i18n, ...props }: Props) => (
             <div className="col-md-4 ml-auto">
               <p>
                 <Trans>
-                  By the way if you decide to number your shares, we also got you covered.
+                  By the way, if you decide to number your shares, we also got you covered.
                   Ledgy will track who owns which shares for each transaction
                   and assist you in entering valid share numbers.<br />
                   With Ledgy you can be sure that no single share number goes

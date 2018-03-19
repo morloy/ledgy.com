@@ -75,7 +75,7 @@ export default withI18n()(({ i18n, ...props }: Props) => (
                 <Trans>
                   Scroll down and you will notice that the cap table now
                   indicates the <i>Round Modeling</i> mode.
-                  This gives you a detailed overview about who owns how many shares
+                  This gives you a detailed overview of who owns how many shares
                   after applying the new financing round. Cool, eh?
                 </Trans>
               </p>
@@ -96,10 +96,10 @@ export default withI18n()(({ i18n, ...props }: Props) => (
                   After you’re finished with modeling your financing round, you can
                   download the scenario as a PDF document and share it with your co-founders,
                   lawyers and investors.
-                  The document includes the pre– and post–money valuation of your company,
-                  all investments and convertibles with their resulting share price
+                  The document includes the pre- and post-money valuation of your company,
+                  all investments, and convertibles with their resulting share price
                   and number of shares and, of course, the resulting cap table.
-                  At the end you will also find valuable plots to visualize the new
+                  At the end, you will also find valuable plots to visualize the new
                   development step of your company.
                 </Trans>
               </p>

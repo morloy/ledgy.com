@@ -139,7 +139,7 @@ const IndexPage = (props: Props) => {
               <Founder
                 name="Yoko Spirig"
                 func="Physics MSc ETH"
-                description={i18n.t`Medical physics background, loves running, wondering about brain–machine interfaces`}
+                description={i18n.t`Medical physics background, loves running, wondering about brain-machine interfaces`}
                 twitterlink="https://twitter.com/YokoSpirig"
                 linkedinlink="https://www.linkedin.com/in/yokospirig/"
                 img={data.yoko}
@@ -191,7 +191,7 @@ const IndexPage = (props: Props) => {
               <Advisor
                 name="Elena Walder-Schiavone"
                 func="Advisor"
-                description={i18n.t`M&A and Private Equity Lawyer with focus in start-up legal advise, Smartuplaw.ch`}
+                description={i18n.t`M&A and Private Equity Lawyer with a focus on start-up legal advise, Smartuplaw.ch`}
                 img={data.elena}
                 fade="up-left"
               />

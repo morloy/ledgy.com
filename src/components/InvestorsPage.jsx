@@ -38,12 +38,12 @@ export default withI18n()(({ i18n, ...props }: Props) => (
               <h2><Trans>Your portfolio at a glance</Trans></h2>
               <p>
                 <Trans>
-                  As an investor you can profit a lot from Ledgy.
-                  Any of your portfolio companies that uses the platform will
+                  As an investor, you can profit a lot from Ledgy.
+                  Any of your portfolio companies that use the platform will
                   appear in your investment dashboard.
                   See your key performance indicators of your investments at a glance.
                   <br /><br />
-                  Never lose track about how much you invested in which company and what’s
+                  Never lose track of how much you invested in which company and what’s
                   the approximate value of your investments today.
                 </Trans>
               </p>
@@ -60,7 +60,7 @@ export default withI18n()(({ i18n, ...props }: Props) => (
             <header className="section-header text-left">
               <p>
                 <Trans>
-                  The detailed investment table gives an overview over the metrics of
+                  The detailed investment table gives an overview of the metrics of
                   your investments. Check out what’s your stake in the company,
                   how many shares you own and how much you initially invested.
                   <br />

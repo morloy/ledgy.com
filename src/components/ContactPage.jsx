@@ -84,7 +84,7 @@ const IndexPage = (props: Object) => {
                   <p>
                     <Trans>
                       Give us a call or stop by our door anytime. We
-                      will do our best to answer all enquiries
+                      will do our best to answer all inquiries
                       within 24 hours on business days.
                     </Trans>
                   </p>

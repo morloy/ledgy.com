@@ -38,7 +38,7 @@ export default withI18n()(({ i18n, ...props }: Props) => (
               <h2><Trans>Make your employees happy</Trans></h2>
               <p>
                 <Trans>
-                  You’re building a fast growing company and want your valuable
+                  Are you building a fast-growing company and want your valuable
                   employees to be part of your success?
                   Ledgy offers you a powerful module to manage your
                   employee stock ownership plans.
