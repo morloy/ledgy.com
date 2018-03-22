@@ -32,11 +32,10 @@ const IndexPage = ({ i18n, ...props }: Props) => (
           <header className="section-header text-left">
             <p>
               <Trans>
-                Your privacy and your data’s security are extremely important to us.
                 We understand how sensitive cap table information is for any business.
+                That’s why your privacy and your data’s security is extremely important to us.
                 And we also know how little anyone likes to read long and difficult to
-                understand privacy policies.
-                That’s why we give you a human-readable overview up-front.
+                understand privacy policies. So we give you a human-readable overview up-front.
               </Trans>
             </p>
 
@@ -156,7 +155,7 @@ const IndexPage = ({ i18n, ...props }: Props) => (
 
               <PrivacyElement
                 icon="fa fa-question-circle"
-                title={i18n.t`Deleting your personal data`}
+                title={i18n.t`Want to delete your data?`}
                 body={
                   <Trans>
                     Please <Link href to={`${props.prefix}/contact/`}>get in touch with us</Link>

@@ -153,7 +153,7 @@ const IndexPage = (props: Props) => {
         <section className="section bg-gray">
           <div className="container">
             <header className="section-header">
-              <h2><Trans>Backed by some really cool investors</Trans></h2>
+              <h2><Trans>Board and Advisors</Trans></h2>
             </header>
 
             <div className="row gap-y">

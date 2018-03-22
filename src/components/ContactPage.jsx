@@ -73,7 +73,7 @@ const IndexPage = (props: Object) => {
                   </div>
 
 
-                  <button className="btn btn-lg btn-primary btn-block" type="submit">{i18n.t`Send enquiry`}</button>
+                  <button className="btn btn-lg btn-primary btn-block" type="submit">{i18n.t`Send message`}</button>
                 </form>
 
               </div>
@@ -83,9 +83,8 @@ const IndexPage = (props: Object) => {
                 <div className="bg-gray h-full p-5">
                   <p>
                     <Trans>
-                      Give us a call or stop by our door anytime. We
-                      will do our best to answer all inquiries
-                      within 24 hours on business days.
+                      Give us a call or stop by our door anytime.
+                      If you can’t reach us, we will get back to you as fast as possible.
                     </Trans>
                   </p>
 

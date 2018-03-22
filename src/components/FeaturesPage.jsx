@@ -124,7 +124,8 @@ export default withI18n()(({ i18n, ...props }: Props) => (
               <h5><Trans>Privacy</Trans></h5>
               <p>
                 <Trans>
-                  We deeply care about your privacy. Your data only belongs to you.
+                  Cap table data is sensitive.
+                  That’s why we deeply care about your privacy.
                 </Trans>
                 <br />
                 <Link href to={`${props.prefix}/privacy/`}><Trans>Read more</Trans>  <i className="ti-angle-right fs-10 ml-1" /></Link>
