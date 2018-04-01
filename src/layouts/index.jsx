@@ -190,12 +190,8 @@ export default class extends React.Component<{ location: { pathname: string } }>
     require('../assets/js/script'); // eslint-disable-line global-require
 
     const { pathname } = this.props.location;
-    if (getLocale() === 'de') {
-      if (!pathname.startsWith('/de')) {
-        navigateTo(`/de${this.props.location.pathname}`);
-      }
-    } else if (pathname.startsWith('/de')) {
-      navigateTo(this.props.location.pathname.replace('/de', ''));
+    if (getLocale() === 'de' && !pathname.startsWith('/de')) {
+      navigateTo(`/de${this.props.location.pathname}`);
     }
   }
   render = () => {
