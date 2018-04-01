@@ -20363,10 +20363,9 @@ window.AOS = __webpack_require__(12);
     var options = {
       offset: 220,
       duration: 500,
-    }
-
-    if ( page.defaults.disableAOSonMobile ) {
-      options.disable = 'mobile';
+      disable: function() {
+        return /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent);
+      },
     }
 
     AOS.init(options);
