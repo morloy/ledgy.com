@@ -14,6 +14,8 @@ import '../assets/scss/page.scss';
 import logoDefault from '../img/logo_black.png';
 import logoInverse from '../img/logo_white.png';
 
+const hasFooter = (pathname: string) => !pathname.match(/contact/);
+
 
 type LayoutProps = {
   ...$Exact<Props>,
@@ -59,21 +61,22 @@ const Nav = (props: LayoutProps) => (
 
 const Footer = (props: LayoutProps) => (
   <div>
-    <section className="section bg-pale-secondary" id="try">
-      <div className="container text-center signup py-7">
-        <h2><Trans>Try Ledgy now. It’s free.</Trans></h2>
+    {hasFooter(props.location.pathname) &&
+      <section className="section bg-pale-secondary" id="try">
+        <div className="container text-center signup py-7">
+          <h2><Trans>Try Ledgy now. It’s free.</Trans></h2>
 
-        <SignupForm {...props} />
+          <SignupForm {...props} />
 
-        <p>
-          <Trans>
-              Still hesitating?&nbsp;
-            <Link href to={`${props.prefix}/features/`}><Trans>Learn more about our features</Trans></Link>.
-          </Trans>
-        </p>
+          <p>
+            <Trans>
+                Still hesitating?&nbsp;
+              <Link href to={`${props.prefix}/features/`}><Trans>Learn more about our features</Trans></Link>.
+            </Trans>
+          </p>
 
-      </div>
-    </section>
+        </div>
+      </section>}
     <footer className="footer py-7">
       <div className="container">
         <div className="row gap-y">
@@ -89,7 +92,7 @@ const Footer = (props: LayoutProps) => (
               <a className="nav-link" href={blogUrl}><Trans>Blog</Trans></a>
               <Link className="nav-link" href to={`${props.prefix}/privacy/`}><Trans>Privacy</Trans></Link>
               <Link className="nav-link" href to={`${props.prefix}/security/`}><Trans>Security</Trans></Link>
-              <Link className="nav-link" href to={`${props.prefix}/contact/`}><Trans>Contact</Trans></Link>
+              <Link className="nav-link" href to={`${props.prefix}/contact/`}><Trans>Contact & Imprint</Trans></Link>
             </div>
           </div>
 

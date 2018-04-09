@@ -56,7 +56,7 @@ const IndexPage = (props: Object) => {
           <div className="container">
 
             <div className="row gap-y">
-              <div className="col-12 col-md-6">
+              <div className="col-12 col-xl-6">
 
                 <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
                   <input type="hidden" name="form-name" value="contact" />
@@ -82,21 +82,40 @@ const IndexPage = (props: Object) => {
               </div>
 
 
-              <div className="col-12 col-md-5 offset-md-1">
-                <div className="bg-gray h-full p-5">
-                  <p>
-                    <Trans>
-                      Give us a call or stop by our door anytime.
-                      If you can’t reach us, we will get back to you as fast as possible.
-                    </Trans>
-                  </p>
+              <div className="col-12 col-xl-6">
+                <div className="bg-gray h-full p-5 imprint">
 
-                  <hr className="w-80" />
+                  <h5><Trans>Imprint</Trans></h5>
 
-                  <p className="lead">Ledgy AG<br />Forchstrasse 60<br /><Trans>8008 Zurich, Switzerland</Trans></p>
+                  <div className="row">
+                    <div className="col-md-6">
 
-                  <div>contact@ledgy.com</div>
-                  <div>+41 44 585 21 23</div>
+                      <p>
+                        <h6>Ledgy AG</h6>
+                        Forchstrasse 60<br />
+                        8008 Zürich<br />
+                        <Trans>Switzerland</Trans>
+                      </p>
+
+                      <p>
+                        <h6>Contact</h6>
+                        <a href="mailto:contact@ledgy.com">contact@ledgy.com</a><br />
+                        +41 (0) 44 585 21 23
+                      </p>
+                    </div>
+                    <div className="col-md-6">
+                      <p>
+                        <h6><Trans>VAT number</Trans></h6>
+                        CHE‑261.454.963 MWST
+                      </p>
+                      <p>
+                        <h6><Trans>Managing directors</Trans></h6>
+                        Yoko Spirig<br />
+                        Ben-Elias Brandt<br />
+                        Timo Horstschäfer
+                      </p>
+                    </div>
+                  </div>
 
                 </div>
               </div>
