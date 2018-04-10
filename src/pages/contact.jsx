@@ -98,7 +98,7 @@ const IndexPage = (props: Object) => {
                       </p>
 
                       <p>
-                        <h6>Contact</h6>
+                        <h6><Trans>Contact</Trans></h6>
                         <a href="mailto:contact@ledgy.com">contact@ledgy.com</a><br />
                         +41 (0) 44 585 21 23
                       </p>
