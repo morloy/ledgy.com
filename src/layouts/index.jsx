@@ -6,7 +6,7 @@ import { I18nProvider, withI18n, Trans } from '@lingui/react';
 import { Helmet } from 'react-helmet';
 
 import { Title, name, appUrl, blogUrl, demoUrl } from './utils';
-import { catalogs, langFromPath, langPrefix, deprefix, getLocale } from '../i18n-config';
+import { catalogs, langFromPath, langPrefix, getLocale } from '../i18n-config';
 import SignupForm from '../components/SignupForm';
 
 import '../assets/scss/page.scss';
@@ -128,7 +128,7 @@ const Footer = (props: LayoutProps) => (
 
           <div className="col-6 col-md-6 col-xl-2">
             {props.lang === 'de' ?
-              <Link href to={deprefix(props.location.pathname)} className="btn btn-round btn-outline-primary">English</Link> :
+              <Link href to={props.location.pathname.substr(3)} className="btn btn-round btn-outline-primary">English</Link> :
               <Link href to={`/de${props.location.pathname}`} className="btn btn-round btn-outline-primary">Deutsch</Link>}
           </div>
 
@@ -155,6 +155,8 @@ const TemplateWrapper = withI18n()((props: SiteProps) => {
   const { siteUrl } = props.data.site.siteMetadata;
   const prefix = langPrefix(props.lang);
   const thumbnailUrl = `${siteUrl}/thumbnail.png`;
+  const { pathname } = props.location;
+  const EnPathname = `${siteUrl}${pathname.startsWith('/de') ? pathname.substr(3) : pathname}`;
   return (
     <div>
       <Title
@@ -175,6 +177,10 @@ const TemplateWrapper = withI18n()((props: SiteProps) => {
         <meta name="twitter:site" content="@LedgyCom" />
         <meta name="twitter:image" content={thumbnailUrl} />
         <meta name="twitter:card" content="summary_large_image" />
+
+        <link rel="alternate" href={EnPathname} hrefLang="x-default" />
+        <link rel="alternate" href={EnPathname} hrefLang="en" />
+        <link rel="alternate" href={`${siteUrl}${pathname.startsWith('/de') ? '' : '/de'}${pathname}`} hrefLang="de" />
 
         {/* Disable AOS for Google */}
         <noscript>
