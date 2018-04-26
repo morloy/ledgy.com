@@ -36,10 +36,11 @@ type FounderProps = {
   ...$Exact<ProfileProps>,
   twitterlink: string,
   linkedinlink: string,
+  mail: string
 }
 
 const Founder =
-({ name, func, description, img, twitterlink, fade, linkedinlink }: FounderProps) => (
+({ name, func, description, img, twitterlink, fade, linkedinlink, mail }: FounderProps) => (
   <div className="col-12 col-md-6 col-lg-4 team-1">
     {img &&
       <div data-aos={`fade-${fade}`}>
@@ -49,6 +50,7 @@ const Founder =
     <small>{func}</small>
     <p>{description}</p>
     <div className="social social-boxed social-rounded social-gray">
+      <a className="social-mail" href={`mailto:${mail}`}><i className="fa fa-envelope" /></a>
       <a className="social-twitter" href={twitterlink}><i className="fa fa-twitter" /></a>
       <a className="social-linkedin" href={linkedinlink}><i className="fa fa-linkedin" /></a>
     </div>
@@ -124,6 +126,7 @@ const IndexPage = (props: Props) => {
                 description={i18n.t`Computer vision background, badminton guy, wants to build a space elevator`}
                 twitterlink="https://twitter.com/thrstschfr"
                 linkedinlink="https://www.linkedin.com/in/timohorstschaefer/"
+                mail="timo@ledgy.com"
                 img={data.timo}
                 fade="up-right"
               />
@@ -133,6 +136,7 @@ const IndexPage = (props: Props) => {
                 description={i18n.t`Battery science background, martial arts, fascinated by electric cars`}
                 twitterlink="https://twitter.com/bebinoy"
                 linkedinlink="https://www.linkedin.com/in/ben-elias-brandt-680a95110/"
+                mail="ben@ledgy.com"
                 img={data.ben}
                 fade="up"
               />
@@ -142,6 +146,7 @@ const IndexPage = (props: Props) => {
                 description={i18n.t`Medical physics background, loves running, wondering about brain-machine interfaces`}
                 twitterlink="https://twitter.com/YokoSpirig"
                 linkedinlink="https://www.linkedin.com/in/yokospirig/"
+                mail="yoko@ledgy.com"
                 img={data.yoko}
                 fade="up-left"
               />
