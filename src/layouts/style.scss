@@ -7,6 +7,12 @@
   }
 }
 
+@include media-breakpoint-up(xl) {
+  .team-1 p {
+    height: 4.5rem
+  }
+}
+
 p > a {
   border-bottom: 1px solid $color-primary;
   padding-bottom: 1px;
@@ -86,7 +92,4 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     left: -1.5em;
   }
-}
-.team-1 p {
-  height: 4.5rem
 }
