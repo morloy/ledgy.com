@@ -1,4 +1,4 @@
-## Build trust in your cap table – www.ledgy.com
+## The missing accounting software for your cap table – www.ledgy.com
 Use Ledgy to track all your shares, manage your ESOPs and model detailed financing rounds.
 
 ## Built with 

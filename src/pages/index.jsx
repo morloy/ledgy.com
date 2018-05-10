@@ -15,7 +15,7 @@ const Header = ({ i18n, data, prefix }: Props) => (
 
         <div className="col-lg-6 ml-auto">
           <div className="mb-4 text-white">
-            <h1><Trans>Build trust in your cap table</Trans></h1>
+            <h1><Trans>The missing accounting software for your cap table</Trans></h1>
             <p>
               <Trans>
                 Use Ledgy to track all your shares, manage your ESOPs and

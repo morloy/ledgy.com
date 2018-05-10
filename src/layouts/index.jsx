@@ -160,7 +160,7 @@ const TemplateWrapper = withI18n()((props: SiteProps) => {
   return (
     <div>
       <Title
-        title={i18n.t`Build trust in your cap table`}
+        title={i18n.t`The missing accounting software for your cap table`}
         description={i18n.t`Manage your Cap Table, not your Excel! Ledgy is the single place to track the complete history of your shares, manage your ESOPs and model detailed financing rounds. Enjoy a guaranteed error-free cap table and engage your investors and employees. Try Now For Free!`}
       />
       <Helmet>
