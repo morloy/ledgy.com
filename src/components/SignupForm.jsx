@@ -41,7 +41,7 @@ export default class extends React.Component<Props, {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `form-name=signup&email=${email}&referrer=${encodeURIComponent(document.referrer)}&href=${encodeURIComponent(window.location.href)}`,
+      body: `form-name=signup&email=${email}&referrer=${encodeURIComponent(document.referrer)}&href=${encodeURIComponent(`${window.location.href}+accounting`)}`,
     })
       .then(() => { window.location.href = `${appUrl}/signup?email=${email}`; });
   }
