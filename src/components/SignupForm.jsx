@@ -6,7 +6,7 @@ import { Trans } from '@lingui/react';
 import { appUrl } from '../layouts/utils';
 
 const Submit = ({ className, loading }: { className?: string, loading: boolean }) => (
-  <button type="submit" className={`btn btn-primary btn-round btn-xl ${className || ''}`}>
+  <button type="submit" disabled={loading} className={`btn btn-primary btn-round btn-xl ${className || ''}`}>
     {loading ?
       <Trans><i className="fa fa-spin fa-spinner" aria-hidden="true" /> Signing up…</Trans> :
       <Trans>Get Started</Trans>}
@@ -27,6 +27,7 @@ export default class extends React.Component<Props, {
   }
   handleSubmit = (e: any) => {
     e.preventDefault();
+    if (this.state.loading) return;
     const valid = this.re.test(this.state.email);
     if (!valid) {
       this.setState({ invalid: true });
