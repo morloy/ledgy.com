@@ -1,8 +1,8 @@
 
 
 @include media-breakpoint-up(md) {
-  html {
-    font-size: 1.2rem;
+  html, body {
+    font-size: 1.2rem !important;
     hyphens: auto;
   }
 }
