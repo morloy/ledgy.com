@@ -52,7 +52,7 @@ module.exports = {
       resolve: 'gatsby-plugin-netlify',
       options: {
         allPageHeaders: [
-          "Content-Security-Policy: default-src https: data: 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https://csi.gstatic.com https://www.google-analytics.com https://maps.gstatic.com https://maps.googleapis.com https://stats.g.doubleclick.net; object-src 'none'; font-src 'self' data: https://fonts.gstatic.com; script-src https://wchat.eu.freshchat.com/js/",
+          "Content-Security-Policy: default-src https: data: 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https://csi.gstatic.com https://www.google-analytics.com https://maps.gstatic.com https://maps.googleapis.com https://stats.g.doubleclick.net; object-src 'none'; font-src 'self' data: https://fonts.gstatic.com",
           'Referrer-Policy: strict-origin-when-cross-origin',
         ],
       },

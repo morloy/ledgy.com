@@ -212,6 +212,7 @@ export default class extends React.Component<{ location: { pathname: string } }>
       navigateTo(`/de${this.props.location.pathname}`);
     }
 
+    require('freshchat-widget'); // eslint-disable-line global-require
     window.fcWidget.init({
       token: 'e9a5ae2c-ad84-42c8-8786-a893acbca8b3',
       host: 'https://wchat.eu.freshchat.com',
