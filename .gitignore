@@ -7,3 +7,4 @@ public
 .DS_Store
 yarn-error.log
 src/locale/de.po
+src/locale/_build/
