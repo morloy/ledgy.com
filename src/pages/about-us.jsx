@@ -164,16 +164,16 @@ const IndexPage = (props: Props) => {
 
             <div className="row gap-y">
               <Investor
-                name="Myke Näf"
-                func="Board Member"
-                description={i18n.t`Entrepreneur, Business Angel, Founder of Doodle.com`}
-                img={data.myke}
-              />
-              <Investor
                 name="Dr. Paul E. Sevinç"
                 func="Board Member"
                 description={i18n.t`Entrepreneur, Technologist, Founder of Doodle.com`}
                 img={data.paul}
+              />
+              <Investor
+                name="Myke Näf"
+                func="Advisor"
+                description={i18n.t`Entrepreneur, Business Angel, Founder of Doodle.com`}
+                img={data.myke}
               />
               <Investor
                 name="Luzius Meisser"
