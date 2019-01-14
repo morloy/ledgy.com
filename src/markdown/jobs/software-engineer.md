@@ -37,8 +37,9 @@ Want to see our code in action? Have a look at our [​demo​](https://demo.led
 
 ###### At Ledgy, you will
 * Be part of a company that scales from Switzerland to be the major player in Europe
-* Generous stock options (that will, of course, grow by 1,000×)
 * Work with a passionate team of outdoor, meditation, and space enthusiasts
+* Receive stock options of up to 1 %  (that will, of course, grow by 1,000×)
+* Enjoy an annual salary of $80.000—100.000
 
 ### Sounds interesting?
 
