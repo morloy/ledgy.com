@@ -48,13 +48,9 @@ msgstr "Füge Optionen oder virtuelle Optionen mit Vesting hinzu"
 msgid "After you’re finished with modeling your financing round, you can download the scenario as a PDF document and share it with your co-founders, lawyers and investors. The document includes the pre- and post-money valuation of your company, all investments, and convertibles with their resulting share price and the number of shares and, of course, the resulting cap table. At the end of the document, you will also find valuable plots to visualize the new development step of your company."
 msgstr "Nachdem du mit der Modellierung der Finanzierungsrunde fertig bist, kannst du das Szenario als PDF-Dokument herunterladen und mit deinen Mitgründern, Anwälten und Investoren teilen. Das Dokument enthält die Pre- und Post-Money-Valuation deines Startups, alle Investments und Convertibles mit den daraus resultierenden Aktienpreisen, sowie der Anzahl der Aktien und natürlich dem sich daraus ergebendem Cap Table. Am Ende findest du auch wertvolle Plots, um den neuen Entwicklungsschritt deines Unternehmens zu visualisieren."
 
-#: src/pages/pricing.jsx:70
-msgid "All free features"
-msgstr "Alle Free Features"
-
-#: src/pages/pricing.jsx:87
-msgid "All pro features"
-msgstr "Alle Pro Features"
+#: src/pages/pricing.jsx:69
+msgid "All Free features"
+msgstr "Alle Gratis-Features"
 
 #: src/components/AllFeatures.jsx:10
 msgid "And Much More"
@@ -177,10 +173,6 @@ msgstr "Kontakt"
 msgid "Contact & Imprint"
 msgstr "Kontakt & Impressum"
 
-#: src/pages/pricing.jsx:84
-msgid "Contact us"
-msgstr "Auf Anfrage"
-
 #: src/pages/security.jsx:104
 msgid "Content-Security-Policy"
 msgstr "Content-Security-Policy"
@@ -225,13 +217,9 @@ msgstr "Wusstest du, dass viele Cap Tables fehlerhaft und unvollständig sind? E
 msgid "Did you notice the number in the center bottom? Any time you transfer shares from one shareholder to another, Ledgy will show you how many shares that particular shareholder has <0>available</0> at that given point in time."
 msgstr "Hast du die Nummer in der Mitte unten bemerkt? Jedes Mal, wenn du Aktien von einem Aktionär auf einen anderen übertragen, wird Ledgy dir zeigen, wie viele Aktien der Aktionär zu diesem Zeitpunkt gerade zur Verfügung hat."
 
-#: src/pages/pricing.jsx:89
-msgid "Digital signatures"
-msgstr "Digitale Signaturen"
-
-#: src/pages/pricing.jsx:106
-msgid "Discover all cap table features"
-msgstr "Entdecke alle Cap Table-Features"
+#: src/pages/pricing.jsx:86
+msgid "Discover all features"
+msgstr "Entdecke alle Features"
 
 #: src/components/Features.jsx:85
 msgid "Discover more about Ledgy"
@@ -262,7 +250,7 @@ msgstr "Mitarbeiterbeteiligung"
 msgid "ESOPs in the portfolio"
 msgstr "ESOPs im Portfolio"
 
-#: src/pages/pricing.jsx:72
+#: src/pages/pricing.jsx:71
 msgid "Email notifications"
 msgstr "Email-Benachrichtigungen"
 
@@ -280,7 +268,7 @@ msgstr "Mitarbeiterbeteiligungen"
 msgid "Employee Options"
 msgstr "Mitarbeiterbeteiligungen"
 
-#: src/pages/pricing.jsx:71
+#: src/pages/pricing.jsx:70
 msgid "Employee participation plans"
 msgstr "Mitarbeiterbeteiligungspläne"
 
@@ -291,10 +279,6 @@ msgstr "Verschlüsselte Verbindung"
 #: src/components/SignupForm.jsx:70
 msgid "Enter your email…"
 msgstr "E-Mail-Adresse eingeben…"
-
-#: src/pages/pricing.jsx:83
-msgid "Enterprise"
-msgstr "Enterprise"
 
 #: src/pages/about-us.jsx:175
 msgid "Entrepreneur, Business Angel, Founder of Doodle.com"
@@ -312,7 +296,7 @@ msgstr "Fehlerfreier Cap Table"
 msgid "Every transaction in your cap table usually comes with a pile of additional documents, like contracts. Get rid of complicated folder structures and attach them directly to your transactions. Ledgy gives you an overview of all documents that you uploaded and their corresponding transactions. Also in your transaction history, you can select any transaction and see all connected documents at a glance.<0/><1/>You can also share your documents by sending a simple link to your shareholders. This eliminates confusion about different versions of documents, as it is often the case when sending documents via email."
 msgstr "Jede Transaktion in deinem Aktienregister enthält normalerweise einen Stapel zusätzlicher Dokumente, wie zum Beispiel Verträge. Befreie dich von komplizierten Ordnerstrukturen und verknüpfe sie einfach direkt mit deinen Transaktionen. Ledgy gibt dir einen Überblick über alle von dir hochgeladenen Dokumente und deren verknüpften Transaktionen. Außerdem kannst du im Transaktionsverlauf beliebige Transaktionen auswählen und alle damit verknüpften Dokumente auf einen Blick einsehen. <0/> <1/> Du kannst Dokumente auch einfach per Link mit deinen Gesellschaftern teilen. Auf diese Weise werden Verwechslungen bei verschiedenen Versionen von Dokumenten vermieden, was häufig beim Senden von Dokumenten per E-Mail der Fall ist."
 
-#: src/pages/pricing.jsx:73
+#: src/pages/pricing.jsx:72
 msgid "Exit modeling"
 msgstr "Exit Modellierung"
 
@@ -352,10 +336,6 @@ msgstr "Gründer von Meisser Economics, Bitcoin Association Schweiz und Wuala"
 msgid "Free"
 msgstr "Gratis"
 
-#: src/pages/pricing.jsx:90
-msgid "Free cap table import"
-msgstr "Gratis Cap Table-Import"
-
 #: src/components/AllFeatures.jsx:24
 msgid "Full Transaction History"
 msgstr "Vollständiger Transaktionsverlauf"
@@ -382,10 +362,6 @@ msgstr "Los geht’s"
 #: src/pages/features/consistency.jsx:131
 msgid "Give view or admin access to your stakeholders"
 msgstr "Gib deinen Stakeholdern Lese- oder Adminzugriff"
-
-#: src/pages/pricing.jsx:88
-msgid "Grant automation"
-msgstr "Automatisierte Grants"
 
 #: src/pages/security.jsx:106
 msgid "HTTP headers prevent cross-site scripting and code injection (<0>A+ rating</0>)"
@@ -619,7 +595,7 @@ msgstr "Privacy made in Europe. Weil deine Cap Table Daten nicht für jeden geda
 msgid "Privacy made in Europe. Because your cap table data is not for everyone.<0/><1/>We understand how sensitive cap table information is for any business. That’s why your privacy and your data’s security is crucial to us. We also know that long and complicated privacy policies are not very helpful, so we give an overview up-front."
 msgstr "Privacy made in Europe. Weil deine Cap Table Daten nicht für jeden gedacht sind.<0/><1/>Uns ist bewusst, wie wichtig und vertraulich Cap Table Daten für jede Firma sind. Deshalb nehmen wir deine Privatsphäre und die Sicherheit deiner Daten sehr ernst."
 
-#: src/pages/pricing.jsx:66
+#: src/pages/pricing.jsx:65
 msgid "Pro"
 msgstr "Pro"
 
@@ -860,7 +836,7 @@ msgstr "Zwei-Faktor-Authentifizierung"
 msgid "Two-factor authentication"
 msgstr "Zwei-Faktor-Authentifizierung"
 
-#: src/pages/pricing.jsx:100
+#: src/pages/pricing.jsx:80
 msgid "Unable to find your perfect fit?<0/><1>Drop us an email</1> or use the chat right on this page."
 msgstr "Nichts passendes dabei?<0/><1>Schick’ uns eine Email</1> oder benutze den Chat rechts."
 
@@ -976,10 +952,10 @@ msgstr "cap table, Aktienbuch, Aktienregister, Startup, Modellierung, Finanzieru
 msgid "the Investor Portfolio"
 msgstr "das Investoren-Portfolio"
 
-#: src/pages/pricing.jsx:67
+#: src/pages/pricing.jsx:66
 msgid "€79/month"
 msgstr "€79/Monat"
 
-#: src/pages/pricing.jsx:68
+#: src/pages/pricing.jsx:67
 msgid "€99/month if billed monthly"
 msgstr "€99/Monat für monatliche Abrechnung"

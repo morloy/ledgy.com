@@ -44,8 +44,8 @@ export default withI18n()(({ i18n, ...props }: Props) => (
           <div className="row gap-y">
 
 
-            <div className="col-lg-4">
-              <div className="pricing-3 border rounded">
+            <div className="col-lg-6">
+              <div className="pricing-3 popular border rounded">
                 <h6><Trans>Startup</Trans></h6>
                 <h2><Trans>Free</Trans></h2>
                 <small className="text-muted">&nbsp;</small>
@@ -55,42 +55,22 @@ export default withI18n()(({ i18n, ...props }: Props) => (
                   <Li><Trans>Convertibles</Trans></Li>
                   <Li><Trans>Access rights</Trans></Li>
                 </ul>
-                <br />
-                <a className="btn btn-round btn-outline-primary w-200" href="#try">Get started</a>
               </div>
             </div>
 
 
-            <div className="col-lg-4">
+            <div className="col-lg-6">
               <div className="pricing-3 popular border rounded">
+                <span className="popular-tag">2 weeks trial</span>
                 <h6><Trans>Pro</Trans></h6>
                 <h2><Trans>€79/month</Trans></h2>
                 <small className="text-muted"><Trans>€99/month if billed monthly</Trans></small>
                 <ul className="text-left mt-6 mb-0">
-                  <Li><Trans>All free features</Trans></Li>
+                  <Li><Trans>All Free features</Trans></Li>
                   <Li><Trans>Employee participation plans</Trans></Li>
                   <Li><Trans>Email notifications</Trans></Li>
                   <Li><Trans>Exit modeling</Trans></Li>
                 </ul>
-                <br />
-                <a className="btn btn-round btn-primary w-200" href="#try">Get started</a>
-              </div>
-            </div>
-
-
-            <div className="col-lg-4">
-              <div className="pricing-3 border rounded">
-                <h6><Trans>Enterprise</Trans></h6>
-                <h2><Trans>Contact us</Trans></h2>
-                <small className="text-muted">&nbsp;</small>
-                <ul className="text-left mt-6 mb-0">
-                  <Li><Trans>All pro features</Trans></Li>
-                  <Li><Trans>Grant automation</Trans> <span className="badge badge-pill badge-success badge-number badge-pale ml-1">soon</span></Li>
-                  <Li><Trans>Digital signatures</Trans> <span className="badge badge-pill badge-success badge-number badge-pale ml-1">soon</span></Li>
-                  <Li><Trans>Free cap table import</Trans></Li>
-                </ul>
-                <br />
-                <a className="btn btn-round btn-outline-primary w-200" href="#try">Get started</a>
               </div>
             </div>
 
@@ -103,7 +83,7 @@ export default withI18n()(({ i18n, ...props }: Props) => (
             </Trans>
             <br /><br />
             <Link href to={`${props.prefix}/features/`} className="btn btn-block d-sm-inline btn-round btn-xl btn-outline-primary mt-6" >
-              <Trans>Discover all cap table features</Trans>
+              <Trans>Discover all features</Trans>
             </Link>
           </p>
 
