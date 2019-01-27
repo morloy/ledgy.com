@@ -41,10 +41,10 @@ export default withI18n()(({ i18n, ...props }: Props) => (
           </header>
 
 
-          <div className="row gap-y">
+          <div className="justify-content-center row gap-y">
 
 
-            <div className="col-lg-6">
+            <div className="col-lg-4">
               <div className="pricing-3 popular border rounded">
                 <h6><Trans>Startup</Trans></h6>
                 <h2><Trans>Free</Trans></h2>
@@ -52,24 +52,34 @@ export default withI18n()(({ i18n, ...props }: Props) => (
                 <ul className="text-left mt-6 mb-0">
                   <Li><Trans>Error-free cap table</Trans></Li>
                   <Li><Trans>Round modeling</Trans></Li>
-                  <Li><Trans>Convertibles</Trans></Li>
+                  <Li><Trans>Convertible loans</Trans></Li>
+                  <Li><Trans>Trust relationships</Trans></Li>
+                  <Li><Trans>Import & export</Trans></Li>
                   <Li><Trans>Access rights</Trans></Li>
+                  <Li><Trans>Two factor authentication</Trans></Li>
+                  <Li><Trans>Document storage</Trans></Li>
+                  <Li><Trans>Holding confirmations</Trans></Li>
                 </ul>
               </div>
             </div>
 
 
-            <div className="col-lg-6">
+            <div className="col-lg-4">
               <div className="pricing-3 popular border rounded">
-                <span className="popular-tag">2 weeks trial</span>
+                <span className="popular-tag"><Trans>2 weeks trial</Trans></span>
                 <h6><Trans>Pro</Trans></h6>
                 <h2><Trans>€79/month</Trans></h2>
                 <small className="text-muted"><Trans>€99/month if billed monthly</Trans></small>
                 <ul className="text-left mt-6 mb-0">
                   <Li><Trans>All Free features</Trans></Li>
-                  <Li><Trans>Employee participation plans</Trans></Li>
-                  <Li><Trans>Email notifications</Trans></Li>
+                  <Li><Trans>Option programs</Trans></Li>
+                  <Li><Trans>Virtual option programs</Trans></Li>
+                  <Li><Trans>Warrants</Trans></Li>
+                  <Li><Trans>Vesting plans</Trans></Li>
+                  <Li><Trans>Vesting email notifications</Trans></Li>
+                  <Li><Trans>Liquidation preferences </Trans></Li>
                   <Li><Trans>Exit modeling</Trans></Li>
+                  <Li><Trans>Breakpoint analysis</Trans></Li>
                 </ul>
               </div>
             </div>
@@ -78,7 +88,7 @@ export default withI18n()(({ i18n, ...props }: Props) => (
 
           <p className="mx-auto text-center mt-6">
             <Trans>
-              Unable to find your perfect fit?<br />
+              Interested in our enterprise offer?<br />
               <a href="mailto:contact@ledgy.com">Drop us an email</a> or use the chat right on this page.
             </Trans>
             <br /><br />
