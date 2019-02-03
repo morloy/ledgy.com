@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 
 #: src/pages/pricing.jsx:69
-msgid "2 weeks trial"
-msgstr "2 weeks trial"
+msgid "14 days trial"
+msgstr "14 days trial"
 
 #: src/components/SignupForm.jsx:15
 msgid "<0/> Signing up…"
@@ -597,6 +597,14 @@ msgstr "Peer-reviewed code"
 msgid "Phantom Programs"
 msgstr "Phantom Programs"
 
+#: src/pages/pricing.jsx:56
+msgid "Pooled investments"
+msgstr "Pooled investments"
+
+#: src/pages/pricing.jsx:70
+msgid "Premium"
+msgstr "Premium"
+
 #: src/layouts/index.jsx:50
 #: src/layouts/index.jsx:121
 #: src/pages/pricing.jsx:13
@@ -619,10 +627,6 @@ msgstr "Privacy made in Europe. Because your cap table data is not for everyone.
 #: src/pages/privacy.jsx:39
 msgid "Privacy made in Europe. Because your cap table data is not for everyone.<0/><1/>We understand how sensitive cap table information is for any business. That’s why your privacy and your data’s security is crucial to us. We also know that long and complicated privacy policies are not very helpful, so we give an overview up-front."
 msgstr "Privacy made in Europe. Because your cap table data is not for everyone.<0/><1/>We understand how sensitive cap table information is for any business. That’s why your privacy and your data’s security is crucial to us. We also know that long and complicated privacy policies are not very helpful, so we give an overview up-front."
-
-#: src/pages/pricing.jsx:70
-msgid "Pro"
-msgstr "Pro"
 
 #: src/layouts/index.jsx:118
 msgid "Product"
@@ -744,10 +748,6 @@ msgstr "Space elevator"
 msgid "Spreadsheet Import"
 msgstr "Spreadsheet Import"
 
-#: src/pages/pricing.jsx:49
-msgid "Startup"
-msgstr "Startup"
-
 #: src/pages/features/consistency.jsx:119
 msgid "Startups do end up with several conflicting spreadsheet-based cap tables, one being with the founders, one with the lawyers, one with the leading investors. Not so with Ledgy. Have one single source of truth and give your key stakeholders access with a single click. Don’t waste money on consolidating several cap table versions, professionaly manage it from the start instead."
 msgstr "Startups do end up with several conflicting spreadsheet-based cap tables, one being with the founders, one with the lawyers, one with the leading investors. Not so with Ledgy. Have one single source of truth and give your key stakeholders access with a single click. Don’t waste money on consolidating several cap table versions, professionaly manage it from the start instead."
@@ -848,10 +848,6 @@ msgstr "Transaction history"
 #: src/components/AllFeatures.jsx:31
 msgid "Treasury Shares"
 msgstr "Treasury Shares"
-
-#: src/pages/pricing.jsx:56
-msgid "Trust relationships"
-msgstr "Trust relationships"
 
 #: src/layouts/index.jsx:70
 msgid "Try Ledgy now for free."

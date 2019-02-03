@@ -14,8 +14,8 @@ msgstr ""
 "X-Generator: Poedit 2.2\n"
 
 #: src/pages/pricing.jsx:69
-msgid "2 weeks trial"
-msgstr "2 Wochen testen"
+msgid "14 days trial"
+msgstr "14 Tage Probe"
 
 #: src/components/SignupForm.jsx:15
 msgid "<0/> Signing up…"
@@ -596,6 +596,14 @@ msgstr "Code-Audits"
 msgid "Phantom Programs"
 msgstr "Virtuelle Beteiligungen"
 
+#: src/pages/pricing.jsx:56
+msgid "Pooled investments"
+msgstr "Gepoolte Investments"
+
+#: src/pages/pricing.jsx:70
+msgid "Premium"
+msgstr "Premium"
+
 #: src/layouts/index.jsx:50
 #: src/layouts/index.jsx:121
 #: src/pages/pricing.jsx:13
@@ -618,10 +626,6 @@ msgstr "Privacy made in Europe. Weil deine Cap Table Daten nicht für jeden geda
 #: src/pages/privacy.jsx:39
 msgid "Privacy made in Europe. Because your cap table data is not for everyone.<0/><1/>We understand how sensitive cap table information is for any business. That’s why your privacy and your data’s security is crucial to us. We also know that long and complicated privacy policies are not very helpful, so we give an overview up-front."
 msgstr "Privacy made in Europe. Weil deine Cap Table Daten nicht für jeden gedacht sind.<0/><1/>Uns ist bewusst, wie wichtig und vertraulich Cap Table Daten für jede Firma sind. Deshalb nehmen wir deine Privatsphäre und die Sicherheit deiner Daten sehr ernst."
-
-#: src/pages/pricing.jsx:70
-msgid "Pro"
-msgstr "Pro"
 
 #: src/layouts/index.jsx:118
 msgid "Product"
@@ -743,10 +747,6 @@ msgstr "Weltraumlift"
 msgid "Spreadsheet Import"
 msgstr "Spreadsheet-Import"
 
-#: src/pages/pricing.jsx:49
-msgid "Startup"
-msgstr "Startup"
-
 #: src/pages/features/consistency.jsx:119
 msgid "Startups do end up with several conflicting spreadsheet-based cap tables, one being with the founders, one with the lawyers, one with the leading investors. Not so with Ledgy. Have one single source of truth and give your key stakeholders access with a single click. Don’t waste money on consolidating several cap table versions, professionaly manage it from the start instead."
 msgstr "Startups haben tatsächlich oft verschiedene Cap Table Versionen, die zueinander im Konflikt stehen. Einer von den Founders, einer bei den Anwälten und einer bei den Hauptinvestoren. Mit Ledgy passiert das nicht. Hier hast du eine einzige Informationsquelle und kannst deinen zentralen Stakeholdern mit einem Mausklick Zugriff geben. Verschwende kein Geld damit verschiedene Cap Tables von Anwälten wieder zusammenzuführen. Mach es lieber gleich professionell."
@@ -847,10 +847,6 @@ msgstr "Verlauf der Transaktionen"
 #: src/components/AllFeatures.jsx:31
 msgid "Treasury Shares"
 msgstr "Von der Firma gehaltene Aktien"
-
-#: src/pages/pricing.jsx:56
-msgid "Trust relationships"
-msgstr "Trust-Verhältnisse"
 
 #: src/layouts/index.jsx:70
 msgid "Try Ledgy now for free."

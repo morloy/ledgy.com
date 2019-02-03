@@ -46,14 +46,14 @@ export default withI18n()(({ i18n, ...props }: Props) => (
 
             <div className="col-lg-4">
               <div className="pricing-3 popular border rounded">
-                <h6><Trans>Startup</Trans></h6>
+                <h6>&nbsp;</h6>
                 <h2><Trans>Free</Trans></h2>
                 <small className="text-muted">&nbsp;</small>
                 <ul className="text-left mt-6 mb-0">
                   <Li><Trans>Error-free cap table</Trans></Li>
                   <Li><Trans>Round modeling</Trans></Li>
                   <Li><Trans>Convertible loans</Trans></Li>
-                  <Li><Trans>Trust relationships</Trans></Li>
+                  <Li><Trans>Pooled investments</Trans></Li>
                   <Li><Trans>Import & export</Trans></Li>
                   <Li><Trans>Access rights</Trans></Li>
                   <Li><Trans>Two factor authentication</Trans></Li>
@@ -66,8 +66,8 @@ export default withI18n()(({ i18n, ...props }: Props) => (
 
             <div className="col-lg-4">
               <div className="pricing-3 popular border rounded">
-                <span className="popular-tag"><Trans>2 weeks trial</Trans></span>
-                <h6><Trans>Pro</Trans></h6>
+                <span className="popular-tag"><Trans>14 days trial</Trans></span>
+                <h6><Trans>Premium</Trans></h6>
                 <h2><Trans>€79/month</Trans></h2>
                 <small className="text-muted"><Trans>€99/month if billed monthly</Trans></small>
                 <ul className="text-left mt-6 mb-0">
