@@ -3,3 +3,5 @@ exports.onRouteUpdate = () => {
   const backdrop = document.getElementsByClassName('backdrop-navbar')[0];
   if (backdrop) backdrop.parentNode.removeChild(backdrop);
 };
+
+exports.onServiceWorkerUpdateReady = () => window.location.reload(true);
