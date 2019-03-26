@@ -281,12 +281,15 @@ type SiteProps = {
   location: { pathname: string }
 };
 
+let initialized;
 const Initialize = ({ branch, pathname }: {| branch: string, pathname: string |}) => {
-  useEffect(() => {
+  if (!initialized && typeof window === 'object') {
+    initialized = true;
     window.branch = branch;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ branch });
-
+  }
+  useEffect(() => {
     setTimeout(async () => {
       require('../assets/js/page'); // eslint-disable-line global-require
       require('../assets/js/script'); // eslint-disable-line global-require
