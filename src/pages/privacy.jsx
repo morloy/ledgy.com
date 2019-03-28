@@ -98,7 +98,7 @@ const IndexPage = ({ i18n, ...props }: Props) => (
               title={i18n.t`Security`}
               body={
                 <Trans>
-                  We live up to highest security standards. We improve them continuously.&nbsp;
+                  We live up to highest security standards. We improve them continuously.{' '}
                   <Link href to={`${props.prefix}/security/`}>
                     Check out what we do
                     <ChevronRight />
@@ -206,7 +206,7 @@ const IndexPage = ({ i18n, ...props }: Props) => (
           <p>
             We take all technical and organizational measures reasonably necessary to protect your
             data against the unauthorized access, use or destruction. We improve these measures
-            continuously.&nbsp;
+            continuously.{' '}
             <Link href to={`${props.prefix}/security/`}>
               See what we do
               <ChevronRight />
