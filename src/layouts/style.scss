@@ -221,12 +221,15 @@ h1 {
      min-height: 95vh; 
     }
   }
+}
+.navbar, .home-banner {
   @media screen and (min-width: 1440px) {
     .container {
       max-width: 1400px;
     }
   }
 }
+
 
 .banner-text {
   line-height: 1.8rem;

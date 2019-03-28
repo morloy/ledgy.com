@@ -9,47 +9,45 @@ import { FeatureLinks } from '../components/Features';
 import SecurityRow from '../components/SecurityRow';
 import { demoUrl, targetBlank } from '../layouts/utils';
 
-const Header = ({ i18n, data }: Props) => {
-  return (
-    <header className="header bg-ledgy home-banner px-1 text-left ">
-      <div className="container">
-        <div className="row gap-y mt-md-2 pb-4 pb-md-6">
-          <div className="col-lg-6">
-            <h1 className="text-white mb-2 mb-sm-3">
-              <Trans>The New Standard in Equity Management</Trans>
-            </h1>
-            <h5 className="text-white font-weight-light pb-4 pb-lg-6 mb-0">
-              <Trans>Made for startups, great for investors</Trans>
-            </h5>
+const Header = ({ i18n, data }: Props) => (
+  <header className="header bg-ledgy home-banner px-1 text-left ">
+    <div className="container">
+      <div className="row gap-y mt-md-2 pb-4 pb-md-6">
+        <div className="col-lg-6">
+          <h1 className="text-white mb-2 mb-sm-3">
+            <Trans>The New Standard in Equity Management</Trans>
+          </h1>
+          <h5 className="text-white font-weight-light pb-4 pb-lg-6 mb-0">
+            <Trans>Made for startups, great for investors</Trans>
+          </h5>
 
-            <div className="text-white pb-5 pb-lg-7 banner-text">
-              <Trans>
-                Get your cap table and employee participation plans right, from the beginning. Make{' '}
-                your financing rounds a success and engage your investors and employees. Know your{' '}
-                data is safe and compliant.
-              </Trans>
-            </div>
-            <a
-              className="btn btn-block d-sm-inline btn-xl mx-1 btn-round btn-outline-light"
-              href={demoUrl}
-              {...targetBlank}
-            >
-              <Trans>See the Demo</Trans>
-            </a>
-            <a className="btn btn-block d-sm-inline btn-xl mx-1 btn-round btn-light" href="#try">
-              <Trans>Get Started Free</Trans>
-            </a>
+          <div className="text-white pb-5 pb-lg-7 banner-text">
+            <Trans>
+              Get your cap table and employee participation plans right, from the beginning. Make{' '}
+              your financing rounds a success and engage your investors and employees. Know your{' '}
+              data is safe and compliant.
+            </Trans>
           </div>
-          <div className="col-lg-6">
-            <div id="tablet-ledgy" data-aos="fade-up">
-              <Img {...data.laptop} alt={i18n.t`Screenshot of the Ledgy app`} />
-            </div>
+          <a
+            className="btn btn-block d-sm-inline btn-xl mx-1 btn-round btn-outline-light"
+            href={demoUrl}
+            {...targetBlank}
+          >
+            <Trans>See the Demo</Trans>
+          </a>
+          <a className="btn btn-block d-sm-inline btn-xl mx-1 btn-round btn-light" href="#try">
+            <Trans>Get Started Free</Trans>
+          </a>
+        </div>
+        <div className="col-lg-6">
+          <div id="tablet-ledgy" data-aos="fade-up">
+            <Img {...data.laptop} alt={i18n.t`Screenshot of the Ledgy app`} />
           </div>
         </div>
       </div>
-    </header>
-  );
-};
+    </div>
+  </header>
+);
 
 const Reference = ({ img, name }: { img: Object, name: string }) => (
   <div style={{ width: '200px' }} className="my-4">
