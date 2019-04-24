@@ -242,6 +242,12 @@ h1 {
   }
 }
 
+.custom-container {
+  @include media-breakpoint-up(lg) {
+    max-width: 1500px;
+  }
+}
+
 .banner-text {
   line-height: 1.8rem;
   hyphens: none;

@@ -91,12 +91,14 @@ export const FeatureLinks = ({
       </h2>
     </header>
 
-    <div className="row gap-y justify-content-center">
-      <FeatureLink {...props} name={i18n.t`Employee Participation Plans`} url="esop" />
-      <FeatureLink {...props} name={i18n.t`Cap Table`} url="captable" />
-      <FeatureLink {...props} name={i18n.t`Modeling`} url="modeling" />
-      <FeatureLink {...props} name={i18n.t`Investor Portfolio`} url="portfolio" />
-      <FeatureLink {...props} name={i18n.t`Investor Relations`} url="relations" />
+    <div className="container custom-container">
+      <div className="row gap-y justify-content-center">
+        <FeatureLink {...props} name={i18n.t`Employee Participation Plans`} url="esop" />
+        <FeatureLink {...props} name={i18n.t`Cap Table`} url="captable" />
+        <FeatureLink {...props} name={i18n.t`Modeling`} url="modeling" />
+        <FeatureLink {...props} name={i18n.t`Investor Portfolio`} url="portfolio" />
+        <FeatureLink {...props} name={i18n.t`Investor Relations`} url="relations" />
+      </div>
     </div>
   </div>
 );
