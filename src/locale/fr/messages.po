@@ -77,7 +77,7 @@ msgstr "Tu es un investisseur et souhaites suivre le développement des sociét�
 
 #: src/pages/pricing.jsx:151
 msgid "Are you part of a sustainability or clean-tech startup? <0/>If so, <1>tell us what you do</1> to see if you qualify for a <2>50% discount</2> on Ledgy Premium."
-msgstr "Fais-tu partie d’une startup de développement durable ou de technologies propres ? <0/>Si c’est le cas, <1>décris-nous ce que vous faites </1> pour voir si vous êtes éligible à une remise de <2>50% </2> sur Ledgy Premium."
+msgstr "Fais-tu partie d’une startup de développement durable ou de technologies propres? <0/>Si c’est le cas, <1>décris-nous ce que vous faites </1> pour voir si vous êtes éligible à une remise de <2>50% </2> sur Ledgy Premium."
 
 #: src/pages/features/portfolio.jsx:39
 msgid "As an investor, you can profit a lot from Ledgy. Any of your portfolio companies that use the platform will be synchronized with your portfolio. See your key performance indicators of your investments at a glance, and visualize all of your data aggregated or filtered out.<0/><1/>Never lose track of how much you invested in which company and what’s the approximate value of your investments today.<2/><3/><4>And coming up soon…</4> Reporting in the investor portfolio! Where you will be able to see all your shared information with your companies in one place."
@@ -999,7 +999,7 @@ msgstr "Valeur de l’entreprise"
 
 #: src/pages/pricing.jsx:109
 msgid "Vesting email notifications"
-msgstr "Notifications par e-mail lors de complétion de vesting"
+msgstr "Notifications lors de complétion de vesting"
 
 #: src/pages/pricing.jsx:106
 msgid "Vesting plans"
