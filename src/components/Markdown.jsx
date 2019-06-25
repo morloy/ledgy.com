@@ -64,3 +64,10 @@ export const Image = ({ src, align, caption, size, img, ...props }: ImageProps) 
     )}
   </figure>
 );
+
+export const Definition = ({ word, ...props }: { word: string }) => (
+  <>
+    <dt>{word}</dt>
+    <dd {...props} />
+  </>
+);
