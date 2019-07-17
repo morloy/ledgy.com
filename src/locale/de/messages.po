@@ -6,7 +6,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "POT-Creation-Date: 2018-09-12T18:40:54.619Z\n"
-"PO-Revision-Date: 2019-07-17 16:52+0200\n"
+"PO-Revision-Date: 2019-07-17 16:57+0200\n"
 "Language: de\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: Timo Horstschäfer <timo@ledgy.com>\n"
@@ -345,7 +345,7 @@ msgstr "Kopiere ein bestehendes Szenario um es zu vergleichen"
 
 #: src/pages/features/esop.jsx:155
 msgid "Copy-pasting employee grants from your existing spreadsheet"
-msgstr "Kopieren und Einfügen von Mitarbeiterdarlehen aus Ihrem bestehenden Tabellendokument"
+msgstr "Kopieren und Einfügen von Mitarbeiterbeteiligungen aus Ihrem bestehenden Tabellendokument"
 
 #: src/pages/features/captable.jsx:68
 msgid "Create a cap table"
@@ -659,7 +659,7 @@ msgstr "Wie wir deine Informationen schützen"
 
 #: src/pages/index.jsx:211
 msgid "I needed exactly that. Every founder should use Ledgy’s modeling tools for financing rounds!"
-msgstr "Genau das hat mir gefehlt. Jeder Gründer sollte Ledgys Modellierungswerkzeug für Finanzierungsrunden benutzen!"
+msgstr "Genau das habe ich gesucht. Jeder Gründer sollte Ledgys Modellierungswerkzeug für Finanzierungsrunden benutzen!"
 
 #: src/pages/privacy.jsx:83
 msgid "Identity and contact data"
