@@ -16,8 +16,7 @@ export default ({
   ...Props,
   data: {| contentfulPage: Page, site: { siteMetadata: { siteUrl: string } } |}
 |}) => {
-  const { title, description, language, content, author, date } = data.contentfulPage;
-  const frontmatter = {};
+  const { title, description, language, content, author, date, cover } = data.contentfulPage;
   const { siteUrl } = data.site.siteMetadata;
 
   return (
@@ -25,11 +24,7 @@ export default ({
       <Title
         title={title}
         description={description}
-        thumbnailUrl={
-          frontmatter.coverImage
-            ? `${siteUrl}${frontmatter.coverImage.childImageSharp.fixed.src}`
-            : ''
-        }
+        thumbnailUrl={cover ? `${siteUrl}${cover.localFile.childImageSharp.fixed.src}` : ''}
       />
       <header className="header text-white bg-ledgy">
         <div className="container text-center">
@@ -72,6 +67,15 @@ export const pageQuery = graphql`
       content {
         childMdx {
           body
+        }
+      }
+      cover {
+        localFile {
+          childImageSharp {
+            fixed(width: 1024, height: 536) {
+              src
+            }
+          }
         }
       }
     }
