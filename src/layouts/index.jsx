@@ -359,20 +359,18 @@ const Initialize = () => {
 };
 
 const FollowUsContest = ({ setBannerOpen }: { setBannerOpen: boolean => void }) => (
-  <div className="follow-us-banner position-fixed text-center bg-white border border-gray rounded">
-    <div className="px-6 py-4 p-md-4 position relative">
-      Follow us on{' '}
-      <a href="https://twitter.com/Ledgy" {...targetBlank}>
-        Twitter <FontAwesomeIcon icon={faTwitter} title="Twitter" />
-      </a>{' '}
-      for a chance to get a 20% discount on Ledgy Premium
-      <button
-        className="follow-us-banner--button position-absolute bg-transparent border-0 p-4 rounded-circle"
-        onClick={() => setBannerOpen(false)}
-      >
-        ×
-      </button>
-    </div>
+  <div className="follow-us-banner position-fixed text-center bg-white border border-gray rounded p-4">
+    Follow us on{' '}
+    <a href="https://twitter.com/Ledgy" {...targetBlank}>
+      Twitter <FontAwesomeIcon icon={faTwitter} title="Twitter" />
+    </a>{' '}
+    for a chance to get a 20% discount on Ledgy Premium
+    <button
+      className="follow-us-banner--button position-absolute bg-transparent border-0 p-2 p-lg-4 rounded-circle"
+      onClick={() => setBannerOpen(false)}
+    >
+      ×
+    </button>
   </div>
 );
 

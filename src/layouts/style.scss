@@ -321,7 +321,7 @@ h1 {
   border-radius: 5px;
   transition: 200ms;
   p {
-    color: #495057;
+    color: $gray-700;
     line-height: 27px;
   }
   &:hover {
@@ -393,12 +393,17 @@ h1 {
 }
 
 .follow-us-banner--button {
-  top: 50%;
-  transform: translate(0, -50%);
-  right: 8px;
   font-size: 20px;
   line-height: 10px;
   transition: 200ms;
+  top: 0;
+  right: 0;
+  color: $gray-700;
+  @include media-breakpoint-up(lg) {
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 8px;
+  }
   &:hover {
     background: $gray-100 !important;
     transition: 200ms;
