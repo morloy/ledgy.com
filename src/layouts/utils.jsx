@@ -97,3 +97,16 @@ export const callToActionExperiments = [
   { name: 'peaceOfMind', title: <Trans>Find peace of mind with a better cap table tool</Trans> },
   { name: 'yourCapTable', title: <Trans>Your cap table, free forever</Trans> }
 ];
+
+export const Header = ({ text, children }: { text: Node | string, children?: Node }) => (
+  <header className="header text-white bg-ledgy">
+    <div className="container text-center">
+      <div className="row">
+        <div className="col-12 col-lg-8 offset-lg-2">
+          <h1>{text}</h1>
+          {children}
+        </div>
+      </div>
+    </div>
+  </header>
+);

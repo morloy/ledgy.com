@@ -374,6 +374,18 @@ const FollowUsContest = ({
     <Link href to={`${prefix}/pricing`}>
       Ledgy Premium
     </Link>
+    <div>
+      <small>
+        <Link
+          href
+          to={`${prefix}/social-media-contest`}
+          className="text-muted font-weight-light"
+          onClick={() => setBannerOpen(false)}
+        >
+          Learn more...
+        </Link>
+      </small>
+    </div>
     <button
       className="follow-us-banner--button position-absolute bg-transparent border-0 p-2 p-lg-4 rounded-circle"
       onClick={() => setBannerOpen(false)}
@@ -400,7 +412,7 @@ const TemplateWrapper = withI18n()(({ children, ...props }: SiteProps) => (
       const { siteUrl } = data.site.siteMetadata;
       const thumbnailUrl = `${siteUrl}/thumbnail.png`;
       const pathname = deprefix(props.location.pathname);
-      const [isBannerOpen, setBannerOpen] = useState(true);
+      const [isBannerOpen, setBannerOpen] = useState(pathname.slice(1) !== 'social-media-contest');
       return (
         <div>
           <Title

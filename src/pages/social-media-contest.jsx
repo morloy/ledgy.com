@@ -1,0 +1,42 @@
+// @flow
+
+import React from 'react';
+import { withI18n, Trans } from '@lingui/react';
+
+import { Title, Header, targetBlank } from '../layouts/utils';
+
+const HelpCenter = ({ i18n }: Props) => (
+  <>
+    <Title
+      title={i18n.t`Follow us`}
+      description={i18n.t`Follow us on social media for a chance to get awesome discounts on Ledgy Premium`}
+    />
+    <Header text={<Trans>Social media contest</Trans>} />
+
+    <main className="main-content">
+      <div className="section">
+        <div className="container">
+          <div className="bg-gray h-full p-5 imprint">
+            <div className="d-flex flex-column align-items-center text-center w-md-75">
+              <p>
+                Periodically, one user among all of our Twitter followers is randomly selected and
+                given a 20% discount code to enjoy Ledgy Premium. The discount can be applied at any
+                time and will have a validity of 6 months from the moment it’s introduced. The
+                winner is announced both public and personally through Twitter itself.
+              </p>
+              <a
+                className="btn btn-round btn-outline-primary btn-xl mr-md-1 mb-3 mb-md-0"
+                href="https://twitter.com/Ledgy"
+                {...targetBlank}
+              >
+                Go to Ledgy’s Twitter
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </>
+);
+
+export default withI18n()(HelpCenter);
