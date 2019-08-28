@@ -358,13 +358,22 @@ const Initialize = () => {
   return null;
 };
 
-const FollowUsContest = ({ setBannerOpen }: { setBannerOpen: boolean => void }) => (
+const FollowUsContest = ({
+  prefix,
+  setBannerOpen
+}: {
+  prefix: string,
+  setBannerOpen: boolean => void
+}) => (
   <div className="follow-us-banner position-fixed text-center bg-white border border-gray rounded p-4">
     Follow us on{' '}
     <a href="https://twitter.com/Ledgy" {...targetBlank}>
       Twitter <FontAwesomeIcon icon={faTwitter} title="Twitter" />
     </a>{' '}
-    for a chance to get a 20% discount on Ledgy Premium
+    for a chance to get a 20% discount on{' '}
+    <Link href to={`${prefix}/pricing`}>
+      Ledgy Premium
+    </Link>
     <button
       className="follow-us-banner--button position-absolute bg-transparent border-0 p-2 p-lg-4 rounded-circle"
       onClick={() => setBannerOpen(false)}
@@ -434,7 +443,7 @@ const TemplateWrapper = withI18n()(({ children, ...props }: SiteProps) => (
             </noscript>
           </Helmet>
           <Nav {...props} prefix={prefix} />
-          {isBannerOpen && <FollowUsContest setBannerOpen={setBannerOpen} />}
+          {isBannerOpen && <FollowUsContest prefix={prefix} setBannerOpen={setBannerOpen} />}
           {React.cloneElement((children: Object), { prefix, lang })}
           <Footer {...props} prefix={prefix} />
         </div>
