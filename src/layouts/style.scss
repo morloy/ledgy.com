@@ -379,3 +379,28 @@ h1 {
   line-height: 1;
   opacity: .5;
 }
+
+.follow-us-banner {
+  bottom: 18px;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 999;
+  width: 60vw;
+  box-shadow: 0 5px 4px 0 rgba(0,0,0,.26);
+  @include media-breakpoint-up(md) {
+    width: 80vw;
+  }
+}
+
+.follow-us-banner--button {
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 8px;
+  font-size: 20px;
+  line-height: 10px;
+  transition: 200ms;
+  &:hover {
+    background: $gray-100 !important;
+    transition: 200ms;
+  }
+}

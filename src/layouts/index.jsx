@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useEffect, type Node } from 'react';
+import React, { useEffect, type Node, useState } from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
 import { I18nProvider, withI18n, Trans } from '@lingui/react';
 import { Helmet } from 'react-helmet';
@@ -358,6 +358,24 @@ const Initialize = () => {
   return null;
 };
 
+const FollowUsContest = ({ setBannerOpen }: { setBannerOpen: boolean => void }) => (
+  <div className="follow-us-banner position-fixed text-center bg-white border border-gray rounded">
+    <div className="px-6 py-4 p-md-4 position relative">
+      Follow us on{' '}
+      <a href="https://twitter.com/Ledgy" {...targetBlank}>
+        Twitter <FontAwesomeIcon icon={faTwitter} title="Twitter" />
+      </a>{' '}
+      for a chance to get a 20% discount on Ledgy Premium
+      <button
+        className="follow-us-banner--button position-absolute bg-transparent border-0 p-4 rounded-circle"
+        onClick={() => setBannerOpen(false)}
+      >
+        ×
+      </button>
+    </div>
+  </div>
+);
+
 const TemplateWrapper = withI18n()(({ children, ...props }: SiteProps) => (
   <StaticQuery
     query={graphql`
@@ -375,6 +393,7 @@ const TemplateWrapper = withI18n()(({ children, ...props }: SiteProps) => (
       const { siteUrl } = data.site.siteMetadata;
       const thumbnailUrl = `${siteUrl}/thumbnail.png`;
       const pathname = deprefix(props.location.pathname);
+      const [isBannerOpen, setBannerOpen] = useState(true);
       return (
         <div>
           <Title
@@ -417,6 +436,7 @@ const TemplateWrapper = withI18n()(({ children, ...props }: SiteProps) => (
             </noscript>
           </Helmet>
           <Nav {...props} prefix={prefix} />
+          {isBannerOpen && <FollowUsContest setBannerOpen={setBannerOpen} />}
           {React.cloneElement((children: Object), { prefix, lang })}
           <Footer {...props} prefix={prefix} />
         </div>
