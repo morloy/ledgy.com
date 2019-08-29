@@ -5,7 +5,7 @@ import { withI18n, Trans } from '@lingui/react';
 
 import { Title, Header, targetBlank } from '../layouts/utils';
 
-const HelpCenter = ({ i18n }: Props) => (
+const SocialMediaContest = ({ i18n }: Props) => (
   <>
     <Title
       title={i18n.t`Follow us`}
@@ -19,10 +19,11 @@ const HelpCenter = ({ i18n }: Props) => (
           <div className="bg-gray h-full p-5 imprint">
             <div className="d-flex flex-column align-items-center text-center w-md-75">
               <p>
-                Periodically, one user among all of our Twitter followers is randomly selected and
-                given a 20% discount code to enjoy Ledgy Premium. The discount can be applied at any
-                time and will have a validity of 6 months from the moment it’s introduced. The
-                winner is announced both public and personally through Twitter itself.
+                Quarterly, one user among all of our Twitter followers is randomly selected and
+                given a 50% discount code to enjoy Ledgy Premium. The discount can be applied at any
+                time and will have a validity of 12 months from the moment it’s introduced. The
+                winner is announced both public and personally on Twitter. Shall the winner refuse
+                the discount, a new raffle will be done to select a new winner.
               </p>
               <a
                 className="btn btn-round btn-outline-primary btn-xl mr-md-1 mb-3 mb-md-0"
@@ -39,4 +40,4 @@ const HelpCenter = ({ i18n }: Props) => (
   </>
 );
 
-export default withI18n()(HelpCenter);
+export default withI18n()(SocialMediaContest);
