@@ -368,7 +368,8 @@ const FollowUsContest = ({
   <div className="follow-us-banner position-fixed text-center bg-white border border-gray rounded p-4">
     Follow us on{' '}
     <a href="https://twitter.com/Ledgy" {...targetBlank}>
-      Twitter <FontAwesomeIcon icon={faTwitter} title="Twitter" />
+      <FontAwesomeIcon icon={faTwitter} className="mr-1" title="Twitter" />
+      Twitter
     </a>{' '}
     for a chance to get a 20% discount on{' '}
     <Link href to={`${prefix}/pricing`}>
