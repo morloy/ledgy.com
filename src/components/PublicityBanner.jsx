@@ -17,7 +17,7 @@ const Banner = ({ content, hide }: { content: Mdx, hide: () => void }) => (
 );
 
 const isVisibleNow = ({ node }: {| node: {| startAt: string, endAt: string |} |}) => {
-  const now = Date.now();
+  const now = 1569666271165;
   return new Date(node.startAt).getTime() <= now && new Date(node.endAt).getTime() >= now;
 };
 
