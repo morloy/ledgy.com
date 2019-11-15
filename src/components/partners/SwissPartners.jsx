@@ -13,12 +13,12 @@ export const SwissPartners = (props: Props) => (
       <PartnerCard
         logo={props.data.kellerhalsCarrard}
         email="startup-desk@kellerhals-carrard.ch"
-        website="http://kellerhals-carrard.ch"
+        website="https://kellerhals-carrard.ch"
       />
       <PartnerCard
         logo={props.data.smartup}
         email="walder@smartuplaw.ch"
-        website="http://smartuplaw.ch"
+        website="https://smartuplaw.ch"
       />
       <PartnerCard logo={props.data.lexr} email="contact@lexr.ch" website="https://lexr.ch" />
     </div>
