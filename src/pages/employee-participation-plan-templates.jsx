@@ -42,7 +42,7 @@ const EquityPlans = ({ i18n, data }: Props) => {
       <Title
         title={title}
         description={description}
-        thumbnailUrl={`${siteUrl}/banners/equity-plans.png`}
+        thumbnailUrl={`${siteUrl}/banners/employee-participation-plans.png`}
       />
       <HeaderLayout
         title={title}
