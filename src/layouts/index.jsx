@@ -136,7 +136,9 @@ const TemplateWrapper = withI18n()(({ children, ...props }: SiteProps) => (
           </Helmet>
           <Nav {...props} prefix={prefix} />
           {isAppShell && <Loader />}
-          <PublicityBanner pathname={pathname} />
+          <div>
+            <PublicityBanner pathname={pathname} />
+          </div>
           {React.cloneElement((children: Object), { prefix, lang })}
           <Footer {...props} prefix={prefix} />
         </div>
