@@ -9,6 +9,7 @@ export default ({
   title = '',
   button,
   buttonText = '',
+  buttonClassName = '',
   hideFooter = false,
   titleClassNames = '',
   onSave
@@ -18,6 +19,7 @@ export default ({
   children?: Node,
   title?: string | Node,
   button?: Node,
+  buttonClassName?: string,
   buttonText?: Node,
   hideFooter?: boolean,
   onSave?: () => void
@@ -28,7 +30,7 @@ export default ({
       {Button || (
         <button
           type="button"
-          className="btn btn-round btn-light"
+          className={`btn btn-round btn-light ${buttonClassName}`}
           data-toggle="modal"
           data-target={`#${id}`}
         >

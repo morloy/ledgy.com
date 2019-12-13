@@ -6,7 +6,7 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import { ContentBody } from '../components/Content';
-import { HeaderLayout } from '../components/HomePageHeader';
+import { HeaderLayout } from '../components/HeaderLayout';
 import { Title } from '../layouts/utils';
 import { targetBlank, appUrl, trackSignupGoogleAnalytics } from '../helpers';
 import {
