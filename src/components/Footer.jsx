@@ -16,12 +16,10 @@ import {
 import { name, targetBlank } from '../helpers';
 import { deprefix } from '../i18n-config';
 
-import logoInvertedCompact from '../img/logo-inverted-compact.png';
-
-import { CTABanner } from './CTABanner';
-import SignupForm from './SignupForm';
-import Modal from './Modal';
-import { Dropdown } from './Dropdown';
+import Modal from '../components/Modal';
+import logoInverse from '../img/logo_white.png';
+import SignupForm from '../components/SignupForm';
+import { CTABanner } from '../components/CTABanner';
 
 const FooterCol = ({
   order,
