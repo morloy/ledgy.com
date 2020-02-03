@@ -13,8 +13,6 @@ import { name, loadScript, animateTablet, isDevelopment, ContentSecurityPolicy }
 import { Title } from './utils';
 import { catalogs, langFromPath, langPrefix, deprefix } from '../i18n-config';
 
-import '../assets/scss/page.scss';
-
 import PublicityBanner from '../components/PublicityBanner';
 import Loader from '../components/Loader';
 import { Nav } from '../components/Nav';
@@ -37,9 +35,7 @@ const Initialize = () => {
   useEffect(() => {
     animateTablet();
     setTimeout(async () => {
-      require('../assets/js/page'); // eslint-disable-line global-require
-      require('../assets/js/script'); // eslint-disable-line global-require
-      require('../assets/js/hotjar'); // eslint-disable-line global-require
+      require('../hotjar'); // eslint-disable-line global-require
 
       await loadScript('https://js.hs-scripts.com/6881367.js');
       openDemoModal();
