@@ -16,8 +16,6 @@ import {
 import { name, targetBlank } from '../helpers';
 import { deprefix } from '../i18n-config';
 
-import '../assets/scss/page.scss';
-
 import Modal from '../components/Modal';
 import logoInverse from '../img/logo_white.png';
 import SignupForm from '../components/SignupForm';
