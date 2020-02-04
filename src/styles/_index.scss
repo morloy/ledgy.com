@@ -1,3 +1,8 @@
+@import "~bootstrap/dist/css/bootstrap";
+@import "~bootstrap/scss/bootstrap";
+@import "variables";
+@import "header";
+
 
 @include media-breakpoint-up(md) {
   html,
@@ -80,13 +85,13 @@ li > a {
   white-space: nowrap;
 }
 .stick .btn-outline-light {
-  color: $color-primary;
-  border-color: $color-primary;
+  color: $primary;
+  border-color: $primary;
 }
 .stick .btn-light {
   color: $white;
-  background-color: $color-primary;
-  border-color: $color-primary;
+  background-color: $primary;
+  border-color: $primary;
 }
 h1,
 h2,
@@ -135,10 +140,6 @@ h1 {
 
 .calculator-banner h1, .banner-text {
   max-width: 800px;
-}
-
-.full-width-banner {
-  background-color: $color-bg-light-blue;
 }
 
 .section-header p {
@@ -326,7 +327,7 @@ $markdown-spacer: $markdown-font-size;
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  background-color: $color-primary;
+  background-color: $primary;
   color: $gray-100;
 }
 
@@ -578,7 +579,7 @@ $markdown-spacer: $markdown-font-size;
 }
 
 button.multi-button.bg-primary:focus {
-  background: $color-primary !important;
+  background: $primary !important;
 }
 
 .min-width-110px {

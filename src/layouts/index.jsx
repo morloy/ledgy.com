@@ -6,6 +6,7 @@ import { I18nProvider, withI18n } from '@lingui/react';
 import { Helmet } from 'react-helmet';
 import 'katex/dist/katex.min.css';
 import 'prism-themes/themes/prism-ghcolors.css';
+import '../styles/_index.scss';
 
 import { name, animateTablet, isDevelopment, ContentSecurityPolicy } from '../helpers';
 import { Title } from './utils';
