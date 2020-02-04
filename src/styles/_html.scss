@@ -1,0 +1,33 @@
+html, body {
+  hyphens: auto;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+p > a,
+li > a {
+  position: relative;
+  font-weight: 400;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 1.2rem;
+    width: 100%;
+    border-bottom: 1px solid;
+    margin-top: 8px;
+    opacity: 0;
+    transition: 300ms;
+    transform: scale(0,1);
+  }
+  &:hover:after {
+    opacity: 1;
+    transform: scale(1);
+  }
+  @include media-breakpoint-up(sm) {
+    white-space: nowrap;
+  }
+}
