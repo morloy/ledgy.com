@@ -141,7 +141,7 @@ console.log(`
 
 ==========================
 
-Looking for a job?
+Looking for a job? 🤓
 https://ledgy.com/jobs
 
 ==========================
