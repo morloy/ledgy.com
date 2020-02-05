@@ -90,6 +90,15 @@ module.exports = {
       }
     },
     { resolve: 'gatsby-plugin-netlify-cache', options: { cachePublic: true } },
-    'gatsby-plugin-offline'
+    'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        custom: {
+          families: ['Museo Sans Rounded:n4', 'Museo Sans:n7'],
+          urls: ['/styles/_fonts.scss']
+        }
+      }
+    }
   ]
 };

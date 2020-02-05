@@ -1,0 +1,73 @@
+$markdown-font-size: 1.2rem;
+$markdown-spacer: $markdown-font-size;
+
+.markdown {
+  max-width: 720px;
+
+  font-size: $markdown-font-size;
+  h1 { font-size: 1.12 * $markdown-font-size; }
+  h2 { font-size: 1.10 * $markdown-font-size; }
+  h3 { font-size: 1.08 * $markdown-font-size; }
+  h4 { font-size: 1.06 * $markdown-font-size; }
+  h5 { font-size: 1.04 * $markdown-font-size; }
+  h6 { font-size: 1.02 * $markdown-font-size; }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 2 * $markdown-spacer;
+    margin-bottom: 0.5 * $markdown-spacer;
+  }
+  li {
+    margin-bottom: map-get($spacers, 1);
+    padding-left: map-get($spacers, 2);
+  }
+  blockquote {
+    margin: map-get($spacers, 6) map-get($spacers, 3);
+    font-size: 1.2em;
+    font-style: italic;
+    font-weight: 200;
+  }
+  figure {
+    max-width: 700px;
+  }
+  hr {
+    clear: both;
+  }
+  strong {
+    font-weight: 400;
+  }
+  .lead {
+    font-size: 1.4rem;
+    margin-bottom: map-get($spacers, 7);
+  }
+  .katex {
+    font-size: 1em;
+  }
+  .gatsby-highlight {
+    margin-top: map-get($spacers, 5);
+    margin-bottom: map-get($spacers, 5);
+  }
+  @include media-breakpoint-down(sm) {
+    .katex {
+      overflow: scroll;
+      padding-bottom: map-get($spacers, 4);
+    }
+  }
+  @include media-breakpoint-up(md) {
+    .size-md-small {
+      width: 400px;
+    }
+    .float-md-left {
+      margin-left: -2em !important;
+      margin-right: 1em !important;
+    }
+    .float-md-right {
+      margin-right: -2em !important;
+      margin-left: 1em !important;
+    }
+  }
+}
