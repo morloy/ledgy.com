@@ -80,7 +80,7 @@ const PricingColumn = (props: {
 }) => (
   <div className="col-lg-4">
     <div
-      className={`pricing-3 border rounded pb-4 mx-auto ${
+      className={`border rounded pb-4 mx-auto ${
         props.popular ? 'popular border border-success shadow' : ''
       }`}
     >
@@ -91,7 +91,7 @@ const PricingColumn = (props: {
       )}
       <div className="d-flex flex-column justify-content-between h-100">
         <div>
-          <div className="pricing-top">
+          <div>
             <h3>{props.name}</h3>
             <h5>{props.price}</h5>
             <Detail>{props.detail ? props.detail : <>&nbsp;</>}</Detail>

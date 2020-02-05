@@ -26,7 +26,6 @@
 .nav-navbar .nav-link,
 .btn {
   text-transform: none;
-  font-weight: 400;
 }
 .navbar .btn {
   white-space: nowrap;
@@ -40,20 +39,8 @@
   background-color: $primary;
   border-color: $primary;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  hyphens: auto;
-}
-h1 {
-  hyphens: none;
-  @include media-breakpoint-down(md) {
-    font-size: 2rem;
-  }
-}
+
+
 
 .width-fit-content {
   width: fit-content;
@@ -114,36 +101,8 @@ h1 {
 .imprint h6 {
   margin-bottom: 0;
 }
-.pricing-3 {
-  max-width: 380px;
-  @include media-breakpoint-up(lg) {
-    height: 1210px;
-  }
-  @include media-breakpoint-up(xl) {
-    height: 840px;
-  }
-  li {
-    position: relative;
-    line-height: 1.2;
-    height: 3em;
-    @include media-breakpoint-up(lg) {
-      height: 5em;
-    }
-    @include media-breakpoint-up(xl) {
-      height: 3em;
-    }
-  }
-  .pricing-top {
-    @include media-breakpoint-up(lg) {
-      height: 150px;
-    }
-    @include media-breakpoint-up(xl) {
-      height: unset;
-    }
-  }
-}
 
-.team-1 {
+.ledgista-profile {
   .gatsby-image-wrapper {
     max-width: 245px;
   }
