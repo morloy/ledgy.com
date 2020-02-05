@@ -6,7 +6,6 @@ import { Trans } from '@lingui/react';
 
 import { name, appUrl, track } from '../helpers';
 import logoInverted from '../img/logo-inverted.png';
-import { Button } from './Button';
 
 const Logo = (props: { prefix: string }) => (
   <Link href to={`${props.prefix}/#start`} className="navbar-brand">
@@ -23,7 +22,7 @@ const navbarLinks = () => [
 ];
 
 export const Nav = (props: LayoutProps) => (
-  <nav className="navbar bg-primary sticky-top">
+  <nav className="navbar bg-primary">
     <div className="container flex-nowrap">
       <Logo {...props} inverse />
 

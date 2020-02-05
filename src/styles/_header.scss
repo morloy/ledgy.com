@@ -1,6 +1,5 @@
-
 .header {
-  $padding: 80px;
+  $padding: 20px;
 
   position: relative;
   background-position: center;
@@ -28,7 +27,6 @@
     padding-top: $padding + $navbar-min-height;
     padding-bottom: $padding;
   }
-  //background-color: #f1f3f6;
 
   > .container,
   > .container-fluid {
@@ -40,3 +38,4 @@
     padding-top: $padding;
   }
 }
+

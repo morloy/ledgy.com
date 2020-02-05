@@ -16,10 +16,12 @@ import {
 import { name, targetBlank } from '../helpers';
 import { deprefix } from '../i18n-config';
 
-import Modal from '../components/Modal';
-import logoInverse from '../img/logo_white.png';
-import SignupForm from '../components/SignupForm';
-import { CTABanner } from '../components/CTABanner';
+import logoInverted from '../img/logo-inverted.png';
+
+import { CTABanner } from './CTABanner';
+import SignupForm from './SignupForm';
+import Modal from './Modal';
+import { Dropdown } from './Dropdown';
 
 const FooterCol = ({
   order,
@@ -147,60 +149,56 @@ export const Footer = ({ location, ...props }: LayoutProps) => {
             </FooterColBody>
           </FooterCol>
           <FooterCol order={1} wide>
-            <div className="h-100 d-flex flex-column justify-content-between">
-              <div className="d-flex flex-column align-items-center p-0 px-md-4">
-                <Link href to={`${props.prefix}/#start`} className="mb-4">
-                  <img src={logoInvertedCompact} width={80} alt={name} />
-                </Link>
-                <div className="p-4">
-                  <Modal
-                    id="newsletter-signup"
-                    title={<Trans>Sign up for the Ledgy newsletter</Trans>}
-                    buttonProps={{ className: 'w-100 px-1 mb-4', inverted: true }}
-                    buttonText={
-                      <>
-                        <FontAwesomeIcon className="mr-2" icon={faEnvelope} />
-                        <Trans>Newsletter</Trans>
-                      </>
-                    }
-                    hideFooter
-                  >
-                    <p className="text-dark my-4">
-                      <Trans>
-                        Receive important feature updates, exclusive webinar invitations, and
-                        promotions/offers
-                      </Trans>
-                    </p>
-                    <SignupForm {...props} trackingEvent="newsletter" />
-                  </Modal>
-                  <Dropdown
-                    toggleText={
-                      <>
-                        <FontAwesomeIcon className="mr-2" icon={faGlobeEurope} />
-                        <Trans>Language</Trans>
-                      </>
-                    }
-                    toggleProps={{ className: 'w-100 px-1', outline: true }}
-                    items={[
-                      <LanguageLink language="English" to={deprefix(location.pathname)} />,
-                      <LanguageLink language="Deutsch" to={`/de${deprefix(location.pathname)}`} />,
-                      <LanguageLink language="Français" to={`/fr${deprefix(location.pathname)}`} />
-                    ]}
-                  />
-                </div>
-              </div>
-              <div className="d-flex justify-content-center">
-                {socialLinks.map(([href, icon, title]) => (
-                  <a
-                    href={href}
-                    key={title}
-                    {...targetBlank}
-                    className="social-icon text-white mx-2"
-                  >
-                    <FontAwesomeIcon icon={icon} title={title} />
-                  </a>
-                ))}
-              </div>
+            <Link href to={`${props.prefix}/#start`} className="navbar-brand">
+              <img className="logo-light" src={logoInverted} width={100} height={40} alt={name} />
+            </Link>
+            <div className="social mt-2">
+              {[
+                ['https://www.youtube.com/channel/UCRkvNQptxoE-ckmTsrme1_w', faYoutube, 'YouTube'],
+                ['https://twitter.com/Ledgy', faTwitter, 'Twitter'],
+                ['https://www.linkedin.com/company/Ledgy', faLinkedin, 'LinkedIn'],
+                ['https://www.facebook.com/Ledgy', faFacebook, 'Facebook'],
+                ['https://angel.co/Ledgy', faAngellist, 'AngelList']
+              ].map(([href, icon, title]) => (
+                <a href={href} key={title} {...targetBlank}>
+                  <FontAwesomeIcon icon={icon} title={title} />
+                </a>
+              ))}
+            </div>
+            <div className="newsletter-signup-CTA">
+              <Modal
+                id="newsletter-signup"
+                title={<Trans>Sign up for the Ledgy newsletter</Trans>}
+                buttonText={
+                  <>
+                    <FontAwesomeIcon
+                      className="newsletter-icon mr-2"
+                      icon={faEnvelope}
+                      title="Newsletter"
+                    />
+                    <Trans>Newsletter</Trans>
+                  </>
+                }
+                hideFooter
+              >
+                <p className="text-dark my-4">
+                  <Trans>
+                    Receive important feature updates, exclusive webinar invitations, and
+                    promotions/offers
+                  </Trans>
+                </p>
+                <SignupForm {...props} trackingEvent="newsletter" />
+              </Modal>
+            </div>
+            <div className="mt-4">
+              <Dropdown
+                toggle={<Trans>Language</Trans>}
+                items={[
+                  <LanguageLink language="English" to={deprefix(location.pathname)} />,
+                  <LanguageLink language="Deutsch" to={`/de${deprefix(location.pathname)}`} />,
+                  <LanguageLink language="Français" to={`/fr${deprefix(location.pathname)}`} />
+                ]}
+              />
             </div>
           </FooterCol>
         </div>
