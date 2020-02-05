@@ -53,7 +53,6 @@
     "gatsby-source-filesystem": "2.1.48",
     "gatsby-transformer-sharp": "2.3.14",
     "isomorphic-fetch": "2.2.1",
-    "jquery": "3.4.1",
     "katex": "0.11.1",
     "lity": "2.4.0",
     "lodash": "4.17.15",

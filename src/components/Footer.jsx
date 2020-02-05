@@ -16,12 +16,12 @@ import {
 import { name, targetBlank } from '../helpers';
 import { deprefix } from '../i18n-config';
 
-import '../assets/scss/page.scss';
-
-import Modal from '../components/Modal';
 import logoInverse from '../img/logo_white.png';
-import SignupForm from '../components/SignupForm';
-import { CTABanner } from '../components/CTABanner';
+
+import { CTABanner } from './CTABanner';
+import SignupForm from './SignupForm';
+import Modal from './Modal';
+import { Dropdown } from './Dropdown';
 
 const FooterCol = ({
   order,
@@ -41,6 +41,13 @@ const FooterColBody = ({ title, children }: { title: Node, children: Array<Node>
     <div className="nav flex-column">{children}</div>
   </>
 );
+
+const LanguageLink = ({ language, to }: { language: string, to: string }) => (
+  <Link className=" d-flex" to={to} href>
+    {language}
+  </Link>
+);
+
 const companyLinks = [
   [<Trans>About us</Trans>, 'about-us'],
   [<Trans>Blog</Trans>, 'blog'],
@@ -175,50 +182,14 @@ export const Footer = ({ location, ...props }: LayoutProps) => {
               </Modal>
             </div>
             <div className="mt-4">
-              <div className="dropdown">
-                <button
-                  className="btn btn-round btn-outline-light dropdown-toggle"
-                  type="button"
-                  id="dropdownMenuButton"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <Trans>Language</Trans>
-                </button>
-                <div
-                  className="dropdown-menu"
-                  aria-labelledby="dropdownMenuButton"
-                  style={{ minWidth: '7rem' }}
-                >
-                  <Link className="dropdown-item d-flex" to={deprefix(location.pathname)} href>
-                    <span className="mr-1" role="img" aria-label="English">
-                      🍔
-                    </span>
-                    English
-                  </Link>
-                  <Link
-                    className="dropdown-item d-flex"
-                    to={`/de${deprefix(location.pathname)}`}
-                    href
-                  >
-                    <span className="mr-1" role="img" aria-label="Deutsch">
-                      🥨
-                    </span>
-                    Deutsch
-                  </Link>
-                  <Link
-                    className="dropdown-item d-flex"
-                    to={`/fr${deprefix(location.pathname)}`}
-                    href
-                  >
-                    <span className="mr-1" role="img" aria-label="Français">
-                      🥖
-                    </span>
-                    Français
-                  </Link>
-                </div>
-              </div>
+              <Dropdown
+                toggle={<Trans>Language</Trans>}
+                items={[
+                  <LanguageLink language="English" to={deprefix(location.pathname)} />,
+                  <LanguageLink language="Deutsch" to={`/de${deprefix(location.pathname)}`} />,
+                  <LanguageLink language="Français" to={`/fr${deprefix(location.pathname)}`} />
+                ]}
+              />
             </div>
           </FooterCol>
         </div>
