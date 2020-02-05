@@ -5,8 +5,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import { I18nProvider, withI18n } from '@lingui/react';
 import { Helmet } from 'react-helmet';
 
-import 'typeface-roboto-slab'; // eslint-disable-line import/extensions
-import 'typeface-work-sans'; // eslint-disable-line import/extensions
+import 'typeface-open-sans'; // eslint-disable-line import/extensions
 import 'katex/dist/katex.min.css';
 import 'prism-themes/themes/prism-ghcolors.css';
 import '../styles/_index.scss';
