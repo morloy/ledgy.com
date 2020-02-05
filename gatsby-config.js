@@ -95,7 +95,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         custom: {
-          families: ['Museo Sans Rounded:n4', 'Museo Sans:n7'],
+          families: ['Museo Sans Rounded:n4', 'Museo Sans Rounded:n7'],
           urls: ['/styles/_fonts.scss']
         }
       }

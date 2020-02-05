@@ -7,11 +7,7 @@
   }
 }
 
-.nav-link {
-  font-size: 0.8em !important;
-}
 .btn {
-  font-size: 0.6em;
   transition: all 0.3s;
   padding: 7px 21px;
   &:hover {
@@ -98,7 +94,6 @@ h1 {
 }
 .btn-xl {
   font-weight: 400;
-  font-size: 0.8em;
   padding: 10px 30px;
   line-height: 18px;
   @include media-breakpoint-down(sm) {
@@ -444,7 +439,6 @@ h1 {
 
 .multi-button {
   flex: 1 1 0px;
-  font-size: 16px;
   color: #999999;
   &:first-of-type {
     border-radius: 10rem 0 0 10rem;

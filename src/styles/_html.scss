@@ -1,5 +1,41 @@
+@import 'variables';
+
 html, body {
   hyphens: auto;
+  font-family: 'Open Sans';
+}
+
+html, body, div, a, li, button {
+  font-size: $font-size-base;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Museo Sans Rounded';
+  font-weight: normal;
+}
+
+h1 {
+  font-size: $h1-font-size
+}
+
+h2 {
+  font-size: $h2-font-size
+}
+
+h3 {
+  font-size: $h3-font-size
+}
+
+h4 {
+  font-size: $h4-font-size
+}
+
+h5 {
+  font-size: $h5-font-size
+}
+
+h6 {
+  font-size: $h6-font-size
 }
 
 a {
