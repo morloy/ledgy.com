@@ -46,7 +46,7 @@ const Founder = withI18n()(
   |}) => {
     const ProfileImage = <Img {...img} className="mx-auto" alt={name} />;
     return (
-      <div className="col-12 col-md-4 team-1">
+      <div className="col-12 col-md-4 ledgista-profile">
         {article ? (
           <Link href to={`/updates/${article}/`}>
             {ProfileImage}

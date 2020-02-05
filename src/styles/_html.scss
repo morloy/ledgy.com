@@ -9,9 +9,17 @@ html, body, div, a, li, button {
   font-size: $font-size-base;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
   font-family: 'Museo Sans Rounded';
   font-weight: normal;
+  hyphens: auto;
+}
+
+h1 {
+  hyphens: none;
+  @include media-breakpoint-down(md) {
+    font-size: 2rem;
+  }
 }
 
 h1 {
