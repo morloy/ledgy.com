@@ -25,41 +25,7 @@ $cyan:                            #17a2b8 !default;
 $box-shadow: 0 1px 15px rgba(0,0,0,0.05) !default;
 $navbar-min-height:         56px !default;
 
-// Social icons
-$brand-colors: () !default;
-$brand-colors: map-merge((
-  "facebook":   #3b5998,
-  "google":     #dd4b39,
-  "gplus":      #dd4b39,
-  "twitter":    #00aced,
-  "linkedin":   #007bb6,
-  "pinterest":  #cb2027,
-  "git":        #666666,
-  "tumblr":     #32506d,
-  "vimeo":      #aad450,
-  "youtube":    #bb0000,
-  "flickr":     #ff0084,
-  "reddit":     #ff4500,
-  "dribbble":   #ea4c89,
-  "skype":      #00aff0,
-  "instagram":  #517fa4,
-  "lastfm":     #c3000d,
-  "soundcloud": #ff8800,
-  "behance":    #1769ff,
-  "envato":     #82b541,
-  "medium":     #00ab6c,
-  "spotify":    #1db954,
-  "quora":      #a82400,
-  "xing":       #026466,
-  "snapchat":   #fffc00,
-  "telegram":   #0088cc,
-  "whatsapp":   #075e54,
-  "rss":        #f26522,
-), $brand-colors);
-
-
 // Z-index master list
-
 $zindex-company-summary:             999 !default;
 $zindex-navbar:                     1000 !default;
 $zindex-topbar:                     1001 !default;
@@ -71,7 +37,6 @@ $zindex-popup:                      1010 !default;
 
 
 // Line height
-
 $line-height-xs:              1.3 !default;
 $line-height-sm:              1.5 !default;
 $line-height-lg:              2.2 !default;
@@ -79,25 +44,23 @@ $line-height-xl:              2.5 !default;
 
 
 // Fonts
+$font-size-base:              16px;
+$font-size-sm:                $font-size-base / 1.2;
+$font-size-md:                $font-size-base;
+$font-size-lg:                $font-size-base * 1.2;
+$font-size-xl:                $font-size-lg * 1.2;
 
-$font-size-base:              0.9375rem !default;
-$font-size-xs:                0.875rem !default;
-$font-size-sm:                0.9375rem !default;
-$font-size-lg:                1.0625rem !default;
-$font-size-xl:                1.125rem !default;
+$font-weight-light:           300;
+$font-weight-normal:          400;
+$font-weight-semibold:        500;
+$font-weight-bold:            700;
 
-$font-weight-light:           300 !default;
-$font-weight-normal:          400 !default;
-$font-weight-semibold:        500 !default;
-$font-weight-bold:            600 !default;
+$font-weight-base:            $font-weight-normal;
+$line-height-base:            1.9;
 
-$font-weight-base:            $font-weight-light !default;
-$line-height-base:            1.9 !default;
-
-$h1-font-size:                $font-size-base * 2.5 !default;
-$h2-font-size:                $font-size-base * 2 !default;
-$h3-font-size:                $font-size-base * 1.75 !default;
-$h4-font-size:                $font-size-base * 1.5 !default;
-$h5-font-size:                $font-size-base * 1.25 !default;
-$h6-font-size:                $font-size-base !default;
-
+$h1-font-size:                $font-size-base * 2.5;
+$h2-font-size:                $font-size-base * 2;
+$h3-font-size:                $font-size-base * 1.75;
+$h4-font-size:                $font-size-base * 1.5;
+$h5-font-size:                $font-size-base * 1.25;
+$h6-font-size:                $font-size-base;
