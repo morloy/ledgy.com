@@ -5,15 +5,11 @@ import { Link } from 'gatsby';
 import { Trans } from '@lingui/react';
 
 import { name, appUrl, trackSignupGoogleAnalytics } from '../helpers';
-import logoDefault from '../img/logo_black.png';
-import logoInverse from '../img/logo_white.png';
+import logoInverted from '../img/logo-inverted.png';
 
-const Logo = (props: { prefix: string, inverse: boolean }) => (
+const Logo = (props: { prefix: string }) => (
   <Link href to={`${props.prefix}/#start`} className="navbar-brand">
-    <img className="logo-dark" src={logoDefault} width={100} height={40} alt={name} />
-    {props.inverse && (
-      <img className="logo-light" src={logoInverse} width={100} height={40} alt={name} />
-    )}
+    <img className="logo-light" src={logoInverted} width={150} alt={name} />
   </Link>
 );
 
@@ -26,18 +22,15 @@ const navbarLinks = () => [
 ];
 
 export const Nav = (props: LayoutProps) => (
-  <nav className="navbar navbar-expand-lg navbar-light navbar-stick-dark" data-navbar="sticky">
+  <nav className="navbar bg-primary">
     <div className="container flex-nowrap">
-      <div className="navbar-left">
-        <button className="navbar-toggler">&#9776;</button>
-        <Logo {...props} inverse />
-      </div>
+      <Logo {...props} inverse />
 
       <section className="navbar-mobile">
         <h6 className="d-sm-none">Ledgy</h6>
         <nav className="nav nav-navbar ml-auto">
           {navbarLinks().map(([label, to]) => (
-            <Link className="nav-link" key={to} href to={`${props.prefix}/${to}/`}>
+            <Link className="nav-link text-white" key={to} href to={`${props.prefix}/${to}/`}>
               {label}
             </Link>
           ))}

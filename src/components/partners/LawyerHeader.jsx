@@ -6,7 +6,7 @@ import { Trans } from '@lingui/react';
 import { Title } from '../../layouts/utils';
 
 export const LawyerHeader = ({ i18n }: Props) => (
-  <header className="header text-white bg-ledgy">
+  <header className="header text-white">
     <Title
       title={i18n.t`Partners`}
       description={i18n.t`Our trusted law firm partners are here to help`}

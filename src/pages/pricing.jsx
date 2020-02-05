@@ -124,7 +124,7 @@ export default withI18n()(({ i18n, ...props }: Props) => (
       description={i18n.t`Ledgy scales with your needs. Free for startups, powerful for grown-ups.`}
     />
 
-    <header className="header text-white bg-ledgy">
+    <header className="header text-white">
       <div className="container text-center">
         <div className="row">
           <div className="col-12 col-lg-8 offset-lg-2">

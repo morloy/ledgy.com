@@ -26,7 +26,7 @@ export const HeaderLayout = ({
   const { props, modal = null } = buttonOne;
   const Modal = modal;
   return (
-    <header className="header bg-ledgy d-flex home-banner px-1 text-left ">
+    <header className="header d-flex home-banner px-1 text-left bg-primary">
       <div className="container my-auto">
         <div className="row gap-y mt-md-2 pb-4 pb-md-6">
           <div className="col-lg-6 d-flex flex-column justify-content-center">
