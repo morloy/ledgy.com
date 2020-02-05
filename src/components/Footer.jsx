@@ -16,7 +16,7 @@ import {
 import { name, targetBlank } from '../helpers';
 import { deprefix } from '../i18n-config';
 
-import logoInverse from '../img/logo_white.png';
+import logoInverted from '../img/logo-inverted.png';
 
 import { CTABanner } from './CTABanner';
 import SignupForm from './SignupForm';
@@ -141,7 +141,7 @@ export const Footer = ({ location, ...props }: LayoutProps) => {
           </FooterCol>
           <FooterCol order={1} wide>
             <Link href to={`${props.prefix}/#start`} className="navbar-brand">
-              <img className="logo-light" src={logoInverse} width={100} height={40} alt={name} />
+              <img className="logo-light" src={logoInverted} width={100} height={40} alt={name} />
             </Link>
             <div className="social mt-2">
               {[

@@ -12,7 +12,7 @@ import { Title } from '../layouts/utils';
 import { getWholeTeam, type AuthorProps } from '../layouts/team';
 
 const Header = ({ i18n }: Props) => (
-  <header className="header text-white bg-ledgy">
+  <header className="header text-white">
     <Title
       title={i18n.t`About us`}
       description={i18n.t`Meet the team behind Ledgy that went out to help startups thrive. Learn more about the people who trust in us.`}

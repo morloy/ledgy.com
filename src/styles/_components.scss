@@ -1,6 +1,33 @@
+
 // Dropdown
 
 .dropdown-list {
   top: 0;
   left: 0;
+}
+
+// Navbar/HomeBanner
+
+.home-banner {
+  @include media-breakpoint-up(xl) {
+    @media(orientation:landscape) {
+     min-height: 75vh;
+    }
+  }
+}
+
+.home-banner, .navbar {
+  @media screen and (min-width: 1440px) {
+    .container {
+      max-width: 1350px;
+    }
+  }
+}
+
+.home-banner h1, .banner-text {
+  max-width: 500px;
+}
+
+.navbar .btn {
+  white-space: nowrap;
 }

@@ -23,13 +23,7 @@
     transform: none !important;
   }
 }
-.nav-navbar .nav-link,
-.btn {
-  text-transform: none;
-}
-.navbar .btn {
-  white-space: nowrap;
-}
+
 .stick .btn-outline-light {
   color: $primary;
   border-color: $primary;
@@ -44,13 +38,8 @@
   width: fit-content;
 }
 
-.home-banner h1, .banner-text {
-  max-width: 500px;
-}
-
 .loader-banner {
   height: 100vh;
-  color: $navbar-light-color;
   svg {
     width: 4rem;
     animation: rotation 2s infinite linear;
@@ -195,22 +184,6 @@
   }
 }
 
-.home-banner {
-  @include media-breakpoint-up(xl) {
-    @media(orientation:landscape) {
-     min-height: 95vh;
-    }
-  }
-}
-
-.home-banner, .navbar {
-  @media screen and (min-width: 1440px) {
-    .container {
-      max-width: 1350px;
-    }
-  }
-}
-
 .custom-container {
   @include media-breakpoint-up(lg) {
     max-width: 1500px;
@@ -245,9 +218,6 @@
 .footer {
   a {
     margin-bottom: 0.7em;
-  }
-  .nav-link:hover {
-    color: white !important;
   }
 
   .newsletter-signup-CTA {

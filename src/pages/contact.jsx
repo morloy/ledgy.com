@@ -6,7 +6,7 @@ import { withI18n, Trans } from '@lingui/react';
 import { Title } from '../layouts/utils';
 
 const Header = ({ i18n }: Props) => (
-  <header className="header text-white bg-ledgy">
+  <header className="header text-white">
     <Title
       title={i18n.t`Contact`}
       description={i18n.t`Contact the Ledgy team by phone, email, or mailing address to learn more about cap table management, equity plans, and investor relations`}

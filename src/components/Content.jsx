@@ -7,7 +7,7 @@ import Img from 'gatsby-image';
 import { CardLink } from './CardLink';
 
 export const ContentHeader = ({ title }: {| title: string |}) => (
-  <header className="header text-white bg-ledgy">
+  <header className="header text-white">
     <div className="container text-center">
       <div className="row">
         <div className="col-12 col-lg-8 offset-lg-2">

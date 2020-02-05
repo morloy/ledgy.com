@@ -63,7 +63,7 @@ const helpLinks = [
 
 const HelpCenter = ({ i18n, prefix }: Props) => (
   <>
-    <header className="header text-white bg-ledgy">
+    <header className="header text-white">
       <Title
         title={i18n.t`Help Center`}
         description={i18n.t`Let Ledgy’s help center guide you on every single aspect of your company’s equity management`}

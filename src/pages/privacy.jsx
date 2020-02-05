@@ -16,7 +16,7 @@ import Section from '../components/Section';
 import { Title, ChevronRight } from '../layouts/utils';
 
 const Header = ({ i18n }: Props) => (
-  <header className="header text-white bg-ledgy">
+  <header className="header text-white">
     <Title
       title={i18n.t`Privacy`}
       description={i18n.t`Privacy made in Switzerland. Because your equity data is not for everyone.`}

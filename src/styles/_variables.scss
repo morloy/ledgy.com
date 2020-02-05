@@ -21,11 +21,11 @@ $theme-colors: (
   "danger": $highlight-red,
 );
 
-$box-shadow: 0 1px 15px rgba(0,0,0,0.05) !default;
-$navbar-min-height:         56px !default;
+$box-shadow:                        0 1px 15px rgba(0,0,0,0.05) !default;
+$navbar-min-height:                 56px !default;
 
 // Z-index master list
-$zindex-company-summary:             999 !default;
+$zindex-company-summary:            999 !default;
 $zindex-navbar:                     1000 !default;
 $zindex-topbar:                     1001 !default;
 $zindex-scrolltop:                  1000 !default;

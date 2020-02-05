@@ -17,7 +17,7 @@ export default withI18n()(({ i18n, ...props }: Props) => (
       description={i18n.t`Save hours of work by getting rid of manual spreadsheet processes, keep track of any vesting schedule, get notified of important vesting and expiry events, get started in minutes with the spreadsheet importer.`}
     />
 
-    <header className="header text-white bg-ledgy">
+    <header className="header text-white">
       <div className="container text-center">
         <div className="row">
           <div className="col-12 col-lg-8 offset-lg-2">
