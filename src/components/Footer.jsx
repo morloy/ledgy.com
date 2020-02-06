@@ -94,8 +94,8 @@ export const Footer = ({ location, ...props }: LayoutProps) => {
   return (
     <div>
       {isPartners ? '' : <CTABanner location={location} {...props} />}
-      <footer className="footer pb-9 pt-7 py-md-7 px-4 text-white">
-        <div className="row gap-y justify-content-md-center">
+      <footer className="footer py-6 px-4 text-white bg-primary">
+        <div className="row justify-content-md-center">
           <FooterCol order={2}>
             <FooterColBody title={<Trans>Company</Trans>}>
               {companyLinks.map(([label, link]) => (
