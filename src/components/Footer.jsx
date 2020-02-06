@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import { Trans } from '@lingui/react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faGlobeEurope } from '@fortawesome/free-solid-svg-icons';
 import {
   faTwitter,
   faFacebook,
@@ -16,7 +16,7 @@ import {
 import { name, targetBlank } from '../helpers';
 import { deprefix } from '../i18n-config';
 
-import logoInverted from '../img/logo-inverted.png';
+import logoInvertedCompact from '../img/logo-inverted-compact.png';
 
 import { CTABanner } from './CTABanner';
 import SignupForm from './SignupForm';
@@ -31,7 +31,9 @@ const FooterCol = ({
   order: number,
   children: Node,
   wide?: boolean
-}) => <div className={`col-${wide ? 12 : 6} col-md-2 pl-6 order-md-${order}`}>{children}</div>;
+}) => (
+  <div className={`col-${wide ? 12 : 6} col-md-${wide ? 3 : 2} order-md-${order}`}>{children}</div>
+);
 
 const FooterColBody = ({ title, children }: { title: Node, children: Array<Node> }) => (
   <>
@@ -87,6 +89,13 @@ const legalLinks = [
   [<Trans>Cookie Policy</Trans>, 'legal/cookie-policy'],
   [<Trans>GDPR</Trans>, 'legal/gdpr']
 ];
+const socialLinks = [
+  ['https://www.youtube.com/channel/UCRkvNQptxoE-ckmTsrme1_w', faYoutube, 'YouTube'],
+  ['https://twitter.com/Ledgy', faTwitter, 'Twitter'],
+  ['https://www.linkedin.com/company/Ledgy', faLinkedin, 'LinkedIn'],
+  ['https://www.facebook.com/Ledgy', faFacebook, 'Facebook'],
+  ['https://angel.co/Ledgy', faAngellist, 'AngelList']
+];
 
 export const Footer = ({ location, ...props }: LayoutProps) => {
   const isPartners = location.pathname.includes('partners');
@@ -94,7 +103,7 @@ export const Footer = ({ location, ...props }: LayoutProps) => {
   return (
     <div>
       {isPartners ? '' : <CTABanner location={location} {...props} />}
-      <footer className="footer py-6 px-4 text-white bg-primary">
+      <footer className="footer py-6 px-5 px-md-4 text-white bg-primary">
         <div className="row justify-content-md-center">
           <FooterCol order={2}>
             <FooterColBody title={<Trans>Company</Trans>}>
@@ -140,56 +149,60 @@ export const Footer = ({ location, ...props }: LayoutProps) => {
             </FooterColBody>
           </FooterCol>
           <FooterCol order={1} wide>
-            <Link href to={`${props.prefix}/#start`} className="navbar-brand">
-              <img className="logo-light" src={logoInverted} width={100} height={40} alt={name} />
-            </Link>
-            <div className="social mt-2">
-              {[
-                ['https://www.youtube.com/channel/UCRkvNQptxoE-ckmTsrme1_w', faYoutube, 'YouTube'],
-                ['https://twitter.com/Ledgy', faTwitter, 'Twitter'],
-                ['https://www.linkedin.com/company/Ledgy', faLinkedin, 'LinkedIn'],
-                ['https://www.facebook.com/Ledgy', faFacebook, 'Facebook'],
-                ['https://angel.co/Ledgy', faAngellist, 'AngelList']
-              ].map(([href, icon, title]) => (
-                <a href={href} key={title} {...targetBlank}>
-                  <FontAwesomeIcon icon={icon} title={title} />
-                </a>
-              ))}
-            </div>
-            <div className="newsletter-signup-CTA">
-              <Modal
-                id="newsletter-signup"
-                title={<Trans>Sign up for the Ledgy newsletter</Trans>}
-                buttonText={
-                  <>
-                    <FontAwesomeIcon
-                      className="newsletter-icon mr-2"
-                      icon={faEnvelope}
-                      title="Newsletter"
-                    />
-                    <Trans>Newsletter</Trans>
-                  </>
-                }
-                hideFooter
-              >
-                <p className="text-dark my-4">
-                  <Trans>
-                    Receive important feature updates, exclusive webinar invitations, and
-                    promotions/offers
-                  </Trans>
-                </p>
-                <SignupForm {...props} trackingEvent="newsletter" />
-              </Modal>
-            </div>
-            <div className="mt-4">
-              <Dropdown
-                toggle={<Trans>Language</Trans>}
-                items={[
-                  <LanguageLink language="English" to={deprefix(location.pathname)} />,
-                  <LanguageLink language="Deutsch" to={`/de${deprefix(location.pathname)}`} />,
-                  <LanguageLink language="Français" to={`/fr${deprefix(location.pathname)}`} />
-                ]}
-              />
+            <div className="h-100 d-flex flex-column justify-content-between">
+              <div className="d-flex flex-column align-items-center p-0 px-md-4">
+                <Link href to={`${props.prefix}/#start`} className="mb-4">
+                  <img src={logoInvertedCompact} width={80} alt={name} />
+                </Link>
+                <div className="p-4">
+                  <Modal
+                    id="newsletter-signup"
+                    title={<Trans>Sign up for the Ledgy newsletter</Trans>}
+                    buttonProps={{ className: 'w-100 px-1 mb-4', inverted: true }}
+                    buttonText={
+                      <>
+                        <FontAwesomeIcon className="mr-2" icon={faEnvelope} />
+                        <Trans>Newsletter</Trans>
+                      </>
+                    }
+                    hideFooter
+                  >
+                    <p className="text-dark my-4">
+                      <Trans>
+                        Receive important feature updates, exclusive webinar invitations, and
+                        promotions/offers
+                      </Trans>
+                    </p>
+                    <SignupForm {...props} trackingEvent="newsletter" />
+                  </Modal>
+                  <Dropdown
+                    toggleText={
+                      <>
+                        <FontAwesomeIcon className="mr-2" icon={faGlobeEurope} />
+                        <Trans>Language</Trans>
+                      </>
+                    }
+                    toggleProps={{ className: 'w-100 px-1', outline: true }}
+                    items={[
+                      <LanguageLink language="English" to={deprefix(location.pathname)} />,
+                      <LanguageLink language="Deutsch" to={`/de${deprefix(location.pathname)}`} />,
+                      <LanguageLink language="Français" to={`/fr${deprefix(location.pathname)}`} />
+                    ]}
+                  />
+                </div>
+              </div>
+              <div className="d-flex justify-content-center">
+                {socialLinks.map(([href, icon, title]) => (
+                  <a
+                    href={href}
+                    key={title}
+                    {...targetBlank}
+                    className="social-icon text-white mx-2"
+                  >
+                    <FontAwesomeIcon icon={icon} title={title} />
+                  </a>
+                ))}
+              </div>
             </div>
           </FooterCol>
         </div>

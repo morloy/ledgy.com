@@ -33,7 +33,6 @@
   white-space: nowrap;
 }
 
-
 // Footer
 
 .footer {
@@ -41,4 +40,9 @@
     color: $white;
     padding-left: 0;
   }
+}
+
+.social-icon {
+  opacity: 0.75;
+  font-size: 25px;
 }
