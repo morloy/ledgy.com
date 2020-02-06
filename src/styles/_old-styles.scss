@@ -1,10 +1,6 @@
 .big-text {
   font-size: 18px;
-  line-height: 1.8rem;
-  @include media-breakpoint-up(md) {
-    font-size: 22px;
-    line-height: 2.2rem;
-  }
+  line-height: 2.2rem;
 }
 
 .btn {
