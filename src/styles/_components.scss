@@ -9,11 +9,7 @@
 // Navbar/HomeBanner
 
 .home-banner {
-  @include media-breakpoint-up(xl) {
-    @media(orientation:landscape) {
-     min-height: 75vh;
-    }
-  }
+  min-height: 75vh;
 }
 
 .home-banner, .navbar {
@@ -22,6 +18,11 @@
       max-width: 1350px;
     }
   }
+}
+
+.home-banner h1 {
+  font-size: $huge-font-size;
+  font-weight: bold;
 }
 
 .home-banner h1, .banner-text {

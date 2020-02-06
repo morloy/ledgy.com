@@ -23,7 +23,7 @@ const navbarLinks = () => [
 ];
 
 export const Nav = (props: LayoutProps) => (
-  <nav className="navbar bg-primary">
+  <nav className="navbar bg-primary sticky-top">
     <div className="container flex-nowrap">
       <Logo {...props} inverse />
 

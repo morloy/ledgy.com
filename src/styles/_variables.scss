@@ -22,7 +22,7 @@ $theme-colors: (
 );
 
 $box-shadow:                        0 1px 15px rgba(0,0,0,0.05) !default;
-$navbar-min-height:                 56px !default;
+$navbar-min-height:                 70px !default;
 
 // Z-index master list
 $zindex-company-summary:            999 !default;
@@ -59,4 +59,5 @@ $h3-font-size:                $ledgy-font-size * 1.75;
 $h4-font-size:                $ledgy-font-size * 1.5;
 $h5-font-size:                $ledgy-font-size * 1.25;
 $h6-font-size:                $ledgy-font-size;
+$huge-font-size:              50px;
 
