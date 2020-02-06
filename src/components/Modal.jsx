@@ -3,6 +3,7 @@
 import React, { type Node } from 'react';
 import { Trans } from '@lingui/react';
 import { track } from '../helpers/utilities';
+import { Button } from '../layouts/utils';
 
 export default ({
   id,
@@ -10,7 +11,7 @@ export default ({
   title = '',
   button,
   buttonText = '',
-  buttonClassName = '',
+  buttonProps = {},
   hideFooter = false,
   titleClassNames = '',
   onSave
@@ -20,24 +21,18 @@ export default ({
   children?: Node,
   title?: string | Node,
   button?: Node,
-  buttonClassName?: string,
+  buttonProps?: Object,
   buttonText?: Node,
   hideFooter?: boolean,
   onSave?: () => void
 |}) => {
-  const Button = button;
+  const Btn = button;
   return (
     <>
-      {Button || (
-        <button
-          type="button"
-          className={`btn btn-round btn-light ${buttonClassName}`}
-          data-toggle="modal"
-          data-target={`#${id}`}
-          onClick={() => track(`openModal-${id}`)}
-        >
+      {Btn || (
+        <Button onClick={() => track(`openModal-${id}`)} {...buttonProps}>
           {buttonText}
-        </button>
+        </Button>
       )}
 
       <div

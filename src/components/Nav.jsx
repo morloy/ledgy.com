@@ -6,6 +6,7 @@ import { Trans } from '@lingui/react';
 
 import { name, appUrl, trackSignupGoogleAnalytics } from '../helpers';
 import logoInverted from '../img/logo-inverted.png';
+import { Button } from '../layouts/utils';
 
 const Logo = (props: { prefix: string }) => (
   <Link href to={`${props.prefix}/#start`} className="navbar-brand">
@@ -40,20 +41,22 @@ export const Nav = (props: LayoutProps) => (
       </section>
 
       <div className="navbar-right">
-        <a
-          className="btn btn-round btn-outline-light mx-2"
+        <Button
+          outline
+          className="mx-2"
           href={`${appUrl}/login`}
           onClick={() => track('click.login')}
         >
           <Trans>Log In</Trans>
-        </a>
-        <a
-          className="btn btn-round btn-light ml-lg-0 mr-2"
+        </Button>
+        <Button
+          inverted
+          className="ml-lg-0 mr-2"
           href={`${appUrl}/signup`}
           onClick={() => track('click.signup')}
         >
           <Trans>Sign up</Trans>
-        </a>
+        </Button>
       </div>
     </div>
   </nav>
