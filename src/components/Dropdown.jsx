@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useState, type Node } from 'react';
-import { Button } from '../layouts/utils';
+import { Button } from './Button';
 
 export const Dropdown = ({
   toggleText,
