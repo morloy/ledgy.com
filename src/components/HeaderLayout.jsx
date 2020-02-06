@@ -1,6 +1,7 @@
 // @flow
 
 import React, { type Node } from 'react';
+import { Button } from '../layouts/utils';
 
 type HeaderButton = {| props: Object, text: Node, modal?: Node |};
 type HeaderLayoutProps = {|
@@ -20,9 +21,7 @@ export const HeaderLayout = ({
   customButton,
   image
 }: HeaderLayoutProps) => {
-  const buttonOneClass = `btn btn-block d-sm-inline btn-xl mx-1 btn-round ${
-    buttonTwo ? 'btn-outline-light' : 'btn-light'
-  }`;
+  const buttonClass = 'btn-xl mx-1';
   const { props, modal = null } = buttonOne;
   const Modal = modal;
   return (
@@ -36,17 +35,14 @@ export const HeaderLayout = ({
             </div>
             <div>
               {Modal || (
-                <a className={buttonOneClass} {...props}>
+                <Button className={buttonClass} cta inverted={!buttonTwo} {...props}>
                   {buttonOne.text}
-                </a>
+                </Button>
               )}
               {!!buttonTwo && (
-                <a
-                  className="btn btn-block d-sm-inline btn-xl mx-1 btn-round btn-light"
-                  {...buttonTwo.props}
-                >
+                <Button className={buttonClass} {...buttonTwo.props}>
                   {buttonTwo.text}
-                </a>
+                </Button>
               )}
               {customButton}
             </div>

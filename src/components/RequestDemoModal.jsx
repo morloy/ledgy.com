@@ -20,7 +20,7 @@ export const RequestDemoModal = () => {
         )
       }
       buttonText={<Trans>Get a Demo</Trans>}
-      buttonClassName="btn-demo btn-outline-light d-inline btn-xl mx-1 my-2 my-sm-0"
+      buttonProps={{ className: 'd-inline btn-xl mx-1 my-2 my-sm-0', inverted: true }}
       hideFooter
     >
       <RequestDemoForm setDemoRequested={setDemoRequested} />
