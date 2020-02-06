@@ -211,30 +211,6 @@
   animation-timing-function: ease-out;
 }
 
-.footer {
-  a {
-    margin-bottom: 0.7em;
-  }
-
-  .newsletter-signup-CTA {
-    a {
-      width: max-content;
-      .newsletter-icon {
-        @include media-breakpoint-down(md) {
-          display: initial;
-        }
-        @include media-breakpoint-up(md) {
-          display: none;
-        }
-        @include media-breakpoint-up(lg) {
-          display: initial;
-        }
-      }
-    }
-  }
-}
-
-
 .partner-card {
   height: 200px;
   max-width: 250px;
