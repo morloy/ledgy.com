@@ -6,7 +6,7 @@ import { Trans } from '@lingui/react';
 
 import { name, appUrl, trackSignupGoogleAnalytics } from '../helpers';
 import logoInverted from '../img/logo-inverted.png';
-import { Button } from '../layouts/utils';
+import { Button } from './Button';
 
 const Logo = (props: { prefix: string }) => (
   <Link href to={`${props.prefix}/#start`} className="navbar-brand">
