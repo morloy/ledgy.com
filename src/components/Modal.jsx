@@ -3,7 +3,7 @@
 import React, { type Node } from 'react';
 import { Trans } from '@lingui/react';
 import { track } from '../helpers/utilities';
-import { Button } from './Button';
+import { Button } from '../layouts/utils';
 
 export default ({
   id,

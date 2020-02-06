@@ -1,7 +1,7 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { Button } from './Button';
+import { Button } from '../layouts/utils';
 
 type HeaderButton = {| props: Object, text: Node, modal?: Node |};
 type HeaderLayoutProps = {|
