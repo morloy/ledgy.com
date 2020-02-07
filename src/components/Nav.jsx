@@ -15,32 +15,11 @@ const Logo = (props: { prefix: string }) => (
   </Link>
 );
 
-const navbarLinks = () => [
-  [<Trans>Features</Trans>, 'features'],
-  [<Trans>Pricing</Trans>, 'pricing'],
-  [<Trans>Partners</Trans>, 'partners'],
-  [<Trans>Help</Trans>, 'help'],
-  [<Trans>Blog</Trans>, 'blog']
-];
-
 export const Nav = (props: LayoutProps) => (
   <nav className="navbar bg-primary sticky-top py-1 px-0">
     <div className="container flex-nowrap">
       <Logo {...props} inverse />
-
-      {/* <section className="navbar-mobile">
-        <h6 className="d-sm-none">Ledgy</h6>
-        <nav className="nav nav-navbar ml-auto">
-          {navbarLinks().map(([label, to]) => (
-            <Link className="nav-link text-white" key={to} href to={`${props.prefix}/${to}/`}>
-              {label}
-            </Link>
-          ))}
-        </nav>
-
-        <span className="navbar-divider" />
-      </section> */}
-      <DropdownFollowAlong />
+      <DropdownFollowAlong {...props} />
       <div className="navbar-right">
         <Button
           outline

@@ -1,6 +1,7 @@
 
-.custom-hover-list > li > a {
-  color: #fcfcfc;
+.custom-hover-list > li > a,
+.custom-hover-list > li > p {
+  color: $white;
   padding: 10px 20px;
   display: inline-block;
   margin: 10px;
@@ -13,24 +14,25 @@
   justify-content: center;
 }
 
-.hover-dropdown-element {
-  opacity: 0;
+.hover-dropdown-parent {
+  opacity: 1;
   position: absolute;
   overflow: hidden;
   padding: 20px;
   top: -40px;
   border-radius: 2px;
-  transition: all 0.5s;
+  transition: all 1s;
   transform: translateY(100px);
   will-change: opacity;
   display: none;
+  min-width: 300px;
 }
 
-.trigger-enter .hover-dropdown-element {
+.trigger-enter .hover-dropdown-parent {
   display: block;
 }
 
-.trigger-enter-active .hover-dropdown-element {
+.trigger-enter-active .hover-dropdown-parent {
   opacity: 1;
 }
 
@@ -38,7 +40,7 @@
   width: 100px;
   height: 100px;
   border-radius: 0.25rem;
-  box-shadow: $box-shadow;
+  box-shadow: 0 0 5px 1px $gray-700;
   transform-origin: 50% 0;
   opacity: 0;
   transform: translateY($navbar-min-height);
@@ -50,23 +52,17 @@
 
 .arrow {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
   display: block;
   background: $white;
   transform: translateY(-50%) rotate(45deg);
-  border-radius: 2px 0 0 0;
+  box-shadow: -2px -2px 4px -2px $gray-700;
+  border-radius: 0.25rem 0 0 0;
 }
 
-.hover-dropdown-element a {
-  text-decoration: none;
-  color: #ffc600;
-}
-
-a.button {
-  background: black;
-  display: block;
-  padding: 10px;
-  color: white;
-  margin-bottom: 10px;
+.hover-dropdown-parent > li > div {
+  line-height: 16px;
+  font-size: 12px;
+  color: $gray-600;
 }

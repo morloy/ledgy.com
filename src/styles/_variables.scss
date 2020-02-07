@@ -22,41 +22,8 @@ $green:                           #3cd458 !default;
 $teal:                            #20c997 !default;
 $cyan:                            #17a2b8 !default;
 
-$box-shadow:                        0 1px 15px rgba(0,0,0,0.05) !default;
-$navbar-min-height:                 56px !default;
-
-// Social icons
-$brand-colors: () !default;
-$brand-colors: map-merge((
-  "facebook":   #3b5998,
-  "google":     #dd4b39,
-  "gplus":      #dd4b39,
-  "twitter":    #00aced,
-  "linkedin":   #007bb6,
-  "pinterest":  #cb2027,
-  "git":        #666666,
-  "tumblr":     #32506d,
-  "vimeo":      #aad450,
-  "youtube":    #bb0000,
-  "flickr":     #ff0084,
-  "reddit":     #ff4500,
-  "dribbble":   #ea4c89,
-  "skype":      #00aff0,
-  "instagram":  #517fa4,
-  "lastfm":     #c3000d,
-  "soundcloud": #ff8800,
-  "behance":    #1769ff,
-  "envato":     #82b541,
-  "medium":     #00ab6c,
-  "spotify":    #1db954,
-  "quora":      #a82400,
-  "xing":       #026466,
-  "snapchat":   #fffc00,
-  "telegram":   #0088cc,
-  "whatsapp":   #075e54,
-  "rss":        #f26522,
-), $brand-colors);
-
+$box-shadow:                        0 10px 20px rgba(0,0,0,0.25), 0 6px 6px rgba(0,0,0,0.22);
+$navbar-min-height:                 70px !default;
 
 // Z-index master list
 $zindex-company-summary:            999 !default;
