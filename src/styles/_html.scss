@@ -3,6 +3,7 @@
 html, body {
   hyphens: auto;
   font-family: 'Open Sans';
+  box-sizing: border-box;
 }
 
 html, body, div, a, li, button {
@@ -44,8 +45,7 @@ a {
   text-decoration: none !important;
 }
 
-p > a,
-li > a {
+p > a {
   position: relative;
   font-weight: 400;
   &:after {
@@ -68,4 +68,16 @@ li > a {
   @include media-breakpoint-up(sm) {
     white-space: nowrap;
   }
+}
+
+nav {
+  position: relative;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
 }

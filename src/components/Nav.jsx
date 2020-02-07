@@ -6,7 +6,8 @@ import { Trans } from '@lingui/react';
 
 import { name, appUrl, track } from '../helpers';
 import logoInverted from '../img/logo-inverted.png';
-import { Button } from '../layouts/utils';
+import { Button } from './Button';
+import { DropdownFollowAlong } from './DropdownFollowAlong';
 
 const Logo = (props: { prefix: string }) => (
   <Link href to={`${props.prefix}/#start`} className="navbar-brand">
@@ -23,11 +24,11 @@ const navbarLinks = () => [
 ];
 
 export const Nav = (props: LayoutProps) => (
-  <nav className="navbar bg-primary">
+  <nav className="navbar bg-primary sticky-top py-1 px-0">
     <div className="container flex-nowrap">
       <Logo {...props} inverse />
 
-      <section className="navbar-mobile">
+      {/* <section className="navbar-mobile">
         <h6 className="d-sm-none">Ledgy</h6>
         <nav className="nav nav-navbar ml-auto">
           {navbarLinks().map(([label, to]) => (
@@ -38,8 +39,8 @@ export const Nav = (props: LayoutProps) => (
         </nav>
 
         <span className="navbar-divider" />
-      </section>
-
+      </section> */}
+      <DropdownFollowAlong />
       <div className="navbar-right">
         <Button
           outline
