@@ -10,6 +10,7 @@ export const DropdownFollowAlong = () => {
   const [backgroundWidth, setBackgroundWidth] = useState('');
   const [backgroundHeight, setBackgroundHeight] = useState('');
   const [backgroundTransform, setBackgroundTransform] = useState('');
+  const [firstHover, setFirstHover] = useState(true);
 
   const hoverIn = e => {
     const navbar = getNavbar();
@@ -17,17 +18,18 @@ export const DropdownFollowAlong = () => {
       const { currentTarget } = e;
       currentTarget.classList.add('trigger-enter');
       setTimeout(() => currentTarget.classList.add('trigger-enter-active'), 100);
-      setFloatingBackground(true);
-      const dropdown = currentTarget.querySelector('.custom-hover-dropdown');
-      const dropdownPosition = dropdown.getBoundingClientRect();
+      const dropdown = currentTarget.querySelector('.hover-dropdown-element');
 
+      const dropdownPosition = dropdown.getBoundingClientRect();
       const nav = navbar.getBoundingClientRect();
       const shiftX = dropdownPosition.left - nav.left;
       const shiftY = dropdownPosition.top - nav.top;
 
+      setFloatingBackground(true);
       setBackgroundWidth(`${dropdownPosition.width}px`);
       setBackgroundHeight(`${dropdownPosition.height}px`);
       setBackgroundTransform(`translate(${shiftX}px, ${shiftY}px)`);
+      if (firstHover) setTimeout(() => setFirstHover(false), 0);
     }
   };
 
@@ -41,11 +43,14 @@ export const DropdownFollowAlong = () => {
     <>
       <nav id={NAV_ID}>
         <div
-          className={`dropdown-background ${isFloatingBackground ? 'open' : ''}`}
+          className={`dropdown-background d-flex justify-content-center position-absolute bg-white ${
+            isFloatingBackground ? 'open' : ''
+          }`}
           style={{
             width: backgroundWidth,
             height: backgroundHeight,
-            transform: backgroundTransform
+            transform: backgroundTransform,
+            transition: firstHover ? 'none' : 'all 300ms, opacity 100ms, transform 200ms'
           }}
         >
           <span className="arrow" />
@@ -53,7 +58,7 @@ export const DropdownFollowAlong = () => {
         <ul className="custom-hover-list">
           <li onMouseEnter={e => hoverIn(e)} onMouseLeave={e => hoverOut(e)}>
             <a href="#">Features</a>
-            <ul className="custom-hover-dropdown">
+            <ul className="hover-dropdown-element">
               <li>
                 <a href="#">One feature</a>
               </li>
@@ -64,7 +69,7 @@ export const DropdownFollowAlong = () => {
           </li>
           <li onMouseEnter={e => hoverIn(e)} onMouseLeave={e => hoverOut(e)}>
             <a href="#">Pricing</a>
-            <ul className="custom-hover-dropdown">
+            <ul className="hover-dropdown-element">
               <li>
                 <a href="#">Something about pricing</a>
               </li>
