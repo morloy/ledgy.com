@@ -11,7 +11,7 @@ import { DropdownFollowAlong } from './DropdownFollowAlong';
 
 const Logo = (props: { prefix: string }) => (
   <Link href to={`${props.prefix}/#start`} className="navbar-brand">
-    <img className="logo-light" src={logoInverted} width={150} alt={name} />
+    <img className="logo-light" src={logoInverted} width={130} alt={name} />
   </Link>
 );
 

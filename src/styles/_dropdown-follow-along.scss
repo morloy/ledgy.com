@@ -15,15 +15,15 @@
 }
 
 .hover-dropdown-parent {
-  opacity: 1;
+  opacity: 0;
   position: absolute;
   overflow: hidden;
   padding: 20px;
   top: -40px;
   border-radius: 2px;
-  transition: all 1s;
+  transition: opacity 700ms;
   transform: translateY(100px);
-  will-change: opacity;
+  will-change: opacity scale;
   display: none;
   min-width: 300px;
 }
