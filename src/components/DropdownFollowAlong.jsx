@@ -7,7 +7,7 @@ import { Link } from 'gatsby';
 const NAV_ID = 'custom-hover-nav';
 const getNavbar = () => document.getElementById(NAV_ID);
 
-const HoverListElementWithText = ({
+const ListItemHover = ({
   to,
   prefix,
   title,
@@ -18,7 +18,7 @@ const HoverListElementWithText = ({
   title: Node,
   text?: Node
 |}) => (
-  <li>
+  <li className="list-item-hover">
     <Link href to={`${prefix}/${to}`}>
       <h4 className={`text-primary mt-2 ${text ? 'mb-1' : 'mb-3'}`}>{title}</h4>
     </Link>
@@ -103,7 +103,7 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
       const { currentTarget } = e;
       currentTarget.classList.add('trigger-enter');
       setTimeout(() => currentTarget.classList.add('trigger-enter-active'), 100);
-      const dropdown = currentTarget.querySelector('.hover-dropdown-parent');
+      const dropdown = currentTarget.querySelector('.hover-list-child');
 
       const dropdownPosition = dropdown.getBoundingClientRect();
       const nav = navbar.getBoundingClientRect();
@@ -140,14 +140,14 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
         >
           <span className="arrow" />
         </div>
-        <ul className="custom-hover-list">
+        <ul className="hover-list-parent">
           <li onMouseEnter={e => hoverIn(e)} onMouseLeave={e => hoverOut(e)}>
             <p>
               <Trans>Features</Trans>
             </p>
-            <ul className="hover-dropdown-parent">
+            <ul className="hover-list-child">
               {features.map(([to, title, text]) => (
-                <HoverListElementWithText to={to} title={title} text={text} prefix={props.prefix} />
+                <ListItemHover to={to} title={title} text={text} prefix={props.prefix} />
               ))}
             </ul>
           </li>
@@ -156,9 +156,9 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
             <p>
               <Trans>Resources</Trans>
             </p>
-            <ul className="hover-dropdown-parent">
+            <ul className="hover-list-child">
               {resources.map(([to, title, text]) => (
-                <HoverListElementWithText to={to} title={title} text={text} prefix={props.prefix} />
+                <ListItemHover to={to} title={title} text={text} prefix={props.prefix} />
               ))}
             </ul>
           </li>
@@ -173,9 +173,9 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
             <p>
               <Trans>Pricing</Trans>
             </p>
-            <ul className="hover-dropdown-parent">
+            <ul className="hover-list-child">
               {pricing.map(([to, title, text]) => (
-                <HoverListElementWithText to={to} title={title} text={text} prefix={props.prefix} />
+                <ListItemHover to={to} title={title} text={text} prefix={props.prefix} />
               ))}
             </ul>
           </li>

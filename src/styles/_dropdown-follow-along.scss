@@ -1,6 +1,6 @@
 
-.custom-hover-list > li > a,
-.custom-hover-list > li > p {
+.hover-list-parent > li > a,
+.hover-list-parent > li > p {
   color: $white;
   padding: 10px 20px;
   display: inline-block;
@@ -8,13 +8,13 @@
   border-radius: 5px;
 }
 
-.custom-hover-list > li {
+.hover-list-parent > li {
   position: relative;
   display: flex;
   justify-content: center;
 }
 
-.hover-dropdown-parent {
+.hover-list-child {
   opacity: 0;
   position: absolute;
   overflow: hidden;
@@ -28,11 +28,11 @@
   min-width: 300px;
 }
 
-.trigger-enter .hover-dropdown-parent {
+.trigger-enter .hover-list-child {
   display: block;
 }
 
-.trigger-enter-active .hover-dropdown-parent {
+.trigger-enter-active .hover-list-child {
   opacity: 1;
 }
 
@@ -61,7 +61,7 @@
   border-radius: 0.25rem 0 0 0;
 }
 
-.hover-dropdown-parent > li > div {
+.hover-list-child > .list-item-hover > div {
   line-height: 16px;
   font-size: 12px;
   color: $gray-600;
