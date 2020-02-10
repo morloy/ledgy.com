@@ -22,23 +22,24 @@ h1 {
 }
 
 h2 {
-  font-size: $h2-font-size
+  font-size: $h2-font-size;
+  line-height: 2.75rem;
 }
 
 h3 {
-  font-size: $h3-font-size
+  font-size: $h3-font-size;
 }
 
 h4 {
-  font-size: $h4-font-size
+  font-size: $h4-font-size;
 }
 
 h5 {
-  font-size: $h5-font-size
+  font-size: $h5-font-size;
 }
 
 h6 {
-  font-size: $h6-font-size
+  font-size: $h6-font-size;
 }
 
 a {

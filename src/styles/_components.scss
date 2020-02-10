@@ -9,11 +9,7 @@
 // Navbar/HomeBanner
 
 .home-banner {
-  @include media-breakpoint-up(xl) {
-    @media(orientation:landscape) {
-     min-height: 75vh;
-    }
-  }
+  min-height: 70vh;
 }
 
 .home-banner, .navbar {
@@ -30,4 +26,38 @@
 
 .navbar .btn {
   white-space: nowrap;
+}
+
+// Footer
+
+.footer {
+  .nav-link {
+    color: $white;
+    padding-left: 0;
+  }
+}
+
+.social-icon {
+  opacity: 0.75;
+  font-size: 25px;
+}
+
+
+// Custom underline
+
+.custom-underline u {
+  text-decoration: none;
+  position: relative;
+  white-space: nowrap;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 6px;
+    width: 100%;
+    background-color: $vibrant-green;
+    border-radius: $border-radius;
+    z-index: -1;
+  }
 }

@@ -20,7 +20,7 @@ const ListItemHover = ({
 |}) => (
   <li className="list-item-hover">
     <Link href to={`${prefix}/${to}`}>
-      <h4 className={`text-primary mt-2 ${text ? 'mb-1' : 'mb-3'}`}>{title}</h4>
+      <h4 className={`text-primary mt-2 ${text ? 'mb-1' : 'mb-2'}`}>{title}</h4>
     </Link>
     {text && (
       <div className="mb-3">
