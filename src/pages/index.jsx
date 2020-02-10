@@ -9,7 +9,12 @@ import { MainProblemLayout } from '../components/MainProblemLayout';
 import { ExternalLogoRow } from '../components/ExternalLogoRow';
 import { SellingProp } from '../components/SellingProp';
 
-import { getTopLedgyClients, getFeaturedIn, getFirstTwoSellingProps } from './lib';
+import {
+  getTopLedgyClients,
+  getFeaturedIn,
+  getFirstTwoSellingProps,
+  getSecondTwoSellingProps
+} from './lib';
 
 const IndexPage = (props: Props) => (
   <main>
@@ -30,10 +35,12 @@ const IndexPage = (props: Props) => (
       }
       imgProps={{ ...props.data.excel }}
     />
+
     <ExternalLogoRow
       title={<Trans>The CEOs and CFOs of hundreds of companies already trust Ledgy</Trans>}
       sources={getTopLedgyClients(props)}
     />
+
     {getFirstTwoSellingProps(props.data).map(
       ({ title, subtitle, imgProps, link, imgFirst = false }) => (
         <SellingProp
@@ -47,6 +54,18 @@ const IndexPage = (props: Props) => (
     )}
 
     <ExternalLogoRow title={<Trans>As featured in</Trans>} sources={getFeaturedIn(props)} />
+
+    {getSecondTwoSellingProps(props.data).map(
+      ({ title, subtitle, imgProps, link, imgFirst = false }) => (
+        <SellingProp
+          title={title}
+          subtitle={subtitle}
+          imgProps={{ ...imgProps }}
+          link={link}
+          imgFirst={imgFirst}
+        />
+      )
+    )}
   </main>
 );
 
@@ -113,6 +132,16 @@ export const pageQuery = graphql`
       }
     }
     talent: imageSharp(fluid: { originalName: { regex: "/talent/" } }) {
+      fluid(maxWidth: 500) {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    security: imageSharp(fluid: { originalName: { regex: "/security/" } }) {
+      fluid(maxWidth: 500) {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    trust: imageSharp(fluid: { originalName: { regex: "/trust/" } }) {
       fluid(maxWidth: 500) {
         ...GatsbyImageSharpFluid_noBase64
       }

@@ -60,3 +60,40 @@ export const getFirstTwoSellingProps = (data: Object) => [
     link: { to: '', text: <Trans>How WeFox uses Ledgy to retain talent</Trans> }
   }
 ];
+
+export const getSecondTwoSellingProps = (data: Object) => [
+  {
+    title: (
+      <Trans>
+        Privacy and security <u>first</u>
+      </Trans>
+    ),
+    subtitle: (
+      <Trans>
+        With Switzerland’s best-in-class privacy regulation and center of the worlds leading
+        financial institutions, it is the ideal place for even the most sensitive data. Ledgy
+        complies with GDPR and makes sure, that you’re in control of your data and who can see what.
+        No compromise.
+      </Trans>
+    ),
+    imgProps: { ...data.security },
+    link: { to: '', text: <Trans>Read more about data protection</Trans> },
+    imgFirst: true
+  },
+  {
+    title: (
+      <Trans>
+        Keep the <u>trust</u> of your investors
+      </Trans>
+    ),
+    subtitle: (
+      <Trans>
+        You want to nurture the relationship with your investors, keep their trust and make sure
+        they support your journey. Ledgy makes it easy to keep a close line with them and impress
+        them with timely and professional updates and data.
+      </Trans>
+    ),
+    imgProps: { ...data.trust },
+    link: { to: '', text: <Trans>How Sherpany uses Ledgy for reporting</Trans> }
+  }
+];
