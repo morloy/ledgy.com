@@ -9,3 +9,10 @@
 .min-width-120px {
   min-width: 120px;
 }
+
+.position-absolute-top-center {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}

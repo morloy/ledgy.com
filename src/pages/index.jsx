@@ -3,34 +3,24 @@
 import React from 'react';
 import { withI18n, Trans } from '@lingui/react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
 
-import { targetBlank, forbesUrl, economistUrl, wirtschaftswocheUrl, top100Url } from '../helpers';
+import { forbesUrl, economistUrl, wirtschaftswocheUrl, top100Url } from '../helpers';
 import { HomePageHeader } from '../components/HomePageHeader';
 import { MainSellingProp } from '../components/MainSellingProp';
+import { ExternalLogoRow } from '../components/ExternalLogoRow';
 
-const AsFeaturedIn = (props: Props) => (
-  <div className="black-and-white d-flex flex-column flex-md-row justify-content-center align-items-center">
-    <span className="m-3 text-light">
-      <Trans>As featured in</Trans>
-    </span>
-    <a href={forbesUrl} {...targetBlank}>
-      <Img {...props.data.forbes} alt="Forbes DACH" className="m-4" />
-    </a>
-    <a href={wirtschaftswocheUrl} {...targetBlank}>
-      <Img {...props.data.wirtschaftsWoche} alt="Wirtschafts Woche" className="m-4" />
-    </a>
-    <a href={economistUrl} {...targetBlank}>
-      <Img {...props.data.theEconomist} alt="The Economist" className="m-4" />
-    </a>
-    <a href={top100Url} {...targetBlank}>
-      <Img {...props.data.top100} alt="TOP 100 Swiss Startup Award" className="m-4" />
-    </a>
-  </div>
-);
+const getFeaturedIn = (props: Props) => {
+  const { forbes, wirtschaftsWoche, theEconomist, top100 } = props.data;
+  return [
+    { url: forbesUrl, imgProps: forbes, alt: 'Forbes DACH' },
+    { url: wirtschaftswocheUrl, imgProps: wirtschaftsWoche, alt: 'Wirtschafts Woche' },
+    { url: economistUrl, imgProps: theEconomist, alt: 'The Economist' },
+    { url: top100Url, imgProps: top100, alt: 'TOP 100 Swiss Startup Award' }
+  ];
+};
 
 const IndexPage = (props: Props) => (
-  <div>
+  <main>
     <HomePageHeader {...props} />
     <MainSellingProp
       title={
@@ -49,10 +39,8 @@ const IndexPage = (props: Props) => (
       imgProps={{ ...props.data.excel }}
     />
 
-    <main>
-      <AsFeaturedIn {...props} />
-    </main>
-  </div>
+    <ExternalLogoRow title={<Trans>As featured in</Trans>} sources={getFeaturedIn(props)} />
+  </main>
 );
 
 export default withI18n()(IndexPage);
@@ -108,22 +96,22 @@ export const pageQuery = graphql`
       }
     }
     forbes: imageSharp(fluid: { originalName: { regex: "/forbes/" } }) {
-      fixed(width: 110) {
+      fixed(width: 130) {
         ...GatsbyImageSharpFixed
       }
     }
     theEconomist: imageSharp(fluid: { originalName: { regex: "/the-economist/" } }) {
-      fixed(width: 120) {
+      fixed(width: 140) {
         ...GatsbyImageSharpFixed
       }
     }
     wirtschaftsWoche: imageSharp(fluid: { originalName: { regex: "/wirtschafts-woche/" } }) {
-      fixed(width: 110) {
+      fixed(width: 130) {
         ...GatsbyImageSharpFixed
       }
     }
     top100: imageSharp(fluid: { originalName: { regex: "/top100/" } }) {
-      fixed(width: 120) {
+      fixed(width: 140) {
         ...GatsbyImageSharpFixed
       }
     }

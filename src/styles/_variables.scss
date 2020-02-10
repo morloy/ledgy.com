@@ -1,26 +1,34 @@
 // Colors
-$white:                           #fff !default;
-$gray-100:                        #f8f9fa !default;
-$gray-200:                        #e9ecef !default;
-$gray-300:                        #dee2e6 !default;
-$gray-400:                        #ced4da !default;
-$gray-500:                        #adb5bd !default;
-$gray-600:                        #868e96 !default;
-$gray-700:                        #495057 !default;
-$gray-800:                        #343a40 !default;
-$gray-900:                        #212529 !default;
-$black:                           #000 !default; //#3b4752
+$deep-blue:                       #1e2b46;
+$energetic-blue:                  #43aadc;
+$vibrant-green:                   #1edeb7;
+$highlight-red:                   #e64c49;
+$pale-energetic-blue:             #eaf5fa;
 
-$blue:                            #0086a9 !default; // 0068e6 // 0facf3
-$indigo:                          #6610f2 !default;
-$purple:                          #926dde !default;
-$pink:                            #e83e8c !default;
-$red:                             #ff4954 !default;
-$orange:                          #ffbe00 !default;
-$yellow:                          #ffba00 !default;
-$green:                           #3cd458 !default;
-$teal:                            #20c997 !default;
-$cyan:                            #17a2b8 !default;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+
+// the following adds our theme colors to the bootstrap theme-colors map
+$theme-colors: (
+  "blue": $deep-blue,
+  "energetic-blue": $energetic-blue,
+  "green": $vibrant-green,
+  "red": $highlight-red,
+  "pale-energetic-blue": $pale-energetic-blue,
+  "primary": $deep-blue,
+  "secondary": $pale-energetic-blue,
+  "info": $energetic-blue,
+  "success": $vibrant-green,
+  "danger": $highlight-red,
+  "gray-neutral": $gray-500
+);
 
 $box-shadow:                        0 10px 20px rgba(0,0,0,0.25), 0 6px 6px rgba(0,0,0,0.22);
 $navbar-min-height:                 70px !default;
@@ -44,25 +52,20 @@ $line-height-xl:              2.5 !default;
 
 
 // Fonts
+$ledgy-font-size:             16px;
 
-$font-size-base:              0.9375rem !default;
-$font-size-xs:                0.875rem !default;
-$font-size-sm:                0.9375rem !default;
-$font-size-lg:                1.0625rem !default;
-$font-size-xl:                1.125rem !default;
+$font-weight-light:           300;
+$font-weight-normal:          400;
+$font-weight-semibold:        500;
+$font-weight-bold:            700;
 
-$font-weight-light:           300 !default;
-$font-weight-normal:          400 !default;
-$font-weight-semibold:        500 !default;
-$font-weight-bold:            600 !default;
+$font-weight-base:            $font-weight-normal;
+$line-height-base:            1.9;
 
-$font-weight-base:            $font-weight-light !default;
-$line-height-base:            1.9 !default;
-
-$h1-font-size:                $font-size-base * 2.5 !default;
-$h2-font-size:                $font-size-base * 2 !default;
-$h3-font-size:                $font-size-base * 1.75 !default;
-$h4-font-size:                $font-size-base * 1.5 !default;
-$h5-font-size:                $font-size-base * 1.25 !default;
-$h6-font-size:                $font-size-base !default;
-
+$h1-font-size:                $ledgy-font-size * 2.5;
+$h2-font-size:                $ledgy-font-size * 2;
+$h3-font-size:                $ledgy-font-size * 1.75;
+$h4-font-size:                $ledgy-font-size * 1.5;
+$h5-font-size:                $ledgy-font-size * 1.25;
+$h6-font-size:                $ledgy-font-size;
+$huge-font-size:              50px;
