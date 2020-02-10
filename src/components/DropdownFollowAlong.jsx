@@ -48,7 +48,7 @@ const features = [
     </Trans>
   ],
   [
-    'finance',
+    'investors',
     <Trans>For Investors</Trans>,
     <Trans>
       Flexible reporting and portfolio management solution for business angels, professional
@@ -124,6 +124,11 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
     setTimeout(() => currentTarget.classList.remove('trigger-enter-active'), 100);
     setFloatingBackground(false);
   };
+
+  const eventHandlingProps = {
+    onMouseEnter: e => hoverIn(e),
+    onMouseLeave: e => hoverOut(e)
+  };
   return (
     <>
       <nav id={NAV_ID}>
@@ -141,24 +146,35 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
           <span className="arrow" />
         </div>
         <ul className="hover-list-parent">
-          <li onMouseEnter={e => hoverIn(e)} onMouseLeave={e => hoverOut(e)}>
+          <li {...eventHandlingProps}>
             <p>
               <Trans>Features</Trans>
             </p>
             <ul className="hover-list-child">
               {features.map(([to, title, text]) => (
-                <ListItemHover to={to} title={title} text={text} prefix={props.prefix} />
+                <ListItemHover to={to} title={title} text={text} prefix={props.prefix} key={to} />
               ))}
             </ul>
           </li>
 
-          <li onMouseEnter={e => hoverIn(e)} onMouseLeave={e => hoverOut(e)}>
+          <li {...eventHandlingProps}>
             <p>
               <Trans>Resources</Trans>
             </p>
             <ul className="hover-list-child">
               {resources.map(([to, title, text]) => (
-                <ListItemHover to={to} title={title} text={text} prefix={props.prefix} />
+                <ListItemHover to={to} title={title} text={text} prefix={props.prefix} key={to} />
+              ))}
+            </ul>
+          </li>
+
+          <li {...eventHandlingProps}>
+            <p>
+              <Trans>Pricing</Trans>
+            </p>
+            <ul className="hover-list-child">
+              {pricing.map(([to, title, text]) => (
+                <ListItemHover to={to} title={title} text={text} prefix={props.prefix} key={to} />
               ))}
             </ul>
           </li>
@@ -167,17 +183,6 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
             <Link href to={`${props.prefix}/data-protection`}>
               <Trans>Data protection</Trans>
             </Link>
-          </li>
-
-          <li onMouseEnter={e => hoverIn(e)} onMouseLeave={e => hoverOut(e)}>
-            <p>
-              <Trans>Pricing</Trans>
-            </p>
-            <ul className="hover-list-child">
-              {pricing.map(([to, title, text]) => (
-                <ListItemHover to={to} title={title} text={text} prefix={props.prefix} />
-              ))}
-            </ul>
           </li>
         </ul>
       </nav>
