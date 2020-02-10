@@ -19,13 +19,13 @@
   position: absolute;
   overflow: hidden;
   padding: 20px;
-  top: -40px;
+  top: 60px;
   border-radius: 2px;
   transition: opacity 700ms;
-  transform: translateY(100px);
   will-change: opacity scale;
   display: none;
   min-width: 300px;
+  transition: 400ms;
 }
 
 .trigger-enter .hover-list-child {
@@ -34,6 +34,24 @@
 
 .trigger-enter-active .hover-list-child {
   opacity: 1;
+  transition: 400ms;
+}
+
+.list-item-hover {
+  display: none;
+}
+
+.trigger-enter .list-item-hover {
+  display: block;
+  opacity: 0;
+  transition: 300ms;
+  transform: translateX(10%);
+}
+
+.trigger-enter-active .list-item-hover {
+  opacity: 1;
+  transition: 300ms;
+  transform: translateX(0);
 }
 
 .dropdown-background {
