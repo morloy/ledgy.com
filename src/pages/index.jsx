@@ -9,6 +9,16 @@ import { HomePageHeader } from '../components/HomePageHeader';
 import { MainSellingProp } from '../components/MainSellingProp';
 import { ExternalLogoRow } from '../components/ExternalLogoRow';
 
+const getTopLedgyClients = (props: Props) => {
+  const { viu, frontify, nakd, sherpany } = props.data;
+  return [
+    { imgProps: viu, alt: 'VIU' },
+    { imgProps: frontify, alt: 'Frontify' },
+    { imgProps: nakd, alt: 'NAKD' },
+    { imgProps: sherpany, alt: 'Sherpany' }
+  ];
+};
+
 const getFeaturedIn = (props: Props) => {
   const { forbes, wirtschaftsWoche, theEconomist, top100 } = props.data;
   return [
@@ -38,7 +48,10 @@ const IndexPage = (props: Props) => (
       }
       imgProps={{ ...props.data.excel }}
     />
-
+    <ExternalLogoRow
+      title={<Trans>The CEOs and CFOs of hundreds of companies already trust Ledgy</Trans>}
+      sources={getTopLedgyClients(props)}
+    />
     <ExternalLogoRow title={<Trans>As featured in</Trans>} sources={getFeaturedIn(props)} />
   </main>
 );
@@ -60,16 +73,6 @@ export const pageQuery = graphql`
         ...GatsbyImageSharpFixed
       }
     }
-    cryptofinance: imageSharp(fluid: { originalName: { regex: "/cryptofinance/" } }) {
-      fixed(width: 180) {
-        ...GatsbyImageSharpFixed
-      }
-    }
-    xeltis: imageSharp(fluid: { originalName: { regex: "/xeltis/" } }) {
-      fixed(width: 150) {
-        ...GatsbyImageSharpFixed
-      }
-    }
     sherpany: imageSharp(fluid: { originalName: { regex: "/sherpany/" } }) {
       fixed(width: 150) {
         ...GatsbyImageSharpFixed
@@ -82,16 +85,6 @@ export const pageQuery = graphql`
     }
     nakd: imageSharp(fluid: { originalName: { regex: "/nakd/" } }) {
       fixed(width: 150) {
-        ...GatsbyImageSharpFixed
-      }
-    }
-    allthings: imageSharp(fluid: { originalName: { regex: "/allthings/" } }) {
-      fixed(width: 150) {
-        ...GatsbyImageSharpFixed
-      }
-    }
-    yamo: imageSharp(fluid: { originalName: { regex: "/yamo/" } }) {
-      fixed(width: 70) {
         ...GatsbyImageSharpFixed
       }
     }
