@@ -4,31 +4,12 @@ import React from 'react';
 import { withI18n, Trans } from '@lingui/react';
 import { graphql } from 'gatsby';
 
-import { forbesUrl, economistUrl, wirtschaftswocheUrl, top100Url } from '../helpers';
 import { HomePageHeader } from '../components/HomePageHeader';
 import { MainProblemLayout } from '../components/MainProblemLayout';
 import { ExternalLogoRow } from '../components/ExternalLogoRow';
 import { SellingProp } from '../components/SellingProp';
 
-const getTopLedgyClients = (props: Props) => {
-  const { viu, frontify, nakd, sherpany } = props.data;
-  return [
-    { imgProps: viu, alt: 'VIU' },
-    { imgProps: frontify, alt: 'Frontify' },
-    { imgProps: nakd, alt: 'NAKD' },
-    { imgProps: sherpany, alt: 'Sherpany' }
-  ];
-};
-
-const getFeaturedIn = (props: Props) => {
-  const { forbes, wirtschaftsWoche, theEconomist, top100 } = props.data;
-  return [
-    { url: forbesUrl, imgProps: forbes, alt: 'Forbes DACH' },
-    { url: wirtschaftswocheUrl, imgProps: wirtschaftsWoche, alt: 'Wirtschafts Woche' },
-    { url: economistUrl, imgProps: theEconomist, alt: 'The Economist' },
-    { url: top100Url, imgProps: top100, alt: 'TOP 100 Swiss Startup Award' }
-  ];
-};
+import { getTopLedgyClients, getFeaturedIn, getFirstTwoSellingProps } from './lib';
 
 const IndexPage = (props: Props) => (
   <main>
@@ -53,23 +34,17 @@ const IndexPage = (props: Props) => (
       title={<Trans>The CEOs and CFOs of hundreds of companies already trust Ledgy</Trans>}
       sources={getTopLedgyClients(props)}
     />
-    <SellingProp
-      title={
-        <Trans>
-          A <u>scalable</u> infrastructure for your equity
-        </Trans>
-      }
-      subtitle={
-        <Trans>
-          Ledgy puts your granting, exercising, termination, cap table and reporting tasks on
-          autopilot with document signing automation, tracking of any vesting schedule,
-          notifications, reporting templates and flexible data exports.
-        </Trans>
-      }
-      imgProps={{ ...props.data.scalable }}
-      link={{ to: '', text: <Trans>How Frontify uses Ledgy to scale their company</Trans> }}
-      imgFirst
-    />
+    {getFirstTwoSellingProps(props.data).map(
+      ({ title, subtitle, imgProps, link, imgFirst = false }) => (
+        <SellingProp
+          title={title}
+          subtitle={subtitle}
+          imgProps={{ ...imgProps }}
+          link={link}
+          imgFirst={imgFirst}
+        />
+      )
+    )}
 
     <ExternalLogoRow title={<Trans>As featured in</Trans>} sources={getFeaturedIn(props)} />
   </main>
@@ -133,6 +108,11 @@ export const pageQuery = graphql`
       }
     }
     scalable: imageSharp(fluid: { originalName: { regex: "/scalable/" } }) {
+      fluid(maxWidth: 500) {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    talent: imageSharp(fluid: { originalName: { regex: "/talent/" } }) {
       fluid(maxWidth: 500) {
         ...GatsbyImageSharpFluid_noBase64
       }
