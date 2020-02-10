@@ -150,7 +150,7 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
             <p>
               <Trans>Features</Trans>
             </p>
-            <ul className="hover-list-child">
+            <ul className="hover-list-child features-dd">
               {features.map(([to, title, text]) => (
                 <ListItemHover to={to} title={title} text={text} prefix={props.prefix} key={to} />
               ))}
@@ -161,7 +161,7 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
             <p>
               <Trans>Resources</Trans>
             </p>
-            <ul className="hover-list-child">
+            <ul className="hover-list-child resources-dd">
               {resources.map(([to, title, text]) => (
                 <ListItemHover to={to} title={title} text={text} prefix={props.prefix} key={to} />
               ))}
@@ -172,7 +172,7 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
             <p>
               <Trans>Pricing</Trans>
             </p>
-            <ul className="hover-list-child">
+            <ul className="hover-list-child pricing-dd">
               {pricing.map(([to, title, text]) => (
                 <ListItemHover to={to} title={title} text={text} prefix={props.prefix} key={to} />
               ))}

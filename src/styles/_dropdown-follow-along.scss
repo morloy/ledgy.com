@@ -24,7 +24,7 @@
   transition: opacity 700ms;
   will-change: opacity scale;
   display: none;
-  min-width: 300px;
+  min-width: 200px;
   transition: 400ms;
 }
 
@@ -83,4 +83,16 @@
   line-height: 16px;
   font-size: 12px;
   color: $gray-600;
+}
+
+.hover-list-child.features-dd {
+  width: 300px;
+}
+
+.hover-list-child.resources-dd {
+  width: 350px;
+}
+
+.hover-list-child.pricing-dd {
+  width: 220px;
 }
