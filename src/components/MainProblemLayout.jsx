@@ -3,7 +3,7 @@
 import React, { type Node } from 'react';
 import Img from 'gatsby-image';
 
-export const MainSellingProp = ({
+export const MainProblemLayout = ({
   title,
   subtitle,
   imgProps

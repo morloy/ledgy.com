@@ -8,7 +8,7 @@ import { targetBlank } from '../helpers';
 type Source = {| url?: string, imgProps: any, alt: string |};
 
 export const ExternalLogoRow = ({ title, sources }: { title: Node, sources: Source[] }) => (
-  <div className="bg-light position-relative py-7">
+  <div className="bg-light position-relative py-7 my-4">
     <small className="position-absolute-top-center my-4 text-gray-neutral">{title}</small>
     <div className="container d-flex justify-content-center">
       <div className="row w-100 justify-content-between align-items-center">

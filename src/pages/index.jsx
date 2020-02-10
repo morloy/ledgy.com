@@ -6,8 +6,9 @@ import { graphql } from 'gatsby';
 
 import { forbesUrl, economistUrl, wirtschaftswocheUrl, top100Url } from '../helpers';
 import { HomePageHeader } from '../components/HomePageHeader';
-import { MainSellingProp } from '../components/MainSellingProp';
+import { MainProblemLayout } from '../components/MainProblemLayout';
 import { ExternalLogoRow } from '../components/ExternalLogoRow';
+import { SellingProp } from '../components/SellingProp';
 
 const getTopLedgyClients = (props: Props) => {
   const { viu, frontify, nakd, sherpany } = props.data;
@@ -32,7 +33,7 @@ const getFeaturedIn = (props: Props) => {
 const IndexPage = (props: Props) => (
   <main>
     <HomePageHeader {...props} />
-    <MainSellingProp
+    <MainProblemLayout
       title={
         <Trans>
           <u>Manual</u> Excel-based processes just <u>don’t work</u> for a growing company
@@ -52,6 +53,24 @@ const IndexPage = (props: Props) => (
       title={<Trans>The CEOs and CFOs of hundreds of companies already trust Ledgy</Trans>}
       sources={getTopLedgyClients(props)}
     />
+    <SellingProp
+      title={
+        <Trans>
+          A <u>scalable</u> infrastructure for your equity
+        </Trans>
+      }
+      subtitle={
+        <Trans>
+          Ledgy puts your granting, exercising, termination, cap table and reporting tasks on
+          autopilot with document signing automation, tracking of any vesting schedule,
+          notifications, reporting templates and flexible data exports.
+        </Trans>
+      }
+      imgProps={{ ...props.data.scalable }}
+      link={{ to: '', text: <Trans>How Frontify uses Ledgy to scale their company</Trans> }}
+      imgFirst
+    />
+
     <ExternalLogoRow title={<Trans>As featured in</Trans>} sources={getFeaturedIn(props)} />
   </main>
 );
@@ -109,6 +128,11 @@ export const pageQuery = graphql`
       }
     }
     excel: imageSharp(fluid: { originalName: { regex: "/excel-illustration/" } }) {
+      fluid(maxWidth: 500) {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    scalable: imageSharp(fluid: { originalName: { regex: "/scalable/" } }) {
       fluid(maxWidth: 500) {
         ...GatsbyImageSharpFluid_noBase64
       }

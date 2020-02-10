@@ -61,3 +61,32 @@
     z-index: -1;
   }
 }
+
+
+// Custom animated underline
+
+.deco-link {
+  position: relative;
+  font-weight: 400;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    opacity: 0;
+    transition: 300ms;
+    transform: scale(0,1);
+    background-color: $vibrant-green;
+    border-radius: $border-radius;
+    z-index: -1;
+  }
+  &:hover:after {
+    opacity: 1;
+    transform: scale(1);
+  }
+  @include media-breakpoint-up(sm) {
+    white-space: nowrap;
+  }
+}
