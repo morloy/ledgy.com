@@ -108,12 +108,8 @@ export const Footer = ({ location, ...props }: LayoutProps) => {
                     <SignupForm {...props} trackingEvent="newsletter" />
                   </Modal>
                   <Dropdown
-                    toggleText={
-                      <>
-                        <FontAwesomeIcon className="mr-2" icon={faGlobeEurope} />
-                        <Trans>Language</Trans>
-                      </>
-                    }
+                    toggleText={<Trans>Language</Trans>}
+                    toggleIcon={faGlobeEurope}
                     toggleClass="w-100"
                     toggleProps={{ outline: true }}
                     items={[
