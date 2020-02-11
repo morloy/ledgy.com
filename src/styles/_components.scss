@@ -31,16 +31,26 @@
 // Footer
 
 .footer {
+  height: 70rem;
+  @include media-breakpoint-up(sm) {
+    height: 60rem;
+  }
+  @include media-breakpoint-up(md) {
+    height: 45rem;
+    &--logo-section {
+     height: 100%;
+    }
+  }
   .nav-link {
     color: $white;
     padding-left: 0;
   }
+  .social-icon {
+    opacity: 0.75;
+    font-size: 25px;
+  }
 }
 
-.social-icon {
-  opacity: 0.75;
-  font-size: 25px;
-}
 
 
 // Custom underline

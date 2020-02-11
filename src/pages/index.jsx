@@ -14,7 +14,7 @@ import {
   getFeaturedIn,
   getFirstTwoSellingProps,
   getSecondTwoSellingProps
-} from './lib';
+} from './lib/textHelpers';
 
 const IndexPage = (props: Props) => (
   <main>
