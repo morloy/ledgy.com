@@ -40,7 +40,7 @@ const FooterColBody = ({
 );
 
 const LanguageLink = ({ language, to }: { language: string, to: string }) => (
-  <Link className=" d-flex" to={to} href>
+  <Link className="d-flex justify-content-center text-primary" to={to} href>
     {language}
   </Link>
 );
@@ -114,7 +114,8 @@ export const Footer = ({ location, ...props }: LayoutProps) => {
                         <Trans>Language</Trans>
                       </>
                     }
-                    toggleProps={{ className: 'w-100 px-1', outline: true }}
+                    toggleClass="w-100"
+                    toggleProps={{ outline: true }}
                     items={[
                       <LanguageLink language="English" to={deprefix(location.pathname)} />,
                       <LanguageLink language="Deutsch" to={`/de${deprefix(location.pathname)}`} />,

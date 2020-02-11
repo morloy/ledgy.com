@@ -3,6 +3,9 @@
 html, body {
   hyphens: auto;
   font-family: 'Open Sans';
+}
+
+*, *:before, *:after {
   box-sizing: border-box;
 }
 
