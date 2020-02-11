@@ -1,6 +1,7 @@
 // @flow
 
 import React, { type Node } from 'react';
+import { targetBlank } from '../helpers';
 
 export const Button = ({
   children,
@@ -27,7 +28,7 @@ export const Button = ({
   const classes = `btn ${color} ${className}`;
   const props = { onClick, className: classes };
   return href ? (
-    <a href={href} {...props}>
+    <a href={href} {...props} {...targetBlank}>
       {children}
     </a>
   ) : (
