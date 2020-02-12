@@ -9,6 +9,10 @@ html, body {
   box-sizing: border-box;
 }
 
+body.overlay {
+  overflow: hidden;
+}
+
 html, body, div, a, li, button {
   font-size: $ledgy-font-size;
 }

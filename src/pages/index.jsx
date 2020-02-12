@@ -49,6 +49,7 @@ const IndexPage = (props: Props) => (
           imgProps={{ ...imgProps }}
           link={link}
           imgFirst={imgFirst}
+          key={link.to}
         />
       )
     )}
@@ -63,6 +64,7 @@ const IndexPage = (props: Props) => (
           imgProps={{ ...imgProps }}
           link={link}
           imgFirst={imgFirst}
+          key={link.to}
         />
       )
     )}

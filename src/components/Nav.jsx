@@ -18,6 +18,18 @@ const Logo = (props: { prefix: string }) => (
   </Link>
 );
 
+const toggleNavbar = (isOpen, setOpen) => {
+  if (document.body) {
+    if (!isOpen) {
+      document.body.classList.add('overlay');
+      setOpen(true);
+    } else {
+      document.body.classList.remove('overlay');
+      setOpen(false);
+    }
+  }
+};
+
 export const Nav = (props: LayoutProps) => {
   const [isOpen, setOpen] = useState(false);
   return (
@@ -50,7 +62,7 @@ export const Nav = (props: LayoutProps) => {
           <Button
             id="mobile-navbar-toggler"
             className={isOpen ? 'open' : ''}
-            onClick={() => setOpen(!isOpen)}
+            onClick={() => toggleNavbar(isOpen, setOpen)}
           >
             <span /> <span /> <span /> <span />
           </Button>
@@ -60,7 +72,12 @@ export const Nav = (props: LayoutProps) => {
             classNames="mobile-navbar-transition"
             unmountOnExit
           >
-            <MobileNavbar setOpen={setOpen} prefix={props.prefix} />
+            <MobileNavbar
+              isOpen={isOpen}
+              setOpen={setOpen}
+              toggleNavbar={toggleNavbar}
+              prefix={props.prefix}
+            />
           </CSSTransition>
         </div>
       </nav>

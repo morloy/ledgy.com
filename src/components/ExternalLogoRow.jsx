@@ -13,7 +13,10 @@ export const ExternalLogoRow = ({ title, sources }: { title: Node, sources: Sour
     <div className="container d-flex justify-content-center">
       <div className="row w-100 justify-content-between align-items-center">
         {sources.map(({ url, imgProps, alt }) => (
-          <div className="col-12 col-sm-6 col-md-3 d-flex justify-content-center align-items-center">
+          <div
+            className="col-12 col-sm-6 col-md-3 d-flex justify-content-center align-items-center"
+            key={url}
+          >
             <a href={url} {...targetBlank} className="m-4 d-flex align-items-center">
               <Img {...imgProps} alt={alt} />
             </a>
