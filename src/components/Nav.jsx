@@ -13,8 +13,8 @@ import { DropdownFollowAlong } from './DropdownFollowAlong';
 import { MobileNavbar } from './MobileNavbar';
 
 const Logo = (props: { prefix: string }) => (
-  <Link href to={`${props.prefix}/#start`} className="navbar-brand">
-    <img className="logo-light" src={logoInverted} width={130} alt={name} />
+  <Link href to={`${props.prefix}/#start`}>
+    <img className="navbar-logo" src={logoInverted} alt={name} />
   </Link>
 );
 
@@ -40,10 +40,9 @@ export const Nav = (props: LayoutProps) => {
 
           <div className="desktop-navbar">
             <DropdownFollowAlong {...props} />
-            <div className="ml-2">
+            <div className="desktop-navbar-buttons d-flex align-items-center justify-content-end ml-2 ml-lg-4">
               <Button
                 outline
-                className="mx-2"
                 href={`${appUrl}/login`}
                 onClick={() => track('click.login')}
               >
@@ -51,7 +50,7 @@ export const Nav = (props: LayoutProps) => {
               </Button>
               <Button
                 inverted
-                className="ml-lg-0 mr-2"
+                className="ml-2"
                 href={`${appUrl}/signup`}
                 onClick={() => track('click.signup')}
               >

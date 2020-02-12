@@ -13,6 +13,13 @@
   }
 }
 
+.home-banner h1 {
+  font-weight: bold;
+  @include media-breakpoint-up(lg) {
+    font-size: $huge-font-size;
+  }
+}
+
 .home-banner h1, .banner-text {
   max-width: 500px;
 }

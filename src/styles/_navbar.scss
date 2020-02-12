@@ -4,8 +4,14 @@
   .btn {
     white-space: nowrap;
   }
-  .navbar-brand {
-    flex: 1;
+  .navbar-logo {
+    width: 100px;
+    @include media-breakpoint-up(md) {
+      width: 115px;
+    }
+    @include media-breakpoint-up(lg) {
+      width: 130px;
+    }
   }
 }
 
@@ -13,21 +19,20 @@
 
 .desktop-navbar {
   display: none;
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    flex: 9;
   }
 }
 
 .hover-list-parent > li > a,
 .hover-list-parent > li > p {
   color: $white;
-  padding: 10px 20px;
   display: inline-block;
-  margin: 10px;
   border-radius: 5px;
+  padding: 10px 20px;
+  margin: 10px;
 }
 
 .hover-list-parent > li {
@@ -123,7 +128,7 @@
 
 .mobile-navbar {
   display: block;
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     display: none;
   }
   top: 0;
@@ -156,7 +161,7 @@
 
 #mobile-navbar-toggler {
   display: block;
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     display: none;
   }
   position: relative;
