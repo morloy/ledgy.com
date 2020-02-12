@@ -15,7 +15,7 @@ export const ExternalLogoRow = ({ title, sources }: { title: Node, sources: Sour
         {sources.map(({ url, imgProps, alt }) => (
           <div
             className="col-12 col-sm-6 col-md-3 d-flex justify-content-center align-items-center"
-            key={url}
+            key={alt}
           >
             <a href={url} {...targetBlank} className="m-4 d-flex align-items-center">
               <Img {...imgProps} alt={alt} />

@@ -3,6 +3,7 @@
 import React, { type Node } from 'react';
 import { Link } from 'gatsby';
 
+import { NavbarButtons } from './NavbarButtons';
 import { getNavbarTitles, getNavbarLinks } from './lib';
 
 const { featuresTitle, resourcesTitle, pricingTitle, dataProtectionTitle } = getNavbarTitles();
@@ -29,7 +30,7 @@ const MobileNavbarGroup = ({
       {links.map(([to, name]) => (
         <li key={to}>
           <Link href to={`${prefix}/${to}`} onClick={() => toggleNavbar(isOpen, setOpen)}>
-            <h5 className="text-primary mt-2">{name}</h5>
+            <h5 className="text-primary mt-1">{name}</h5>
           </Link>
         </li>
       ))}
@@ -56,7 +57,7 @@ export const MobileNavbar = ({
   prefix: string
 |}) => (
   <div className="mobile-navbar position-fixed text-primary">
-    <div className="d-flex flex-column align-items-center justify-content-center p-2 p-sm-4 mt-3 mt-sm-5">
+    <div className="d-flex flex-column align-items-center justify-content-center p-2 p-sm-4 mt-3 mt-sm-4">
       <div className="text-left ml-n2 ml-sm-n4">
         {titlesAndLinks.map(([title, links], i) => (
           <MobileNavbarGroup
@@ -70,6 +71,7 @@ export const MobileNavbar = ({
           />
         ))}
       </div>
+      <NavbarButtons className="mt-2 mt-sm-4 mb-4" />
     </div>
   </div>
 );

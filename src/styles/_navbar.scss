@@ -5,9 +5,9 @@
     white-space: nowrap;
   }
   .navbar-logo {
-    width: 100px;
+    width: 110px;
     @include media-breakpoint-up(md) {
-      width: 115px;
+      width: 120px;
     }
     @include media-breakpoint-up(lg) {
       width: 130px;

@@ -2,13 +2,13 @@
 
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
-import { Trans } from '@lingui/react';
 import { CSSTransition } from 'react-transition-group';
 
-import { name, appUrl, track } from '../helpers';
+import { name } from '../helpers';
 import logoInverted from '../img/logo-inverted.png';
 
 import { Button } from './Button';
+import { NavbarButtons } from './NavbarButtons';
 import { DropdownFollowAlong } from './DropdownFollowAlong';
 import { MobileNavbar } from './MobileNavbar';
 
@@ -40,23 +40,7 @@ export const Nav = (props: LayoutProps) => {
 
           <div className="desktop-navbar">
             <DropdownFollowAlong {...props} />
-            <div className="desktop-navbar-buttons d-flex align-items-center justify-content-end ml-2 ml-lg-4">
-              <Button
-                outline
-                href={`${appUrl}/login`}
-                onClick={() => track('click.login')}
-              >
-                <Trans>Log In</Trans>
-              </Button>
-              <Button
-                inverted
-                className="ml-2"
-                href={`${appUrl}/signup`}
-                onClick={() => track('click.signup')}
-              >
-                <Trans>Sign up</Trans>
-              </Button>
-            </div>
+            <NavbarButtons className="justify-content-end ml-2 ml-lg-4" />
           </div>
           <Button
             id="mobile-navbar-toggler"

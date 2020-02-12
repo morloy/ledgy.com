@@ -30,7 +30,7 @@ export const HeaderLayout = ({
         <div className="row gap-y mt-md-2 pb-4 pb-md-6">
           <div className="col-lg-6 d-flex flex-column justify-content-center">
             <div className="mt-md-n6 mb-md-4">
-              <h1 className="text-white mt-4 mt-lg-0 mb-2 mb-sm-3">{title}</h1>
+              <h1 className="text-white mt-5 mt-lg-0 mb-2 mb-sm-3">{title}</h1>
               <div className="text-big text-white font-weight-light pb-3">{subtitle}</div>
             </div>
             <div>
@@ -47,7 +47,9 @@ export const HeaderLayout = ({
               {customButton}
             </div>
           </div>
-          <div className="col-lg-6 d-flex flex-column justify-content-center">{image}</div>
+          <div className="col-lg-6 d-flex flex-column justify-content-center mt-4 mt-lg-0">
+            {image}
+          </div>
         </div>
       </div>
     </header>
