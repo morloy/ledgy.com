@@ -1,10 +1,9 @@
 // @flow
 
 import React, { useState, type Node } from 'react';
-import { Trans } from '@lingui/react';
 import { Link } from 'gatsby';
 
-import { getNavbarLinks } from './lib';
+import { getNavbarTitles, getNavbarLinks } from './lib';
 
 const NAV_ID = 'custom-hover-nav';
 const getNavbar = () => document.getElementById(NAV_ID);
@@ -24,15 +23,12 @@ const ListItemHover = ({
     <Link href to={`${prefix}/${to}`}>
       <h4 className={`text-primary mt-2 ${text ? 'mb-1' : 'mb-2'}`}>{title}</h4>
     </Link>
-    {text && (
-      <div className="mb-3">
-        <Trans>{text}</Trans>
-      </div>
-    )}
+    {text && <div className="mb-3">{text}</div>}
   </li>
 );
 
-const { features, resources, pricing } = getNavbarLinks();
+const { featuresTitle, resourcesTitle, pricingTitle, dataProtectionTitle } = getNavbarTitles();
+const { features, resources, pricing, dataProtection } = getNavbarLinks();
 
 export const DropdownFollowAlong = (props: LayoutProps) => {
   const [isFloatingBackground, setFloatingBackground] = useState(false);
@@ -91,9 +87,7 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
         </div>
         <ul className="hover-list-parent">
           <li {...eventHandlingProps}>
-            <p>
-              <Trans>Features</Trans>
-            </p>
+            <p>{featuresTitle}</p>
             <ul className="hover-list-child features-dd">
               {features.map(([to, title, text]) => (
                 <ListItemHover to={to} title={title} text={text} prefix={props.prefix} key={to} />
@@ -102,9 +96,7 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
           </li>
 
           <li {...eventHandlingProps}>
-            <p>
-              <Trans>Resources</Trans>
-            </p>
+            <p>{resourcesTitle}</p>
             <ul className="hover-list-child resources-dd">
               {resources.map(([to, title, text]) => (
                 <ListItemHover to={to} title={title} text={text} prefix={props.prefix} key={to} />
@@ -113,9 +105,7 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
           </li>
 
           <li {...eventHandlingProps}>
-            <p>
-              <Trans>Pricing</Trans>
-            </p>
+            <p>{pricingTitle}</p>
             <ul className="hover-list-child pricing-dd">
               {pricing.map(([to, title, text]) => (
                 <ListItemHover to={to} title={title} text={text} prefix={props.prefix} key={to} />
@@ -124,8 +114,8 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
           </li>
 
           <li>
-            <Link href to={`${props.prefix}/data-protection`}>
-              <Trans>Data protection</Trans>
+            <Link href to={`${props.prefix}/${dataProtection[0][0]}`}>
+              {dataProtectionTitle}
             </Link>
           </li>
         </ul>

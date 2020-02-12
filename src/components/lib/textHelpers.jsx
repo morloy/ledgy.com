@@ -48,6 +48,14 @@ export const getFooterLinks = () => {
   return { companyLinks, legalLinks, productLinks, resourceLinks, socialLinks };
 };
 
+export const getNavbarTitles = () => {
+  const featuresTitle = <Trans>Features</Trans>;
+  const resourcesTitle = <Trans>Resources</Trans>;
+  const pricingTitle = <Trans>Pricing</Trans>;
+  const dataProtectionTitle = <Trans>Data protection</Trans>;
+  return { featuresTitle, resourcesTitle, pricingTitle, dataProtectionTitle };
+};
+
 export const getNavbarLinks = () => {
   const features = [
     [
@@ -108,5 +116,8 @@ export const getNavbarLinks = () => {
     ['pricing/companies', <Trans>For Companies</Trans>],
     ['pricing/investors', <Trans>For Investors</Trans>]
   ];
-  return { features, resources, pricing };
+
+  const dataProtection = [['data-protection', <Trans>Learn about security</Trans>]];
+
+  return { features, resources, pricing, dataProtection };
 };

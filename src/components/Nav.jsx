@@ -7,8 +7,10 @@ import { CSSTransition } from 'react-transition-group';
 
 import { name, appUrl, track } from '../helpers';
 import logoInverted from '../img/logo-inverted.png';
+
 import { Button } from './Button';
 import { DropdownFollowAlong } from './DropdownFollowAlong';
+import { MobileNavbar } from './MobileNavbar';
 
 const Logo = (props: { prefix: string }) => (
   <Link href to={`${props.prefix}/#start`} className="navbar-brand">
@@ -58,7 +60,7 @@ export const Nav = (props: LayoutProps) => {
             classNames="mobile-navbar-transition"
             unmountOnExit
           >
-            <div className="position-absolute mobile-navbar text-primary">hi</div>
+            <MobileNavbar setOpen={setOpen} prefix={props.prefix} />
           </CSSTransition>
         </div>
       </nav>
