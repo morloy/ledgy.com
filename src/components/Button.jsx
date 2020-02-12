@@ -10,7 +10,8 @@ export const Button = ({
   inverted = false,
   className = '',
   onClick,
-  href
+  href,
+  id = ''
 }: {|
   children: Node,
   outline?: boolean,
@@ -18,7 +19,8 @@ export const Button = ({
   inverted?: boolean,
   className?: string,
   onClick?: () => void,
-  href?: string
+  href?: string,
+  id?: string
 |}) => {
   const color =
     (cta && 'btn-red') ||
@@ -28,10 +30,12 @@ export const Button = ({
   const classes = `btn ${color} ${className}`;
   const props = { onClick, className: classes };
   return href ? (
-    <a href={href} {...props} {...targetBlank}>
+    <a href={href} id={id} {...props} {...targetBlank}>
       {children}
     </a>
   ) : (
-    <button {...props}>{children}</button>
+    <button id={id} {...props}>
+      {children}
+    </button>
   );
 };
