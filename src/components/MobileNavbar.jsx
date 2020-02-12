@@ -25,7 +25,7 @@ const MobileNavbarGroup = ({
 |}) => (
   <>
     <p className="text-gray-neutral mb-1">{title}</p>
-    <ul className="flex-column ml-4 mb-4">
+    <ul className="flex-column ml-2 ml-sm-4 mb-2 mb-sm-4">
       {links.map(([to, name]) => (
         <li key={to}>
           <Link href to={`${prefix}/${to}`} onClick={() => toggleNavbar(isOpen, setOpen)}>
@@ -55,22 +55,20 @@ export const MobileNavbar = ({
   toggleNavbar: (boolean, (boolean) => void) => void,
   prefix: string
 |}) => (
-  <div className={isOpen ? 'backdrop' : ''}>
-    <div className="mobile-navbar position-fixed text-primary">
-      <div className="d-flex flex-column align-items-center justify-content-center p-4 mt-5">
-        <div className="text-left ml-n4">
-          {titlesAndLinks.map(([title, links], i) => (
-            <MobileNavbarGroup
-              title={title}
-              links={links}
-              prefix={prefix}
-              isOpen={isOpen}
-              setOpen={setOpen}
-              toggleNavbar={toggleNavbar}
-              key={i} // eslint-disable-line react/no-array-index-key
-            />
-          ))}
-        </div>
+  <div className="mobile-navbar position-fixed text-primary">
+    <div className="d-flex flex-column align-items-center justify-content-center p-2 p-sm-4 mt-3 mt-sm-5">
+      <div className="text-left ml-n2 ml-sm-n4">
+        {titlesAndLinks.map(([title, links], i) => (
+          <MobileNavbarGroup
+            title={title}
+            links={links}
+            prefix={prefix}
+            isOpen={isOpen}
+            setOpen={setOpen}
+            toggleNavbar={toggleNavbar}
+            key={i} // eslint-disable-line react/no-array-index-key
+          />
+        ))}
       </div>
     </div>
   </div>
