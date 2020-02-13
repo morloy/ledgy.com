@@ -87,12 +87,22 @@
   border-radius: 0.25rem;
   box-shadow: 0 0 5px 1px $gray-700;
   transform-origin: 50% 0;
-  opacity: 0;
   transform: translateY($navbar-min-height);
 }
 
-.dropdown-background.open {
+.dropdown-background-transition-enter {
+  opacity: 0;
+}
+.dropdown-background-transition-enter-active {
   opacity: 1;
+  transition: 500ms;
+}
+.dropdown-background-transition-exit {
+  opacity: 1;
+}
+.dropdown-background-transition-exit-active {
+  opacity: 0;
+  transition: 500ms;
 }
 
 .arrow {

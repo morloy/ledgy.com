@@ -2,6 +2,7 @@
 
 import React, { useState, type Node } from 'react';
 import { Link } from 'gatsby';
+import { CSSTransition } from 'react-transition-group';
 
 import { getNavbarTitles, getNavbarLinks } from './lib';
 
@@ -72,19 +73,24 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
   return (
     <>
       <nav id={NAV_ID}>
-        <div
-          className={`dropdown-background d-flex justify-content-center position-absolute bg-white ${
-            isFloatingBackground ? 'open' : ''
-          }`}
-          style={{
-            width: backgroundWidth,
-            height: backgroundHeight,
-            transform: backgroundTransform,
-            transition: firstHover ? 'opacity 300ms' : 'all 500ms, opacity 300ms, transform 200ms'
-          }}
+        <CSSTransition
+          in={isFloatingBackground}
+          timeout={500}
+          classNames="dropdown-background-transition"
+          unmountOnExit
         >
-          <span className="arrow" />
-        </div>
+          <div
+            className="dropdown-background d-flex justify-content-center position-absolute bg-white"
+            style={{
+              width: backgroundWidth,
+              height: backgroundHeight,
+              transform: backgroundTransform,
+              transition: firstHover ? 'opacity 300ms' : 'all 500ms, opacity 300ms, transform 200ms'
+            }}
+          >
+            <span className="arrow" />
+          </div>
+        </CSSTransition>
         <ul className="hover-list-parent">
           <li {...eventHandlingProps}>
             <p>{featuresTitle}</p>
