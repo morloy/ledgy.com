@@ -61,7 +61,7 @@ export const RequestDemoForm = ({
   const error = formStatus === ERROR;
   const loading = formStatus === LOADING;
   const submitted = formStatus === SUBMITTED || isDemoRequested;
-  console.log({ companySize });
+
   return submitted ? (
     <div className="d-flex align-items-center">
       <FontAwesomeIcon icon={faCheckCircle} size="2x" className="text-primary mr-4" />
@@ -138,6 +138,7 @@ export const RequestDemoForm = ({
         <Button
           className="btn-xl min-width-120px"
           disabled={invalidFields || invalidEmail || error || loading}
+          type="submit"
         >
           {loading ? (
             <FontAwesomeIcon icon={faSpinner} className="fa-lg spin" />

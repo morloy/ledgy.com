@@ -33,9 +33,9 @@
   &:last-of-type {
     border-radius: 0 10rem 10rem 0;
   }
-  .selected {
+  &.selected {
     color: $white;
-    background-color: $primary;
+    background-color: $deep-blue;
   }
   &:hover:not(.selected) {
     opacity: 0.75;
@@ -43,5 +43,5 @@
 }
 
 button.multi-button.bg-primary:focus {
-  background: $primary !important;
+  background: $deep-blue !important;
 }
