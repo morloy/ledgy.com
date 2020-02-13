@@ -114,12 +114,12 @@
   background: $white;
   position: relative;
   border-radius: $border-radius;
-  max-width: 350px;
+  max-width: 450px;
   @include media-breakpoint-up(sm) {
-    max-width: 450px;
+    max-width: 500px;
   }
   @include media-breakpoint-up(lg) {
-    max-width: 600px;
+    max-width: 550px;
   }
   & > .modal-header-custom  {
     border-radius: $border-radius $border-radius 0 0;
@@ -142,4 +142,10 @@
 .modal-close.btn-primary:focus {
   background-color: $gray-400 !important;
   color: $gray-700 !important;
+}
+
+// Forms
+
+.form-control::placeholder {
+  color: $gray-400;
 }

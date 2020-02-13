@@ -1,25 +1,3 @@
-.text-big {
-  font-size: 18px;
-  line-height: 2.2rem;
-}
-
-.btn {
-  transition: all 0.3s;
-  padding: 7px 21px;
-  &:hover {
-    box-shadow: $box-shadow;
-    transition: all 0.3s;
-    transform: translateZ(10px) !important;
-  }
-  &:focus, &:active {
-    box-shadow: none !important;
-  }
-  &:disabled:hover {
-    box-shadow: none !important;
-    transform: none !important;
-  }
-}
-
 .stick .btn-outline-light {
   color: $primary;
   border-color: $primary;
@@ -72,13 +50,6 @@
 }
 .newsletter {
   max-width: 600px;
-}
-
-.btn-demo {
-  width: 100%;
-  @include media-breakpoint-up(sm) {
-    width: unset;
-  }
 }
 
 .imprint h6 {
@@ -351,21 +322,6 @@
 .form-error-message {
   bottom: -30px;
   left: 25px;
-}
-
-.multi-button {
-  flex: 1 1 0px;
-  color: #999999;
-  &:first-of-type {
-    border-radius: 10rem 0 0 10rem;
-  }
-  &:last-of-type {
-    border-radius: 0 10rem 10rem 0;
-  }
-}
-
-button.multi-button.bg-primary:focus {
-  background: $primary !important;
 }
 
 .customer-story-section {

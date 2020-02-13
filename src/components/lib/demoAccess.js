@@ -68,6 +68,7 @@ export const handleDemoAccessSubmit = async ({
   setFormStatus(LOADING);
   const { email, companySize } = state;
 
+  console.log(isFieldMissing({ email, companySize }));
   if (isFieldMissing({ email, companySize })) {
     setFormStatus(INVALID_FIELDS);
     return;
@@ -89,5 +90,5 @@ export const handleDemoAccessSubmit = async ({
     return;
   }
   toggle();
-  redirectToDemo();
+  // redirectToDemo();
 };
