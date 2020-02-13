@@ -93,3 +93,39 @@
     white-space: nowrap;
   }
 }
+
+
+// Modal
+
+.modal-wrapper {
+  position: fixed;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: $zindex-popup;
+}
+
+.modal-custom {
+  z-index: 100;
+  background: $white;
+  position: relative;
+  margin: 1.75rem auto;
+  border-radius: 3px;
+  max-width: 500px;
+  padding: 2rem;
+}
+
+.modal-close-button {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  opacity: .3;
+  cursor: pointer;
+  border: none;
+}

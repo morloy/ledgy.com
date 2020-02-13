@@ -14,7 +14,7 @@ import logoInverted from '../img/logo-inverted.png';
 
 import { CTABanner } from './CTABanner';
 import SignupForm from './SignupForm';
-import Modal from './Modal';
+import { Modal } from './Modal';
 import { Dropdown } from './Dropdown';
 import { getFooterLinks } from './lib';
 

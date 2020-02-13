@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { Accordion, AccordionItem } from '../Accordion';
 import SignupForm from '../SignupForm';
-import Modal from '../Modal';
 
 const getQuestions = (props: Props) => [
   {
@@ -65,7 +64,7 @@ const getQuestions = (props: Props) => [
         </span>
         <br />
         <div className="d-flex justify-content-center my-5">
-          <Modal
+          {/* <Modal
             id="psop-newsletter-signup"
             titleClassNames="text-white"
             title={<Trans>Sign up for the Ledgy newsletter</Trans>}
@@ -94,7 +93,7 @@ const getQuestions = (props: Props) => [
               </Trans>
             </p>
             <SignupForm {...props} trackingEvent="newsletter" />
-          </Modal>
+          </Modal> */}
         </div>
       </>
     )
