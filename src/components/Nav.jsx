@@ -7,6 +7,7 @@ import { CSSTransition } from 'react-transition-group';
 import { name } from '../helpers';
 import logoInverted from '../img/logo-inverted.png';
 
+import { toggleOverlay } from './lib';
 import { Button } from './Button';
 import { NavbarButtons } from './NavbarButtons';
 import { DropdownFollowAlong } from './DropdownFollowAlong';
@@ -17,18 +18,6 @@ const Logo = (props: { prefix: string }) => (
     <img className="navbar-logo" src={logoInverted} alt={name} />
   </Link>
 );
-
-const toggleNavbar = (isOpen, setOpen) => {
-  if (document.body) {
-    if (!isOpen) {
-      document.body.classList.add('overlay');
-      setOpen(true);
-    } else {
-      document.body.classList.remove('overlay');
-      setOpen(false);
-    }
-  }
-};
 
 export const Nav = (props: LayoutProps) => {
   const [isOpen, setOpen] = useState(false);
@@ -45,7 +34,7 @@ export const Nav = (props: LayoutProps) => {
           <Button
             id="mobile-navbar-toggler"
             className={isOpen ? 'open' : ''}
-            onClick={() => toggleNavbar(isOpen, setOpen)}
+            onClick={() => toggleOverlay(isOpen, setOpen)}
           >
             <span /> <span /> <span /> <span />
           </Button>
@@ -58,7 +47,7 @@ export const Nav = (props: LayoutProps) => {
             <MobileNavbar
               isOpen={isOpen}
               setOpen={setOpen}
-              toggleNavbar={toggleNavbar}
+              toggleOverlay={toggleOverlay}
               prefix={props.prefix}
             />
           </CSSTransition>

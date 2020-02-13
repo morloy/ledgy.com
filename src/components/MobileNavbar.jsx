@@ -15,21 +15,21 @@ const MobileNavbarGroup = ({
   prefix,
   isOpen,
   setOpen,
-  toggleNavbar
+  toggleOverlay
 }: {|
   title: Node,
   links: Object,
   prefix: string,
   isOpen: boolean,
   setOpen: boolean => void,
-  toggleNavbar: (boolean, (boolean) => void) => void
+  toggleOverlay: (boolean, (boolean) => void) => void
 |}) => (
   <>
     <p className="text-gray-neutral mb-1">{title}</p>
     <ul className="flex-column ml-2 ml-sm-4 mb-2 mb-sm-4">
       {links.map(([to, name]) => (
         <li key={to}>
-          <Link href to={`${prefix}/${to}`} onClick={() => toggleNavbar(isOpen, setOpen)}>
+          <Link href to={`${prefix}/${to}`} onClick={() => toggleOverlay(isOpen, setOpen)}>
             <h5 className="text-primary mt-1">{name}</h5>
           </Link>
         </li>
@@ -48,12 +48,12 @@ const titlesAndLinks = [
 export const MobileNavbar = ({
   isOpen,
   setOpen,
-  toggleNavbar,
+  toggleOverlay,
   prefix
 }: {|
   isOpen: boolean,
   setOpen: boolean => void,
-  toggleNavbar: (boolean, (boolean) => void) => void,
+  toggleOverlay: (boolean, (boolean) => void) => void,
   prefix: string
 |}) => (
   <div className="mobile-navbar position-fixed text-primary">
@@ -66,7 +66,7 @@ export const MobileNavbar = ({
             prefix={prefix}
             isOpen={isOpen}
             setOpen={setOpen}
-            toggleNavbar={toggleNavbar}
+            toggleOverlay={toggleOverlay}
             key={i} // eslint-disable-line react/no-array-index-key
           />
         ))}
