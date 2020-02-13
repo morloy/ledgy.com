@@ -20,6 +20,10 @@
   opacity: 0.5;
 }
 
+.button-embedded {
+  border-radius: 0 $border-radius $border-radius 0;
+}
+
 // Multi-button
 
 .multi-button {

@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import { Trans } from '@lingui/react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faGlobeEurope } from '@fortawesome/free-solid-svg-icons';
+import { faGlobeEurope } from '@fortawesome/free-solid-svg-icons';
 
 import { name, targetBlank } from '../helpers';
 import { deprefix } from '../i18n-config';
@@ -13,9 +13,8 @@ import { deprefix } from '../i18n-config';
 import logoInverted from '../img/logo-inverted.png';
 
 import { CTABanner } from './CTABanner';
-import { SignupForm } from './SignupForm';
-import { Modal } from './Modal';
 import { Dropdown } from './Dropdown';
+import { SignupModal } from './SignupModal';
 import { getFooterLinks } from './lib';
 
 const FooterCol = ({ order, children }: { order: number, children: Node }) => (
@@ -87,26 +86,7 @@ export const Footer = ({ location, ...props }: LayoutProps) => {
                   <img src={logoInvertedCompact} width={80} alt={name} />
                 </Link>
                 <div className="p-lg-4">
-                  {/* <Modal
-                    id="newsletter-signup"
-                    title={<Trans>Sign up for the Ledgy newsletter</Trans>}
-                    buttonProps={{ className: 'w-100 px-1 mb-3', inverted: true }}
-                    buttonText={
-                      <>
-                        <FontAwesomeIcon className="mr-2" icon={faEnvelope} />
-                        <Trans>Newsletter</Trans>
-                      </>
-                    }
-                    hideFooter
-                  >
-                    <p className="text-dark my-4">
-                      <Trans>
-                        Receive important feature updates, exclusive webinar invitations, and
-                        promotions/offers
-                      </Trans>
-                    </p>
-                    <SignupForm {...props} trackingEvent="newsletter" />
-                  </Modal> */}
+                  <SignupModal {...props} />
                   <Dropdown
                     toggleText={<Trans>Language</Trans>}
                     toggleIcon={faGlobeEurope}

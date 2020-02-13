@@ -9,6 +9,7 @@ import { navigate } from 'gatsby';
 
 import { isValidEmail, FORM_STATES } from '../helpers';
 
+import { Button } from './Button';
 import { signupOnMixpanel, trackOnMixpanel } from './lib';
 
 const { ERROR, IDLE, INVALID, LOADING } = FORM_STATES;
@@ -59,16 +60,15 @@ export class SignupForm extends Component<
           <div className="form-group input-group bg-white p-2 my-4 position-relative">
             <input
               type="email"
-              name="EMAIL"
               className="form-control"
               placeholder={i18n.t`Enter your email…`}
               onChange={this.handleChange}
               value={this.state.email}
+              style={{ height: 'inherit' }}
             />
-            <button
+            <Button
               type="submit"
-              name="subscribe"
-              className="btn btn-primary btn-round btn-xl ml-2 min-width-110px"
+              className="button-embedded min-width-110px"
               disabled={invalid || error || loading}
             >
               {loading ? (
@@ -76,7 +76,7 @@ export class SignupForm extends Component<
               ) : (
                 <Trans>Subscribe</Trans>
               )}
-            </button>
+            </Button>
             <small className="text-danger position-absolute form-error-message">
               {invalid && <Trans>Oops. This email address is invalid.</Trans>}
               {error && <Trans>Oops. Something went wrong, please try again.</Trans>}
