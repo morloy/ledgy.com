@@ -5,7 +5,8 @@ import { withI18n, Trans } from '@lingui/react';
 import { Link } from 'gatsby';
 
 import { Title, Li, ChevronRight } from '../layouts/utils';
-import { appUrl } from '../helpers';
+import { appUrl, track } from '../helpers';
+import { DefaultHeader } from '../components/Header';
 
 const Detail = props => <small className="d-block text-light mt-1" {...props} />;
 const Soon = () => (
@@ -119,17 +120,16 @@ export default withI18n()(({ i18n, ...props }: Props) => (
       description={i18n.t`Ledgy scales with your needs. Free for startups, powerful for grown-ups.`}
     />
 
-    <header className="bg-primary text-white">
-      <div className="container text-center">
-        <div className="row">
-          <div className="col-12 col-lg-8 offset-lg-2">
-            <h1>
-              <Trans>Pricing</Trans>
-            </h1>
-          </div>
-        </div>
-      </div>
-    </header>
+    <DefaultHeader
+      title={<Trans>Which plan suits me best?</Trans>}
+      subtitle={
+        <Trans>
+          Companies at different stages have very different needs. Consider access rights, storage,
+          support needs, and more when selecting your ideal plan.
+        </Trans>
+      }
+    />
+
     <main className="main-content">
       <section className="section">
         <div className="container">
