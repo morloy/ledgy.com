@@ -6,7 +6,7 @@ import { Trans } from '@lingui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { Accordion, AccordionItem } from '../Accordion';
-import SignupForm from '../SignupForm';
+import { SignupForm } from '../SignupForm';
 
 const getQuestions = (props: Props) => [
   {

@@ -7,7 +7,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { navigate } from 'gatsby';
 
-import { isValidEmail, removeModalFromDOM, FORM_STATES } from '../helpers';
+import { isValidEmail, FORM_STATES } from '../helpers';
 
 import { signupOnMixpanel, trackOnMixpanel } from './lib';
 
@@ -15,8 +15,8 @@ const { ERROR, IDLE, INVALID, LOADING } = FORM_STATES;
 
 declare type FormStatus = {| status: 'idle' | 'loading' | 'invalid' | 'error' |};
 
-export default class extends Component<
-  {| ...Props, trackingEvent: string |},
+export class SignupForm extends Component<
+  {| ...Props, toggle?: () => void, trackingEvent: string |},
   { email: string, ...FormStatus }
 > {
   state = { email: '', status: IDLE };
@@ -34,7 +34,7 @@ export default class extends Component<
         if (signupResponse.status === 200) {
           trackOnMixpanel(email, this.props.trackingEvent);
           this.setState({ email: '', status: IDLE });
-          removeModalFromDOM();
+          if (this.props.toggle) this.props.toggle();
           navigate('/subscribed');
         } else {
           this.setState({ status: ERROR });

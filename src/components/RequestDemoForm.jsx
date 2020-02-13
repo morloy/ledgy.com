@@ -38,7 +38,15 @@ const Input = ({
   </div>
 );
 
-export const RequestDemoForm = ({ setDemoRequested }: { setDemoRequested: boolean => void }) => {
+export const RequestDemoForm = ({
+  isDemoRequested,
+  setDemoRequested,
+  toggle
+}: {|
+  isDemoRequested: boolean,
+  setDemoRequested: boolean => void,
+  toggle: () => void
+|}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [companyName, setCompanyName] = useState('');
@@ -50,7 +58,7 @@ export const RequestDemoForm = ({ setDemoRequested }: { setDemoRequested: boolea
   const invalidFields = formStatus === INVALID_FIELDS;
   const error = formStatus === ERROR;
   const loading = formStatus === LOADING;
-  const submitted = formStatus === SUBMITTED;
+  const submitted = formStatus === SUBMITTED || isDemoRequested;
 
   return submitted ? (
     <div className="d-flex align-items-center">
@@ -65,8 +73,9 @@ export const RequestDemoForm = ({ setDemoRequested }: { setDemoRequested: boolea
     <form
       method="post"
       id="getDemo"
-      className="input-round pb-4"
-      onSubmit={event => handleDemoAccessSubmit({ event, state, setFormStatus, setDemoRequested })}
+      onSubmit={event =>
+        handleDemoAccessSubmit({ event, state, setFormStatus, setDemoRequested, toggle })
+      }
       noValidate
     >
       <p className="text-dark">

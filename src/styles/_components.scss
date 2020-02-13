@@ -111,21 +111,35 @@
 }
 
 .modal-custom {
-  z-index: 100;
   background: $white;
   position: relative;
-  margin: 1.75rem auto;
-  border-radius: 3px;
-  max-width: 500px;
-  padding: 2rem;
+  border-radius: $border-radius;
+  max-width: 350px;
+  @include media-breakpoint-up(sm) {
+    max-width: 450px;
+  }
+  @include media-breakpoint-up(lg) {
+    max-width: 600px;
+  }
+  & > .modal-header-custom  {
+    border-radius: $border-radius $border-radius 0 0;
+  }
 }
 
-.modal-close-button {
-  font-size: 1.4rem;
-  font-weight: 700;
-  line-height: 1;
-  color: #000;
-  opacity: .3;
-  cursor: pointer;
+.modal-close {
+  font-size: 24px;
+  padding: 15px !important;
+  line-height: 13px;
   border: none;
+  border-radius: 50%;
+  &:hover {
+    background-color: $gray-300;
+    color: $gray-600;
+  }
+}
+
+.modal-close.btn-primary:not(:disabled):not(.disabled):active,
+.modal-close.btn-primary:focus {
+  background-color: $gray-400 !important;
+  color: $gray-700 !important;
 }

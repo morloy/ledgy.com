@@ -3,7 +3,6 @@
 import {
   demoUrl,
   isValidEmail,
-  removeModalFromDOM,
   SMALL_COMPANY_SIZES,
   FORM_STATES,
   isFieldMissing,
@@ -56,13 +55,15 @@ export const handleDemoAccessSubmit = async ({
   event,
   state,
   setFormStatus,
-  setDemoRequested
-}: {
+  setDemoRequested,
+  toggle
+}: {|
   event: SyntheticInputEvent<HTMLInputElement>,
   state: State,
   setFormStatus: DemoFormStatus => void,
-  setDemoRequested: boolean => void
-}) => {
+  setDemoRequested: boolean => void,
+  toggle: () => void
+|}) => {
   event.preventDefault();
   setFormStatus(LOADING);
   const { email, companySize } = state;
@@ -87,6 +88,6 @@ export const handleDemoAccessSubmit = async ({
     setDemoRequested(true);
     return;
   }
-  removeModalFromDOM();
+  toggle();
   redirectToDemo();
 };

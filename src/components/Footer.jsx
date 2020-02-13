@@ -87,7 +87,7 @@ export const Footer = ({ location, ...props }: LayoutProps) => {
                   <img src={logoInvertedCompact} width={80} alt={name} />
                 </Link>
                 <div className="p-lg-4">
-                  <Modal
+                  {/* <Modal
                     id="newsletter-signup"
                     title={<Trans>Sign up for the Ledgy newsletter</Trans>}
                     buttonProps={{ className: 'w-100 px-1 mb-3', inverted: true }}
@@ -106,7 +106,7 @@ export const Footer = ({ location, ...props }: LayoutProps) => {
                       </Trans>
                     </p>
                     <SignupForm {...props} trackingEvent="newsletter" />
-                  </Modal>
+                  </Modal> */}
                   <Dropdown
                     toggleText={<Trans>Language</Trans>}
                     toggleIcon={faGlobeEurope}
