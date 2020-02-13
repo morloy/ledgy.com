@@ -31,7 +31,9 @@ export const HeaderLayout = ({
           <div className="col-lg-6 d-flex flex-column justify-content-center">
             <div className="mt-md-n6 mb-md-4">
               <h1 className="text-white mt-5 mt-lg-0 mb-2 mb-sm-3">{title}</h1>
-              <div className="text-big text-white font-weight-light pb-3">{subtitle}</div>
+              <div className="text-lg line-height-lg text-white font-weight-light pb-3">
+                {subtitle}
+              </div>
             </div>
             <div>
               {Modal || (

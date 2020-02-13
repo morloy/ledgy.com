@@ -79,11 +79,7 @@ const PricingColumn = (props: {
   enterprise?: boolean
 }) => (
   <div className="col-lg-4">
-    <div
-      className={`border rounded pb-4 mx-auto ${
-        props.popular ? 'popular border border-success shadow' : ''
-      }`}
-    >
+    <div className={`border rounded pb-4 mx-auto ${props.popular ? 'border border-success' : ''}`}>
       {props.popular && (
         <span className="popular-tag">
           <Trans>30-day trial</Trans>
@@ -123,7 +119,7 @@ export default withI18n()(({ i18n, ...props }: Props) => (
       description={i18n.t`Ledgy scales with your needs. Free for startups, powerful for grown-ups.`}
     />
 
-    <header className="header text-white">
+    <header className="bg-primary text-white">
       <div className="container text-center">
         <div className="row">
           <div className="col-12 col-lg-8 offset-lg-2">
