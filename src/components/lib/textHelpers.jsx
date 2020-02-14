@@ -113,8 +113,8 @@ export const getNavbarLinks = () => {
   ];
 
   const pricing = [
-    ['pricing/companies', <Trans>For Companies</Trans>],
-    ['pricing/investors', <Trans>For Investors</Trans>]
+    ['pricing-companies', <Trans>For Companies</Trans>],
+    ['pricing-investors', <Trans>For Investors</Trans>]
   ];
 
   const dataProtection = [['data-protection', <Trans>Learn about security</Trans>]];

@@ -176,3 +176,14 @@ $deco-dot-size: 8px;
   top: 11px;
   height: $deco-dot-size;
 }
+
+// Pricing
+.pricing-col {
+  flex: 1;
+  margin: 0 0.5rem;
+  &:not(:first-of-type) {
+    border: 2px solid;
+    border-color: $gray-200;
+    border-radius: $border-radius;
+  }
+}
