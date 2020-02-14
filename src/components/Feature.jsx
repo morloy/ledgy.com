@@ -17,7 +17,7 @@ export const Feature = ({
   return (
     <div className="container text-center p-4 p-lg-6 my-7">
       <div className="row justify-content-center align-items-center">
-        <div className="col-12 col-md-7 col-lg-6 d-flex flex-column text-left">
+        <div className="col-12 col-md-7 d-flex flex-column text-left">
           <h2 className="feature-title-decoration mb-3">{title}</h2>
           <ul className="p-0 list-style-none">
             {description.map(point => (
@@ -25,11 +25,7 @@ export const Feature = ({
             ))}
           </ul>
         </div>
-        <div
-          className={`col-12 col-md-5 col-lg-6 py-3 px-2 px-md-4 ${
-            imgFirst ? 'order-md-first' : ''
-          }`}
-        >
+        <div className={`col-12 col-md-5 py-3 px-2 px-md-4 ${imgFirst ? 'order-md-first' : ''}`}>
           <Img {...imgProps} />
         </div>
       </div>

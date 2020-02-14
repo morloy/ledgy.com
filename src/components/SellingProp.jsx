@@ -22,8 +22,8 @@ export const SellingProp = ({
   imgFirst?: boolean
 |}) => (
   <div className="container text-center p-4 p-lg-7 my-7">
-    <div className="row justify-content-center align-items-center align-items-lg-start">
-      <div className="col-12 col-md-7 col-lg-6 d-flex flex-column text-left">
+    <div className="row justify-content-center align-items-center">
+      <div className="col-12 col-md-6 col-lg-7 d-flex flex-column text-left">
         <h2 className="custom-underline">{title}</h2>
         <p className="my-4">{subtitle}</p>
         <Link href to={link.to} className="d-flex align-items-center">
@@ -32,7 +32,7 @@ export const SellingProp = ({
         </Link>
       </div>
       <div
-        className={`col-12 col-md-5 col-lg-6 py-3 px-2 px-md-5 ${imgFirst ? 'order-md-first' : ''}`}
+        className={`col-12 col-md-6 col-lg-5 py-3 px-2 px-md-4 ${imgFirst ? 'order-md-first' : ''}`}
       >
         <Img {...imgProps} />
       </div>

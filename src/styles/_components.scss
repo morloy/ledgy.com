@@ -1,16 +1,14 @@
 
-// Home Banner
-
-.home-banner {
-  min-height: 70vh;
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1350px;
+  }
 }
 
-.home-banner, .navbar {
-  @media screen and (min-width: 1440px) {
-    .container {
-      max-width: 1350px;
-    }
-  }
+
+// Home Banner
+.home-banner {
+  min-height: 70vh;
 }
 
 .home-banner h1 {
@@ -30,7 +28,6 @@
 }
 
 // Footer
-
 .footer {
   height: 70rem;
   @include media-breakpoint-up(sm) {
@@ -53,7 +50,6 @@
 }
 
 // Custom underline
-
 .custom-underline u {
   text-decoration: none;
   position: relative;
@@ -72,7 +68,6 @@
 }
 
 // Custom animated underline
-
 .deco-link {
   position: relative;
   font-weight: 400;
@@ -101,7 +96,6 @@
 
 
 // Modal
-
 .modal-wrapper {
   position: fixed;
   overflow-x: hidden;
@@ -150,14 +144,12 @@
 }
 
 // Forms
-
 .form-control::placeholder {
   color: $gray-400;
 }
 
 
 // Feature
-
 $deco-dot-size: 8px;
 
 .feature-title-decoration,
