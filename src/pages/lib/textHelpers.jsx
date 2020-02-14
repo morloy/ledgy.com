@@ -97,3 +97,70 @@ export const getSecondTwoSellingProps = (data: Object) => [
     link: { to: '', text: <Trans>How Sherpany uses Ledgy for reporting</Trans> }
   }
 ];
+
+export const getDataProtectionText = (data: Object) => [
+  {
+    title: <Trans>Technical data protection</Trans>,
+    description: [
+      <Trans>
+        Your data is protected against attacks through encrypted connections, and encryption-at-rest
+        with keys stored in hardware wallets.
+      </Trans>,
+      <Trans>
+        Server call rate limits protects the servers against DoS attacks and strict content security
+        policies protect against code injection
+      </Trans>,
+      <Trans>
+        Daily, weekly and monthy backups with long retention periods ensure that data can’t be lost
+      </Trans>
+    ],
+    imgProps: { ...data.dataProtection },
+    imgFirst: true
+  },
+  {
+    title: <Trans>Data stored in Switzerland</Trans>,
+    description: [
+      <Trans>
+        Equity data like stakeholder, cap table, and participation plan data is stored in
+        Switzerland only
+      </Trans>,
+      <Trans>
+        No sharing of equity-related data with third parties, no access by employees, except when
+        you explicitly authorize support access
+      </Trans>,
+      <Trans>
+        Sharing user data with third-parties only if necessary and with your consent to provide
+        Ledgy’s services, for example, sending updates via newsletter providers
+      </Trans>
+    ],
+    imgProps: { ...data.swissData }
+  },
+  {
+    title: <Trans>GDPR compliance</Trans>,
+    description: [
+      <Trans>
+        Ledgy complies with the Swiss Federal Act on Data Protection (FADP) and the General Data
+        Protection Regulation (GDPR)
+      </Trans>,
+      <Trans>You can export or delete your data at any time</Trans>,
+      <Trans>
+        GDPR is the default for Ledgy, not an obligation, including our obligations as a controller
+        and processor, protection by design, your rights as data subject and security measures
+      </Trans>
+    ],
+    imgProps: { ...data.gdprCompliance },
+    imgFirst: true
+  },
+  {
+    title: <Trans>Privacy-first features</Trans>,
+    description: [
+      <Trans>Granular access allows you to control what information to share with whom</Trans>,
+      <Trans>Ledgy never contacts shareholders without consent of the company administrator</Trans>,
+      <Trans>
+        Strong passwords are required, two-factor authentication secures user accounts, and
+        important actions are password-protected
+      </Trans>
+    ],
+    imgProps: { ...data.privacyFirst }
+  }
+];
