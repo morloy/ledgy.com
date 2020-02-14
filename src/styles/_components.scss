@@ -154,3 +154,33 @@
 .form-control::placeholder {
   color: $gray-400;
 }
+
+
+// Feature
+
+$deco-dot-size: 8px;
+
+.feature-title-decoration,
+.feature-list-item-decoration {
+  position: relative;
+  margin-left: 30px;
+  &::before {
+    content: '';
+    position: absolute;
+    width: $deco-dot-size;
+    border-radius: 3px;
+    background-color: $deep-blue;
+    left: -25px;
+  }
+}
+
+.feature-title-decoration::before {
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80%;
+}
+
+.feature-list-item-decoration::before {
+  top: 11px;
+  height: $deco-dot-size;
+}
