@@ -7,6 +7,8 @@ import ReactDOM from 'react-dom';
 
 import { Button } from './Button';
 
+const getDocumentBody = () => (typeof document !== 'undefined' ? document.body : null);
+
 const closeWithOutsideClick = (e: SyntheticInputEvent<HTMLInputElement>, close: () => void) => {
   e.stopPropagation();
   close();
@@ -23,7 +25,7 @@ export const Modal = ({
   title: Node,
   children: Node
 }) => {
-  const container = document.body;
+  const container = getDocumentBody();
   return isOpen && container
     ? ReactDOM.createPortal(
         <>
