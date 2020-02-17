@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 // @flow
 
-import React from 'react';
+import React, { type Node } from 'react';
 import { withI18n, Trans } from '@lingui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -13,6 +13,42 @@ import { DefaultHeader } from '../components/Header';
 import { getFeaturePricing } from './lib/textHelpers';
 
 const featurePricing = getFeaturePricing();
+
+const PricingCol = ({
+  icon,
+  name,
+  price,
+  children,
+  textLeft
+}: {
+  icon?: Object,
+  name?: string,
+  price?: Node,
+  children: Node,
+  textLeft?: boolean
+}) => (
+  <div className={`pricing-col ${textLeft ? 'text-left' : 'text-center'}`}>
+    <div className="pricing-plan">
+      {icon && name && price && (
+        <>
+          <Img {...icon} />
+          <h3 className="py-2">{name}</h3>
+          <div>{price}</div>
+        </>
+      )}
+    </div>
+    {children}
+  </div>
+);
+
+const PricingColChildren = ({ prop }: { prop: boolean | Node }) => (
+  <div className="d-block py-1">
+    {(typeof prop !== 'boolean' && prop) ||
+      (!prop && <FontAwesomeIcon icon={faTimes} className="text-muted" />) || (
+        <FontAwesomeIcon icon={faCheck} className="text-success" />
+      )}
+  </div>
+);
 
 export default withI18n()(({ i18n, data }: Props) => (
   <div>
@@ -32,65 +68,33 @@ export default withI18n()(({ i18n, data }: Props) => (
     />
     <div className="container">
       <div className="row text-nowrap">
-        <div className="pricing-col">
-          <div className="pricing-plan" />
-          {featurePricing.map(({ text }, i) => (
-            <div className="d-block py-1" key={i}>
-              {text}
-            </div>
+        <PricingCol textLeft>
+          {featurePricing.map(({ text = true }, i) => (
+            <PricingColChildren prop={text} key={i} />
           ))}
-        </div>
-        <div className="pricing-col text-center">
-          <div className="pricing-plan">
-            <Img {...data.startupIcon} />
-            <h3 className="py-2">Startup</h3>
-            <div>
-              <Trans>free</Trans>
-            </div>
-          </div>
+        </PricingCol>
+
+        <PricingCol icon={data.startupIcon} name="Startup" price={<Trans>free</Trans>}>
           {featurePricing.map(({ startup = true }, i) => (
-            <div className="d-block py-1" key={i + 100}>
-              {(typeof startup !== 'boolean' && startup) ||
-                (!startup && <FontAwesomeIcon icon={faTimes} className="text-muted" />) || (
-                  <FontAwesomeIcon icon={faCheck} className="text-success" />
-                )}
-            </div>
+            <PricingColChildren prop={startup} key={i + 100} />
           ))}
-        </div>
-        <div className="pricing-col text-center">
-          <div className="pricing-plan">
-            <Img {...data.scaleupIcon} />
-            <h3 className="py-2">Scaleup</h3>
-            <div>
-              <Trans>€2 / stakeholder / month</Trans>
-            </div>
-          </div>
+        </PricingCol>
+
+        <PricingCol
+          icon={data.scaleupIcon}
+          name="Scaleup"
+          price={<Trans>€2 / stakeholder / month</Trans>}
+        >
           {featurePricing.map(({ scaleup = true }, i) => (
-            <div className="d-block py-1" key={i + 200}>
-              {(typeof scaleup !== 'boolean' && scaleup) ||
-                (!scaleup && <FontAwesomeIcon icon={faTimes} className="text-muted" />) || (
-                  <FontAwesomeIcon icon={faCheck} className="text-success" />
-                )}
-            </div>
+            <PricingColChildren prop={scaleup} key={i + 200} />
           ))}
-        </div>
-        <div className="col-3 pricing-col text-center border-energetic-blue">
-          <div className="pricing-plan">
-            <Img {...data.enterpriseIcon} />
-            <h3 className="py-2">Enterprise</h3>
-            <div>
-              <Trans>Contact us</Trans>
-            </div>
-          </div>
+        </PricingCol>
+
+        <PricingCol icon={data.enterpriseIcon} name="Enterprise" price={<Trans>Contact us</Trans>}>
           {featurePricing.map(({ enterprise = true }, i) => (
-            <div className="d-block py-1" key={i + 300}>
-              {(typeof enterprise !== 'boolean' && enterprise) ||
-                (!enterprise && <FontAwesomeIcon icon={faTimes} className="text-muted" />) || (
-                  <FontAwesomeIcon icon={faCheck} className="text-success" />
-                )}
-            </div>
+            <PricingColChildren prop={enterprise} key={i + 300} />
           ))}
-        </div>
+        </PricingCol>
       </div>
 
       <div className="justify-content-center row gap-y" />
