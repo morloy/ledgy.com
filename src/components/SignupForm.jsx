@@ -7,16 +7,17 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { navigate } from 'gatsby';
 
-import { isValidEmail, removeModalFromDOM, FORM_STATES } from '../helpers';
+import { isValidEmail, FORM_STATES } from '../helpers';
 
+import { Button } from './Button';
 import { signupOnMixpanel, trackOnMixpanel } from './lib';
 
 const { ERROR, IDLE, INVALID, LOADING } = FORM_STATES;
 
 declare type FormStatus = {| status: 'idle' | 'loading' | 'invalid' | 'error' |};
 
-export default class extends Component<
-  {| ...Props, trackingEvent: string |},
+export class SignupForm extends Component<
+  {| ...Props, toggle?: () => void, trackingEvent: string |},
   { email: string, ...FormStatus }
 > {
   state = { email: '', status: IDLE };
@@ -34,7 +35,7 @@ export default class extends Component<
         if (signupResponse.status === 200) {
           trackOnMixpanel(email, this.props.trackingEvent);
           this.setState({ email: '', status: IDLE });
-          removeModalFromDOM();
+          if (this.props.toggle) this.props.toggle();
           navigate('/subscribed');
         } else {
           this.setState({ status: ERROR });
@@ -59,16 +60,15 @@ export default class extends Component<
           <div className="form-group input-group bg-white p-2 my-4 position-relative">
             <input
               type="email"
-              name="EMAIL"
               className="form-control"
               placeholder={i18n.t`Enter your email…`}
               onChange={this.handleChange}
               value={this.state.email}
+              style={{ height: 'inherit' }}
             />
-            <button
+            <Button
               type="submit"
-              name="subscribe"
-              className="btn btn-primary btn-round btn-xl ml-2 min-width-110px"
+              className="button-embedded min-width-110px"
               disabled={invalid || error || loading}
             >
               {loading ? (
@@ -76,7 +76,7 @@ export default class extends Component<
               ) : (
                 <Trans>Subscribe</Trans>
               )}
-            </button>
+            </Button>
             <small className="text-danger position-absolute form-error-message">
               {invalid && <Trans>Oops. This email address is invalid.</Trans>}
               {error && <Trans>Oops. Something went wrong, please try again.</Trans>}

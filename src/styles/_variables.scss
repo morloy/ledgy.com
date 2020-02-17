@@ -7,6 +7,16 @@ $vibrant-green:                   #1edeb7;
 $highlight-red:                   #e64c49;
 $pale-energetic-blue:             #eaf5fa;
 
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+
 // the following adds our theme colors to the bootstrap theme-colors map
 $theme-colors: (
   "blue": $deep-blue,
@@ -19,21 +29,18 @@ $theme-colors: (
   "info": $energetic-blue,
   "success": $vibrant-green,
   "danger": $highlight-red,
+  "gray-neutral": $gray-500
 );
 
-$box-shadow:                        0 1px 15px rgba(0,0,0,0.05) !default;
+$box-shadow:                        0 10px 20px rgba(0,0,0,0.25), 0 6px 6px rgba(0,0,0,0.22);
 $navbar-min-height:                 70px !default;
 
 // Z-index master list
 $zindex-company-summary:            999 !default;
 $zindex-navbar:                     1000 !default;
-$zindex-topbar:                     1001 !default;
-$zindex-scrolltop:                  1000 !default;
-$zindex-drawer:                     1000 !default;
-$zindex-sidebar:                    1000 !default;
-$zindex-offcanvas:                  1010 !default;
-$zindex-popup:                      1010 !default;
-
+$zindex-backdrop:                   1020 !default;
+$zindex-popup:                      1030 !default;
+$zindex-popup-toggler:              1040 !default;
 
 // Line height
 $line-height-xs:              1.3 !default;
@@ -43,7 +50,7 @@ $line-height-xl:              2.5 !default;
 
 
 // Fonts
-$ledgy-font-size:              16px;
+$ledgy-font-size:             16px;
 
 $font-weight-light:           300;
 $font-weight-normal:          400;

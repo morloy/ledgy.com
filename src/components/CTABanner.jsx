@@ -5,29 +5,29 @@ import React, { type Node } from 'react';
 import sample from 'lodash/sample';
 import { Trans } from '@lingui/react';
 import { callToActionExperiments } from '../layouts/utils';
-import { isBrowser, appUrl, targetBlank, track } from '../helpers';
+import { isBrowser, appUrl, track } from '../helpers';
+
+import { Button } from './Button';
 
 const Banner = (props: { title: Node, url: string, trackingName: Node, CTAText: Node }) => {
   const { title, url, trackingName, CTAText } = props;
   return (
-    <section className="section bg-pale-secondary">
-      <div className="container py-md-4">
-        <div className="row m-0 w-100 justify-content-center align-items-center">
-          <h4 className="m-3 text-center">{title}</h4>
-          <a
-            className="cta-button m-3 btn btn-lg btn-round btn-primary align-self-center"
-            {...targetBlank}
-            href={url}
-            onClick={() => {
-              if (window.ga) window.ga('set', 'dimension2', { trackingName });
-              track('click.signup', { experiment: trackingName });
-            }}
-          >
-            {CTAText}
-          </a>
-        </div>
+    <div className="container p-4 p-lg-7 my-7">
+      <div className="row m-0 w-100 flex-column justify-content-center align-items-center">
+        <h3 className="mb-4 text-center font-weight-bold">{title}</h3>
+        <Button
+          cta
+          href={url}
+          onClick={() => {
+            if (window.ga) window.ga('set', 'dimension2', { trackingName });
+            track('click.signup');
+          }}
+          className="text-lg px-4 py-2"
+        >
+          {CTAText}
+        </Button>
       </div>
-    </section>
+    </div>
   );
 };
 

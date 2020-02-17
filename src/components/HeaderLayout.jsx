@@ -1,7 +1,7 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { Button } from './Button';
+import { Button } from '../layouts/utils';
 
 type HeaderButton = {| props: Object, text: Node, modal?: Node |};
 type HeaderLayoutProps = {|
@@ -25,13 +25,15 @@ export const HeaderLayout = ({
   const { props, modal = null } = buttonOne;
   const Modal = modal;
   return (
-    <header className="home-banner header d-flex align-items-center px-1 text-left bg-primary">
-      <div className="container">
-        <div className="row">
+    <header className="header d-flex home-banner px-1 text-left bg-primary">
+      <div className="container my-auto">
+        <div className="row gap-y mt-md-2 pb-4 pb-md-6">
           <div className="col-lg-6 d-flex flex-column justify-content-center">
             <div className="mt-md-n6 mb-md-4">
-              <h1 className="text-white mb-2 mb-sm-3">{title}</h1>
-              <div className="big-text text-white font-weight-light pb-3">{subtitle}</div>
+              <h1 className="text-white mt-5 mt-lg-0 mb-2 mb-sm-3">{title}</h1>
+              <div className="text-lg line-height-lg text-white font-weight-light pb-3">
+                {subtitle}
+              </div>
             </div>
             <div>
               {Modal || (
@@ -47,7 +49,9 @@ export const HeaderLayout = ({
               {customButton}
             </div>
           </div>
-          <div className="col-lg-6 d-flex flex-column justify-content-center">{image}</div>
+          <div className="col-lg-6 d-flex flex-column justify-content-center mt-4 mt-lg-0">
+            {image}
+          </div>
         </div>
       </div>
     </header>

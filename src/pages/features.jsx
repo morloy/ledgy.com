@@ -4,7 +4,7 @@ import React from 'react';
 import { withI18n, Trans } from '@lingui/react';
 import { graphql } from 'gatsby';
 
-import { Feature, FeatureLi } from '../components/Feature';
+import { Feature, FeatureLi } from '../components/FeatureOld';
 import SecurityRow from '../components/SecurityRow';
 import { Title, Hr } from '../layouts/utils';
 

@@ -11,9 +11,9 @@ import {
   faFileContract
 } from '@fortawesome/free-solid-svg-icons';
 
-import { FeatureLinks, FeatureList, TopPageFeatureCard } from '../../components/Feature';
+import { FeatureLinks, FeatureList, TopPageFeatureCard } from '../../components/FeatureOld';
 import { Title } from '../../layouts/utils';
-import SignupForm from '../../components/SignupForm';
+import { SignupForm } from '../../components/SignupForm';
 
 export default withI18n()((props: Props) => {
   const { i18n, data } = props;

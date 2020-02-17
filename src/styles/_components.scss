@@ -1,48 +1,214 @@
 
-// Dropdown
-
-.dropdown-list {
-  top: 0;
-  left: 0;
-}
-
-// Navbar/HomeBanner
-
-.home-banner {
-  min-height: 75vh;
-}
-
-.home-banner, .navbar {
-  @media screen and (min-width: 1440px) {
-    .container {
-      max-width: 1350px;
-    }
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1350px;
   }
 }
 
+
+// Home Banner
+.home-banner {
+  min-height: 70vh;
+}
+
 .home-banner h1 {
-  font-size: $huge-font-size;
   font-weight: bold;
+  @include media-breakpoint-up(lg) {
+    font-size: $huge-font-size;
+  }
 }
 
 .home-banner h1, .banner-text {
   max-width: 500px;
 }
 
-.navbar .btn {
-  white-space: nowrap;
+// Header
+.header-custom {
+  min-height: 30vh;
 }
 
 // Footer
-
 .footer {
+  height: 70rem;
+  @include media-breakpoint-up(sm) {
+    height: 60rem;
+  }
+  @include media-breakpoint-up(md) {
+    height: 45rem;
+    &--logo-section {
+     height: 100%;
+    }
+  }
   .nav-link {
     color: $white;
     padding-left: 0;
   }
+  .social-icon {
+    opacity: 0.75;
+    font-size: 25px;
+  }
 }
 
-.social-icon {
-  opacity: 0.75;
-  font-size: 25px;
+// Custom underline
+.custom-underline u {
+  text-decoration: none;
+  position: relative;
+  white-space: nowrap;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 6px;
+    width: 100%;
+    background-color: $vibrant-green;
+    border-radius: $border-radius;
+    z-index: -1;
+  }
+}
+
+// Custom animated underline
+.deco-link {
+  position: relative;
+  font-weight: 400;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    opacity: 0;
+    transition: 300ms;
+    transform: scale(0,1);
+    background-color: $vibrant-green;
+    border-radius: $border-radius;
+    z-index: -1;
+  }
+  &:hover:after {
+    opacity: 1;
+    transform: scale(1);
+  }
+  @include media-breakpoint-up(md) {
+    white-space: nowrap;
+  }
+}
+
+
+// Modal
+.modal-wrapper {
+  position: fixed;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: $zindex-popup;
+}
+
+.modal-custom {
+  background: $white;
+  position: relative;
+  border-radius: $border-radius;
+  max-width: 450px;
+  @include media-breakpoint-up(sm) {
+    max-width: 500px;
+  }
+  @include media-breakpoint-up(lg) {
+    max-width: 550px;
+  }
+  & > .modal-header-custom  {
+    border-radius: $border-radius $border-radius 0 0;
+  }
+}
+
+.modal-close {
+  font-size: 24px;
+  padding: 15px !important;
+  line-height: 13px;
+  border: none;
+  border-radius: 50%;
+  &:hover {
+    background-color: $gray-300;
+    color: $gray-600;
+  }
+}
+
+.modal-close.btn-primary:not(:disabled):not(.disabled):active,
+.modal-close.btn-primary:focus {
+  background-color: $gray-400 !important;
+  color: $gray-700 !important;
+}
+
+// Forms
+.form-control::placeholder {
+  color: $gray-400;
+}
+
+
+// Feature
+$deco-dot-size: 8px;
+
+.feature-title-decoration,
+.feature-list-item-decoration {
+  position: relative;
+  margin-left: 30px;
+  &::before {
+    content: '';
+    position: absolute;
+    width: $deco-dot-size;
+    border-radius: 3px;
+    background-color: $deep-blue;
+    left: -25px;
+  }
+}
+
+.feature-title-decoration::before {
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80%;
+}
+
+.feature-list-item-decoration::before {
+  top: 11px;
+  height: $deco-dot-size;
+}
+
+// Pricing
+@mixin pricing-border {
+  border: 3px solid;
+  border-color: $gray-200;
+  border-radius: $border-radius;
+}
+
+.pricing-col {
+  flex: 1;
+  margin: 0 0.5rem;
+  overflow: scroll;
+  &:not(:first-of-type) {
+    @include pricing-border;
+  }
+}
+
+.pricing-plan {
+  height: 210px;
+  &.Scaleup {
+    height: 250px;
+  }
+  &.Enterprise {
+    height: 300px;
+  }
+  @include media-breakpoint-up(lg) {
+    height: 300px !important;
+  }
+}
+
+.investor-pricing-plan {
+  @include pricing-border;
+  li {
+    height: 2.8rem;
+  }
 }

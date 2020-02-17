@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import React, { type Node } from 'react';
 import Img from 'gatsby-image';
 
 import { LanguageHint } from '../components/Markdown';
@@ -15,21 +15,17 @@ export const DefaultHeader = ({
   lang = DEFAULT_LANG,
   documentLang = DEFAULT_LANG
 }: {|
-  title: string,
-  subtitle?: string,
+  title: string | Node,
+  subtitle?: string | Node,
   lang?: Language,
   documentLang?: Language
 |}) => {
   return (
-    <header className="header text-white">
-      <div className="container text-center">
-        <div className="row">
-          <div className="col-12 col-lg-8 offset-lg-2">
-            <h1>{title}</h1>
-            {subtitle && <h5 className="font-weight-light">{subtitle}</h5>}
-            <LanguageHint lang={lang} documentLang={documentLang} />
-          </div>
-        </div>
+    <header className="header-custom bg-primary text-white d-flex flex-column justify-content-center mb-4 mb-md-5 mb-lg-7">
+      <div className="container text-left my-4">
+        <h1>{title}</h1>
+        {subtitle && <p className="text-lg">{subtitle}</p>}
+        <LanguageHint lang={lang} documentLang={documentLang} />
       </div>
     </header>
   );

@@ -40,6 +40,13 @@ export const FORM_STATES = Object.freeze({
   INVALID_FIELDS: 'invalid-fields'
 });
 
+// plan names
+export const LEDGY_PLANS = Object.freeze({
+  STARTUP: 'Startup',
+  SCALEUP: 'Scaleup',
+  ENTERPRISE: 'Enterprise'
+});
+
 // company sizes
 export const COMPANY_SIZES = ['1–10', '11–50', '51–100', '101–250', '251+'];
 export const SMALL_COMPANY_SIZES: string[] = COMPANY_SIZES.slice(0, 2);

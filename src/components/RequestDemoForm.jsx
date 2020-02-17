@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Trans } from '@lingui/react';
 
 import { COMPANY_SIZES, FORM_STATES } from '../helpers';
+
+import { Button } from './Button';
 import { handleDemoAccessSubmit, type DemoFormStatus, isSmallCompany } from './lib';
 
 const { ERROR, IDLE, INVALID_EMAIL, INVALID_FIELDS, LOADING, SUBMITTED } = FORM_STATES;
@@ -24,7 +26,7 @@ const Input = ({
   setFormStatus: DemoFormStatus => void,
   name: string
 |}) => (
-  <div className="form-group input-group bg-white p-2 mt-2 mb-4">
+  <div className="form-group input-group bg-white p-2 mb-4">
     <input
       className="form-control"
       placeholder={placeholder}
@@ -38,7 +40,15 @@ const Input = ({
   </div>
 );
 
-export const RequestDemoForm = ({ setDemoRequested }: { setDemoRequested: boolean => void }) => {
+export const RequestDemoForm = ({
+  isDemoRequested,
+  setDemoRequested,
+  toggle
+}: {|
+  isDemoRequested: boolean,
+  setDemoRequested: boolean => void,
+  toggle: () => void
+|}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [companyName, setCompanyName] = useState('');
@@ -50,7 +60,7 @@ export const RequestDemoForm = ({ setDemoRequested }: { setDemoRequested: boolea
   const invalidFields = formStatus === INVALID_FIELDS;
   const error = formStatus === ERROR;
   const loading = formStatus === LOADING;
-  const submitted = formStatus === SUBMITTED;
+  const submitted = formStatus === SUBMITTED || isDemoRequested;
 
   return submitted ? (
     <div className="d-flex align-items-center">
@@ -65,11 +75,12 @@ export const RequestDemoForm = ({ setDemoRequested }: { setDemoRequested: boolea
     <form
       method="post"
       id="getDemo"
-      className="input-round pb-4"
-      onSubmit={event => handleDemoAccessSubmit({ event, state, setFormStatus, setDemoRequested })}
+      onSubmit={event =>
+        handleDemoAccessSubmit({ event, state, setFormStatus, setDemoRequested, toggle })
+      }
       noValidate
     >
-      <p className="text-dark">
+      <p className="text-dark mt-1 mb-4">
         <Trans>Please fill out the form below to access the demo</Trans>
       </p>
       <Label text={<Trans>Your email *</Trans>} />
@@ -103,19 +114,18 @@ export const RequestDemoForm = ({ setDemoRequested }: { setDemoRequested: boolea
       <div className="d-flex mt-2 mb-4">
         <input type="hidden" name="companySize" />
         {COMPANY_SIZES.map(size => (
-          <button
-            type="button"
+          <Button
             key={size}
             onClick={() => {
               setCompanySize(size);
               setFormStatus(IDLE);
             }}
-            className={`btn multi-button border border-muted px-1 py-4 ${
-              size === companySize ? 'bg-primary text-white' : ''
+            className={`multi-button border border-muted px-1 py-2 ${
+              size === companySize ? 'selected' : ''
             }`}
           >
             {size}
-          </button>
+          </Button>
         ))}
       </div>
 
@@ -125,17 +135,17 @@ export const RequestDemoForm = ({ setDemoRequested }: { setDemoRequested: boolea
           {invalidEmail && <Trans>Oops. This email address is invalid.</Trans>}
           {error && <Trans>Something went wrong, please try again.</Trans>}
         </small>
-        <button
-          type="submit"
-          className="btn btn-primary btn-round btn-xl min-width-120px"
+        <Button
+          className="btn-xl min-width-120px"
           disabled={invalidFields || invalidEmail || error || loading}
+          type="submit"
         >
           {loading ? (
             <FontAwesomeIcon icon={faSpinner} className="fa-lg spin" />
           ) : (
             <Trans>Submit</Trans>
           )}
-        </button>
+        </Button>
       </div>
     </form>
   );

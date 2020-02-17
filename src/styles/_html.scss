@@ -5,8 +5,17 @@ html, body {
   font-family: 'Open Sans';
 }
 
-html, body, div, a, li, button {
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body.overlay {
+  overflow: hidden;
+}
+
+html, body, div, a, li, button, input {
   font-size: $ledgy-font-size;
+  line-height: $line-height-base;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -15,57 +24,54 @@ h1, h2, h3, h4, h5, h6 {
   hyphens: auto;
 }
 
+small {
+  font-size: $ledgy-font-size / 1.2;
+}
+
 h1 {
   font-size: $h1-font-size;
   hyphens: none;
 }
 
 h2 {
-  font-size: $h2-font-size
+  font-size: $h2-font-size;
+  line-height: 2.75rem;
 }
 
 h3 {
-  font-size: $h3-font-size
+  font-size: $h3-font-size;
 }
 
 h4 {
-  font-size: $h4-font-size
+  font-size: $h4-font-size;
 }
 
 h5 {
-  font-size: $h5-font-size
+  font-size: $h5-font-size;
 }
 
 h6 {
-  font-size: $h6-font-size
+  font-size: $h6-font-size;
 }
 
 a {
   text-decoration: none !important;
+  color: $energetic-blue;
+  transition: 300ms;
+  &:hover {
+    color: $deep-blue;
+    transition: 300ms;
+  }
 }
 
-p > a,
-li > a {
+nav {
   position: relative;
-  font-weight: 400;
-  &:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    height: 1.2rem;
-    width: 100%;
-    border-bottom: 1px solid;
-    margin-top: 8px;
-    opacity: 0;
-    transition: 300ms;
-    transform: scale(0,1);
-  }
-  &:hover:after {
-    opacity: 1;
-    transform: scale(1);
-  }
-  @include media-breakpoint-up(sm) {
-    white-space: nowrap;
-  }
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
 }

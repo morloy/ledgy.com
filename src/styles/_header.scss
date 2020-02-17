@@ -1,19 +1,41 @@
 .header {
+  $padding: 20px;
+
   position: relative;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  padding-top: $padding/3 + $navbar-min-height;
+  padding-bottom: $padding/3;
+  padding-right: $padding/6;
+  padding-left: $padding/6;
   text-align: center;
 
+  @include media-breakpoint-up(md) {
+    padding-top: $padding/2 + $navbar-min-height;
+    padding-bottom: $padding/2;
+    padding-right: $padding/3;
+    padding-left: $padding/3;
+  }
+
   @include media-breakpoint-up(lg) {
+    padding-top: $padding/1.5 + $navbar-min-height;
+    padding-bottom: $padding/1.5;
     text-align: left;
+  }
+  @include media-breakpoint-up(xl) {
+    padding-top: $padding + $navbar-min-height;
+    padding-bottom: $padding;
   }
 
   > .container,
   > .container-fluid {
     position: relative;
     height: 100%;
-    margin-bottom: $navbar-min-height;
+  }
+
+  &.h-fullscreen {
+    padding-top: $padding;
   }
 }
 

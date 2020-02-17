@@ -1,0 +1,51 @@
+.btn {
+  transition: all 0.3s;
+  padding: 5px 15px;
+  &:hover {
+    box-shadow: $box-shadow;
+    transition: all 0.3s;
+    transform: translateZ(10px) !important;
+  }
+  &:focus, &:active {
+    box-shadow: none !important;
+  }
+  &:disabled:hover {
+    box-shadow: none !important;
+    transform: none !important;
+  }
+}
+
+.button-disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.button-embedded {
+  border-radius: 0 $border-radius $border-radius 0;
+}
+
+// Multi-button
+
+.multi-button {
+  background-color: $white;
+  flex: 1 1 0px;
+  color: #999999;
+  border-radius: 0;
+  &:first-of-type {
+    border-radius: 10rem 0 0 10rem;
+  }
+  &:last-of-type {
+    border-radius: 0 10rem 10rem 0;
+  }
+  &.selected {
+    color: $white;
+    background-color: $deep-blue;
+  }
+  &:hover:not(.selected) {
+    opacity: 0.75;
+  }
+}
+
+button.multi-button.bg-primary:focus {
+  background: $deep-blue !important;
+}

@@ -6,7 +6,7 @@ import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { faFileExcel, faGlobe, faSmile, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
-import { FeatureLinks, FeatureList, TopPageFeatureCard } from '../../components/Feature';
+import { FeatureLinks, FeatureList, TopPageFeatureCard } from '../../components/FeatureOld';
 import { Title, ChevronRight } from '../../layouts/utils';
 
 export default withI18n()(({ i18n, ...props }: Props) => (

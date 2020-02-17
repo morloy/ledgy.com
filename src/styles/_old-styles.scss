@@ -1,25 +1,3 @@
-.big-text {
-  font-size: 18px;
-  line-height: 2.2rem;
-}
-
-.btn {
-  transition: all 0.3s;
-  padding: 7px 21px;
-  &:hover {
-    box-shadow: 0 10px 20px rgba(0,0,0,0.25), 0 6px 6px rgba(0,0,0,0.22);
-    transition: all 0.3s;
-    transform: translateZ(10px) !important;
-  }
-  &:focus, &:active {
-    box-shadow: none !important;
-  }
-  &:disabled:hover {
-    box-shadow: none !important;
-    transform: none !important;
-  }
-}
-
 .stick .btn-outline-light {
   color: $primary;
   border-color: $primary;
@@ -72,13 +50,6 @@
 }
 .newsletter {
   max-width: 600px;
-}
-
-.btn-demo {
-  width: 100%;
-  @include media-breakpoint-up(sm) {
-    width: unset;
-  }
 }
 
 .imprint h6 {
@@ -258,13 +229,6 @@
   }
 }
 
-.cta-button {
-  font-size: 18px;
-  @include media-breakpoint-down(sm) {
-    width: 75%;
-  }
-}
-
 .testimonial {
   line-height: 1.8;
   small {
@@ -334,29 +298,6 @@
 .form-error-message {
   bottom: -30px;
   left: 25px;
-}
-
-.multi-button {
-  flex: 1 1 0px;
-  color: #999999;
-  &:first-of-type {
-    border-radius: 10rem 0 0 10rem;
-  }
-  &:last-of-type {
-    border-radius: 0 10rem 10rem 0;
-  }
-}
-
-button.multi-button.bg-primary:focus {
-  background: $primary !important;
-}
-
-.min-width-110px {
-  min-width: 110px;
-}
-
-.min-width-120px {
-  min-width: 120px;
 }
 
 .customer-story-section {
