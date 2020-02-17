@@ -26,19 +26,12 @@ type SiteProps = {|
   location: { pathname: string }
 |};
 
-const openDemoModal = () => {
-  if (window.location.hash === '#getDemo') {
-    window.$('#demo-access').modal();
-  }
-};
-
 const Initialize = () => {
   useEffect(() => {
     animateTablet();
     setTimeout(async () => {
       require('../hotjar'); // eslint-disable-line global-require
-
-      openDemoModal();
+      require('../segment'); // eslint-disable-line global-require
     }, 1414);
   }, []);
   return null;

@@ -31,8 +31,11 @@
   color: $white;
   display: inline-block;
   border-radius: 5px;
-  padding: 10px 20px;
   margin: 10px;
+  padding: 10px 15px;
+  @include media-breakpoint-up(xl) {
+    padding: 10px 20px;
+  }
 }
 
 .hover-list-parent > li {
