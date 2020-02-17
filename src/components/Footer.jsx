@@ -10,7 +10,7 @@ import { faGlobeEurope } from '@fortawesome/free-solid-svg-icons';
 import { name, targetBlank } from '../helpers';
 import { deprefix } from '../i18n-config';
 
-import logoInverted from '../img/logo-inverted.png';
+import logoInvertedCompact from '../img/logo-inverted-compact.png';
 
 import { CTABanner } from './CTABanner';
 import { Dropdown } from './Dropdown';
