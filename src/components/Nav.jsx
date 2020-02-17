@@ -4,7 +4,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { Trans } from '@lingui/react';
 
-import { name, appUrl, trackSignupGoogleAnalytics } from '../helpers';
+import { name, appUrl, track } from '../helpers';
 import logoInverted from '../img/logo-inverted.png';
 import { Button } from './Button';
 

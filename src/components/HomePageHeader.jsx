@@ -76,7 +76,6 @@ export const HomePageHeader = ({ i18n, data, lang }: Props) => {
   const buttonTwo = {
     props: {
       href: `${appUrl}/signup`,
-      onClick: trackSignupGoogleAnalytics,
       ...targetBlank,
       cta: true
     },
