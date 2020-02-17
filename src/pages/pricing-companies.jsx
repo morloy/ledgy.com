@@ -19,16 +19,22 @@ const PricingCol = ({
   name,
   price,
   children,
-  textLeft
+  textLeft = false,
+  highlight = false
 }: {
   icon?: Object,
   name?: string,
   price?: Node,
   children: Node,
-  textLeft?: boolean
+  textLeft?: boolean,
+  highlight?: boolean
 }) => (
-  <div className={`pricing-col ${textLeft ? 'text-left' : 'text-center'}`}>
-    <div className="pricing-plan">
+  <div
+    className={`pricing-col ${textLeft ? 'text-left' : 'text-center'} ${
+      highlight ? 'border-energetic-blue' : ''
+    }`}
+  >
+    <div className="height-300px p-1 d-flex flex-column justify-content-end align-items-center">
       {icon && name && price && (
         <>
           <Img {...icon} />
@@ -90,7 +96,12 @@ export default withI18n()(({ i18n, data }: Props) => (
           ))}
         </PricingCol>
 
-        <PricingCol icon={data.enterpriseIcon} name="Enterprise" price={<Trans>Contact us</Trans>}>
+        <PricingCol
+          highlight
+          icon={data.enterpriseIcon}
+          name="Enterprise"
+          price={<Trans>Contact us</Trans>}
+        >
           {featurePricing.map(({ enterprise = true }, i) => (
             <PricingColChildren prop={enterprise} key={i + 300} />
           ))}
