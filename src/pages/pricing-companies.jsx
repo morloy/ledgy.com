@@ -9,11 +9,9 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import { Title } from '../layouts/utils';
-import { LEDGY_PLANS, appUrl } from '../helpers';
+import { LEDGY_PLANS, appUrl, getCompanyFeaturePricing } from '../helpers';
 import { DefaultHeader } from '../components/Header';
 import { Button } from '../components/Button';
-
-import { getCompanyFeaturePricing } from './lib/textHelpers';
 
 const { STARTUP, SCALEUP, ENTERPRISE } = LEDGY_PLANS;
 const featurePricing = getCompanyFeaturePricing();

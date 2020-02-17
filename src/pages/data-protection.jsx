@@ -8,7 +8,7 @@ import { Title } from '../layouts/utils';
 import { DefaultHeader } from '../components/Header';
 import { Feature } from '../components/Feature';
 
-import { getDataProtectionText } from './lib/textHelpers';
+import { getDataProtectionText } from '../helpers';
 
 export default withI18n()(({ i18n, data }: Props) => {
   return (

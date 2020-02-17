@@ -3,7 +3,7 @@
 import React from 'react';
 import { Trans } from '@lingui/react';
 
-import { forbesUrl, economistUrl, wirtschaftswocheUrl, top100Url } from '../../helpers';
+import { forbesUrl, economistUrl, wirtschaftswocheUrl, top100Url } from './constants';
 
 export const getTopLedgyClients = (props: Props) => {
   const { viu, frontify, nakd, sherpany } = props.data;

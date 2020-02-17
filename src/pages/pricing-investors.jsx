@@ -4,11 +4,9 @@ import React, { type Node } from 'react';
 import { withI18n, Trans } from '@lingui/react';
 
 import { Title } from '../layouts/utils';
-import { appUrl } from '../helpers';
+import { appUrl, getInvestorFeaturePricing } from '../helpers';
 import { DefaultHeader } from '../components/Header';
 import { Button } from '../components/Button';
-
-import { getInvestorFeaturePricing } from './lib/textHelpers';
 
 const { angelFeatures, fundFeatures } = getInvestorFeaturePricing();
 
