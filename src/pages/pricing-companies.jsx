@@ -9,8 +9,10 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import { Title } from '../layouts/utils';
-import { LEDGY_PLANS } from '../helpers';
+import { LEDGY_PLANS, appUrl } from '../helpers';
 import { DefaultHeader } from '../components/Header';
+import { Button } from '../components/Button';
+
 import { getFeaturePricing } from './lib/textHelpers';
 
 const { STARTUP, SCALEUP, ENTERPRISE } = LEDGY_PLANS;
@@ -92,6 +94,9 @@ export default withI18n()(({ i18n, data }: Props) => {
       {featurePricing.map(({ startup = true }, i) => (
         <PricingColChildren prop={startup} key={i + 100} />
       ))}
+      <Button inverted className="my-4" href={`${appUrl}/signup`}>
+        <Trans>Sign up</Trans>
+      </Button>
     </PricingCol>
   );
 
@@ -104,6 +109,9 @@ export default withI18n()(({ i18n, data }: Props) => {
       {featurePricing.map(({ scaleup = true }, i) => (
         <PricingColChildren prop={scaleup} key={i + 200} />
       ))}
+      <Button className="my-4" href={`${appUrl}/signup`}>
+        <Trans>Free trial</Trans>
+      </Button>
     </PricingCol>
   );
 
@@ -117,6 +125,9 @@ export default withI18n()(({ i18n, data }: Props) => {
       {featurePricing.map(({ enterprise = true }, i) => (
         <PricingColChildren prop={enterprise} key={i + 300} />
       ))}
+      <Button className="my-4" href="mailto:contact@ledgy.com?subject=Enterprise plan inquiry">
+        <Trans>Get in touch</Trans>
+      </Button>
     </PricingCol>
   );
   return (
