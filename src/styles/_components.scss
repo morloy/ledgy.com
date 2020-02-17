@@ -181,9 +181,23 @@ $deco-dot-size: 8px;
 .pricing-col {
   flex: 1;
   margin: 0 0.5rem;
+  overflow: scroll;
   &:not(:first-of-type) {
     border: 2px solid;
     border-color: $gray-200;
     border-radius: $border-radius;
+  }
+}
+
+.pricing-plan {
+  height: 210px;
+  &.Scaleup {
+    height: 250px;
+  }
+  &.Enterprise {
+    height: 300px;
+  }
+  @include media-breakpoint-up(lg) {
+    height: 300px !important;
   }
 }
