@@ -187,3 +187,12 @@ $deco-dot-size: 8px;
     border-radius: $border-radius;
   }
 }
+
+.pricing-plan {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 0;
+}

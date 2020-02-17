@@ -1,9 +1,12 @@
+/* eslint-disable react/no-array-index-key */
 // @flow
 
 import React from 'react';
 import { withI18n, Trans } from '@lingui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
 import { Title } from '../layouts/utils';
 import { DefaultHeader } from '../components/Header';
@@ -11,7 +14,7 @@ import { getFeaturePricing } from './lib/textHelpers';
 
 const featurePricing = getFeaturePricing();
 
-export default withI18n()(({ i18n }: Props) => (
+export default withI18n()(({ i18n, data }: Props) => (
   <div>
     <Title
       title={i18n.t`Pricing`}
@@ -30,13 +33,23 @@ export default withI18n()(({ i18n }: Props) => (
     <div className="container">
       <div className="row text-nowrap">
         <div className="pricing-col">
-          {featurePricing.map(({ text }) => (
-            <div className="d-block py-1">{text}</div>
+          <div className="pricing-plan" />
+          {featurePricing.map(({ text }, i) => (
+            <div className="d-block py-1" key={i}>
+              {text}
+            </div>
           ))}
         </div>
         <div className="pricing-col text-center">
-          {featurePricing.map(({ startup = true }) => (
-            <div className="d-block py-1">
+          <div className="pricing-plan">
+            <Img {...data.startupIcon} />
+            <h3 className="py-2">Startup</h3>
+            <div>
+              <Trans>free</Trans>
+            </div>
+          </div>
+          {featurePricing.map(({ startup = true }, i) => (
+            <div className="d-block py-1" key={i + 100}>
               {(typeof startup !== 'boolean' && startup) ||
                 (!startup && <FontAwesomeIcon icon={faTimes} className="text-muted" />) || (
                   <FontAwesomeIcon icon={faCheck} className="text-success" />
@@ -45,8 +58,15 @@ export default withI18n()(({ i18n }: Props) => (
           ))}
         </div>
         <div className="pricing-col text-center">
-          {featurePricing.map(({ scaleup = true }) => (
-            <div className="d-block py-1">
+          <div className="pricing-plan">
+            <Img {...data.scaleupIcon} />
+            <h3 className="py-2">Scaleup</h3>
+            <div>
+              <Trans>€2 / stakeholder / month</Trans>
+            </div>
+          </div>
+          {featurePricing.map(({ scaleup = true }, i) => (
+            <div className="d-block py-1" key={i + 200}>
               {(typeof scaleup !== 'boolean' && scaleup) ||
                 (!scaleup && <FontAwesomeIcon icon={faTimes} className="text-muted" />) || (
                   <FontAwesomeIcon icon={faCheck} className="text-success" />
@@ -55,8 +75,15 @@ export default withI18n()(({ i18n }: Props) => (
           ))}
         </div>
         <div className="col-3 pricing-col text-center border-energetic-blue">
-          {featurePricing.map(({ enterprise = true }) => (
-            <div className="d-block py-1">
+          <div className="pricing-plan">
+            <Img {...data.enterpriseIcon} />
+            <h3 className="py-2">Enterprise</h3>
+            <div>
+              <Trans>Contact us</Trans>
+            </div>
+          </div>
+          {featurePricing.map(({ enterprise = true }, i) => (
+            <div className="d-block py-1" key={i + 300}>
               {(typeof enterprise !== 'boolean' && enterprise) ||
                 (!enterprise && <FontAwesomeIcon icon={faTimes} className="text-muted" />) || (
                   <FontAwesomeIcon icon={faCheck} className="text-success" />
@@ -107,3 +134,23 @@ export default withI18n()(({ i18n }: Props) => (
     </div>
   </div>
 ));
+
+export const pageQuery = graphql`
+  query {
+    startupIcon: imageSharp(fluid: { originalName: { regex: "/startup-icon.png/" } }) {
+      fixed(height: 100) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+    scaleupIcon: imageSharp(fluid: { originalName: { regex: "/scaleup-icon.png/" } }) {
+      fixed(height: 140) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+    enterpriseIcon: imageSharp(fluid: { originalName: { regex: "/enterprise-icon.png/" } }) {
+      fixed(height: 180) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+  }
+`;
