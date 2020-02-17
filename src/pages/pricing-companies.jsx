@@ -13,10 +13,10 @@ import { LEDGY_PLANS, appUrl } from '../helpers';
 import { DefaultHeader } from '../components/Header';
 import { Button } from '../components/Button';
 
-import { getFeaturePricing } from './lib/textHelpers';
+import { getCompanyFeaturePricing } from './lib/textHelpers';
 
 const { STARTUP, SCALEUP, ENTERPRISE } = LEDGY_PLANS;
-const featurePricing = getFeaturePricing();
+const featurePricing = getCompanyFeaturePricing();
 
 const PricingCol = ({
   icon,
@@ -44,7 +44,7 @@ const PricingCol = ({
       {icon && name && price && (
         <>
           <Img {...icon} />
-          <h3 className="py-2">{name}</h3>
+          <h3 className="py-2 mt-1">{name}</h3>
           <div>{price}</div>
         </>
       )}
@@ -120,7 +120,7 @@ export default withI18n()(({ i18n, data }: Props) => {
       highlight
       icon={data.enterpriseIcon}
       name={ENTERPRISE}
-      price={<Trans>Contact us</Trans>}
+      price={<Trans>contact us</Trans>}
     >
       {featurePricing.map(({ enterprise = true }, i) => (
         <PricingColChildren prop={enterprise} key={i + 300} />

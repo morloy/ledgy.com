@@ -165,7 +165,7 @@ export const getDataProtectionText = (data: Object) => [
   }
 ];
 
-export const getFeaturePricing = () => [
+export const getCompanyFeaturePricing = () => [
   { text: <Trans>Swiss privacy & security</Trans> },
   { text: <Trans>Cap table</Trans> },
   { text: <Trans>Basic reporting</Trans> },
@@ -210,3 +210,18 @@ export const getFeaturePricing = () => [
   { text: <Trans>Dedicated account manager</Trans>, startup: false, scaleup: false },
   { text: <Trans>SLA</Trans>, startup: false, scaleup: false }
 ];
+
+export const getInvestorFeaturePricing = () => ({
+  angelFeatures: [
+    <Trans>Up to 10 companies</Trans>,
+    <Trans>One investor portfolio with custom and startup-curated entries</Trans>,
+    <Trans>Receive reports, KPIs, documents, and sign documents</Trans>,
+    <Trans>No support</Trans>
+  ],
+  fundFeatures: [
+    <Trans>Unlimited companies</Trans>,
+    <Trans>Unlimited portfolios for your fund</Trans>,
+    <Trans>Unlimited admin seats</Trans>,
+    <Trans>Premium support and onboarding assistance</Trans>
+  ]
+});

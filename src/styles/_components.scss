@@ -178,14 +178,18 @@ $deco-dot-size: 8px;
 }
 
 // Pricing
+@mixin pricing-border {
+  border: 3px solid;
+  border-color: $gray-200;
+  border-radius: $border-radius;
+}
+
 .pricing-col {
   flex: 1;
   margin: 0 0.5rem;
   overflow: scroll;
   &:not(:first-of-type) {
-    border: 2px solid;
-    border-color: $gray-200;
-    border-radius: $border-radius;
+    @include pricing-border;
   }
 }
 
@@ -199,5 +203,12 @@ $deco-dot-size: 8px;
   }
   @include media-breakpoint-up(lg) {
     height: 300px !important;
+  }
+}
+
+.investor-pricing-plan {
+  @include pricing-border;
+  li {
+    height: 2.8rem;
   }
 }
