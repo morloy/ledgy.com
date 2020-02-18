@@ -313,3 +313,71 @@ export const getFinanceFeatures = (data: Object) => [
     imgFirst: true
   }
 ];
+
+export const getHumanResourcesFeatures = (data: Object) => [
+  {
+    title: <Trans>Onboard new employees in seconds</Trans>,
+    description: [
+      <Trans>Reduce employee onboarding overhead with digital grant signing processes</Trans>,
+      <Trans>
+        Request any number of signatures with a single click, generating individual documents from
+        templates
+      </Trans>,
+      <Trans>
+        Build signature workflows to issue fully-compliant grants online without printing a single
+        sheet of paper
+      </Trans>
+    ],
+    imgProps: { ...data.signingAutomation },
+    imgFirst: true
+  },
+  {
+    title: <Trans>Vesting on autopilot</Trans>,
+    description: [
+      <Trans>
+        Quick vesting overview with one-click evaluation of what is vested, granted, available,
+        exercised
+      </Trans>,
+      <Trans>
+        Email notifications for important events like vesting cliff, vesting end or maturity
+      </Trans>,
+      <Trans>Standard or custom vesting schedules adapted to your needs</Trans>
+    ],
+    imgProps: { ...data.vestingChart }
+  },
+  {
+    title: <Trans>Motivational employee dashboard</Trans>,
+    description: [
+      <Trans>
+        Employees have a transparent view of their stake in the company and its success
+      </Trans>,
+      <Trans>
+        Branded dashboard shows live vesting, what they can exercise, and how much their stake is
+        worth
+      </Trans>,
+      <Trans>They will also receive email notifications about their grants</Trans>
+    ],
+    imgProps: { ...data.employeeDashboard },
+    imgFirst: true
+  },
+  {
+    title: <Trans>Organize your grant documents</Trans>,
+    description: [
+      <Trans>Never lose the necessary documents to prove the grant</Trans>,
+      <Trans>
+        Attach legal documents to transactions and use filters to quickly retrieve them
+      </Trans>,
+      <Trans>Employees can access their documents in their personal account</Trans>
+    ],
+    imgProps: { ...data.uploadDocument }
+  },
+  {
+    title: <Trans>Instant customizable PDF and Excel exports</Trans>,
+    description: [
+      <Trans>Create holding confirmations with a single click</Trans>,
+      <Trans>Export equity plans and employee data with flexible filtering</Trans>
+    ],
+    imgProps: { ...data.holdingConfirmation },
+    imgFirst: true
+  }
+];
