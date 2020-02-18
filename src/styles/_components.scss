@@ -5,7 +5,6 @@
   }
 }
 
-
 // Home Banner
 .home-banner {
   min-height: 70vh;
@@ -22,9 +21,12 @@
   max-width: 500px;
 }
 
-// Header
-.header-custom {
-  min-height: 30vh;
+.banner-text {
+  line-height: 1.8rem;
+  hyphens: none;
+  @include media-breakpoint-up(xl) {
+    line-height: 2rem;
+  }
 }
 
 // Footer
@@ -47,6 +49,16 @@
     opacity: 0.75;
     font-size: 25px;
   }
+}
+
+// Forms
+.form-error-message {
+  bottom: -30px;
+  left: 25px;
+}
+
+.form-control::placeholder {
+  color: $gray-400;
 }
 
 // Custom underline
@@ -143,12 +155,6 @@
   color: $gray-700 !important;
 }
 
-// Forms
-.form-control::placeholder {
-  color: $gray-400;
-}
-
-
 // Feature
 $deco-dot-size: 8px;
 
@@ -210,5 +216,182 @@ $deco-dot-size: 8px;
   @include pricing-border;
   li {
     height: 2.8rem;
+  }
+}
+
+
+// Testimonials
+.avatar {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+
+.testimonial {
+  line-height: 1.8;
+  small {
+    font-weight: 300;
+    &::before {
+      content: '\2014';
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.testimonial-description::before {
+  content: '“';
+  margin-left: -13px;
+  padding-right: 4px;
+}
+.testimonial-description::after {
+  content: '”';
+  margin-right: -13px;
+  padding-left: 4px;
+}
+
+.testimonial-description::before,
+.testimonial-description::after {
+  font-size: 1.5rem;
+  line-height: 1;
+  opacity: .5;
+}
+
+
+// Publicity banner
+
+.publicity-banner {
+  bottom: 18px;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 999;
+  width: 60vw;
+  box-shadow: 0 5px 4px 0 rgba(0,0,0,.26);
+  @include media-breakpoint-up(md) {
+    width: 80vw;
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.publicity-banner--button {
+  font-size: 20px;
+  line-height: 10px;
+  transition: 200ms;
+  top: 0;
+  right: 0;
+  color: $gray-700;
+  @include media-breakpoint-up(lg) {
+    top: 25%;
+    transform: translate(0, -50%);
+    right: 8px;
+  }
+  &:hover {
+    background: $gray-100 !important;
+    transition: 200ms;
+  }
+}
+
+// Customer stories
+.customer-story-section {
+  margin-bottom: 10rem;
+}
+
+.other-customer-stories-section {
+  border-top: 1px solid $gray-200;
+}
+
+.company-summary {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  top: calc(#{$navbar-min-height} + 15px);
+  z-index: $zindex-company-summary;
+}
+
+.company-summary-logo {
+  max-width: 120px;
+}
+
+.company-summary-quote {
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
+
+// Newsletter
+.newsletter {
+  max-width: 600px;
+}
+
+// Calculator
+.calculator {
+  margin-top: 15%;
+  @include media-breakpoint-up(lg) {
+    width: 110%;
+  }
+}
+
+.calculator-video {
+  width: 90vw;
+  height: 210px;
+  @include media-breakpoint-up(md) {
+    height: 315px;
+    width: 560px;
+  }
+}
+
+.calculator-banner h1 {
+  max-width: 800px;
+}
+
+// About
+.ledgista-profile {
+  .gatsby-image-wrapper {
+    max-width: 245px;
+  }
+}
+
+.about {
+  border-top: 1px solid $gray-200;
+
+  h5 {
+    line-height: 0.6;
+  }
+
+  .gatsby-image-wrapper {
+    width: 85px;
+  }
+}
+
+// Accordion
+.accordion .card {
+  border-width: thin;
+}
+
+// Partners
+.partner-card {
+  height: 200px;
+  max-width: 250px;
+  overflow: hidden;
+  border-radius: 5px;
+  a {
+    font-size: 0.75rem;
+  }
+  img {
+    object-fit: unset !important;
+  }
+}
+
+.partner-usp li {
+  line-height: 2rem;
+}
+
+// Product hunt
+.product-hunt-logo {
+  width: 50%;
+  @include media-breakpoint-up(sm) {
+    width: 30%;
+  }
+  @include media-breakpoint-up(xl) {
+    width: 35%;
   }
 }

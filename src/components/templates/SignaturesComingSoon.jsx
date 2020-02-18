@@ -13,7 +13,7 @@ const STEPS = [
 
 export const SignaturesComingSoon = ({ data }: Object): Node => {
   return (
-    <div id="signatories-coming-soon" className="row justify-content-between py-6">
+    <div className="row justify-content-between py-6">
       <div className="col-lg-5 text-center text-md-left d-flex flex-column justify-content-center align-items-center mb-4 mb-lg-0">
         <h6 className="w-100">
           <Trans>COMING SOON:</Trans>

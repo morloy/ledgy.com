@@ -32,3 +32,84 @@
 .text-nowrap {
   white-space: nowrap;
 }
+
+.hover-translateY {
+  transition: 200ms;
+  &:hover {
+    transform: translateY(-2px);
+    transition: 200ms;
+  }
+}
+
+.embed {
+  width: 90vw;
+  height: 210px;
+  @include media-breakpoint-up(md) {
+    height: 395px;
+    width: 700px;
+  }
+}
+
+.circle-badge {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: $primary;
+  color: $gray-100;
+}
+
+.container-small {
+  max-width: 832.5px;
+}
+
+.row-small {
+  max-width: 832.5px;
+}
+
+.adjust-bottom {
+  margin-bottom: 1px;
+}
+
+.width-fit-content {
+  width: fit-content;
+}
+
+.custom-container {
+  @include media-breakpoint-up(lg) {
+    max-width: 1500px;
+  }
+}
+
+@keyframes swinging {
+  from { transform: translateX(0px); }
+  70%  { transform: translateX(5px); }
+  to   { transform: translateX(0px); }
+}
+
+.swinging {
+  animation-name: swinging;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+}
+
+.loader-banner {
+  height: 100vh;
+  svg {
+    width: 4rem;
+    animation: rotation 2s infinite linear;
+  }
+}
+
+.spin {
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

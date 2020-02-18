@@ -39,3 +39,24 @@
   }
 }
 
+.header-custom {
+  min-height: 30vh;
+}
+
+#tablet-ledgy {
+  transition: 200ms;
+  margin-left: auto;
+  margin-right: auto;
+  @include media-breakpoint-up(md) {
+    width: 75%;
+    margin-top: 2.5%;
+  }
+  @include media-breakpoint-up(lg) {
+    width: 105%;
+    margin-top: 15%;
+    }
+  @include media-breakpoint-up(xl) {
+    margin-top: 10%;
+    width: 115%;
+  }
+}

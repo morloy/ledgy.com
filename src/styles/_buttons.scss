@@ -24,6 +24,15 @@
   border-radius: 0 $border-radius $border-radius 0;
 }
 
+.btn-xl {
+  font-weight: 400;
+  padding: 10px 30px;
+  line-height: 24px;
+  @include media-breakpoint-down(sm) {
+    padding: 10px 15px;
+  }
+}
+
 // Multi-button
 
 .multi-button {
