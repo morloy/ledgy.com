@@ -381,3 +381,58 @@ export const getHumanResourcesFeatures = (data: Object) => [
     imgFirst: true
   }
 ];
+
+export const getInvestorFeatures = (data: Object) => [
+  {
+    title: <Trans>Manage multiple portfolios</Trans>,
+    description: [
+      <Trans>Keep an eye on the stake and value development of your portfolios</Trans>,
+      <Trans>
+        Manage multiple portfolios in parallel, for your personal investments, investment vehicle or
+        VC funds
+      </Trans>,
+      <Trans>
+        Complete your portfolio with manual entries for startups not yet on Ledgy, and invite them
+        with a single click
+      </Trans>
+    ],
+    imgProps: { ...data.multiplePortfolios }
+  },
+  {
+    title: <Trans>Spend less time on signing documents</Trans>,
+    description: [
+      <Trans>
+        Ledgy is the only equity software that offers digital signing with the same legal status as
+        handwritten signatures (Qualified Electronic Signatures)
+      </Trans>,
+      <Trans>Verify yourself once, then sign as many times as you want with a single click</Trans>,
+      <Trans>Organize all your signed documents in Ledgy</Trans>
+    ],
+    imgProps: { ...data.signatureFlow },
+    imgFirst: true
+  },
+  {
+    title: <Trans>Streamline your reporting</Trans>,
+    description: [
+      <Trans>Keep an eye on all relevant information about your startups, all in one place</Trans>,
+      <Trans>Get notified of important events, like an upcoming convertible maturity</Trans>,
+      <Trans>Receive informative and timely written reports and KPIs from your startups</Trans>
+    ],
+    imgProps: { ...data.kpisAndReports }
+  },
+  {
+    title: <Trans>Help your startups set up good processes</Trans>,
+    description: [
+      <Trans>
+        Startups often don’t understand at the beginning how complex equity management will become
+        down the road
+      </Trans>,
+      <Trans>Timely reporting is a very good indicator for a successful startup</Trans>,
+      <Trans>
+        Help your startups to do their corporate housekeeping properly from the beginning
+      </Trans>
+    ],
+    imgProps: { ...data.scalable },
+    imgFirst: true
+  }
+];
