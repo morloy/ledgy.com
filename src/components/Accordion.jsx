@@ -1,7 +1,6 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { isBrowser } from '../helpers';
 
 export const Accordion = (props: {| children: Node |}) => (
   <div className="accordion my-4" {...props} />
@@ -16,15 +15,12 @@ export const AccordionItem = ({
   title: string | Node,
   children: Node
 |}) => {
-  const isOpen = isBrowser && window.top.location.hash === `#${id}`;
   return (
-    <div className="card mb-0">
+    <div className="card mb-2 p-4">
       <h6 className="card-title mt-0 bg-white" id={id}>
-        <a className={!isOpen ? 'collapsed' : ''} data-toggle="collapse" href={`#${id}-body`}>
-          {title}
-        </a>
+        {title}
       </h6>
-      <div id={`${id}-body`} className={`collapse ${isOpen ? 'show' : ''}`}>
+      <div id={`${id}-body`}>
         <div className="card-body py-1">{children}</div>
       </div>
     </div>

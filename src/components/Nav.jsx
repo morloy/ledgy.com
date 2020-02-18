@@ -23,7 +23,7 @@ export const Nav = (props: LayoutProps) => {
   const [isOpen, setOpen] = useState(false);
   return (
     <>
-      <nav className="navbar bg-primary sticky-top py-1 px-0">
+      <nav className="navbar bg-primary sticky-top p-0">
         <div className="container flex-nowrap">
           <Logo {...props} />
 

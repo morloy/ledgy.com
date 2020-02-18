@@ -363,8 +363,9 @@ $deco-dot-size: 8px;
 }
 
 // Accordion
-.accordion .card {
-  border-width: thin;
+.accordion > .card {
+  border: 1px solid $gray-300 !important;
+  border-radius: $border-radius !important;
 }
 
 // Partners

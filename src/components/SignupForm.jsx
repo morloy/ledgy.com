@@ -17,7 +17,7 @@ const { ERROR, IDLE, INVALID, LOADING } = FORM_STATES;
 declare type FormStatus = {| status: 'idle' | 'loading' | 'invalid' | 'error' |};
 
 export class SignupForm extends Component<
-  {| ...Props, toggle?: () => void, trackingEvent: string |},
+  {| i18n: I18n, toggle?: () => void, trackingEvent: string |},
   { email: string, ...FormStatus }
 > {
   state = { email: '', status: IDLE };
