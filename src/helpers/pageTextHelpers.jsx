@@ -225,3 +225,91 @@ export const getInvestorFeaturePricing = () => ({
     <Trans>Premium support and onboarding assistance</Trans>
   ]
 });
+
+export const getFinanceFeatures = (data: Object) => [
+  {
+    title: <Trans>Automate your document signing processes</Trans>,
+    description: [
+      <Trans>
+        Request any number of signatures with a single click, generating individual documents from
+        templates
+      </Trans>,
+      <Trans>
+        Ledgy is the only equity software that offers digital signing with the same legal status as
+        handwritten signatures (qualified electronic signatures)
+      </Trans>,
+      <Trans>
+        Build signature workflows to sign shareholder agreements and convertible loans online
+        without printing a single sheet of paper
+      </Trans>
+    ],
+    imgProps: { ...data.signingAutomation }
+  },
+  {
+    title: <Trans>Share reports and KPIs with your investors</Trans>,
+    description: [
+      <Trans>
+        Build and keep your investor’s trust and support by sharing timely and engaging information
+        with them
+      </Trans>,
+      <Trans>Quickly copy-paste your KPIs from spreadsheets and customize your graphs</Trans>,
+      <Trans>
+        Share written reports including documents, KPIs, images and add your company branding
+      </Trans>
+    ],
+    imgProps: { ...data.kpisAndReports },
+    imgFirst: true
+  },
+  {
+    title: <Trans>Organize your legal documents</Trans>,
+    description: [
+      <Trans>No need to waste money on a separate data room software</Trans>,
+      <Trans>
+        Organize your legal document history, and give selective view access for due diligence
+      </Trans>,
+      <Trans>Share documents, attach them to investor reports, invite people to sign</Trans>
+    ],
+    imgProps: { ...data.uploadDocument }
+  },
+  {
+    title: <Trans>Model funding rounds and future dilution</Trans>,
+    description: [
+      <Trans>
+        Understand how dilution works by quickly comparing different modeling scenarios
+      </Trans>,
+      <Trans>
+        Flexible round modeling with support for convertibles, employee pools and multiple rounds
+      </Trans>,
+      <Trans>
+        Assess the impact of liquidation preferences with waterfall analysis and breakpoint charts
+      </Trans>
+    ],
+    imgProps: { ...data.exitModeling },
+    imgFirst: true
+  },
+  {
+    title: <Trans>Keep your cap table always accurate</Trans>,
+    description: [
+      <Trans>Intuitive, legally valid, and error-free cap table from the beginning</Trans>,
+      <Trans>
+        Support for any transaction type, including issuance, transfer, convertibles, stock split,
+        share destruction, and valuations
+      </Trans>,
+      <Trans>
+        Featuring unlimited share classes, treasury shares, pooled investments, and automatically
+        numbered shares
+      </Trans>
+    ],
+    imgProps: { ...data.createCaptable }
+  },
+  {
+    title: <Trans>Instant customizable PDF and Excel exports</Trans>,
+    description: [
+      <Trans>Create holding confirmations with a single click</Trans>,
+      <Trans>Export equity plans, cap table and stakeholder data with flexible filtering</Trans>,
+      <Trans>Download your investor reports as PDF </Trans>
+    ],
+    imgProps: { ...data.holdingConfirmation },
+    imgFirst: true
+  }
+];

@@ -206,7 +206,7 @@ export const pageQuery = graphql`
       }
     }
     holdingConfirmationPdf: imageSharp(
-      fluid: { originalName: { regex: "/holding-confirmation-pdf.png/" } }
+      fluid: { originalName: { regex: "/holding-confirmation.png/" } }
     ) {
       fluid(maxWidth: 2000) {
         ...GatsbyImageSharpFluid

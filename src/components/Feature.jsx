@@ -15,7 +15,7 @@ export const Feature = ({
   imgFirst?: boolean
 }) => {
   return (
-    <div className="container text-center p-4 p-lg-6 my-7">
+    <div className="container text-center py-4 py-lg-6 my-7">
       <div className="row justify-content-center align-items-center">
         <div className="col-12 col-md-7 d-flex flex-column text-left">
           <h2 className="feature-title-decoration mb-3">{title}</h2>
