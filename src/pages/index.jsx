@@ -76,8 +76,6 @@ export default withI18n()(IndexPage);
 // eslint-disable-next-line no-undef
 export const pageQuery = graphql`
   query {
-    ...FeaturesFragment
-
     tablet: imageSharp(fluid: { originalName: { regex: "/tablet-dashboard.png/" } }) {
       fluid(maxWidth: 2000) {
         ...GatsbyImageSharpFluid_noBase64
