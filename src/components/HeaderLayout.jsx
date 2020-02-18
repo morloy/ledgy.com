@@ -1,7 +1,7 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { Button } from '../layouts/utils';
+import { Button } from './Button';
 
 type HeaderButton = {| props: Object, text: Node, modal?: Node |};
 type HeaderLayoutProps = {|
@@ -21,9 +21,10 @@ export const HeaderLayout = ({
   customButton,
   image
 }: HeaderLayoutProps) => {
-  const buttonClass = 'btn-xl mx-1';
+  const buttonClass = 'btn-xl mx-1 align-self-center';
   const { props, modal = null } = buttonOne;
   const Modal = modal;
+
   return (
     <header className="header d-flex home-banner px-1 text-left bg-primary">
       <div className="container my-auto">
@@ -35,7 +36,7 @@ export const HeaderLayout = ({
                 {subtitle}
               </div>
             </div>
-            <div>
+            <div className="d-flex align-items-center flex-wrap">
               {Modal || (
                 <Button className={buttonClass} cta inverted={!buttonTwo} {...props}>
                   {buttonOne.text}

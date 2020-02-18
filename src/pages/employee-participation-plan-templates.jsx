@@ -8,7 +8,7 @@ import Img from 'gatsby-image';
 import { ContentBody } from '../components/Content';
 import { HeaderLayout } from '../components/HeaderLayout';
 import { Title } from '../layouts/utils';
-import { targetBlank, appUrl, track } from '../helpers';
+import { appUrl, track } from '../helpers';
 import {
   TemplateFAQs,
   Testimonials,
@@ -28,7 +28,7 @@ const EquityPlans = (props: Props) => {
     props: {
       href: `${appUrl}/templates`,
       onClick: () => track('clickTemplates'),
-      ...targetBlank
+      className: 'mr-2 mb-2'
     },
     text: <Trans>Get started</Trans>
   };
@@ -53,11 +53,7 @@ const EquityPlans = (props: Props) => {
         subtitle={description}
         buttonOne={buttonOne}
         customButton={productHuntLaunchButton}
-        image={
-          <div id="mac-templates" data-aos="fade-up">
-            <Img {...(isGerman ? data.templatesDe : data.templates)} alt="Templates" />
-          </div>
-        }
+        image={<Img {...(isGerman ? data.templatesDe : data.templates)} alt="Templates" />}
       />
       <ContentBody>
         <>
@@ -87,7 +83,9 @@ export const PageQuery = graphql`
         ...GatsbyImageSharpFluid
       }
     }
-    signatures: imageSharp(fluid: { originalName: { regex: "/signatures-coming-soon.png/" } }) {
+    signaturesComingSoon: imageSharp(
+      fluid: { originalName: { regex: "/signatures-coming-soon.png/" } }
+    ) {
       fluid(maxWidth: 1000) {
         ...GatsbyImageSharpFluid
       }

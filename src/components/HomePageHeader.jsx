@@ -6,7 +6,7 @@ import { Trans } from '@lingui/react';
 import Img from 'gatsby-image';
 import sample from 'lodash/sample';
 
-import { targetBlank, appUrl, isBrowser } from '../helpers';
+import { appUrl, isBrowser } from '../helpers';
 import { HeaderLayout } from './HeaderLayout';
 import { RequestDemoModal } from './RequestDemoModal';
 
@@ -76,7 +76,6 @@ export const HomePageHeader = ({ i18n, data, lang }: Props) => {
   const buttonTwo = {
     props: {
       href: `${appUrl}/signup`,
-      ...targetBlank,
       cta: true
     },
     text: <Trans>Get Started Free</Trans>

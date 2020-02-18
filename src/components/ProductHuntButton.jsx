@@ -1,7 +1,8 @@
 // @flow
 
 import React from 'react';
-import { targetBlank, track } from '../helpers';
+import { track } from '../helpers';
+import { Button } from './Button';
 
 export const ProductHuntButton = ({
   productHuntLink,
@@ -14,10 +15,9 @@ export const ProductHuntButton = ({
   postId: string,
   altText: string
 }) => (
-  <a
-    className="btn btn-block d-sm-inline btn-xl mx-1 shadow-none"
+  <Button
     href={productHuntLink}
-    {...targetBlank}
+    className="d-flex align-items-start p-0 mb-2"
     onClick={() => track(trackSignupKey)}
   >
     <img
@@ -25,5 +25,5 @@ export const ProductHuntButton = ({
       alt={altText}
       className="product-hunt-logo"
     />
-  </a>
+  </Button>
 );

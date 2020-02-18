@@ -29,7 +29,7 @@ const STEPS = [
 
 export const Instructions = (): Node => (
   <>
-    <div className="row text-center justify-content-center pb-6">
+    <div className="row text-center justify-content-center mt-7 mb-4">
       <h2 className="pb-0">
         <Trans>The fastest way to set up your employee participation plan</Trans>
       </h2>

@@ -387,11 +387,18 @@ $deco-dot-size: 8px;
 
 // Product hunt
 .product-hunt-logo {
-  width: 50%;
+  width: 80%;
   @include media-breakpoint-up(sm) {
-    width: 30%;
+    width: 75%;
   }
-  @include media-breakpoint-up(xl) {
-    width: 35%;
+}
+
+
+// Signatories
+#signatories-coming-soon {
+  .gatsby-image-wrapper {
+    width: 100%;
+    min-width: 300px;
+    max-width: 1000px;
   }
 }
