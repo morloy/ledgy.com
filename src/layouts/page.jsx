@@ -5,7 +5,8 @@ import { graphql } from 'gatsby';
 import { PublishDate } from '../components/Content';
 import { Author } from '../components/Markdown';
 import { LongText } from '../components/LongText';
-import { PageHeader, CalculatorHeader } from '../components/PageHeader';
+import { PageHeader } from '../components/PageHeader';
+import { CalculatorHeader } from '../components/CalculatorHeader';
 import { Title } from '../layouts/utils';
 
 const CALCULATOR_SLUG = 'calculator';
