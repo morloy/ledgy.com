@@ -33,7 +33,7 @@ export default ({
       {showCalculatorHeader ? (
         <CalculatorHeader data={data} />
       ) : (
-        <PageHeader lang={lang} documentLang={language} title={title} />
+        <PageHeader lang={lang} documentLang={language} title={title} textCenter />
       )}
       <div className="container container-small">
         <LongText content={content} />

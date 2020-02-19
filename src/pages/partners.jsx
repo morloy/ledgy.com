@@ -1,32 +1,37 @@
 // @flow
 
 import React from 'react';
-import { withI18n } from '@lingui/react';
+import { withI18n, Trans } from '@lingui/react';
 import { graphql } from 'gatsby';
 
+import { Title } from '../layouts/utils';
 import {
   LawyerCTABanner,
   SwissPartners,
   CollaborationBanner,
-  UniqueSellingPropositions,
-  LawyerHeader
+  UniqueSellingPropositions
 } from '../components/partners';
 
-const IndexPage = ({ ...props }: Props) => (
+import { PageHeader } from '../components/PageHeader';
+
+const PartnersPage = ({ ...props }: Props) => (
   <>
-    <LawyerHeader {...props} />
-    <main className="main-content pb-0">
-      <div className="section py-0">
-        <SwissPartners {...props} />
-        <CollaborationBanner />
-        <UniqueSellingPropositions {...props} />
-      </div>
-      <LawyerCTABanner />
-    </main>
+    <Title
+      title={props.i18n.t`Partners`}
+      description={props.i18n.t`Our trusted law firm partners are here to help`}
+    />
+    <PageHeader title={<Trans>Our trusted law firm partners are here to help</Trans>} />
+
+    <div className="py-0">
+      <SwissPartners {...props} />
+      <CollaborationBanner />
+      <UniqueSellingPropositions {...props} />
+    </div>
+    <LawyerCTABanner />
   </>
 );
 
-export default withI18n()(IndexPage);
+export default withI18n()(PartnersPage);
 
 export const pageQuery = graphql`
   query {

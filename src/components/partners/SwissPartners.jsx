@@ -5,7 +5,7 @@ import { Trans } from '@lingui/react';
 import { PartnerCard } from './PartnerCard';
 
 export const SwissPartners = (props: Props) => (
-  <div className="container py-6">
+  <div className="container pb-4">
     <h5 className="text-center pb-6">
       <Trans>Swiss Law Partners</Trans>
     </h5>
