@@ -420,3 +420,34 @@ $deco-dot-size: 8px;
   opacity: 0.75;
   color: $gray-500;
 }
+
+// Help page
+.help-col {
+  transition: 200ms !important;
+  & a, a:hover {
+    transition: none;
+  }
+}
+
+.help-card {
+  padding: 30px 30px 30px 20px;
+  height: 100%;
+  overflow: hidden;
+  border-radius: $border-radius;
+  transition: 200ms;
+  & svg, > p {
+    transition: 200ms;
+  }
+  &:hover {
+    transition: 200ms;
+    box-shadow: 0 2px 3px 2px rgba(0,0,0,.06);
+    svg {
+      color: $vibrant-green !important;
+      transition: 200ms;
+    }
+    p {
+      color: $deep-blue !important;
+      transition: 200ms;
+    }
+  }
+}
