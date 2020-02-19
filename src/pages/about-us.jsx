@@ -11,7 +11,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { Title, Hr } from '../layouts/utils';
 import { getWholeTeam, type AuthorProps } from '../layouts/team';
 
-import { DefaultHeader } from '../components/Header';
+import { PageHeader } from '../components/PageHeader';
 
 const Founder = withI18n()(
   ({
@@ -88,7 +88,7 @@ const IndexPage = (props: Props) => {
         description={i18n.t`Meet the team behind Ledgy, dedicated to help startups thrive. Learn more about the people who trust us.`}
       />
 
-      <DefaultHeader
+      <PageHeader
         title={<Trans>About us</Trans>}
         subtitle={
           <Trans>

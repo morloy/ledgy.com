@@ -5,7 +5,7 @@ import { withI18n, Trans } from '@lingui/react';
 
 import { Title } from '../layouts/utils';
 import { appUrl, getInvestorFeaturePricing } from '../helpers';
-import { DefaultHeader } from '../components/Header';
+import { PageHeader } from '../components/PageHeader';
 import { Button } from '../components/Button';
 
 const { angelFeatures, fundFeatures } = getInvestorFeaturePricing();
@@ -50,7 +50,7 @@ export default withI18n()(({ i18n }: Props) => (
       description={i18n.t`Ledgy scales with your needs. Free for startups, powerful for grown-ups.`}
     />
 
-    <DefaultHeader
+    <PageHeader
       title={<Trans>Which plan suits me best?</Trans>}
       subtitle={
         <Trans>

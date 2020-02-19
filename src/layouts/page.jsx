@@ -5,7 +5,7 @@ import { graphql } from 'gatsby';
 import { PublishDate } from '../components/Content';
 import { Author } from '../components/Markdown';
 import { LongText } from '../components/LongText';
-import { DefaultHeader, CalculatorHeader } from '../components/Header';
+import { PageHeader, CalculatorHeader } from '../components/PageHeader';
 import { Title } from '../layouts/utils';
 
 const CALCULATOR_SLUG = 'calculator';
@@ -32,7 +32,7 @@ export default ({
       {showCalculatorHeader ? (
         <CalculatorHeader data={data} />
       ) : (
-        <DefaultHeader lang={lang} documentLang={language} title={title} />
+        <PageHeader lang={lang} documentLang={language} title={title} />
       )}
       <main className="main-content">
         <section className="section">

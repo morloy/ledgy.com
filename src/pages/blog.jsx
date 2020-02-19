@@ -6,7 +6,7 @@ import { graphql } from 'gatsby';
 
 import { ContentBody, PostLink } from '../components/Content';
 import { Title } from '../layouts/utils';
-import { DefaultHeader } from '../components/Header';
+import { PageHeader } from '../components/PageHeader';
 
 export default withI18n()(({ i18n, data, prefix }: Props) => (
   <div>
@@ -15,7 +15,7 @@ export default withI18n()(({ i18n, data, prefix }: Props) => (
       description={i18n.t`Thoughts on cap tables, financing rounds, and legal issues around running and managing a startup.`}
     />
 
-    <DefaultHeader title={i18n.t`The Ledgy Blog`} />
+    <PageHeader title={i18n.t`The Ledgy Blog`} />
 
     <ContentBody>
       {data.allContentfulPage.edges.map(edge => {

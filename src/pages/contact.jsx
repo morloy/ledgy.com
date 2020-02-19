@@ -4,7 +4,7 @@ import React from 'react';
 import { withI18n, Trans } from '@lingui/react';
 
 import { Title } from '../layouts/utils';
-import { DefaultHeader } from '../components/Header';
+import { PageHeader } from '../components/PageHeader';
 
 const IndexPage = (props: Object) => (
   <div>
@@ -13,7 +13,7 @@ const IndexPage = (props: Object) => (
       description={props.i18n
         .t`Contact the Ledgy team by phone, email, or mailing address to learn more about cap table management, equity plans, and investor relations`}
     />
-    <DefaultHeader
+    <PageHeader
       title={<Trans>Let’s get in touch</Trans>}
       subtitle={<Trans>Here are the ways you can contact us with any questions you have</Trans>}
     />

@@ -6,7 +6,7 @@ import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import { ContentBody, PostLink } from '../components/Content';
-import { DefaultHeader } from '../components/Header';
+import { PageHeader } from '../components/PageHeader';
 
 import { Title } from '../layouts/utils';
 
@@ -17,7 +17,7 @@ export default withI18n()(({ i18n, data }: Props) => (
       description={i18n.t`Webinars on cap tables, financing rounds, and legal issues around running and managing a startup.`}
     />
 
-    <DefaultHeader title={i18n.t`Ledgy Webinars`} />
+    <PageHeader title={i18n.t`Ledgy Webinars`} />
 
     <ContentBody>
       {data.allContentfulWebinar.edges.map(edge => {

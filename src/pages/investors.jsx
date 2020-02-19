@@ -5,7 +5,7 @@ import { withI18n, Trans } from '@lingui/react';
 import { graphql } from 'gatsby';
 
 import { Title } from '../layouts/utils';
-import { DefaultHeader } from '../components/Header';
+import { PageHeader } from '../components/PageHeader';
 import { Feature } from '../components/Feature';
 
 import { getInvestorFeatures } from '../helpers';
@@ -18,7 +18,7 @@ export default withI18n()(({ i18n, data }: Props) => {
         description={i18n.t`Discover how to manage your investor portfolio with Ledgy`}
       />
 
-      <DefaultHeader
+      <PageHeader
         title={<Trans>Features for investors</Trans>}
         subtitle={
           <Trans>

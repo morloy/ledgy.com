@@ -10,7 +10,7 @@ import Img from 'gatsby-image';
 
 import { Title } from '../layouts/utils';
 import { LEDGY_PLANS, appUrl, getCompanyFeaturePricing } from '../helpers';
-import { DefaultHeader } from '../components/Header';
+import { PageHeader } from '../components/PageHeader';
 import { Button } from '../components/Button';
 
 const { STARTUP, SCALEUP, ENTERPRISE } = LEDGY_PLANS;
@@ -135,7 +135,7 @@ export default withI18n()(({ i18n, data }: Props) => {
         description={i18n.t`Ledgy scales with your needs. Free for startups, powerful for grown-ups.`}
       />
 
-      <DefaultHeader
+      <PageHeader
         title={<Trans>Which plan suits me best?</Trans>}
         subtitle={
           <Trans>

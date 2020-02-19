@@ -9,7 +9,7 @@ import { ProductHuntButton } from './ProductHuntButton';
 
 const DEFAULT_LANG = 'en';
 
-export const DefaultHeader = ({
+export const PageHeader = ({
   title,
   subtitle = '',
   lang = DEFAULT_LANG,

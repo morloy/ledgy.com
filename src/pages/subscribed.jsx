@@ -4,11 +4,11 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { Trans } from '@lingui/react';
 
-import { DefaultHeader } from '../components/Header';
+import { PageHeader } from '../components/PageHeader';
 
 export default (props: LayoutProps) => (
   <>
-    <DefaultHeader title={<Trans>Subscription confirmed</Trans>} />
+    <PageHeader title={<Trans>Subscription confirmed</Trans>} />
     <div className="container">
       <div className="bg-gray h-full p-5 imprint">
         <div className="row justify-content-center">
