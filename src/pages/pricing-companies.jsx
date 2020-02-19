@@ -92,7 +92,7 @@ export default withI18n()(({ i18n, data }: Props) => {
       {featurePricing.map(({ startup = true }, i) => (
         <PricingColChildren prop={startup} key={i + 100} />
       ))}
-      <Button inverted className="my-4" href={`${appUrl}/signup`}>
+      <Button outline inverted className="my-4" href={`${appUrl}/signup`}>
         <Trans>Sign up</Trans>
       </Button>
     </PricingCol>

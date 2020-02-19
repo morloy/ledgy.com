@@ -8,27 +8,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
-import { Title } from '../layouts/utils';
+import { Title, Hr } from '../layouts/utils';
 import { getWholeTeam, type AuthorProps } from '../layouts/team';
 
-const Header = ({ i18n }: Props) => (
-  <header className="header text-white">
-    <Title
-      title={i18n.t`About us`}
-      description={i18n.t`Meet the team behind Ledgy that went out to help startups thrive. Learn more about the people who trust in us.`}
-    />
-
-    <div className="container text-center">
-      <div className="row">
-        <div className="col-12 col-lg-8 offset-lg-2">
-          <h1>
-            <Trans>About us</Trans>
-          </h1>
-        </div>
-      </div>
-    </div>
-  </header>
-);
+import { DefaultHeader } from '../components/Header';
 
 const Founder = withI18n()(
   ({
@@ -47,26 +30,32 @@ const Founder = withI18n()(
     const ProfileImage = <Img {...img} className="mx-auto" alt={name} />;
     return (
       <div className="col-12 col-md-4 ledgista-profile">
-        {article ? (
-          <Link href to={`/updates/${article}/`}>
-            {ProfileImage}
-          </Link>
-        ) : (
-          ProfileImage
-        )}
-        <h6 className="my-2">{name}</h6>
-        <small>{role}</small>
-        <p>{description}</p>
-        <div className="social social-boxed social-rounded social-gray">
-          <a className="social-mail" href={`mailto:${mail}`}>
-            <FontAwesomeIcon icon={faEnvelope} title="Email" />
-          </a>
-          <a className="social-twitter" href={twitter}>
-            <FontAwesomeIcon icon={faTwitter} title="Twitter" />
-          </a>
-          <a className="social-linkedin" href={linkedIn}>
-            <FontAwesomeIcon icon={faLinkedin} title="LinkedIn" />
-          </a>
+        <div className="h-100">
+          {article ? (
+            <Link href to={`/updates/${article}/`}>
+              {ProfileImage}
+            </Link>
+          ) : (
+            ProfileImage
+          )}
+          <div className="ledgista-text text-center d-flex flex-column align-items-center justify-content-between">
+            <div>
+              <h4 className="mt-2 mb-0">{name}</h4>
+              <small className="text-muted">{role}</small>
+              <p className="mt-2 font-weight-light">{description}</p>
+            </div>
+            <div>
+              <a className="social-icon" href={`mailto:${mail}`}>
+                <FontAwesomeIcon icon={faEnvelope} title="Email" />
+              </a>
+              <a className="social-icon mx-3" href={twitter}>
+                <FontAwesomeIcon icon={faTwitter} title="Twitter" />
+              </a>
+              <a className="social-icon" href={linkedIn}>
+                <FontAwesomeIcon icon={faLinkedin} title="LinkedIn" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -82,10 +71,10 @@ const Investor = ({
   description: string,
   img: Object
 |}) => (
-  <div className="col-12 col-md-4 team-2">
-    {img && <Img {...img} alt={name} />}
+  <div className="col-12 col-md-4 mb-4">
+    {img && <Img {...img} alt={name} className="rounded-circle" />}
     <h6>{name}</h6>
-    <p>{description}</p>
+    <p className="font-weight-light">{description}</p>
   </div>
 );
 
@@ -94,112 +83,104 @@ const IndexPage = (props: Props) => {
   const team = getWholeTeam(props.prefix);
   return (
     <div>
-      <Header {...props} />
-      <main className="main-content">
-        <section className="section py-150 bg-gray">
-          <div className="container text-center">
-            <p className="lead">
-              <Trans>
-                We believe that entrepreneurship is the main driver of positive change in the world.
-                <br />
-                That is why we build beautiful and intuitive software for startups, helping them be
-                more successful.
-              </Trans>
-            </p>
-          </div>
-        </section>
+      <Title
+        title={i18n.t`About us`}
+        description={i18n.t`Meet the team behind Ledgy, dedicated to help startups thrive. Learn more about the people who trust us.`}
+      />
 
-        <section className="section">
-          <div className="container">
-            <header className="section-header">
-              <h2>
-                <Trans>Team</Trans>
-              </h2>
-            </header>
+      <DefaultHeader
+        title={<Trans>About us</Trans>}
+        subtitle={
+          <Trans>
+            We believe that entrepreneurship is the main driver of positive change in the world.
+            <br />
+            That is why we build beautiful and intuitive software for startups, helping them be more
+            successful.
+          </Trans>
+        }
+      />
 
-            <div className="row gap-y2 justify-content-center">
-              <Founder {...team.timo} img={data.timo} />
-              <Founder {...team.yoko} img={data.yoko} />
-              <Founder {...team.ben} img={data.ben} />
-              <Founder {...team.oriol} img={data.oriol} />
-              <Founder {...team.jahlela} img={data.jahlela} />
-              <Founder {...team.marius} img={data.marius} />
-              <Founder {...team.jules} img={data.jules} />
-              <Founder {...team.spela} img={data.spela} />
-              <Founder {...team.armon} img={data.armon} />
-              <Founder {...team.luna} img={data.luna} />
-            </div>
-          </div>
-        </section>
+      <div className="container text-center">
+        <h2>
+          <Trans>Team</Trans>
+        </h2>
 
-        <section className="section">
-          <div className="container">
-            <header className="section-header">
-              <h2>
-                <Trans>Backed by</Trans>
-              </h2>
-            </header>
+        <div className="row justify-content-center my-5">
+          <Founder {...team.timo} img={data.timo} />
+          <Founder {...team.yoko} img={data.yoko} />
+          <Founder {...team.ben} img={data.ben} />
+          <Founder {...team.oriol} img={data.oriol} />
+          <Founder {...team.jahlela} img={data.jahlela} />
+          <Founder {...team.marius} img={data.marius} />
+          <Founder {...team.jules} img={data.jules} />
+          <Founder {...team.spela} img={data.spela} />
+          <Founder {...team.armon} img={data.armon} />
+          <Founder {...team.luna} img={data.luna} />
+        </div>
 
-            <div className="row gap-y justify-content-center">
-              <Investor
-                name="btov Partners"
-                description={i18n.t`Europe’s symbiosis of early-stage VC funds and private investor network`}
-                img={data.btov}
-              />
-              <Investor
-                name="Creathor Ventures"
-                description={i18n.t`Backing the creators of our future since 1984`}
-                img={data.creathor}
-              />
-              <Investor
-                name="VI Partners"
-                description={i18n.t`Healthcare & technology venture capital since 2001`}
-                img={data.vipartners}
-              />
-              <Investor
-                name="Dr. Paul E. Sevinç"
-                description={i18n.t`Entrepreneur, technologist, founder of Doodle.com`}
-                img={data.paul}
-              />
-              <Investor
-                name="Daniel Gutenberg"
-                description={i18n.t`One of the most active Swiss early-stage angel investors`}
-                img={data.daniel}
-              />
-              <Investor
-                name="Luis Cabiedes"
-                description={i18n.t`Leading Spanish investor in early-stage technology startups`}
-                img={data.luis}
-              />
-              <Investor
-                name="Myke Näf"
-                description={i18n.t`Entrepreneur, business angel, founder of Doodle.com`}
-                img={data.myke}
-              />
-              <Investor
-                name="Cyrill Osterwalder"
-                description={i18n.t`Digital entrepreneur and investor. Security, crypto & privacy expert`}
-                img={data.cyrill}
-              />
-              <Investor
-                name="Luzius Meisser"
-                description={i18n.t`Founder of Meisser Economics, Bitcoin Association Switzerland, and Wuala`}
-                img={data.luzius}
-              />
-              <Investor
-                name="Adrian Bührer"
-                description={i18n.t`Investor & consultant (Farmy.ch, Flatfox.ch), founder of Students.ch`}
-                img={data.adrian}
-              />
-              <Investor
-                name="Elena Walder-Schiavone"
-                description={i18n.t`M&A and private equity lawyer with a focus on start-up legal advise, Smartuplaw.ch`}
-                img={data.elena}
-              />
-            </div>
-          </div>
-        </section>
-      </main>
+        <Hr />
+
+        <h2>
+          <Trans>Backed by</Trans>
+        </h2>
+        <div className="row justify-content-center my-5">
+          <Investor
+            name="btov Partners"
+            description={i18n.t`Europe’s symbiosis of early-stage VC funds and private investor network`}
+            img={data.btov}
+          />
+          <Investor
+            name="Creathor Ventures"
+            description={i18n.t`Backing the creators of our future since 1984`}
+            img={data.creathor}
+          />
+          <Investor
+            name="VI Partners"
+            description={i18n.t`Healthcare & technology venture capital since 2001`}
+            img={data.vipartners}
+          />
+          <Investor
+            name="Dr. Paul E. Sevinç"
+            description={i18n.t`Entrepreneur, technologist, founder of Doodle.com`}
+            img={data.paul}
+          />
+          <Investor
+            name="Daniel Gutenberg"
+            description={i18n.t`One of the most active Swiss early-stage angel investors`}
+            img={data.daniel}
+          />
+          <Investor
+            name="Luis Cabiedes"
+            description={i18n.t`Leading Spanish investor in early-stage technology startups`}
+            img={data.luis}
+          />
+          <Investor
+            name="Myke Näf"
+            description={i18n.t`Entrepreneur, business angel, founder of Doodle.com`}
+            img={data.myke}
+          />
+          <Investor
+            name="Cyrill Osterwalder"
+            description={i18n.t`Digital entrepreneur and investor. Security, crypto & privacy expert`}
+            img={data.cyrill}
+          />
+          <Investor
+            name="Luzius Meisser"
+            description={i18n.t`Founder of Meisser Economics, Bitcoin Association Switzerland, and Wuala`}
+            img={data.luzius}
+          />
+          <Investor
+            name="Adrian Bührer"
+            description={i18n.t`Investor & consultant (Farmy.ch, Flatfox.ch), founder of Students.ch`}
+            img={data.adrian}
+          />
+          <Investor
+            name="Elena Walder-Schiavone"
+            description={i18n.t`M&A and private equity lawyer with a focus on start-up legal advise, Smartuplaw.ch`}
+            img={data.elena}
+          />
+        </div>
+      </div>
     </div>
   );
 };

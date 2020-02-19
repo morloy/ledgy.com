@@ -46,7 +46,6 @@
     padding-left: 0;
   }
   .social-icon {
-    opacity: 0.75;
     font-size: 25px;
   }
 }
@@ -105,7 +104,6 @@
     white-space: nowrap;
   }
 }
-
 
 // Modal
 .modal-wrapper {
@@ -348,15 +346,22 @@ $deco-dot-size: 8px;
   .gatsby-image-wrapper {
     max-width: 245px;
   }
+  .ledgista-text {
+    height: calc(100% - 245px);
+  }
+  &:not(:last-of-type) {
+    margin-bottom: 3rem;
+  }
+  .social-icon {
+    font-size: 20px;
+  }
 }
 
 .about {
   border-top: 1px solid $gray-200;
-
   h5 {
     line-height: 0.6;
   }
-
   .gatsby-image-wrapper {
     width: 85px;
   }
@@ -394,7 +399,6 @@ $deco-dot-size: 8px;
   }
 }
 
-
 // Signatories
 #signatories-coming-soon {
   .gatsby-image-wrapper {
@@ -402,4 +406,10 @@ $deco-dot-size: 8px;
     min-width: 300px;
     max-width: 1000px;
   }
+}
+
+// Social icons
+.social-icon {
+  opacity: 0.75;
+  color: $gray-500;
 }

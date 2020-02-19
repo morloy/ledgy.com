@@ -29,6 +29,7 @@ export const Button = ({
 }) => {
   const color =
     (cta && 'btn-red') ||
+    (inverted && outline && 'btn-light border border-primary') ||
     (outline && 'btn-primary border border-white') ||
     (inverted && 'btn-light') ||
     'btn-primary';
