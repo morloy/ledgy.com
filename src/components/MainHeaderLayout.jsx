@@ -4,7 +4,7 @@ import React, { type Node } from 'react';
 import { Button } from './Button';
 
 type HeaderButton = {| props: Object, text: Node, modal?: Node |};
-type HeaderLayoutProps = {|
+type MainHeaderLayoutProps = {|
   title: Node | string,
   subtitle: Node | string,
   buttonOne: HeaderButton,
@@ -13,14 +13,14 @@ type HeaderLayoutProps = {|
   image: Node
 |};
 
-export const HeaderLayout = ({
+export const MainHeaderLayout = ({
   title,
   subtitle,
   buttonOne,
   buttonTwo,
   customButton,
   image
-}: HeaderLayoutProps) => {
+}: MainHeaderLayoutProps) => {
   const buttonClass = 'btn-xl mx-1 align-self-center';
   const { props, modal = null } = buttonOne;
   const Modal = modal;

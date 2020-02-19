@@ -6,7 +6,7 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import { ContentBody } from '../components/Content';
-import { HeaderLayout } from '../components/HeaderLayout';
+import { MainHeaderLayout } from '../components/MainHeaderLayout';
 import { Title } from '../layouts/utils';
 import { appUrl, track } from '../helpers';
 import {
@@ -48,7 +48,7 @@ const EquityPlans = (props: Props) => {
         description={description}
         thumbnailUrl={`${siteUrl}/banners/employee-participation-plans.png`}
       />
-      <HeaderLayout
+      <MainHeaderLayout
         title={title}
         subtitle={description}
         buttonOne={buttonOne}
