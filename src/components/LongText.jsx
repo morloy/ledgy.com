@@ -15,11 +15,13 @@ export const LongText = ({
   isMarkdown?: boolean,
   className?: string
 |}) => (
-  <div className={`${isMarkdown ? 'markdown clearfix' : ''} ${className}`}>
-    {content && (
-      <MDXProvider components={{ img: Image, Lead }}>
-        <MDXRenderer>{content.childMdx.body}</MDXRenderer>
-      </MDXProvider>
-    )}
+  <div className="d-flex justify-content-center">
+    <div className={`${isMarkdown ? 'markdown' : ''} ${className}`}>
+      {content && (
+        <MDXProvider components={{ img: Image, Lead }}>
+          <MDXRenderer>{content.childMdx.body}</MDXRenderer>
+        </MDXProvider>
+      )}
+    </div>
   </div>
 );

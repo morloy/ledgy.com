@@ -69,19 +69,17 @@ const getQuestions = (props: Props) => [
   }
 ];
 
-export const TemplateFAQs = (props: Props): Node => {
-  const accordionItems = getQuestions(props).map(({ slug, question, answer }) => (
-    <AccordionItem id={slug} key={slug} title={question}>
-      {answer}
-    </AccordionItem>
-  ));
-
-  return (
-    <div className="row-small mx-auto my-6">
-      <h2 className="text-center">
-        <Trans>FAQs</Trans>
-      </h2>
-      <Accordion>{accordionItems}</Accordion>
-    </div>
-  );
-};
+export const TemplateFAQs = (props: Props): Node => (
+  <div className="row-small mx-auto my-6">
+    <h2 className="text-center">
+      <Trans>FAQs</Trans>
+    </h2>
+    <Accordion>
+      {getQuestions(props).map(({ slug, question, answer }) => (
+        <AccordionItem id={slug} key={slug} title={question}>
+          {answer}
+        </AccordionItem>
+      ))}
+    </Accordion>
+  </div>
+);

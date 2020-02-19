@@ -1,8 +1,13 @@
 $markdown-font-size: 1.2rem;
 $markdown-spacer: $markdown-font-size;
+$markdown-container-width: 720px;
+
+.markdown-width {
+  width: $markdown-container-width;
+}
 
 .markdown {
-  max-width: 720px;
+  max-width: $markdown-container-width;
 
   font-size: $markdown-font-size;
   h1 { font-size: 1.16 * $markdown-font-size; }

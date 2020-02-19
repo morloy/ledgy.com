@@ -35,15 +35,11 @@ export default ({
       ) : (
         <PageHeader lang={lang} documentLang={language} title={title} />
       )}
-      <main className="main-content">
-        <section className="section">
-          <div className="container container-small">
-            <LongText content={content} />
-            <PublishDate date={date} />
-            {author && <Author prefix={prefix} name={author} />}
-          </div>
-        </section>
-      </main>
+      <div className="container container-small">
+        <LongText content={content} />
+        <PublishDate date={date} />
+        {author && <Author prefix={prefix} name={author} />}
+      </div>
     </div>
   );
 };

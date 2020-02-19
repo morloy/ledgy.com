@@ -16,16 +16,16 @@ const About = ({ about, img }: {| about: AuthorProps, img: Object |}) => (
     <div className="d-flex flex-column justify-content-center align-items-end">
       <h5 className="pt-3">{about.name}</h5>
       <h5 className="mb-3">
-        <small className="text-nowrap">{about.role}</small>
+        <small className="text-nowrap text-muted">{about.role}</small>
       </h5>
-      <div className="social social-boxed social-rounded social-gray">
-        <a className="social-mail" href={`mailto:${about.mail}`}>
+      <div>
+        <a className="social-icon" href={`mailto:${about.mail}`}>
           <FontAwesomeIcon icon={faEnvelope} title="Email" />
         </a>
-        <a className="social-twitter" href={about.twitter}>
+        <a className="social-icon mx-2" href={about.twitter}>
           <FontAwesomeIcon icon={faTwitter} title="Twitter" />
         </a>
-        <a className="social-linkedin" href={about.linkedIn}>
+        <a className="social-icon" href={about.linkedIn}>
           <FontAwesomeIcon icon={faLinkedin} title="LinkedIn" />
         </a>
       </div>
