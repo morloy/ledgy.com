@@ -24,10 +24,11 @@ export const getFooterLinks = () => {
   ];
   const productLinks = [
     [<Trans>For finance</Trans>, 'finance'],
-    [<Trans>For human resources</Trans>, 'hr'],
-    [<Trans>For investors</Trans>, 'features/investors'],
-    [<Trans>Data protection</Trans>, 'security'],
-    [<Trans>Pricing</Trans>, 'pricing']
+    [<Trans>For human resources</Trans>, 'human-resources'],
+    [<Trans>For investors</Trans>, 'investors'],
+    [<Trans>Data protection</Trans>, 'data-protection'],
+    [<Trans>Pricing for companies</Trans>, 'pricing-companies'],
+    [<Trans>Pricing for investors</Trans>, 'pricing-investors']
   ];
   const resourceLinks = [
     [<Trans>Help</Trans>, 'help'],
