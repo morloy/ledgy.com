@@ -7,10 +7,16 @@ import { appUrl, track } from '../helpers';
 
 import { Button } from './Button';
 
-export const NavbarButtons = ({ className = '' }: { className?: string }) => (
+export const NavbarButtons = ({
+  className = '',
+  isMobile = false
+}: {
+  className?: string,
+  isMobile?: boolean
+}) => (
   <div className={`d-flex align-items-center ${className}`}>
     <Button
-      outline
+      outline={!isMobile}
       href={`${appUrl}/login`}
       className="px-3 py-1"
       onClick={() => track('click.login')}
@@ -19,6 +25,7 @@ export const NavbarButtons = ({ className = '' }: { className?: string }) => (
     </Button>
     <Button
       inverted
+      outline={isMobile}
       className="ml-2 px-3 py-1"
       href={`${appUrl}/signup`}
       onClick={() => track('click.signup')}

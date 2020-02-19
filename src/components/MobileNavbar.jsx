@@ -71,7 +71,7 @@ export const MobileNavbar = ({
           />
         ))}
       </div>
-      <NavbarButtons className="mt-2 mt-sm-4 mb-4" />
+      <NavbarButtons className="mt-2 mt-sm-4 mb-4" isMobile />
     </div>
   </div>
 );
