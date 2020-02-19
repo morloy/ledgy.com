@@ -4,7 +4,9 @@ import React from 'react';
 import { withI18n } from '@lingui/react';
 import { graphql } from 'gatsby';
 
-import { ContentHeader, ContentBody } from '../components/Content';
+import { ContentBody } from '../components/Content';
+import { DefaultHeader } from '../components/Header';
+
 import { CustomerStoryLink } from '../components/customerStories';
 import { Title } from '../layouts/utils';
 
@@ -16,7 +18,7 @@ export default withI18n()(({ i18n, prefix, data }: Props) => {
         description={i18n.t`Insights on how customers use Ledgy to solve their problems`}
       />
 
-      <ContentHeader title={i18n.t`Ledgy Customer Stories`} />
+      <DefaultHeader title={i18n.t`Ledgy Customer Stories`} />
 
       <ContentBody>
         {data.allContentfulCustomerStory.edges.map(({ node }) => (

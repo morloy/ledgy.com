@@ -4,8 +4,9 @@ import React from 'react';
 import { withI18n } from '@lingui/react';
 import { graphql } from 'gatsby';
 
-import { ContentHeader, ContentBody, PostLink } from '../components/Content';
+import { ContentBody, PostLink } from '../components/Content';
 import { Title } from '../layouts/utils';
+import { DefaultHeader } from '../components/Header';
 
 export default withI18n()(({ i18n, data, prefix }: Props) => (
   <div>
@@ -14,7 +15,7 @@ export default withI18n()(({ i18n, data, prefix }: Props) => (
       description={i18n.t`Thoughts on cap tables, financing rounds, and legal issues around running and managing a startup.`}
     />
 
-    <ContentHeader title={i18n.t`The Ledgy Blog`} />
+    <DefaultHeader title={i18n.t`The Ledgy Blog`} />
 
     <ContentBody>
       {data.allContentfulPage.edges.map(edge => {

@@ -5,7 +5,8 @@ import { withI18n } from '@lingui/react';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-import { ContentHeader, ContentBody } from '../components/Content';
+import { ContentBody } from '../components/Content';
+import { DefaultHeader } from '../components/Header';
 import { Title } from '../layouts/utils';
 import { Accordion, AccordionItem } from '../components/Accordion';
 
@@ -25,7 +26,7 @@ export default withI18n()(({ i18n, data }: Props) => {
         title={i18n.t`Glossary`}
         description={i18n.t`Definitions for industry terms relating to cap tables, financing rounds, and legal topics for startups.`}
       />
-      <ContentHeader title={i18n.t`Glossary`} />
+      <DefaultHeader title={i18n.t`Glossary`} />
       <ContentBody>
         <Accordion>{accordionItems}</Accordion>
       </ContentBody>

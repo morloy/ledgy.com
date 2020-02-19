@@ -5,7 +5,6 @@ import { Trans } from '@lingui/react';
 import { Link } from 'gatsby';
 
 import { ChevronRight } from '../layouts/utils';
-import { targetBlank } from '../helpers';
 
 export const CardLink = ({
   title,
@@ -22,43 +21,43 @@ export const CardLink = ({
   date?: string,
   external?: boolean
 |}) => (
-  <div className="card hover-shadow-5 bg-pale-secondary mb-6">
-    <div className="row">
-      <div className="col-md-3">
+  <div className="card custom-card mb-6">
+    <div className="row m-0 flex-1">
+      <div className="col-md-6 col-lg-3">
         {external ? (
-          <a href={to} {...targetBlank}>
-            {image}
-          </a>
+          <a href={to}>{image}</a>
         ) : (
           <Link href to={to}>
             {image}
           </Link>
         )}
       </div>
-      <div className="col-md-9 p-5">
-        <div className="row h-100 mr-0">
-          <div className="col-md-10">
+      <div className="col-md-6 col-lg-9 px-2 py-4">
+        <div className="row h-100 m-0">
+          <div className="col-lg-10">
             {external ? (
               title
             ) : (
-              <Link href to={to}>
+              <Link href to={to} className="text-primary">
                 {title}
               </Link>
             )}
           </div>
-          <small className="col-md-2 text-md-right text-muted">{date}</small>
+          <small className="col-lg-2 text-lg-right text-muted">{date}</small>
           <div className="col-12">{description}</div>
           <div className="col-12 mt-auto">
             {external ? (
-              <a href={to} {...targetBlank}>
+              <a href={to}>
                 <Trans>Watch now</Trans>
                 <ChevronRight />
               </a>
             ) : (
-              <Link className="small" href to={to}>
-                <Trans>Read more</Trans>
-                <ChevronRight />
-              </Link>
+              <small>
+                <Link href to={to}>
+                  <Trans>Read more</Trans>
+                  <ChevronRight />
+                </Link>
+              </small>
             )}
           </div>
         </div>

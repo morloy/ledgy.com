@@ -5,7 +5,9 @@ import { withI18n } from '@lingui/react';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-import { ContentHeader, ContentBody, PostLink } from '../components/Content';
+import { ContentBody, PostLink } from '../components/Content';
+import { DefaultHeader } from '../components/Header';
+
 import { Title } from '../layouts/utils';
 
 export default withI18n()(({ i18n, data }: Props) => (
@@ -15,7 +17,7 @@ export default withI18n()(({ i18n, data }: Props) => (
       description={i18n.t`Webinars on cap tables, financing rounds, and legal issues around running and managing a startup.`}
     />
 
-    <ContentHeader title={i18n.t`Ledgy Webinars`} />
+    <DefaultHeader title={i18n.t`Ledgy Webinars`} />
 
     <ContentBody>
       {data.allContentfulWebinar.edges.map(edge => {
