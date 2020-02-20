@@ -13,18 +13,22 @@ const ListItemHover = ({
   to,
   prefix,
   title,
-  text
+  text,
+  onClick,
+  isTextShown
 }: {|
   to: string,
   prefix: string,
   title: Node,
-  text?: Node
+  text?: Node,
+  onClick: (SyntheticInputEvent<HTMLInputElement>) => void,
+  isTextShown: boolean
 |}) => (
-  <li className="list-item-hover">
-    <Link href to={`${prefix}/${to}`}>
+  <li className={`list-item-hover ${isTextShown ? 'show' : 'hide'}`}>
+    <Link href to={`${prefix}/${to}`} onClick={onClick}>
       <h4 className={`text-primary mt-2 ${text ? 'mb-1' : 'mb-2'}`}>{title}</h4>
+      {text && <div className="list-item-hover-text mb-3">{text}</div>}
     </Link>
-    {text && <div className="mb-3">{text}</div>}
   </li>
 );
 
@@ -37,8 +41,10 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
   const [backgroundHeight, setBackgroundHeight] = useState('');
   const [backgroundTransform, setBackgroundTransform] = useState('');
   const [firstHover, setFirstHover] = useState(true);
+  const [isTextShown, setShowText] = useState(true);
 
   const hoverIn = e => {
+    setShowText(true);
     const navbar = getNavbar();
     if (navbar) {
       const { currentTarget } = e;
@@ -64,6 +70,11 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
     currentTarget.classList.remove('trigger-enter');
     setTimeout(() => currentTarget.classList.remove('trigger-enter-active'), 100);
     setFloatingBackground(false);
+  };
+
+  const disappear = e => {
+    setShowText(false);
+    hoverOut(e);
   };
 
   const eventHandlingProps = {
@@ -96,7 +107,15 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
             <p>{featuresTitle}</p>
             <ul className="hover-list-child features-dd">
               {features.map(([to, title, text]) => (
-                <ListItemHover to={to} title={title} text={text} prefix={props.prefix} key={to} />
+                <ListItemHover
+                  to={to}
+                  title={title}
+                  text={text}
+                  prefix={props.prefix}
+                  key={to}
+                  onClick={e => disappear(e)}
+                  isTextShown={isTextShown}
+                />
               ))}
             </ul>
           </li>
@@ -105,7 +124,15 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
             <p>{resourcesTitle}</p>
             <ul className="hover-list-child resources-dd">
               {resources.map(([to, title, text]) => (
-                <ListItemHover to={to} title={title} text={text} prefix={props.prefix} key={to} />
+                <ListItemHover
+                  to={to}
+                  title={title}
+                  text={text}
+                  prefix={props.prefix}
+                  key={to}
+                  onClick={e => disappear(e)}
+                  isTextShown={isTextShown}
+                />
               ))}
             </ul>
           </li>
@@ -114,7 +141,15 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
             <p>{pricingTitle}</p>
             <ul className="hover-list-child pricing-dd">
               {pricing.map(([to, title, text]) => (
-                <ListItemHover to={to} title={title} text={text} prefix={props.prefix} key={to} />
+                <ListItemHover
+                  to={to}
+                  title={title}
+                  text={text}
+                  prefix={props.prefix}
+                  key={to}
+                  onClick={e => disappear(e)}
+                  isTextShown={isTextShown}
+                />
               ))}
             </ul>
           </li>

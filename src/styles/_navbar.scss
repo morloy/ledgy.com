@@ -95,6 +95,17 @@
   }
 }
 
+
+.list-item-hover.hide {
+  opacity: 0 !important;
+  pointer-events: none;
+
+}
+.list-item-hover.show {
+  opacity: 1 !important;
+  pointer-events: all;
+}
+
 .trigger-enter .list-item-hover {
   display: block;
   opacity: 0;
@@ -161,7 +172,7 @@
   border-radius: 0.25rem 0 0 0;
 }
 
-.hover-list-child > .list-item-hover > div {
+.list-item-hover-text {
   line-height: 16px;
   font-size: 12px;
   color: $gray-600;

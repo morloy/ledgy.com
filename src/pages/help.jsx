@@ -97,7 +97,13 @@ const HelpCenter = ({ i18n, prefix }: Props) => (
     <div className="container">
       <div className="row">
         {helpLinks.map(([title, description, to, icon]) => (
-          <HelpCard title={title} description={description} to={`${prefix}/${to}/`} icon={icon} />
+          <HelpCard
+            title={title}
+            description={description}
+            to={`${prefix}/${to}/`}
+            icon={icon}
+            key={to}
+          />
         ))}
       </div>
 
