@@ -13,7 +13,7 @@ export const RequestDemoModal = () => {
   const [isOpen, toggle] = useModal();
   return (
     <>
-      <Button onClick={toggle} className="d-inline btn-xl mx-1 my-2 my-sm-0" inverted>
+      <Button onClick={toggle} className=" d-inline btn-xl mx-1 my-2 my-sm-0" inverted>
         <Trans>Get a Demo</Trans>
       </Button>
       <Modal

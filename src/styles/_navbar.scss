@@ -67,31 +67,27 @@
   transition: 400ms;
 }
 
-@mixin logo-pseudo-element {
-  content: '';
-  position: absolute;
-  width: 6px;
-  height: 0;
-  border-radius: 2px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 .list-item-hover {
   display: none;
   position: relative;
-  margin-left: 16px;
+  margin: 0 8px;
   padding: 2px 8px;
   border-radius: $border-radius;
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 0;
+    border-radius: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: $pale-energetic-blue;
+  }
   &:before {
-    @include logo-pseudo-element;
-    left: -25px;
-    background-color: rgba($vibrant-green, 0.4);
+    left: -12px;
   }
   &:after {
-    @include logo-pseudo-element;
-    left: -13px;
-    background-color: rgba($energetic-blue, 0.4);
+    right: -12px;
   }
 }
 
@@ -114,9 +110,9 @@
 
 .trigger-enter-active .list-item-hover {
   opacity: 1;
-  transition: 300ms;
+  transition: 400ms;
   transform: translateX(0);
-  &:before {
+  &:before, &:after {
     transition: 400ms;
   }
   &:hover {
@@ -126,16 +122,9 @@
       color: $deep-blue;
     }
   }
-  &:hover::before {
+  &:hover::before, &:hover::after {
     transition: 400ms;
-    height: 58%;
-  }
-  &:after {
-    transition: 400ms;
-  }
-  &:hover::after {
-    transition: 400ms;
-    height: 75%;
+    height: 70%;
   }
 }
 

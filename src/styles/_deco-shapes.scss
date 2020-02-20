@@ -1,0 +1,82 @@
+.top-deco-shape {
+  z-index: $zindex-deco-shape;
+  position: absolute;
+  border-radius: 20px;
+  transform: rotate(44deg);
+  @include media-breakpoint-up(md){
+    border-radius: 40px;
+    transform: rotate(35deg);
+  }
+  @include media-breakpoint-up(lg){
+    transform: rotate(25deg);
+  }
+  &--one {
+    background-color: $vibrant-green;
+    width: 165px;
+    height: 210px;
+    left: -105px;
+    top: 6%;
+    @media (orientation: landscape) {
+      top: 4%;
+    }
+    @include media-breakpoint-up(md){
+      border-radius: 40px;
+      left: -125px;
+      height: 325px;
+      width: 250px;
+    }
+    @include media-breakpoint-up(lg){
+      transform: rotate(25deg);
+      width: 400px;
+      height: 600px;
+      left: -200px;
+      top: 8%;
+    }
+    @include media-breakpoint-up(xl){
+      width: 600px;
+      height: 1000px;
+      left: -325px;
+    }
+  }
+  &--two {
+    background-color: $energetic-blue;
+    width: 175px;
+    height: 175px;
+    right: -86px;
+    top: -1%;
+    @include media-breakpoint-up(md){
+      width: 223px;
+      height: 276px;
+      right: -122px;
+      top: 1%;
+    }
+    @include media-breakpoint-up(lg){
+      width: 300px;
+      height: 350px;
+      right: -115px;
+      top: -2%;
+    }
+    @include media-breakpoint-up(xl){
+      width: 500px;
+      height: 450px;
+      right: -215px;
+      top: 0%
+    }
+  }
+  &--three {
+    background-color: $energetic-blue;
+    width: 175px;
+    height: 175px;
+    right: -86px;
+    top: -1%;
+    @include media-breakpoint-up(md){
+
+    }
+    @include media-breakpoint-up(lg){
+
+    }
+    @include media-breakpoint-up(xl){
+
+    }
+  }
+}
