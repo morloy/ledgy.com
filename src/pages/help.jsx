@@ -103,9 +103,9 @@ const HelpCenter = ({ i18n, prefix }: Props) => (
 
       <Hr />
       <div className="container text-center py-md-4">
-        <h4 className="mb-5">
+        <h3 className="mb-4">
           <Trans>Popular content</Trans>
-        </h4>
+        </h3>
         <p>
           <a
             href="https://www.youtube.com/watch?v=JbiAK2SVwHA&list=PLltwxYxG5b6fCAqvomPFc-E049R1HXzNl"

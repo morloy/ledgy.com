@@ -69,6 +69,32 @@
 
 .list-item-hover {
   display: none;
+  position: relative;
+  margin: 0 16px;
+  padding: 0 2px;
+  border-radius: $border-radius;
+  &:before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 0;
+    border-radius: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -24px;
+    background-color: $vibrant-green;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 0;
+    border-radius: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -13px;
+    background-color: $energetic-blue;
+  }
 }
 
 .trigger-enter .list-item-hover {
@@ -82,6 +108,24 @@
   opacity: 1;
   transition: 300ms;
   transform: translateX(0);
+  &:before {
+    transition: 400ms;
+  }
+  &:hover {
+    background-color: $gray-100;
+    transition: 400ms;
+  }
+  &:hover::before {
+    transition: 400ms;
+    height: 70%;
+  }
+  &:after {
+    transition: 400ms;
+  }
+  &:hover::after {
+    transition: 400ms;
+    height: 90%;
+  }
 }
 
 .dropdown-background {
@@ -126,15 +170,16 @@
 }
 
 .hover-list-child.features-dd {
-  width: 300px;
+  width: 400px;
 }
+
 
 .hover-list-child.resources-dd {
   width: 350px;
 }
 
 .hover-list-child.pricing-dd {
-  width: 220px;
+  width: 250px;
 }
 
 // Mobile properties
