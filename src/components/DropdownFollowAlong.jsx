@@ -6,24 +6,28 @@ import { CSSTransition } from 'react-transition-group';
 
 import { getNavbarTitles, getNavbarLinks } from './lib';
 
+type Event = SyntheticInputEvent<HTMLInputElement>;
+type ListItemProps = {| title: Node, isTextShown: boolean, prefix: string |};
+
+type ListItemHoverProps = {|
+  ...ListItemProps,
+  to: string,
+  text?: Node,
+  onClick: Event => void
+|};
+
+type ParentListItemProps = {|
+  ...ListItemProps,
+  eventHandlingProps: {| onMouseEnter: Event => void, onMouseLeave: Event => void |},
+  menuItems: Object[],
+  disappear: Event => void,
+  className: string
+|};
+
 const NAV_ID = 'custom-hover-nav';
 const getNavbar = () => document.getElementById(NAV_ID);
 
-const ListItemHover = ({
-  to,
-  prefix,
-  title,
-  text,
-  onClick,
-  isTextShown
-}: {|
-  to: string,
-  prefix: string,
-  title: Node,
-  text?: Node,
-  onClick: (SyntheticInputEvent<HTMLInputElement>) => void,
-  isTextShown: boolean
-|}) => (
+const ListItemHover = ({ to, prefix, title, text, onClick, isTextShown }: ListItemHoverProps) => (
   <li className={`list-item-hover ${isTextShown ? 'show' : 'hide'}`}>
     <Link href to={`${prefix}/${to}`} onClick={onClick}>
       <h4 className={`text-primary mt-2 ${text ? 'mb-1' : 'mb-2'}`}>{title}</h4>
@@ -32,19 +36,9 @@ const ListItemHover = ({
   </li>
 );
 
-type ParentListItemProps = {|
-  eventHandlingProps: Object,
-  toggleTitle: Node,
-  menuItems: Object[],
-  prefix: string,
-  disappear: (SyntheticInputEvent<HTMLInputElement>) => void,
-  isTextShown: boolean,
-  className: string
-|};
-
 const ParentListItem = ({
   eventHandlingProps,
-  toggleTitle,
+  title: parentTitle,
   menuItems,
   prefix,
   disappear,
@@ -52,7 +46,7 @@ const ParentListItem = ({
   className
 }: ParentListItemProps) => (
   <li {...eventHandlingProps}>
-    <p>{toggleTitle}</p>
+    <p>{parentTitle}</p>
     <ul className={`hover-list-child ${className}`}>
       {menuItems.map(([to, title, text]) => (
         <ListItemHover
@@ -94,17 +88,18 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
       currentTarget.classList.add('trigger-enter');
       setTimeout(() => currentTarget.classList.add('trigger-enter-active'), 100);
       const dropdown = currentTarget.querySelector('.hover-list-child');
+      if (dropdown) {
+        const dropdownPosition = dropdown.getBoundingClientRect();
+        const nav = navbar.getBoundingClientRect();
+        const shiftX = dropdownPosition.left - nav.left;
+        const shiftY = dropdownPosition.top - nav.top;
 
-      const dropdownPosition = dropdown.getBoundingClientRect();
-      const nav = navbar.getBoundingClientRect();
-      const shiftX = dropdownPosition.left - nav.left;
-      const shiftY = dropdownPosition.top - nav.top;
-
-      setFloatingBackground(true);
-      setBackgroundWidth(`${dropdownPosition.width}px`);
-      setBackgroundHeight(`${dropdownPosition.height}px`);
-      setBackgroundTransform(`translate(${shiftX}px, ${shiftY}px)`);
-      if (firstHover) setTimeout(() => setFirstHover(false), 0);
+        setFloatingBackground(true);
+        setBackgroundWidth(`${dropdownPosition.width}px`);
+        setBackgroundHeight(`${dropdownPosition.height}px`);
+        setBackgroundTransform(`translate(${shiftX}px, ${shiftY}px)`);
+        if (firstHover) setTimeout(() => setFirstHover(false), 0);
+      }
     }
   };
 
@@ -115,9 +110,9 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
     setFloatingBackground(false);
   };
 
-  const disappear = e => {
+  const disappear = () => {
     setShowText(false);
-    hoverOut(e);
+    setFloatingBackground(false);
   };
 
   const eventHandlingProps = {
@@ -147,13 +142,13 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
         </CSSTransition>
 
         <ul className="hover-list-parent">
-          {parentListItems.map(([toggletitle, menuItems, className]) => (
+          {parentListItems.map(([parentTitle, menuItems, className]) => (
             <ParentListItem
               eventHandlingProps={eventHandlingProps}
-              toggleTitle={toggletitle}
+              title={parentTitle}
               menuItems={menuItems}
               prefix={props.prefix}
-              disappear={e => disappear(e)}
+              disappear={disappear}
               isTextShown={isTextShown}
               className={className}
             />

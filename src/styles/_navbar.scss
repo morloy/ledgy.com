@@ -80,21 +80,20 @@
 .list-item-hover {
   display: none;
   position: relative;
-  margin: 0 16px;
-  padding: 0 2px;
+  margin-left: 16px;
+  padding: 2px 8px;
   border-radius: $border-radius;
   &:before {
     @include logo-pseudo-element;
-    left: -24px;
-    background-color: $vibrant-green;
+    left: -25px;
+    background-color: rgba($vibrant-green, 0.4);
   }
   &:after {
     @include logo-pseudo-element;
     left: -13px;
-    background-color: $energetic-blue;
+    background-color: rgba($energetic-blue, 0.4);
   }
 }
-
 
 .list-item-hover.hide {
   opacity: 0 !important;
@@ -121,20 +120,30 @@
     transition: 400ms;
   }
   &:hover {
-    background-color: $gray-100;
+    background-color: $pale-energetic-blue;
     transition: 400ms;
+    .list-item-hover-text {
+      color: $deep-blue;
+    }
   }
   &:hover::before {
     transition: 400ms;
-    height: 70%;
+    height: 58%;
   }
   &:after {
     transition: 400ms;
   }
   &:hover::after {
     transition: 400ms;
-    height: 90%;
+    height: 75%;
   }
+}
+
+.list-item-hover-text {
+  line-height: 18px;
+  font-size: 14px;
+  color: $gray-600;
+  transition: 400ms;
 }
 
 .dropdown-background {
@@ -172,19 +181,13 @@
   border-radius: 0.25rem 0 0 0;
 }
 
-.list-item-hover-text {
-  line-height: 16px;
-  font-size: 12px;
-  color: $gray-600;
-}
-
 .hover-list-child.features-dd {
-  width: 400px;
+  width: 450px;
 }
 
 
 .hover-list-child.resources-dd {
-  width: 350px;
+  width: 400px;
 }
 
 .hover-list-child.pricing-dd {
