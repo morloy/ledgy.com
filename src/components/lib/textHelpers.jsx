@@ -102,7 +102,7 @@ export const getNavbarLinks = () => {
       </Trans>
     ],
     [
-      'webinar',
+      'webinars',
       <Trans>Webinars</Trans>,
       <Trans>Our collection of Ledgy webinars addressing the most requested topics.</Trans>
     ],

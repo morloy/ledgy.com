@@ -32,8 +32,51 @@ const ListItemHover = ({
   </li>
 );
 
+type ParentListItemProps = {|
+  eventHandlingProps: Object,
+  toggleTitle: Node,
+  menuItems: Object[],
+  prefix: string,
+  disappear: (SyntheticInputEvent<HTMLInputElement>) => void,
+  isTextShown: boolean,
+  className: string
+|};
+
+const ParentListItem = ({
+  eventHandlingProps,
+  toggleTitle,
+  menuItems,
+  prefix,
+  disappear,
+  isTextShown,
+  className
+}: ParentListItemProps) => (
+  <li {...eventHandlingProps}>
+    <p>{toggleTitle}</p>
+    <ul className={`hover-list-child ${className}`}>
+      {menuItems.map(([to, title, text]) => (
+        <ListItemHover
+          to={to}
+          title={title}
+          text={text}
+          prefix={prefix}
+          key={to}
+          onClick={e => disappear(e)}
+          isTextShown={isTextShown}
+        />
+      ))}
+    </ul>
+  </li>
+);
+
 const { featuresTitle, resourcesTitle, pricingTitle, dataProtectionTitle } = getNavbarTitles();
 const { features, resources, pricing, dataProtection } = getNavbarLinks();
+
+const parentListItems = [
+  [featuresTitle, features, 'features-dd'],
+  [resourcesTitle, resources, 'resources-dd'],
+  [pricingTitle, pricing, 'pricing-dd']
+];
 
 export const DropdownFollowAlong = (props: LayoutProps) => {
   const [isFloatingBackground, setFloatingBackground] = useState(false);
@@ -102,58 +145,19 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
             <span className="arrow" />
           </div>
         </CSSTransition>
+
         <ul className="hover-list-parent">
-          <li {...eventHandlingProps}>
-            <p>{featuresTitle}</p>
-            <ul className="hover-list-child features-dd">
-              {features.map(([to, title, text]) => (
-                <ListItemHover
-                  to={to}
-                  title={title}
-                  text={text}
-                  prefix={props.prefix}
-                  key={to}
-                  onClick={e => disappear(e)}
-                  isTextShown={isTextShown}
-                />
-              ))}
-            </ul>
-          </li>
-
-          <li {...eventHandlingProps}>
-            <p>{resourcesTitle}</p>
-            <ul className="hover-list-child resources-dd">
-              {resources.map(([to, title, text]) => (
-                <ListItemHover
-                  to={to}
-                  title={title}
-                  text={text}
-                  prefix={props.prefix}
-                  key={to}
-                  onClick={e => disappear(e)}
-                  isTextShown={isTextShown}
-                />
-              ))}
-            </ul>
-          </li>
-
-          <li {...eventHandlingProps}>
-            <p>{pricingTitle}</p>
-            <ul className="hover-list-child pricing-dd">
-              {pricing.map(([to, title, text]) => (
-                <ListItemHover
-                  to={to}
-                  title={title}
-                  text={text}
-                  prefix={props.prefix}
-                  key={to}
-                  onClick={e => disappear(e)}
-                  isTextShown={isTextShown}
-                />
-              ))}
-            </ul>
-          </li>
-
+          {parentListItems.map(([toggletitle, menuItems, className]) => (
+            <ParentListItem
+              eventHandlingProps={eventHandlingProps}
+              toggleTitle={toggletitle}
+              menuItems={menuItems}
+              prefix={props.prefix}
+              disappear={e => disappear(e)}
+              isTextShown={isTextShown}
+              className={className}
+            />
+          ))}
           <li>
             <Link href to={`${props.prefix}/${dataProtection[0][0]}`}>
               {dataProtectionTitle}
