@@ -67,6 +67,16 @@
   transition: 400ms;
 }
 
+@mixin logo-pseudo-element {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 0;
+  border-radius: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .list-item-hover {
   display: none;
   position: relative;
@@ -74,24 +84,12 @@
   padding: 0 2px;
   border-radius: $border-radius;
   &:before {
-    content: '';
-    position: absolute;
-    width: 6px;
-    height: 0;
-    border-radius: 2px;
-    top: 50%;
-    transform: translateY(-50%);
+    @include logo-pseudo-element;
     left: -24px;
     background-color: $vibrant-green;
   }
   &:after {
-    content: '';
-    position: absolute;
-    width: 6px;
-    height: 0;
-    border-radius: 2px;
-    top: 50%;
-    transform: translateY(-50%);
+    @include logo-pseudo-element;
     left: -13px;
     background-color: $energetic-blue;
   }
