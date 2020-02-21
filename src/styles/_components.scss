@@ -44,6 +44,13 @@
   .nav-link {
     color: $white;
     padding-left: 0;
+    transform: translateX(0px);
+    transition: 300ms;
+    &:hover {
+      color: $vibrant-green;
+      transition: 300ms;
+      transform: translateX(-2px);
+    }
   }
   .social-icon {
     font-size: 25px;
@@ -419,6 +426,9 @@ $deco-dot-size: 8px;
 .social-icon {
   opacity: 0.75;
   color: $gray-500;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 // Help page
