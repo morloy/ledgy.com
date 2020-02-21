@@ -6,30 +6,71 @@ import { CSSTransition } from 'react-transition-group';
 
 import { getNavbarTitles, getNavbarLinks } from './lib';
 
+type Event = SyntheticInputEvent<HTMLInputElement>;
+type ListItemProps = {| title: Node, isTextShown: boolean, prefix: string |};
+
+type ListItemHoverProps = {|
+  ...ListItemProps,
+  to: string,
+  text?: Node,
+  onClick: Event => void
+|};
+
+type ParentListItemProps = {|
+  ...ListItemProps,
+  eventHandlingProps: {| onMouseEnter: Event => void, onMouseLeave: Event => void |},
+  menuItems: Object[],
+  disappear: Event => void,
+  className: string
+|};
+
 const NAV_ID = 'custom-hover-nav';
 const getNavbar = () => document.getElementById(NAV_ID);
 
-const ListItemHover = ({
-  to,
-  prefix,
-  title,
-  text
-}: {|
-  to: string,
-  prefix: string,
-  title: Node,
-  text?: Node
-|}) => (
-  <li className="list-item-hover">
-    <Link href to={`${prefix}/${to}`}>
+const ListItemHover = ({ to, prefix, title, text, onClick, isTextShown }: ListItemHoverProps) => (
+  <li className={`list-item-hover ${isTextShown ? 'show' : 'hide'}`}>
+    <Link href to={`${prefix}/${to}`} onClick={onClick}>
       <h4 className={`text-primary mt-2 ${text ? 'mb-1' : 'mb-2'}`}>{title}</h4>
+      {text && <div className="list-item-hover-text mb-3">{text}</div>}
     </Link>
-    {text && <div className="mb-3">{text}</div>}
+  </li>
+);
+
+const ParentListItem = ({
+  eventHandlingProps,
+  title: parentTitle,
+  menuItems,
+  prefix,
+  disappear,
+  isTextShown,
+  className
+}: ParentListItemProps) => (
+  <li {...eventHandlingProps}>
+    <p>{parentTitle}</p>
+    <ul className={`hover-list-child ${className}`}>
+      {menuItems.map(([to, title, text]) => (
+        <ListItemHover
+          to={to}
+          title={title}
+          text={text}
+          prefix={prefix}
+          key={to}
+          onClick={e => disappear(e)}
+          isTextShown={isTextShown}
+        />
+      ))}
+    </ul>
   </li>
 );
 
 const { featuresTitle, resourcesTitle, pricingTitle, dataProtectionTitle } = getNavbarTitles();
 const { features, resources, pricing, dataProtection } = getNavbarLinks();
+
+const parentListItems = [
+  [featuresTitle, features, 'features-dd'],
+  [resourcesTitle, resources, 'resources-dd'],
+  [pricingTitle, pricing, 'pricing-dd']
+];
 
 export const DropdownFollowAlong = (props: LayoutProps) => {
   const [isFloatingBackground, setFloatingBackground] = useState(false);
@@ -37,25 +78,28 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
   const [backgroundHeight, setBackgroundHeight] = useState('');
   const [backgroundTransform, setBackgroundTransform] = useState('');
   const [firstHover, setFirstHover] = useState(true);
+  const [isTextShown, setShowText] = useState(true);
 
   const hoverIn = e => {
+    setShowText(true);
     const navbar = getNavbar();
     if (navbar) {
       const { currentTarget } = e;
       currentTarget.classList.add('trigger-enter');
       setTimeout(() => currentTarget.classList.add('trigger-enter-active'), 100);
       const dropdown = currentTarget.querySelector('.hover-list-child');
+      if (dropdown) {
+        const dropdownPosition = dropdown.getBoundingClientRect();
+        const nav = navbar.getBoundingClientRect();
+        const shiftX = dropdownPosition.left - nav.left;
+        const shiftY = dropdownPosition.top - nav.top;
 
-      const dropdownPosition = dropdown.getBoundingClientRect();
-      const nav = navbar.getBoundingClientRect();
-      const shiftX = dropdownPosition.left - nav.left;
-      const shiftY = dropdownPosition.top - nav.top;
-
-      setFloatingBackground(true);
-      setBackgroundWidth(`${dropdownPosition.width}px`);
-      setBackgroundHeight(`${dropdownPosition.height}px`);
-      setBackgroundTransform(`translate(${shiftX}px, ${shiftY}px)`);
-      if (firstHover) setTimeout(() => setFirstHover(false), 0);
+        setFloatingBackground(true);
+        setBackgroundWidth(`${dropdownPosition.width}px`);
+        setBackgroundHeight(`${dropdownPosition.height}px`);
+        setBackgroundTransform(`translate(${shiftX}px, ${shiftY}px)`);
+        if (firstHover) setTimeout(() => setFirstHover(false), 0);
+      }
     }
   };
 
@@ -63,6 +107,11 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
     const { currentTarget } = e;
     currentTarget.classList.remove('trigger-enter');
     setTimeout(() => currentTarget.classList.remove('trigger-enter-active'), 100);
+    setFloatingBackground(false);
+  };
+
+  const disappear = () => {
+    setShowText(false);
     setFloatingBackground(false);
   };
 
@@ -91,34 +140,19 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
             <span className="arrow" />
           </div>
         </CSSTransition>
+
         <ul className="hover-list-parent">
-          <li {...eventHandlingProps}>
-            <p>{featuresTitle}</p>
-            <ul className="hover-list-child features-dd">
-              {features.map(([to, title, text]) => (
-                <ListItemHover to={to} title={title} text={text} prefix={props.prefix} key={to} />
-              ))}
-            </ul>
-          </li>
-
-          <li {...eventHandlingProps}>
-            <p>{resourcesTitle}</p>
-            <ul className="hover-list-child resources-dd">
-              {resources.map(([to, title, text]) => (
-                <ListItemHover to={to} title={title} text={text} prefix={props.prefix} key={to} />
-              ))}
-            </ul>
-          </li>
-
-          <li {...eventHandlingProps}>
-            <p>{pricingTitle}</p>
-            <ul className="hover-list-child pricing-dd">
-              {pricing.map(([to, title, text]) => (
-                <ListItemHover to={to} title={title} text={text} prefix={props.prefix} key={to} />
-              ))}
-            </ul>
-          </li>
-
+          {parentListItems.map(([parentTitle, menuItems, className]) => (
+            <ParentListItem
+              eventHandlingProps={eventHandlingProps}
+              title={parentTitle}
+              menuItems={menuItems}
+              prefix={props.prefix}
+              disappear={disappear}
+              isTextShown={isTextShown}
+              className={className}
+            />
+          ))}
           <li>
             <Link href to={`${props.prefix}/${dataProtection[0][0]}`}>
               {dataProtectionTitle}

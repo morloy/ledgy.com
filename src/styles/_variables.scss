@@ -7,7 +7,7 @@ $vibrant-green:                   #1edeb7;
 $highlight-red:                   #e64c49;
 $pale-energetic-blue:             #eaf5fa;
 
-$gray-100: #f8f9fa;
+$gray-100: #f8f9fadf;
 $gray-200: #e9ecef;
 $gray-300: #dee2e6;
 $gray-400: #ced4da;
@@ -36,8 +36,10 @@ $box-shadow:                        0 10px 20px rgba(0,0,0,0.25), 0 6px 6px rgba
 $navbar-min-height:                 70px !default;
 
 // Z-index master list
-$zindex-company-summary:            999 !default;
-$zindex-navbar:                     1000 !default;
+$zindex-deco-shape:                 990 !default;
+$zindex-base:                       1000 !default;
+$zindex-company-summary:            1005 !default;
+$zindex-navbar:                     1010 !default;
 $zindex-backdrop:                   1020 !default;
 $zindex-popup:                      1030 !default;
 $zindex-popup-toggler:              1040 !default;

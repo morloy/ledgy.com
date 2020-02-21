@@ -97,12 +97,12 @@ export const getNavbarLinks = () => {
       'blog',
       <Trans>Blog</Trans>,
       <Trans>
-        In the blog you will find detailed explanations about topics concerning equity management,
-        employee engagement, investor relations, and more.
+        Detailed explanations about topics concerning equity management, employee engagement,
+        investor relations, and more.
       </Trans>
     ],
     [
-      'webinar',
+      'webinars',
       <Trans>Webinars</Trans>,
       <Trans>Our collection of Ledgy webinars addressing the most requested topics.</Trans>
     ],

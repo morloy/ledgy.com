@@ -16,8 +16,16 @@ import {
   getSecondTwoSellingProps
 } from '../helpers';
 
+const DecoShapes = () => (
+  <>
+    <div className="top-deco-shape top-deco-shape--one" />
+    <div className="top-deco-shape top-deco-shape--two" />
+  </>
+);
+
 const IndexPage = (props: Props) => (
-  <main>
+  <main className="position-relative overflow-hidden">
+    <DecoShapes />
     <HomePageHeader {...props} />
     <MainProblemLayout
       title={

@@ -27,7 +27,7 @@ export const MainHeaderLayout = ({
 
   return (
     <header className="header d-flex home-banner px-1 text-left bg-primary">
-      <div className="container my-auto">
+      <div className="container my-auto position-relative z-index-base">
         <div className="row gap-y mt-md-2 pb-4 pb-md-6">
           <div className="col-lg-6 d-flex flex-column justify-content-center">
             <div className="mt-md-n6 mb-md-4">

@@ -129,3 +129,15 @@
     transform: rotate(359deg);
   }
 }
+
+.z-index-base {
+  z-index: $zindex-base;
+}
+
+.z-index-deco {
+  z-index: $zindex-deco-shape;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}

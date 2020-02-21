@@ -97,15 +97,21 @@ const HelpCenter = ({ i18n, prefix }: Props) => (
     <div className="container">
       <div className="row">
         {helpLinks.map(([title, description, to, icon]) => (
-          <HelpCard title={title} description={description} to={`${prefix}/${to}/`} icon={icon} />
+          <HelpCard
+            title={title}
+            description={description}
+            to={`${prefix}/${to}/`}
+            icon={icon}
+            key={to}
+          />
         ))}
       </div>
 
       <Hr />
       <div className="container text-center py-md-4">
-        <h4 className="mb-5">
+        <h3 className="mb-4">
           <Trans>Popular content</Trans>
-        </h4>
+        </h3>
         <p>
           <a
             href="https://www.youtube.com/watch?v=JbiAK2SVwHA&list=PLltwxYxG5b6fCAqvomPFc-E049R1HXzNl"

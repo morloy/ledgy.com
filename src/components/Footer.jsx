@@ -52,8 +52,9 @@ export const Footer = ({ location, ...props }: LayoutProps) => {
   return (
     <div>
       {isPartners ? '' : <CTABanner location={location} {...props} />}
-      <footer className="footer pt-8 px-2 px-md-4 text-white bg-primary">
-        <div className="row m-0 h-100 justify-content-md-center">
+      <footer className="footer pt-8 px-2 px-md-4 text-white bg-primary overflow-hidden position-relative">
+        <div className="footer-deco-shape" />
+        <div className="row m-0 h-100 justify-content-md-center position-relative z-index-base">
           <FooterCol order={2}>
             <FooterColBody title={<Trans>Company</Trans>}>
               {companyLinks.map(([label, link]) => (

@@ -69,6 +69,19 @@
 
 .list-item-hover {
   display: none;
+  position: relative;
+  padding: 2px 8px;
+  border-radius: $border-radius;
+}
+
+.list-item-hover.hide {
+  opacity: 0 !important;
+  pointer-events: none;
+
+}
+.list-item-hover.show {
+  opacity: 1 !important;
+  pointer-events: all;
 }
 
 .trigger-enter .list-item-hover {
@@ -80,8 +93,22 @@
 
 .trigger-enter-active .list-item-hover {
   opacity: 1;
-  transition: 300ms;
+  transition: 400ms;
   transform: translateX(0);
+  &:hover {
+    background-color: $pale-energetic-blue;
+    transition: 400ms;
+    .list-item-hover-text {
+      color: $deep-blue;
+    }
+  }
+}
+
+.list-item-hover-text {
+  line-height: 18px;
+  font-size: 14px;
+  color: $gray-600;
+  transition: 400ms;
 }
 
 .dropdown-background {
@@ -119,22 +146,17 @@
   border-radius: 0.25rem 0 0 0;
 }
 
-.hover-list-child > .list-item-hover > div {
-  line-height: 16px;
-  font-size: 12px;
-  color: $gray-600;
+.hover-list-child.features-dd {
+  width: 450px;
 }
 
-.hover-list-child.features-dd {
-  width: 300px;
-}
 
 .hover-list-child.resources-dd {
-  width: 350px;
+  width: 400px;
 }
 
 .hover-list-child.pricing-dd {
-  width: 220px;
+  width: 250px;
 }
 
 // Mobile properties
