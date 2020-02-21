@@ -1,4 +1,4 @@
-.top-deco-shape {
+@mixin deco-shape {
   z-index: $zindex-deco-shape;
   position: absolute;
   border-radius: 20px;
@@ -10,6 +10,10 @@
   @include media-breakpoint-up(lg){
     transform: rotate(25deg);
   }
+}
+
+.top-deco-shape {
+ @include deco-shape;
   &--one {
     background-color: $vibrant-green;
     width: 165px;
@@ -63,20 +67,25 @@
       top: 0%
     }
   }
-  &--three {
-    background-color: $energetic-blue;
-    width: 175px;
-    height: 175px;
-    right: -86px;
-    top: -1%;
-    @include media-breakpoint-up(md){
+}
 
-    }
-    @include media-breakpoint-up(lg){
-
-    }
-    @include media-breakpoint-up(xl){
-
-    }
+.footer-deco-shape {
+  @include deco-shape;
+  background-color: $energetic-blue;
+  width: 300px;
+  height: 250px;
+  left: -135px;
+  bottom: 0;
+  @include media-breakpoint-up(md){
+    width: 500px;
+    height: 250px;
+    left: -150px;
+    bottom: -45px;
+  }
+  @include media-breakpoint-up(lg){
+    width: 800px;
+    height: 400px;
+    left: -165px;
+    bottom: -200px;
   }
 }
