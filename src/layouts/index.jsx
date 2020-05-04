@@ -98,6 +98,23 @@ const TemplateWrapper = withI18n()(({ children, ...props }: SiteProps) => (
                 }("3729", document.location.href, document));
               `}
             </script>
+            <script>
+              {`
+                (function() {
+                  var capterra_vkey = 'a12f04cb89eededafd612ba40d2d149b',
+                  capterra_vid = '2120646',
+                  capterra_prefix = (('https:' == document.location.protocol)
+                    ? 'https://ct.capterra.com' : 'http://ct.capterra.com');
+                  var ct = document.createElement('script');
+                  ct.type = 'text/javascript';
+                  ct.async = true;
+                  ct.src = capterra_prefix + '/capterra_tracker.js?vid='
+                    + capterra_vid + '&vkey=' + capterra_vkey;
+                  var s = document.getElementsByTagName('script')[0];
+                  s.parentNode.insertBefore(ct, s);
+                })();
+              `}
+            </script>
 
             {/* Disable AOS for Google */}
             <noscript>
