@@ -45,6 +45,31 @@ const LanguageLink = ({ language, to }: { language: string, to: string }) => (
   </Link>
 );
 
+const CapterraIcon = () => (
+  <a
+    title="Ledgy is a leader in Equity Management on G2"
+    href="https://www.g2.com/products/ledgy/reviews?utm_source=rewards-badge"
+  >
+    <img
+      style={{ width: '125px' }}
+      alt="Ledgy is a leader in Equity Management on G2"
+      src="https://images.g2crowd.com/uploads/report_medal/image/1239/medal.svg"
+    />
+  </a>
+);
+
+const G2Icon = () => (
+  <a
+    className="mt-3"
+    href="https://www.capterra.com/reviews/173939/Ledgy?utm_source=vendor&utm_medium=badge&utm_campaign=capterra_reviews_badge"
+  >
+    <img
+      alt="Capterra"
+      src="https://assets.capterra.com/badge/4700aedd505fa5881254166d19949239.png?v=2120646&p=173939"
+    />
+  </a>
+);
+
 const { companyLinks, legalLinks, productLinks, resourceLinks, socialLinks } = getFooterLinks();
 
 export const Footer = ({ location, ...props }: LayoutProps) => {
@@ -90,7 +115,7 @@ export const Footer = ({ location, ...props }: LayoutProps) => {
               </FooterColBody>
             </FooterCol>
             <FooterCol order={1} wide>
-              <div className="footer--logo-section d-flex flex-column justify-content-between mt-5 mt-md-0">
+              <div className="footer--logo-section d-flex flex-column justify-content-between mt-4 mt-md-0">
                 <div className="d-flex flex-column align-items-center p-0 px-md-4">
                   <Link href to={`${prefix}/#start`} className="mb-2 mb-md-4">
                     <img src={logoInvertedCompact} width={80} alt={name} />
@@ -116,7 +141,11 @@ export const Footer = ({ location, ...props }: LayoutProps) => {
                     />
                   </div>
                 </div>
-                <div className="d-flex justify-content-center flex-wrap mt-5">
+                <div className="d-flex flex-column align-items-center p-0 px-md-4 mt-2">
+                  <CapterraIcon />
+                  <G2Icon />
+                </div>
+                <div className="d-flex justify-content-center flex-wrap mt-4">
                   {socialLinks.map(([href, icon, title]) => (
                     <a
                       href={href}
