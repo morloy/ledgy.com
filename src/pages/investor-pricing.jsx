@@ -45,7 +45,7 @@ const InvestorTypeCard = ({
 
 export default withI18n()(({ i18n }: Props) => {
   const title = i18n.t`Investor Pricing`;
-  const description = i18n.t`Different investors have different needs. Whether you’re a business angel, a professional investor, or a VC fund, Ledgy has a plan to suit your needs`;
+  const description = i18n.t`Different investors have different needs. Whether you’re a business angel or a professional investment firm, Ledgy has a plan to suit your needs`;
   return (
     <>
       <Title title={title} description={description} />
@@ -65,11 +65,11 @@ export default withI18n()(({ i18n }: Props) => {
           />
           <InvestorTypeCard
             highlight
-            type={<Trans>Fund</Trans>}
+            type={<Trans>Investment Firm</Trans>}
             price={<Trans>Contact us</Trans>}
             features={fundFeatures}
             button={
-              <Button href="mailto:sales@ledgy.com?subject=Ledgy investors - Fund plan inquiry">
+              <Button href="mailto:sales@ledgy.com?subject=Ledgy investment plan inquiry">
                 <Trans>Get in touch</Trans>
               </Button>
             }
