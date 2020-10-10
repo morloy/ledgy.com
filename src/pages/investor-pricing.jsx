@@ -69,7 +69,7 @@ export default withI18n()(({ i18n }: Props) => {
             price={<Trans>Contact us</Trans>}
             features={fundFeatures}
             button={
-              <Button href="mailto:sales@ledgy.com?subject=Ledgy investment plan inquiry">
+              <Button href="mailto:sales@ledgy.com?subject=Ledgy investment firm inquiry">
                 <Trans>Get in touch</Trans>
               </Button>
             }
