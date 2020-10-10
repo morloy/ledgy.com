@@ -12,8 +12,8 @@ export const getInvestorFeaturePricing = () => ({
   ],
   fundFeatures: [
     <Trans>Unlimited companies</Trans>,
-    <Trans>Unlimited portfolios for your fund</Trans>,
-    <Trans>Unlimited admin seats</Trans>,
+    <Trans>Unlimited portfolios</Trans>,
+    <Trans>Unlimited owner and admin seats</Trans>,
     <Trans>Premium support and onboarding assistance</Trans>,
   ],
 });
