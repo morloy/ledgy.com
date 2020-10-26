@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
-import { shuffleArray } from '../helpers';
 import { Title, Hr } from '../layouts/utils';
 import { getWholeTeam, type AuthorProps } from '../layouts/team';
 
@@ -81,12 +80,12 @@ const Investor = ({
   </div>
 );
 
-const IndexPage = (props: Props) => {
+const AboutUsPage = (props: Props) => {
   const { data, i18n } = props;
   const team = getWholeTeam(props.prefix);
   const title = i18n.t`About us`;
   const description = i18n.t`We believe that entrepreneurship is the main driver of positive change in the world. That is why we build beautiful and intuitive software for startups, helping them be more successful`;
-  const teamArray = shuffleArray([
+  const teamArray = [
     [team.timo, data.timo],
     [team.yoko, data.yoko],
     [team.ben, data.ben],
@@ -101,7 +100,7 @@ const IndexPage = (props: Props) => {
     [team.tamas, data.tamas],
     [team.mariana, data.mariana],
     [team.luna, data.luna],
-  ]);
+  ];
 
   return (
     <div>
@@ -186,7 +185,7 @@ const IndexPage = (props: Props) => {
   );
 };
 
-export default withI18n()(IndexPage);
+export default withI18n()(AboutUsPage);
 
 // eslint-disable-next-line no-undef
 export const pageQuery = graphql`
