@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
+import { shuffleArray } from '../helpers';
 import { Title, Hr } from '../layouts/utils';
 import { getWholeTeam, type AuthorProps } from '../layouts/team';
 
@@ -85,7 +86,7 @@ const AboutUsPage = (props: Props) => {
   const team = getWholeTeam(props.prefix);
   const title = i18n.t`About us`;
   const description = i18n.t`We believe that entrepreneurship is the main driver of positive change in the world. That is why we build beautiful and intuitive software for startups, helping them be more successful`;
-  const teamArray = [
+  const teamArray = shuffleArray([
     [team.timo, data.timo],
     [team.yoko, data.yoko],
     [team.ben, data.ben],
@@ -100,7 +101,7 @@ const AboutUsPage = (props: Props) => {
     [team.tamas, data.tamas],
     [team.mariana, data.mariana],
     [team.luna, data.luna],
-  ];
+  ]);
 
   return (
     <div>

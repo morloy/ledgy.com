@@ -24,11 +24,15 @@ export const animateLaptop = () => {
 
 export const isFieldMissing = (object: Object) => Object.values(object).some((field) => !field);
 
-export const shuffleArray = (array: any[]) =>
-  array.reduce((res, val, index) => {
-    const randomIndex = Math.floor(Math.random() * (index + 1));
-    const copy = [...res];
-    copy[index] = copy[randomIndex];
-    copy[randomIndex] = val;
-    return copy;
-  }, array);
+export const shuffleArray = (array: any[]) => {
+  const arrayCopy = array;
+  let iterations = arrayCopy.length - 1;
+  // eslint-disable-next-line no-plusplus
+  for (iterations; iterations > 0; iterations--) {
+    const random = Math.floor(Math.random() * (iterations + 1));
+    const temp = arrayCopy[iterations];
+    arrayCopy[iterations] = arrayCopy[random];
+    arrayCopy[random] = temp;
+  }
+  return arrayCopy;
+};
