@@ -51,7 +51,7 @@ module.exports = {
       options: {
         // eslint-disable-next-line global-require
         remarkPlugins: [require('remark-math'), require('remark-html-katex')],
-        gatsbyRemarkPlugins: ['gatsby-remark-prismjs', 'gatsby-remark-unwrap-images'], // needed?
+        gatsbyRemarkPlugins: ['gatsby-remark-prismjs', 'gatsby-remark-unwrap-images'],
       },
     },
     'gatsby-plugin-catch-links',
