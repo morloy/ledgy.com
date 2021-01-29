@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noEmit": true,
+    "module": "esnext",
+    "target": "es6",
+    "jsx": "react",
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "downlevelIteration": true,
+    "allowJs": true,
+    "lib": [
+      "es2019",
+      "dom"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "paths": {
+      "/*": [
+        "./*"
+      ]
+    },
+  },
+  "files": [
+    "@types/index.d.ts",
+    "src/components/index.ts",
+    "src/helpers/index.ts",
+    "src/layouts/tsIndex.ts",
+    "src/pages/tsIndex.ts",
+    "src/html.tsx",
+    "src/i18n-config.ts",
+    "src/pages/contact",
+    "src/pages/customer-stories",
+    "src/pages/employee-participation-plan-templates",
+    "src/pages/glossary",
+    "src/pages/index",
+    "src/pages/investor-pricing",
+    "src/pages/offline-plugin-app-shell-fallback",
+    "src/pages/partners",
+    "src/pages/subscribed",
+    "src/pages/webinars",
+  ]
+}

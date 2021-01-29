@@ -1,7 +1,7 @@
 const path = require('path');
-const { redirects } = require('./src/redirects');
+const { redirects } = require('./src/redirects.ts');
 
-const { languages, defaultLanguage } = require('./src/i18n-config');
+const { languages, defaultLanguage } = require('./src/i18n-config.ts');
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -116,7 +116,7 @@ exports.createPages = ({ graphql, actions }) => {
     });
   });
 
-  const pageComponent = path.resolve(`${basePath}/page.jsx`);
+  const pageComponent = path.resolve(`${basePath}/page.tsx`);
   const createPages = resolvePagePromise(graphql(pageQuery), (data) =>
     data.allContentfulPage.edges.forEach(({ node }) => {
       const { id, slug, namespace } = node;
@@ -126,7 +126,7 @@ exports.createPages = ({ graphql, actions }) => {
     })
   );
 
-  const customerStoryComponent = path.resolve(`${basePath}/customerStory.jsx`);
+  const customerStoryComponent = path.resolve(`${basePath}/customerStory.tsx`);
   const createCustomerStories = resolvePagePromise(graphql(customerStoryQuery), (data) =>
     data.allContentfulCustomerStory.edges.forEach(({ node }) => {
       const { id, slug } = node;
@@ -136,7 +136,7 @@ exports.createPages = ({ graphql, actions }) => {
     })
   );
 
-  const featurePageComponent = path.resolve(`${basePath}/featurePage.jsx`);
+  const featurePageComponent = path.resolve(`${basePath}/featurePage.tsx`);
   const createFeaturePages = resolvePagePromise(graphql(featurePageQuery), (data) =>
     data.allContentfulFeaturePage.edges.forEach(({ node }) => {
       const { id, slug } = node;
@@ -146,7 +146,7 @@ exports.createPages = ({ graphql, actions }) => {
     })
   );
 
-  const demoPageComponent = path.resolve(`${basePath}/demo.jsx`);
+  const demoPageComponent = path.resolve(`${basePath}/demo.tsx`);
   const createDemoPages = resolvePagePromise(graphql(demoQuery), (data) =>
     // TODO rename in Contentful
     data.allContentfulSignupPage.edges.forEach(({ node }) => {

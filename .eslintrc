@@ -1,13 +1,20 @@
 {
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "extends": [
-    "plugin:flowtype/recommended",
-    "airbnb",
+    "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
-    "prettier/flowtype",
-    "prettier/react"
+    "prettier/@typescript-eslint",
+    "prettier/react",
   ],
   "plugins": [
-    "flowtype"
+    "@typescript-eslint"
   ],
   "env": {
     "browser": true

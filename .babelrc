@@ -19,6 +19,7 @@
         "pragma": "React.createElement",
       },
     ],
+    "@babel/preset-typescript"
   ],
   "plugins": [
     [
