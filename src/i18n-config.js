@@ -9,9 +9,9 @@ const { en, de, fr } = require('make-plural/plurals');
 const defaultLanguage = 'en';
 const languages = [defaultLanguage, 'de', 'fr'];
 
-const enCollection = require('./locale/en/messages');
-const deCollection = require('./locale/de/messages');
-const frCollection = require('./locale/fr/messages');
+const enCollection = require('./locale/en/messages'); // eslint-disable-line
+const deCollection = require('./locale/de/messages'); // eslint-disable-lin e
+const frCollection = require('./locale/fr/messages'); // eslint-disable-line
 
 i18n.loadLocaleData('en', { plurals: en });
 i18n.loadLocaleData('de', { plurals: de });

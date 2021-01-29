@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { Trans } from "@lingui/macro";
+import { Trans } from '@lingui/macro';
 import { PartnerCard } from './PartnerCard';
 
 export const SwissPartners = ({ data }: Object) => (
