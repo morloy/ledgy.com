@@ -54,7 +54,7 @@ export const SellingProp = ({
             imgFirst ? 'order-md-first' : ''
           }`}
         >
-          <Img {...image.localFile?.childImageSharp} />
+          <Img {...image?.localFile?.childImageSharp} />
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@ export const HomePageHeader = ({ data, prefix }: Props) => {
   const [content] = data.page.edges;
   const title = <DynamicTrans>{content.node.mainHeader}</DynamicTrans>;
   const subtitle = <DynamicTrans>{content.node.description}</DynamicTrans>;
-  const laptop = content.node.bannerImage.localFile?.childImageSharp;
+  const laptop = content.node.bannerImage?.localFile?.childImageSharp;
 
   return (
     <MainHeaderLayout

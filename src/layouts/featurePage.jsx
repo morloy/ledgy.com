@@ -45,7 +45,7 @@ const FeaturePage = ({
             key={id}
             title={featureTitle}
             description={featureDescription}
-            imgProps={image.localFile?.childImageSharp}
+            imgProps={image?.localFile?.childImageSharp}
             imgFirst={index % 2 !== Number(startOnRight)}
           />
         )
