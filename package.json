@@ -18,17 +18,20 @@
     "edit": "micro -l tcp://0.0.0.0:$(((RANDOM % 65535)+1025)) flask_editor.js"
   },
   "dependencies": {
+    "@babel/core": "7.12.10",
     "@babel/plugin-proposal-object-rest-spread": "7.12.1",
     "@fortawesome/fontawesome-svg-core": "1.2.34",
     "@fortawesome/free-brands-svg-icons": "5.15.2",
     "@fortawesome/free-solid-svg-icons": "5.15.2",
     "@fortawesome/react-fontawesome": "0.1.14",
     "@ledgy/pricing": "2.0.3",
-    "@lingui/react": "2.9.2",
+    "@lingui/core": "3.4.0",
+    "@lingui/macro": "3.4.0",
+    "@lingui/react": "3.4.0",
     "@mdx-js/mdx": "1.6.22",
     "@mdx-js/react": "1.6.22",
     "aos": "2.3.4",
-    "babel-core": "7.0.0-bridge.0",
+    "babel-plugin-macros": "3.0.1",
     "babel-plugin-remove-graphql-queries": "2.15.0",
     "bootstrap": "4.6.0",
     "gatsby": "2.31.1",
@@ -56,6 +59,7 @@
     "katex": "0.12.0",
     "lity": "2.4.1",
     "lodash": "4.17.20",
+    "make-plural": "6.2.2",
     "micro": "9.3.4",
     "node-sass": "4.14.1",
     "popper.js": "1.16.1",
@@ -73,9 +77,8 @@
     "ledgy"
   ],
   "devDependencies": {
-    "@lingui/babel-preset-react": "2.9.2",
-    "@lingui/cli": "2.9.2",
-    "babel-eslint": "9.0.0",
+    "@lingui/cli": "3.4.0",
+    "babel-eslint": "10.1.0",
     "eslint": "4.19.1",
     "eslint-config-airbnb": "16.1.0",
     "eslint-config-prettier": "6.11.0",
@@ -87,22 +90,5 @@
     "flow-bin": "0.132.0",
     "npm-check-updates": "11.1.1",
     "prettier": "2.2.1"
-  },
-  "lingui": {
-    "sourceLocale": "en",
-    "localeDir": "src/locale",
-    "srcPathDirs": [
-      "src/pages",
-      "src/components",
-      "src/layouts",
-      "src/helpers"
-    ],
-    "format": "po",
-    "extractBabelOptions": {
-      "presets": [
-        "@babel/react",
-        "@babel/flow"
-      ]
-    }
   }
 }

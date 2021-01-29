@@ -19,7 +19,6 @@
         "pragma": "React.createElement",
       },
     ],
-    "@lingui/babel-preset-react",
   ],
   "plugins": [
     [
@@ -29,7 +28,7 @@
       },
     ],
     "@babel/plugin-syntax-dynamic-import",
-    "babel-plugin-macros",
+    "macros",
     [
       "@babel/plugin-transform-runtime",
       {

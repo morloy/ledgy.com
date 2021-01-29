@@ -1,0 +1,15 @@
+{
+  "locales": ["en", "de", "fr"],
+  "sourceLocale": "en",
+  "catalogs": [{
+    "path": "src/locale/{locale}/messages",
+    "include": ["src"]
+  }],
+  "format": "po",
+  "extractBabelOptions": {
+    "presets": [
+      "@babel/react",
+      "@babel/flow"
+    ]
+  }
+}
