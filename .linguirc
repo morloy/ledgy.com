@@ -9,7 +9,6 @@
   "extractBabelOptions": {
     "presets": [
       "@babel/react",
-      "@babel/flow"
     ]
   }
 }
