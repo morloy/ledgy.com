@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import { withI18n } from '@lingui/react';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
@@ -51,7 +50,7 @@ const IndexPage = (props: Props) => {
   );
 };
 
-export default withI18n()(IndexPage);
+export default IndexPage;
 
 // eslint-disable-next-line no-undef
 export const pageQuery = graphql`

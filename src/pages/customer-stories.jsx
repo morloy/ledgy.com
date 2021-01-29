@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import { withI18n } from '@lingui/react';
 import { graphql } from 'gatsby';
 import { t } from '@lingui/macro';
 
@@ -11,7 +10,7 @@ import { PageHeader } from '../components/PageHeader';
 import { CustomerStoryLink } from '../components/customerStories';
 import { Title } from '../layouts/utils';
 
-export default withI18n()(({ prefix, data }: Props) => {
+const CustomerStories = ({ prefix, data }: Props) => {
   const title = t`Customer Stories`;
   const description = t`Insights on how customers use Ledgy to solve their problems`;
   return (
@@ -26,7 +25,9 @@ export default withI18n()(({ prefix, data }: Props) => {
       </ContentBody>
     </div>
   );
-});
+};
+
+export default CustomerStories;
 
 export const pageQuery = graphql`
   query {

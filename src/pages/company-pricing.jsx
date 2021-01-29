@@ -2,7 +2,6 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { withI18n } from '@lingui/react';
 import { Trans, t } from '@lingui/macro';
 import { graphql } from 'gatsby';
 import { LedgyPricing } from '@ledgy/pricing/dist/LedgyPricing';
@@ -21,7 +20,7 @@ const PricingCTA = ({ title, description }: {| title: Node, description: Node |}
   </div>
 );
 
-export default withI18n()(({ prefix }: Props) => {
+const CompanyPricing = ({ prefix }: Props) => {
   const title = t`Pricing`;
   const description = t`Companies at different stages have very different needs. Consider access rights, storage, support needs, and more when selecting your ideal plan.`;
   return (
@@ -106,7 +105,9 @@ export default withI18n()(({ prefix }: Props) => {
       </div>
     </>
   );
-});
+};
+
+export default CompanyPricing;
 
 export const pageQuery = graphql`
   query {

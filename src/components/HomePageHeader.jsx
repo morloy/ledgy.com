@@ -9,7 +9,7 @@ import { MainHeaderLayout } from './MainHeaderLayout';
 import { Button } from './Button';
 import { RequestDemoButton } from './RequestDemoButton';
 import { DynamicTrans } from './DynamicTrans';
-import { demoUrl, targetBlank } from '../helpers';
+import { demoUrl } from '../helpers';
 
 // eslint-disable-next-line import/prefer-default-export
 export const HomePageHeader = ({ data, prefix }: Props) => {
@@ -29,7 +29,7 @@ export const HomePageHeader = ({ data, prefix }: Props) => {
         />
       }
       buttonTwo={
-        <Button href={demoUrl} className="btn-xl mx-1 align-self-center" inverted {...targetBlank}>
+        <Button href={demoUrl} className="btn-xl mx-1 align-self-center" inverted>
           <Trans>Take the tour</Trans>
         </Button>
       }

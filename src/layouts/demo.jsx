@@ -1,7 +1,6 @@
 // @flow
 
 import { graphql } from 'gatsby';
-import { withI18n } from '@lingui/react';
 import { Trans } from '@lingui/macro';
 import React from 'react';
 
@@ -108,7 +107,7 @@ const DemoPage = (props: LayoutProps) => {
   );
 };
 
-export default withI18n()(DemoPage);
+export default DemoPage;
 
 export const pageQuery = graphql`
   query($id: String!) {

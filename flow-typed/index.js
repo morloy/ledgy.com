@@ -31,7 +31,7 @@ declare type Image = {|
   description?: string,
 |};
 
-declare type Page = {|
+declare type PageProps = {|
   id: string,
   title: string,
   description: string,
@@ -68,21 +68,6 @@ declare type CustomerStory = {|
   date: string,
   language: Language,
   author?: string,
-|};
-
-declare type Feature = {|
-  id: string,
-  title: string,
-  description: string[],
-  image: Image,
-|};
-
-declare type FeaturePage = {|
-  id: string,
-  title: string,
-  description: string,
-  features: Feature[],
-  startOnRight?: boolean,
 |};
 
 declare var graphql: any;

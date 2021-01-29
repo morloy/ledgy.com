@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { graphql } from 'gatsby';
-import { withI18n } from '@lingui/react';
 import { t } from '@lingui/macro';
 
 import { Title } from '../layouts/utils';
@@ -15,7 +14,7 @@ import {
 
 import { PageHeader } from '../components/PageHeader';
 
-export default withI18n()(({ data }: Props) => (
+const Partners = ({ data }: Props) => (
   <>
     <Title title={t`Partners`} description={t`Our trusted law firm partners are here to help`} />
     <PageHeader title="Our trusted law firm partners are here to help" />
@@ -27,7 +26,9 @@ export default withI18n()(({ data }: Props) => (
     </div>
     <LawyerCTABanner />
   </>
-));
+);
+
+export default Partners;
 
 export const pageQuery = graphql`
   query {

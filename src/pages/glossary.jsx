@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import { withI18n } from '@lingui/react';
 import { t } from '@lingui/macro';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -11,7 +10,7 @@ import { PageHeader } from '../components/PageHeader';
 import { Title } from '../layouts/utils';
 import { Accordion, AccordionItem } from '../components/Accordion';
 
-export default withI18n()(({ data }: Props) => {
+const Glossary = ({ data }: Props) => {
   const accordionItems = data.allContentfulGlossary.edges.map((edge) => {
     const { slug, title, description } = edge.node;
     return (
@@ -32,7 +31,9 @@ export default withI18n()(({ data }: Props) => {
       </ContentBody>
     </div>
   );
-});
+};
+
+export default Glossary;
 
 export const pageQuery = graphql`
   query {

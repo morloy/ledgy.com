@@ -2,14 +2,13 @@
 
 import React from 'react';
 import { graphql } from 'gatsby';
-import { withI18n } from '@lingui/react';
 import { t } from '@lingui/macro';
 
 import { ContentBody, PostLink } from '../components/Content';
 import { Title } from '../layouts/utils';
 import { PageHeader } from '../components/PageHeader';
 
-export default withI18n()(({ data, prefix }: Props) => {
+const Blog = ({ data, prefix }: Props) => {
   const title = t`Blog`;
   const description = t`Thoughts on cap tables, financing rounds, and legal issues around running and managing a startup.`;
   return (
@@ -34,7 +33,9 @@ export default withI18n()(({ data, prefix }: Props) => {
       </ContentBody>
     </div>
   );
-});
+};
+
+export default Blog;
 
 export const pageQuery = graphql`
   query {

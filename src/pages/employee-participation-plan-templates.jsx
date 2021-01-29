@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import { withI18n } from '@lingui/react';
 import { Trans, t } from '@lingui/macro';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
@@ -73,7 +72,7 @@ const EquityPlans = (props: Props) => {
   );
 };
 
-export default withI18n()(EquityPlans);
+export default EquityPlans;
 
 export const PageQuery = graphql`
   query {

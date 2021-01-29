@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { graphql } from 'gatsby';
-import { withI18n } from '@lingui/react';
 
 import { PublishDate } from '../components/Content';
 import { Author } from '../components/Markdown';
@@ -14,13 +13,13 @@ import { Title } from '../layouts/utils';
 
 const CALCULATOR_SLUG = 'calculator';
 
-const page = ({
+const Page = ({
   data,
   lang,
   prefix,
 }: {|
   ...Props,
-  data: {| contentfulPage: Page, site: { siteMetadata: { siteUrl: string } } |},
+  data: {| contentfulPage: PageProps, site: { siteMetadata: { siteUrl: string } } |},
 |}) => {
   if (!data) return null;
 
@@ -57,7 +56,7 @@ const page = ({
   );
 };
 
-export default withI18n()(page);
+export default Page;
 
 export const pageQuery = graphql`
   query($id: String!) {

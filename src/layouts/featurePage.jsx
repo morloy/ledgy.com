@@ -2,19 +2,33 @@
 
 import React from 'react';
 import { graphql } from 'gatsby';
-import { withI18n } from '@lingui/react';
 
 import { PageHeader } from '../components/PageHeader';
 import { Feature } from '../components/Feature';
 import { Title } from '../layouts/utils';
 import { dynamicI18n } from '../components/DynamicTrans';
 
-const featurePage = ({
+declare type FeatureProps = {|
+  id: string,
+  title: string,
+  description: string[],
+  image: Image,
+|};
+
+type FeaturePageProps = {|
+  id: string,
+  title: string,
+  description: string,
+  features: FeatureProps[],
+  startOnRight?: boolean,
+|};
+
+const FeaturePage = ({
   data,
 }: {|
   ...Props,
   data: {|
-    contentfulFeaturePage: FeaturePage,
+    contentfulFeaturePage: FeaturePageProps,
     allContentfulFeaturePage: Object,
   |},
 |}) => {
@@ -40,7 +54,7 @@ const featurePage = ({
   );
 };
 
-export default withI18n()(featurePage);
+export default FeaturePage;
 
 export const pageQuery = graphql`
   query($id: String!) {

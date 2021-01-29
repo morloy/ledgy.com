@@ -1,12 +1,12 @@
 // @flow
 
-import React, { type Node } from 'react';
+import React from 'react';
 import Img from 'gatsby-image';
 
 import { DynamicTrans } from '../components/DynamicTrans';
 import { targetBlank } from '../helpers';
 
-export const ExternalLogoRow = ({ title, logos }: { title: Node, logos: Image[] }) => (
+export const ExternalLogoRow = ({ title, logos }: { title: string, logos: Image[] }) => (
   <div className="bg-light position-relative p-5">
     <div className="container">
       <div className="row justify-content-center">

@@ -17,7 +17,7 @@ export const PostLink = ({
   external,
   description,
 }: {|
-  post: Page,
+  post: PageProps,
   to: string,
   defaultImage: Object,
   external?: boolean,

@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import { withI18n } from '@lingui/react';
 import { t } from '@lingui/macro';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -11,7 +10,7 @@ import { PageHeader } from '../components/PageHeader';
 
 import { Title } from '../layouts/utils';
 
-export default withI18n()(({ data }: Props) => (
+const Webinars = ({ data }: Props) => (
   <div>
     <Title
       title={t`Webinars`}
@@ -37,7 +36,9 @@ export default withI18n()(({ data }: Props) => (
       })}
     </ContentBody>
   </div>
-));
+);
+
+export default Webinars;
 
 export const pageQuery = graphql`
   query {
