@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { Trans } from '@lingui/react';
+import { Trans } from '@lingui/macro';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
@@ -10,13 +10,7 @@ import { Modal } from './Modal';
 import { Button } from './Button';
 import { SubscriptionForm } from './forms';
 
-export const SubscriptionModal = ({
-  buttonClass = '',
-  i18n,
-}: {
-  buttonClass?: string,
-  i18n: I18n,
-}) => {
+export const SubscriptionModal = ({ buttonClass = '' }: { buttonClass?: string }) => {
   const [isOpen, toggle] = useModal();
   return (
     <>
@@ -37,7 +31,7 @@ export const SubscriptionModal = ({
               promotions/offers
             </Trans>
           </p>
-          <SubscriptionForm toggle={toggle} trackingEvent="newsletter" i18n={i18n} />
+          <SubscriptionForm toggle={toggle} trackingEvent="newsletter" />
         </div>
       </Modal>
     </>

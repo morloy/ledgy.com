@@ -1,7 +1,7 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { Trans } from '@lingui/react';
+import { Trans } from '@lingui/macro';
 import { CircleBadge } from '../Badge';
 
 const STEPS = [

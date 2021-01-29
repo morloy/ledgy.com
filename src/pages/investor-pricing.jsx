@@ -1,7 +1,8 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { withI18n, Trans } from '@lingui/react';
+import { withI18n } from '@lingui/react';
+import { Trans, t } from '@lingui/macro';
 
 import { Title } from '../layouts/utils';
 import { appUrl, getInvestorFeaturePricing } from '../helpers';
@@ -44,9 +45,9 @@ const InvestorTypeCard = ({
   </div>
 );
 
-export default withI18n()(({ i18n, prefix }: Props) => {
-  const title = i18n.t`Investor Pricing`;
-  const description = i18n.t`Different investors have different needs. Whether you’re a business angel, a professional investor, or a VC fund, Ledgy has a plan to suit your needs`;
+export default withI18n()(({ prefix }: Props) => {
+  const title = t`Investor Pricing`;
+  const description = t`Different investors have different needs. Whether you’re a business angel, a professional investor, or a VC fund, Ledgy has a plan to suit your needs`;
   return (
     <>
       <Title title={title} description={description} />

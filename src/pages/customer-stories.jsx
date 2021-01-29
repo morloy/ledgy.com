@@ -3,6 +3,7 @@
 import React from 'react';
 import { withI18n } from '@lingui/react';
 import { graphql } from 'gatsby';
+import { t } from '@lingui/macro';
 
 import { ContentBody } from '../components/Content';
 import { PageHeader } from '../components/PageHeader';
@@ -10,9 +11,9 @@ import { PageHeader } from '../components/PageHeader';
 import { CustomerStoryLink } from '../components/customerStories';
 import { Title } from '../layouts/utils';
 
-export default withI18n()(({ i18n, prefix, data }: Props) => {
-  const title = i18n.t`Customer Stories`;
-  const description = i18n.t`Insights on how customers use Ledgy to solve their problems`;
+export default withI18n()(({ prefix, data }: Props) => {
+  const title = t`Customer Stories`;
+  const description = t`Insights on how customers use Ledgy to solve their problems`;
   return (
     <div>
       <Title title={title} description={description} />

@@ -2,8 +2,7 @@
 
 import React from 'react';
 
-import { Trans } from '@lingui/react';
-import { Link } from 'gatsby';
+import { Trans, t } from '@lingui/macro';
 import Img from 'gatsby-image';
 
 import { MainHeaderLayout } from './MainHeaderLayout';
@@ -13,7 +12,7 @@ import { DynamicTrans } from './DynamicTrans';
 import { demoUrl, targetBlank } from '../helpers';
 
 // eslint-disable-next-line import/prefer-default-export
-export const HomePageHeader = ({ i18n, data, prefix }: Props) => {
+export const HomePageHeader = ({ data, prefix }: Props) => {
   const [content] = data.page.edges;
   const title = <DynamicTrans>{content.node.mainHeader}</DynamicTrans>;
   const subtitle = <DynamicTrans>{content.node.description}</DynamicTrans>;
@@ -30,15 +29,13 @@ export const HomePageHeader = ({ i18n, data, prefix }: Props) => {
         />
       }
       buttonTwo={
-        <Link href={demoUrl} {...targetBlank}>
-          <Button className="btn-xl mx-1 align-self-center" inverted>
-            <Trans>Take the tour</Trans>
-          </Button>
-        </Link>
+        <Button href={demoUrl} className="btn-xl mx-1 align-self-center" inverted {...targetBlank}>
+          <Trans>Take the tour</Trans>
+        </Button>
       }
       image={
         <div id="laptop-ledgy" className="mt-sm-4 mt-xl-0">
-          <Img {...laptop} alt={i18n.t`Screenshot of the Ledgy app`} />
+          <Img {...laptop} alt={t`Screenshot of the Ledgy app`} />
         </div>
       }
     />

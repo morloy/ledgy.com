@@ -1,7 +1,8 @@
 // @flow
 
 import { graphql } from 'gatsby';
-import { withI18n, Trans } from '@lingui/react';
+import { withI18n } from '@lingui/react';
+import { Trans } from '@lingui/macro';
 import React from 'react';
 
 import { DemoForm } from '../components/forms';
@@ -32,7 +33,7 @@ const DecoShapes = () => (
 );
 
 const DemoPage = (props: LayoutProps) => {
-  const { data, prefix, location, i18n } = props;
+  const { data, prefix, location } = props;
   const {
     title,
     description,
@@ -41,10 +42,10 @@ const DemoPage = (props: LayoutProps) => {
     content,
     type,
   } = data.contentfulSignupPage; // TODO rename in Contentful
-  const t = dynamicI18n(i18n);
+
   return (
     <>
-      <Title title={t(title)} description={t(description)} />
+      <Title title={dynamicI18n(title)} description={dynamicI18n(description)} />
       <header className="header d-flex home-banner px-1 text-left bg-primary overflow-hidden">
         <div className="container my-4 my-md-auto position-relative z-index-base">
           <div className="row mt-4 mt-lg-2 pb-4 pb-md-6">
@@ -61,10 +62,9 @@ const DemoPage = (props: LayoutProps) => {
             </div>
             <div className="text-dark col-lg-6 d-flex flex-column justify-content-center mt-4 mt-lg-0">
               <DemoForm
-                title={t(formTitle)}
-                buttonText={t(formButtonText)}
+                title={dynamicI18n(formTitle)}
+                buttonText={dynamicI18n(formButtonText)}
                 contentfulRequesterType={type}
-                i18n={i18n}
               />
             </div>
           </div>

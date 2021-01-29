@@ -1,29 +1,29 @@
 // @flow
 
 import React, { useEffect, type Node } from 'react';
-import { StaticQuery, graphql } from 'gatsby';
-import { I18nProvider, withI18n } from '@lingui/react';
-import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
+import { i18n } from '@lingui/core';
+import { I18nProvider } from '@lingui/react';
+import { t } from '@lingui/macro';
 
 import 'typeface-open-sans'; // eslint-disable-line import/extensions
 import 'katex/dist/katex.min.css';
 import 'prism-themes/themes/prism-ghcolors.css';
 import '../styles/_index.scss';
 
-import { name, getLdJson, animateLaptop, loadSegment } from '../helpers';
+import { animateLaptop, loadSegment } from '../helpers';
 import { Title } from './utils';
-import { catalogs, langFromPath, langPrefix, deprefix } from '../i18n-config';
+import { langFromPath, langPrefix, deprefix } from '../i18n-config';
 
 import PublicityBanner from '../components/PublicityBanner';
 import Loader from '../components/Loader';
 import { Nav } from '../components/Nav';
 import { Footer } from '../components/Footer';
+import { HelmetIndexLayout } from '../components/HelmetIndexLayout';
 
-type SiteProps = {|
-  ...$Exact<Props>,
-  lang: Language,
+type AppProps = {|
+  ...$Exact<LayoutProps>,
   children: Node,
-  location: LocationProps,
 |};
 
 const Initialize = ({ segmentDestinations }: {| segmentDestinations: string[] |}) => {
@@ -36,124 +36,61 @@ const Initialize = ({ segmentDestinations }: {| segmentDestinations: string[] |}
   return null;
 };
 
-const TemplateWrapper = withI18n()(({ children, ...props }: SiteProps) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        site {
-          siteMetadata {
-            siteUrl
-            segmentDestinations
-          }
+const App = ({ children, ...props }: AppProps) => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          siteUrl
+          segmentDestinations
         }
       }
-    `}
-    render={(data) => {
-      const { i18n, lang } = props;
-      const prefix = langPrefix(lang);
-      const { siteUrl, segmentDestinations } = data.site.siteMetadata;
-      const thumbnailUrl = `${siteUrl}/thumbnail-874d5c.png`;
-      const pathname = deprefix(props.location.pathname);
-      const isAppShell = pathname.includes('offline-plugin-app-shell-fallback');
-      const isDemoPage = pathname.includes('demo');
-      return (
-        <div>
-          <Title
-            title={i18n.t`Best Cap Table and Equity Plan Management Software`}
-            description={i18n.t`Get your cap table and employee participation plans right, from the beginning. Make your financing rounds a success and engage your investors and employees. Know your data is safe and compliant. Try now for free!`}
-            thumbnailUrl={thumbnailUrl}
-          />
-          <Initialize segmentDestinations={segmentDestinations} />
-          <Helmet>
-            <html lang={lang} />
-            <meta
-              name="keywords"
-              content={i18n.t`cap table, stock ledger, share register, startup, modeling, financing round, equity, esop, phantom, option plan, virtual, portfolio, reporting, investors`}
-            />
-            <meta name="author" content="Ledgy" />
-            <script type="application/ld+json">{getLdJson(siteUrl)}</script>
+    }
+  `);
+  const { lang } = props;
+  const prefix = langPrefix(lang);
+  const { siteUrl, segmentDestinations } = data.site.siteMetadata;
+  const thumbnailUrl = `${siteUrl}/thumbnail-874d5c.png`;
+  const pathname = deprefix(props.location.pathname);
+  const isAppShell = pathname.includes('offline-plugin-app-shell-fallback');
+  const isDemoPage = pathname.includes('demo');
 
-            {/* Facebook social card */}
-            <meta property="og:site_name" content={name} />
-            <meta property="og:type" content="website" />
-            <meta property="og:url" content={`${siteUrl}${pathname}`} />
-
-            {/* Twitter social card */}
-            <meta name="twitter:site" content="@Ledgy" />
-            <meta name="twitter:card" content="summary_large_image" />
-
-            <link rel="alternate" href={`${siteUrl}${pathname}`} hrefLang="x-default" />
-            <link rel="alternate" href={`${siteUrl}${pathname}`} hrefLang="en" />
-            <link rel="alternate" href={`${siteUrl}/de${pathname}`} hrefLang="de" />
-            <link rel="alternate" href={`${siteUrl}/fr${pathname}`} hrefLang="fr" />
-            <script src="https://www.googleoptimize.com/optimize.js?id=OPT-PHR22QK" />
-            <script>
-              {`
-                (function (c, p, d, u, id, i) {
-                  id = ''; // Optional Custom ID for user in your system
-                  u = 'https://tracking.g2crowd.com/attribution_tracking/conversions/' + c + '.js?p=' + encodeURI(p) + '&e=' + id;
-                  i = document.createElement('script');
-                  i.type = 'application/javascript';
-                  i.async = true;
-                  i.src = u;
-                  d.getElementsByTagName('head')[0].appendChild(i);
-                }("3729", document.location.href, document));
-              `}
-            </script>
-            <script>
-              {`
-                (function() {
-                  var capterra_vkey = 'a12f04cb89eededafd612ba40d2d149b',
-                  capterra_vid = '2120646',
-                  capterra_prefix = (('https:' == document.location.protocol)
-                    ? 'https://ct.capterra.com' : 'http://ct.capterra.com');
-                  var ct = document.createElement('script');
-                  ct.type = 'text/javascript';
-                  ct.async = true;
-                  ct.src = capterra_prefix + '/capterra_tracker.js?vid='
-                    + capterra_vid + '&vkey=' + capterra_vkey;
-                  var s = document.getElementsByTagName('script')[0];
-                  s.parentNode.insertBefore(ct, s);
-                })();
-              `}
-            </script>
-
-            {/* Disable AOS for Google */}
-            <noscript>
-              {`
-                <style>
-                  [data-aos] {
-                      opacity: 1 !important;
-                      transform: translate(0) scale(1) !important;
-                  }
-                </style>
-              `}
-            </noscript>
-          </Helmet>
-          {!isDemoPage && <Nav {...props} prefix={prefix} />}
-          {isAppShell ? (
-            <Loader />
-          ) : (
-            <>
-              <PublicityBanner pathname={pathname} />
-              {React.cloneElement((children: Object), { prefix, lang })}
-              {!isDemoPage && <Footer {...props} prefix={prefix} />}
-            </>
-          )}
-        </div>
-      );
-    }}
-  />
-));
-
-export default (props: {| location: {| pathname: string |} |}) => {
-  const lang = langFromPath(props.location.pathname);
   return (
-    <I18nProvider language={lang} catalogs={catalogs}>
-      <TemplateWrapper {...props} lang={lang} />
+    <div>
+      <Title
+        title={t`Best Cap Table and Equity Plan Management Software`}
+        description={t`Get your cap table and employee participation plans right, from the beginning. Make your financing rounds a success and engage your investors and employees. Know your data is safe and compliant. Try now for free!`}
+        thumbnailUrl={thumbnailUrl}
+      />
+      <Initialize segmentDestinations={segmentDestinations} />
+      <HelmetIndexLayout lang={lang} siteUrl={siteUrl} pathname={pathname} />
+      {!isDemoPage && <Nav {...props} prefix={prefix} />}
+      {isAppShell ? (
+        <Loader />
+      ) : (
+        <>
+          <PublicityBanner pathname={pathname} />
+          {React.cloneElement((children: Object), { prefix, lang })}
+          {!isDemoPage && <Footer {...props} prefix={prefix} />}
+        </>
+      )}
+    </div>
+  );
+};
+
+const Main = (props: AppProps) => {
+  const lang = langFromPath(props.location.pathname);
+  useEffect(() => {
+    i18n.activate(lang);
+  }, [lang]);
+  return (
+    <I18nProvider i18n={i18n}>
+      <App {...props} lang={lang} />
     </I18nProvider>
   );
 };
+
+export default Main;
 
 // eslint-disable-next-line
 console.log(`

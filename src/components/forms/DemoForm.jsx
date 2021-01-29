@@ -1,6 +1,7 @@
 // @flow
 
 import React, { useState } from 'react';
+import { t } from '@lingui/macro';
 
 import { FORM_STATUSES } from '../../helpers';
 import { Button } from '../Button';
@@ -15,12 +16,10 @@ export const DemoForm = ({
   title,
   buttonText,
   contentfulRequesterType,
-  i18n,
 }: {|
   title: string,
   buttonText: string,
   contentfulRequesterType: RequesterType | void,
-  i18n: I18n,
 |}) => {
   const [requesterType, setRequesterType] = useState(contentfulRequesterType || COMPANY);
   const [email, setEmail] = useState('');
@@ -54,7 +53,7 @@ export const DemoForm = ({
                   type === requesterType ? 'selected' : ''
                 }`}
               >
-                {type === COMPANY ? i18n.t`Company` : i18n.t`Investor`}
+                {type === COMPANY ? t`Company` : t`Investor`}
               </Button>
             ))}
           </div>
@@ -62,7 +61,7 @@ export const DemoForm = ({
         <Input
           state={email}
           setState={setEmail}
-          placeholder={i18n.t`Company email`}
+          placeholder={t`Company email`}
           setFormStatus={setFormStatus}
           name="email"
           wrapperClassName="mb-4"
@@ -73,8 +72,8 @@ export const DemoForm = ({
           setState={setSize}
           placeholder={
             requesterType === COMPANY
-              ? i18n.t`Number of company employees`
-              : i18n.t`Number of portfolio companies`
+              ? t`Number of company employees`
+              : t`Number of portfolio companies`
           }
           setFormStatus={setFormStatus}
           name="size"

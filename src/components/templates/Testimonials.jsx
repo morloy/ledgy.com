@@ -1,11 +1,11 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { Trans } from '@lingui/react';
+import { Trans, t } from '@lingui/macro';
 
 import { Testimonial } from '../Testimonial';
 
-export const Testimonials = ({ data, i18n }: Object): Node => {
+export const Testimonials = ({ data }: Object): Node => {
   const TESTIMONIALS = [
     {
       name: 'Johannes Reck, CEO @ GetYourGuide',
@@ -100,7 +100,7 @@ export const Testimonials = ({ data, i18n }: Object): Node => {
       <div className="row text-center justify-content-center">
         <Testimonial
           col={10}
-          name={i18n.t`Dominic Jacquesson, VP Talent @ Index Ventures, a VC who founded the Not Optional initiative`}
+          name={t`Dominic Jacquesson, VP Talent @ Index Ventures, a VC who founded the Not Optional initiative`}
           img={data.notoptional}
           url="https://notoptional.eu/en/"
           minHeight={0}

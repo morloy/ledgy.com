@@ -20,14 +20,13 @@ const DecoShapes = () => (
 );
 
 const IndexPage = (props: Props) => {
-  const t = dynamicI18n(props.i18n);
   const [content] = props.data.page.edges;
   const { title, entries } = content.node;
   return (
     <main className="position-relative overflow-hidden">
       {!!title && (
         <Helmet>
-          <title>{`Ledgy: ${t(title)}`}</title>
+          <title>{`Ledgy: ${dynamicI18n(title)}`}</title>
         </Helmet>
       )}
       <DecoShapes />

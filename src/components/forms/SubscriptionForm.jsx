@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
-import { Trans } from '@lingui/react';
+import { Trans, t } from '@lingui/macro';
 import 'isomorphic-fetch';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,7 +15,7 @@ import { InvalidFieldHints } from './Fields';
 const { FETCH_ERROR, IDLE, INVALID_EMAIL, LOADING } = FORM_STATUSES;
 
 export class SubscriptionForm extends Component<
-  {| i18n: I18n, toggle?: () => void, trackingEvent: string |},
+  {| toggle?: () => void, trackingEvent: string |},
   { email: string, status: FormStatus }
 > {
   state = { email: '', status: IDLE };
@@ -46,9 +46,8 @@ export class SubscriptionForm extends Component<
     }
   };
   render = () => {
-    const { props, state } = this;
+    const { state } = this;
     const { status } = state;
-    const { i18n } = props;
     const invalid = status === INVALID_EMAIL;
     const error = status === FETCH_ERROR;
     const loading = status === LOADING;
@@ -59,7 +58,7 @@ export class SubscriptionForm extends Component<
             <input
               type="email"
               className="form-control"
-              placeholder={i18n.t`Enter your email…`}
+              placeholder={t`Enter your email…`}
               onChange={this.handleChange}
               value={this.state.email}
               style={{ height: 'inherit' }}

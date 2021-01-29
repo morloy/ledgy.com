@@ -18,7 +18,6 @@ export const SellingProp = withI18n()(
     linkTo,
     image,
     prefix,
-    i18n,
     imgFirst = false,
     hideLink = false,
   }: {|
@@ -28,11 +27,9 @@ export const SellingProp = withI18n()(
     linkTo: string,
     image: Image,
     prefix: string,
-    i18n: I18n,
     imgFirst?: boolean,
     hideLink?: boolean,
   |}) => {
-    const t = dynamicI18n(i18n);
     return (
       <div className="container text-center p-4 p-lg-7 selling-prop">
         <div className="row justify-content-center align-items-center">
@@ -40,7 +37,7 @@ export const SellingProp = withI18n()(
             <h2
               className="custom-underline"
               // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{ __html: getUnderlineHtml(t(title)) }}
+              dangerouslySetInnerHTML={{ __html: getUnderlineHtml(dynamicI18n(title)) }}
             />
             <p className="my-4">
               <DynamicTrans>{description}</DynamicTrans>

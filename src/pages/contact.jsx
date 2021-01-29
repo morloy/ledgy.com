@@ -1,20 +1,20 @@
 // @flow
 
 import React from 'react';
-import { withI18n, Trans } from '@lingui/react';
+import { Trans, t } from '@lingui/macro';
 
 import { Title } from '../layouts/utils';
 import { PageHeader } from '../components/PageHeader';
 
-export default withI18n()(({ i18n }: Props) => (
+const Contact = () => (
   <div>
     <Title
-      title={i18n.t`Contact`}
-      description={i18n.t`Contact the Ledgy team by phone, email, or mailing address to learn more about cap table management, equity plans, and investor relations`}
+      title={t`Contact`}
+      description={t`Contact the Ledgy team by phone, email, or mailing address to learn more about cap table management, equity plans, and investor relations`}
     />
     <PageHeader
-      title={i18n.t`Let’s get in touch`}
-      subtitle={i18n.t`Here are the ways you can contact us with any questions you have`}
+      title={t`Let’s get in touch`}
+      subtitle={t`Here are the ways you can contact us with any questions you have`}
     />
 
     <div className="container">
@@ -60,4 +60,6 @@ export default withI18n()(({ i18n }: Props) => (
       </div>
     </div>
   </div>
-));
+);
+
+export default Contact;

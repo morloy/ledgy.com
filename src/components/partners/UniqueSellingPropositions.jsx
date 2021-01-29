@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { Trans } from '@lingui/react';
+import { Trans } from "@lingui/macro";
 import { faCompass, faChartLine, faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import { ReadMore } from '../ReadMore';
 

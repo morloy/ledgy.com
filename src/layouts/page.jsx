@@ -17,7 +17,6 @@ const CALCULATOR_SLUG = 'calculator';
 const page = ({
   data,
   lang,
-  i18n,
   prefix,
 }: {|
   ...Props,
@@ -28,13 +27,12 @@ const page = ({
   const { slug, title, description, language, content, author, date, cover } = data.contentfulPage;
   const { siteUrl } = data.site.siteMetadata;
   const showCalculatorHeader = slug === CALCULATOR_SLUG;
-  const t = dynamicI18n(i18n);
 
   return (
     <div>
       <Title
-        title={t(title)}
-        description={t(description)}
+        title={dynamicI18n(title)}
+        description={dynamicI18n(description)}
         thumbnailUrl={
           cover && cover.localFile ? `${siteUrl}${cover.localFile.childImageSharp.fixed.src}` : ''
         }
@@ -45,8 +43,8 @@ const page = ({
         <PageHeader
           lang={lang}
           documentLang={language}
-          title={t(title)}
-          subtitle={t(description)}
+          title={dynamicI18n(title)}
+          subtitle={dynamicI18n(description)}
           textCenter
         />
       )}

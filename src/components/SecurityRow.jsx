@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { Trans } from '@lingui/react';
+import { Trans } from "@lingui/macro";
 import { faShieldAlt, faLock } from '@fortawesome/free-solid-svg-icons';
 
 import { ReadMore } from './ReadMore';

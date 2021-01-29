@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { withI18n } from '@lingui/react';
+import { t } from '@lingui/macro';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
@@ -10,7 +11,7 @@ import { PageHeader } from '../components/PageHeader';
 import { Title } from '../layouts/utils';
 import { Accordion, AccordionItem } from '../components/Accordion';
 
-export default withI18n()(({ i18n, data }: Props) => {
+export default withI18n()(({ data }: Props) => {
   const accordionItems = data.allContentfulGlossary.edges.map((edge) => {
     const { slug, title, description } = edge.node;
     return (
@@ -19,8 +20,8 @@ export default withI18n()(({ i18n, data }: Props) => {
       </AccordionItem>
     );
   });
-  const title = i18n.t`Glossary`;
-  const description = i18n.t`Definitions for industry terms relating to cap tables, financing rounds, and legal topics for startups.`;
+  const title = t`Glossary`;
+  const description = t`Definitions for industry terms relating to cap tables, financing rounds, and legal topics for startups.`;
 
   return (
     <div>

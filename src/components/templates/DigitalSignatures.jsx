@@ -1,7 +1,7 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { Trans } from '@lingui/react';
+import { Trans } from "@lingui/macro";
 import Img from 'gatsby-image';
 import { CircleBadge } from '../Badge';
 

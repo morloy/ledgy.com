@@ -3,7 +3,7 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
-import { withI18n, Trans } from '@lingui/react';
+import { Trans, t } from '@lingui/macro';
 
 import { Title, Hr } from '../layouts/utils';
 import { getWholeTeam } from '../layouts/team';
@@ -28,10 +28,10 @@ const Investor = ({
 );
 
 const IndexPage = (props: Props) => {
-  const { data, i18n } = props;
+  const { data } = props;
   const team = getWholeTeam(props.prefix);
-  const title = i18n.t`About us`;
-  const description = i18n.t`We believe that entrepreneurship is the main driver of positive change in the world. That is why we build beautiful and intuitive software for startups, helping them be more successful`;
+  const title = t`About us`;
+  const description = t`We believe that entrepreneurship is the main driver of positive change in the world. That is why we build beautiful and intuitive software for startups, helping them be more successful`;
   const teamData = [
     [team.timo, data.timo],
     [team.yoko, data.yoko],
@@ -71,57 +71,57 @@ const IndexPage = (props: Props) => {
         <div className="row justify-content-center my-5">
           <Investor
             name="btov Partners"
-            description={i18n.t`Europe’s symbiosis of early-stage VC funds and private investor network`}
+            description={t`Europe’s symbiosis of early-stage VC funds and private investor network`}
             img={data.btov}
           />
           <Investor
             name="Creathor Ventures"
-            description={i18n.t`Backing the creators of our future since 1984`}
+            description={t`Backing the creators of our future since 1984`}
             img={data.creathor}
           />
           <Investor
             name="VI Partners"
-            description={i18n.t`Healthcare & technology venture capital since 2001`}
+            description={t`Healthcare & technology venture capital since 2001`}
             img={data.vipartners}
           />
           <Investor
             name="Dr. Paul E. Sevinç"
-            description={i18n.t`Entrepreneur, technologist, founder of Doodle.com`}
+            description={t`Entrepreneur, technologist, founder of Doodle.com`}
             img={data.paul}
           />
           <Investor
             name="Daniel Gutenberg"
-            description={i18n.t`One of the most active Swiss early-stage angel investors`}
+            description={t`One of the most active Swiss early-stage angel investors`}
             img={data.daniel}
           />
           <Investor
             name="Luis Cabiedes"
-            description={i18n.t`Leading Spanish investor in early-stage technology startups`}
+            description={t`Leading Spanish investor in early-stage technology startups`}
             img={data.luis}
           />
           <Investor
             name="Myke Näf"
-            description={i18n.t`Entrepreneur, business angel, founder of Doodle.com`}
+            description={t`Entrepreneur, business angel, founder of Doodle.com`}
             img={data.myke}
           />
           <Investor
             name="Cyrill Osterwalder"
-            description={i18n.t`Digital entrepreneur and investor. Security, crypto & privacy expert`}
+            description={t`Digital entrepreneur and investor. Security, crypto & privacy expert`}
             img={data.cyrill}
           />
           <Investor
             name="Luzius Meisser"
-            description={i18n.t`Founder of Meisser Economics, Bitcoin Association Switzerland, and Wuala`}
+            description={t`Founder of Meisser Economics, Bitcoin Association Switzerland, and Wuala`}
             img={data.luzius}
           />
           <Investor
             name="Adrian Bührer"
-            description={i18n.t`Investor & consultant (Farmy.ch, Flatfox.ch), founder of Students.ch`}
+            description={t`Investor & consultant (Farmy.ch, Flatfox.ch), founder of Students.ch`}
             img={data.adrian}
           />
           <Investor
             name="Elena Walder-Schiavone"
-            description={i18n.t`M&A and private equity lawyer with a focus on start-up legal advise, Smartuplaw.ch`}
+            description={t`M&A and private equity lawyer with a focus on start-up legal advise, Smartuplaw.ch`}
             img={data.elena}
           />
         </div>
@@ -130,7 +130,7 @@ const IndexPage = (props: Props) => {
   );
 };
 
-export default withI18n()(IndexPage);
+export default IndexPage;
 
 // eslint-disable-next-line no-undef
 export const pageQuery = graphql`

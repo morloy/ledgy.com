@@ -1,16 +1,17 @@
 // @flow
 
 import React from 'react';
-import { withI18n } from '@lingui/react';
 import { graphql } from 'gatsby';
+import { withI18n } from '@lingui/react';
+import { t } from '@lingui/macro';
 
 import { ContentBody, PostLink } from '../components/Content';
 import { Title } from '../layouts/utils';
 import { PageHeader } from '../components/PageHeader';
 
-export default withI18n()(({ i18n, data, prefix }: Props) => {
-  const title = i18n.t`Blog`;
-  const description = i18n.t`Thoughts on cap tables, financing rounds, and legal issues around running and managing a startup.`;
+export default withI18n()(({ data, prefix }: Props) => {
+  const title = t`Blog`;
+  const description = t`Thoughts on cap tables, financing rounds, and legal issues around running and managing a startup.`;
   return (
     <div>
       <Title title={title} description={description} />

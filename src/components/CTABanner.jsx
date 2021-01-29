@@ -2,7 +2,7 @@
 
 import React, { type Node } from 'react';
 
-import { Trans } from '@lingui/react';
+import { Trans } from '@lingui/macro';
 import { RequestDemoButton } from './RequestDemoButton';
 
 const Banner = ({

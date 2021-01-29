@@ -2,7 +2,7 @@
 
 import React, { type Node } from 'react';
 import { Link } from 'gatsby';
-import { Trans } from '@lingui/react';
+import { Trans } from '@lingui/macro';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobeEurope } from '@fortawesome/free-solid-svg-icons';

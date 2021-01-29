@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Link } from 'gatsby';
-import { Trans } from '@lingui/react';
+import { Trans } from '@lingui/macro';
 
 import { appUrl, track, demoPage } from '../helpers';
 

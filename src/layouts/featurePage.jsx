@@ -11,7 +11,6 @@ import { dynamicI18n } from '../components/DynamicTrans';
 
 const featurePage = ({
   data,
-  i18n,
 }: {|
   ...Props,
   data: {|
@@ -20,12 +19,12 @@ const featurePage = ({
   |},
 |}) => {
   const { title, description, features, startOnRight } = data.contentfulFeaturePage;
-  const t = dynamicI18n(i18n);
+
   return (
     <div>
-      <Title title={t(title)} description={t(description)} />
+      <Title title={dynamicI18n(title)} description={dynamicI18n(description)} />
 
-      <PageHeader title={t(title)} subtitle={t(description)} />
+      <PageHeader title={dynamicI18n(title)} subtitle={dynamicI18n(description)} />
       {features.map(
         ({ id, title: featureTitle, description: featureDescription, image }, index) => (
           <Feature

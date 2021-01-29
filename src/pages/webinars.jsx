@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { withI18n } from '@lingui/react';
+import { t } from '@lingui/macro';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
@@ -10,14 +11,14 @@ import { PageHeader } from '../components/PageHeader';
 
 import { Title } from '../layouts/utils';
 
-export default withI18n()(({ i18n, data }: Props) => (
+export default withI18n()(({ data }: Props) => (
   <div>
     <Title
-      title={i18n.t`Webinars`}
-      description={i18n.t`Webinars on cap tables, financing rounds, and legal issues around running and managing a startup.`}
+      title={t`Webinars`}
+      description={t`Webinars on cap tables, financing rounds, and legal issues around running and managing a startup.`}
     />
 
-    <PageHeader title={i18n.t`Ledgy Webinars`} />
+    <PageHeader title={t`Ledgy Webinars`} />
 
     <ContentBody>
       {data.allContentfulWebinar.edges.map((edge) => {

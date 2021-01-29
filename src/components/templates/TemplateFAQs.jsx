@@ -1,7 +1,7 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { Trans } from '@lingui/react';
+import { Trans } from '@lingui/macro';
 
 import { Accordion, AccordionItem } from '../Accordion';
 import { SubscriptionModal } from '../SubscriptionModal';

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Img from 'gatsby-image';
-import { Trans } from '@lingui/react';
+import { Trans } from "@lingui/macro";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLink } from '@fortawesome/free-solid-svg-icons';
 import { targetBlank } from '../../helpers';

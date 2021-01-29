@@ -2,7 +2,8 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { withI18n, Trans } from '@lingui/react';
+import { withI18n } from '@lingui/react';
+import { Trans, t } from '@lingui/macro';
 import { graphql } from 'gatsby';
 import { LedgyPricing } from '@ledgy/pricing/dist/LedgyPricing';
 
@@ -20,10 +21,9 @@ const PricingCTA = ({ title, description }: {| title: Node, description: Node |}
   </div>
 );
 
-export default withI18n()(({ i18n, prefix }: Props) => {
-  const title = i18n.t`Pricing`;
-  const t = dynamicI18n(i18n);
-  const description = i18n.t`Companies at different stages have very different needs. Consider access rights, storage, support needs, and more when selecting your ideal plan.`;
+export default withI18n()(({ prefix }: Props) => {
+  const title = t`Pricing`;
+  const description = t`Companies at different stages have very different needs. Consider access rights, storage, support needs, and more when selecting your ideal plan.`;
   return (
     <>
       <Title title={title} description={description} />
@@ -43,7 +43,7 @@ export default withI18n()(({ i18n, prefix }: Props) => {
         scalePlanButton={<RequestDemoButton prefix={prefix} buttonClassName="my-4 btn-red" />}
         highlightScalePlan
         DynamicTrans={DynamicTrans}
-        t={t}
+        t={dynamicI18n}
       />
       <hr className="my-8" />
       <div className="container">
