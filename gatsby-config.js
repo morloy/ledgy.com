@@ -35,14 +35,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-nprogress',
     'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-plugin-typescript',
-      options: {
-        isTSX: true,
-        jsxPragma: `jsx`,
-        allExtensions: true,
-      },
-    },
     { resolve: 'gatsby-source-filesystem', options: { name: 'img', path: `${src}/img` } },
     {
       resolve: 'gatsby-source-contentful',

@@ -1,4 +1,5 @@
 {
+  "include": ["./src/**/*"],
   "compilerOptions": {
     "outDir": "./dist/",
     "noEmit": true,
@@ -17,29 +18,5 @@
       "dom"
     ],
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./",
-    "paths": {
-      "/*": [
-        "./*"
-      ]
-    },
   },
-  "files": [
-    "@types/index.d.ts",
-    "src/components/index.ts",
-    "src/helpers/index.ts",
-    "src/layouts/tsIndex.ts",
-    "src/html.tsx",
-    "src/i18n-config.ts",
-    "src/pages/contact.tsx",
-    "src/pages/customer-stories.tsx",
-    "src/pages/employee-participation-plan-templates.tsx",
-    "src/pages/glossary.tsx",
-    "src/pages/index.tsx",
-    "src/pages/investor-pricing.tsx",
-    "src/pages/offline-plugin-app-shell-fallback.tsx",
-    "src/pages/partners.tsx",
-    "src/pages/subscribed.tsx",
-    "src/pages/webinars.tsx",
-  ]
 }
