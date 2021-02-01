@@ -1,10 +1,10 @@
-import React, { Node } from 'react';
+import React, { ReactNode } from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import { CardLink } from './CardLink';
 
-export const ContentBody = ({ children }: { children: Node | Array<Node> }) => (
+export const ContentBody = ({ children }: { children: ReactNode | ReactNode[] }) => (
   <div className="container">{children}</div>
 );
 

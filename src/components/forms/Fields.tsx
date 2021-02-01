@@ -17,9 +17,9 @@ export const Input = ({
   ...props
 }: {
   state: string;
-  setState: (arg0: string) => void;
+  setState: (state: string) => void;
   placeholder: string;
-  setFormStatus: (arg0: FormStatus | string) => void; // TS FIXME
+  setFormStatus: (status: FormStatus) => void;
   name: string;
   wrapperClassName: string;
   className?: string;
@@ -32,7 +32,7 @@ export const Input = ({
       placeholder={placeholder}
       onChange={(e) => {
         setState(e.target.value);
-        setFormStatus(FORM_STATUSES.IDLE);
+        setFormStatus(FORM_STATUSES.IDLE as FormStatus);
       }}
       value={state}
       name={name}

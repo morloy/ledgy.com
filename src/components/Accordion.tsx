@@ -1,6 +1,6 @@
-import React, { Node } from 'react';
+import React, { ReactNode } from 'react';
 
-export const Accordion = (props: { children: Node }) => (
+export const Accordion = (props: { children: ReactNode }) => (
   <div className="accordion my-4" {...props} />
 );
 
@@ -10,8 +10,8 @@ export const AccordionItem = ({
   children,
 }: {
   id: string;
-  title: string | Node;
-  children: Node;
+  title: string | ReactNode;
+  children: ReactNode;
 }) => {
   return (
     <div className="card mb-2 p-4">

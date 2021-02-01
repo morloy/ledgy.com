@@ -1,4 +1,4 @@
-import React, { Node } from 'react';
+import React, { ReactNode } from 'react';
 import { Trans } from '@lingui/macro';
 import { Link } from 'gatsby';
 import { targetBlank } from '../helpers';
@@ -14,9 +14,9 @@ export const CardLink = ({
   date,
   external = false,
 }: {
-  title: Node;
-  description: string | Node;
-  image: Node;
+  title: ReactNode;
+  description: string | ReactNode;
+  image: ReactNode;
   to: string;
   type: 'blog' | 'customer-story';
   date?: string;
@@ -30,7 +30,7 @@ export const CardLink = ({
             {image}
           </a>
         ) : (
-          <Link className="d-table h-100 w-100" href to={to}>
+          <Link className="d-table h-100 w-100" to={to}>
             <div className="card-image-wrapper">{image}</div>
           </Link>
         )}
@@ -41,7 +41,7 @@ export const CardLink = ({
             {external ? (
               title
             ) : (
-              <Link href to={to} className="text-primary">
+              <Link to={to} className="text-primary">
                 {title}
               </Link>
             )}
@@ -55,7 +55,7 @@ export const CardLink = ({
                 <ChevronRight />
               </a>
             ) : (
-              <Link href to={to}>
+              <Link to={to}>
                 <Trans>Read more</Trans>
                 <ChevronRight />
               </Link>

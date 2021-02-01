@@ -1,4 +1,4 @@
-import React, { Node } from 'react';
+import React, { ReactNode } from 'react';
 import { targetBlank } from '../helpers';
 
 export const Button = ({
@@ -15,7 +15,7 @@ export const Button = ({
   type = 'button',
   ...buttonProps
 }: {
-  children: Node;
+  children: ReactNode;
   outline?: boolean;
   cta?: boolean;
   energetic?: boolean;

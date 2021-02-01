@@ -9,7 +9,11 @@ import { Button } from './Button';
 export const CalculatorHeader = ({
   data,
 }: {
-  data: { contentfulPage: ContentfulPageProps; site: { siteMetadata: { siteUrl: string } } };
+  data: {
+    contentfulPage: ContentfulPageProps;
+    site: { siteMetadata: { siteUrl: string } };
+    calculator: UntypedObject;
+  };
 }) => {
   return (
     <MainHeaderLayout
