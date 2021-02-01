@@ -1,4 +1,4 @@
-import React, { useState, SyntheticEvent, MouseEventHandler } from 'react';
+import React, { useState, MouseEvent } from 'react';
 import { Link } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
 
@@ -6,19 +6,21 @@ import { NAVBAR_TITLES, NAVBAR_LINKS, formatUrl, isExternalUrl, NavbarMenuItem }
 import { targetBlank } from '../../helpers';
 import { DynamicTrans } from '../DynamicTrans';
 
-type Event = MouseEventHandler<HTMLAnchorElement>;
 type ListItemProps = { title: string; isTextShown: boolean; prefix: string };
 
 type ListItemHoverProps = ListItemProps & {
   to: string;
   text?: string;
-  onClick: MouseEventHandler<HTMLAnchorElement>;
+  onClick: () => void;
 };
 
 type ParentListItemProps = ListItemProps & {
-  eventHandlingProps: { onMouseEnter: (arg0: Event) => void; onMouseLeave: (arg0: Event) => void };
+  eventHandlingProps: {
+    onMouseEnter: (e: MouseEvent) => void;
+    onMouseLeave: (e: MouseEvent) => void;
+  };
   menuItems: NavbarMenuItem[];
-  disappear: MouseEventHandler<HTMLAnchorElement>;
+  disappear: () => void;
   className: string;
 };
 
@@ -68,16 +70,14 @@ const ParentListItem = ({
       <DynamicTrans>{parentTitle}</DynamicTrans>
     </p>
     <ul className={`hover-list-child ${className}`}>
-      {menuItems.map((
-        [to, title, text] //TS FIXME
-      ) => (
+      {menuItems.map(([to, title, text]) => (
         <ListItemHover
           to={to}
           title={title}
           text={text}
           prefix={prefix}
           key={to}
-          onClick={(e) => disappear(e)}
+          onClick={disappear}
           isTextShown={isTextShown}
         />
       ))}
@@ -88,7 +88,7 @@ const ParentListItem = ({
 const { featuresTitle, resourcesTitle, pricingTitle, dataProtectionTitle } = NAVBAR_TITLES;
 const { features, resources, pricing, dataProtection } = NAVBAR_LINKS;
 
-const parentListItems = [
+const parentListItems: [string, NavbarMenuItem[], string][] = [
   [featuresTitle, features, 'features-dd'],
   [resourcesTitle, resources, 'resources-dd'],
   [pricingTitle, pricing, 'pricing-dd'],
@@ -102,7 +102,7 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
   const [firstHover, setFirstHover] = useState(true);
   const [isTextShown, setShowText] = useState(true);
 
-  const hoverIn = (e: SyntheticEvent) => {
+  const hoverIn = (e: MouseEvent) => {
     setShowText(true);
     const navbar = getNavbar();
     if (navbar) {
@@ -125,7 +125,7 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
     }
   };
 
-  const hoverOut = (e: SyntheticEvent) => {
+  const hoverOut = (e: MouseEvent) => {
     const { currentTarget } = e;
     currentTarget.classList.remove('trigger-enter');
     setTimeout(() => currentTarget.classList.remove('trigger-enter-active'), 100);
@@ -140,8 +140,8 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
   };
 
   const eventHandlingProps = {
-    onMouseEnter: (e: SyntheticEvent) => hoverIn(e),
-    onMouseLeave: (e: SyntheticEvent) => hoverOut(e),
+    onMouseEnter: (e: MouseEvent) => hoverIn(e),
+    onMouseLeave: (e: MouseEvent) => hoverOut(e),
   };
   return (
     <>

@@ -64,8 +64,6 @@ export const FORM_STATUSES = Object.freeze({
   INVALID_REQUIRED_FIELDS: 'invalid-required-fields',
 });
 
-export IDEL = 'idel';
-
 // plan names
 export const LEDGY_PLANS = Object.freeze({
   STARTUP: 'Startup',
