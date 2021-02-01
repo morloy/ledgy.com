@@ -8,8 +8,10 @@ import { PageHeader } from '../components/PageHeader';
 import { Title } from '../layouts/utils';
 import { Accordion, AccordionItem } from '../components/Accordion';
 
+type GlossaryEdge = { node: { description: Mdx; slug: string; title: string } };
+
 const Glossary = ({ data }: Props) => {
-  const accordionItems = data.allContentfulGlossary.edges.map((edge) => {
+  const accordionItems = data.allContentfulGlossary.edges.map((edge: GlossaryEdge) => {
     const { slug, title, description } = edge.node;
     return (
       <AccordionItem id={slug} key={slug} title={title}>

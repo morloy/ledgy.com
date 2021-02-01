@@ -15,7 +15,8 @@ const Blog = ({ data, prefix }: Props) => {
       <PageHeader title={title} subtitle={description} />
 
       <ContentBody>
-        {data.allContentfulPage.edges.map((edge: DisableTypeScript) => {
+        {data.allContentfulPage.edges.map((edge: UntypedObject) => {
+          // TS FIXME
           const { node } = edge;
           const { id, slug, description: postDescription } = node;
           return (

@@ -1,4 +1,4 @@
-import React, { Node } from 'react';
+import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faChevronRight } from '@fortawesome/free-solid-svg-icons';
@@ -27,7 +27,7 @@ export const Title = (props: {
 );
 Title.defaultProps = { section: '', description: '', thumbnailUrl: '' };
 
-export const Li = ({ children }: { children: Node }) => (
+export const Li = ({ children }: { children: ReactNode }) => (
   <li className="media mb-1">
     <FontAwesomeIcon icon={faCheck} className="text-success mr-1 mt-1" />
     <div className="media-body ml-3">{children}</div>
@@ -43,7 +43,7 @@ export const Hr = ({ marginX }: { marginX?: number }) => (
 );
 Hr.defaultProps = { marginX: 0 };
 
-export const Header = ({ text, children }: { text: Node | string; children?: Node }) => (
+export const Header = ({ text, children }: { text: ReactNode | string; children?: ReactNode }) => (
   <header className="header text-white">
     <div className="container text-center">
       <div className="row">
