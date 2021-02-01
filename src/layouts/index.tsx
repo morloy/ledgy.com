@@ -15,11 +15,11 @@ import { animateLaptop, loadSegment } from "../helpers";
 import { Title } from "./utils";
 import { langFromPath, langPrefix, deprefix } from "../i18n-config";
 
-import PublicityBanner from "../components/PublicityBanner";
-import Loader from "../components/Loader";
-import { Nav } from "../components/Nav";
-import { Footer } from "../components/Footer";
-import { HelmetIndexLayout } from "../components/HelmetIndexLayout";
+import PublicityBanner from "../components";
+import Loader from "../components";
+import { Nav } from "../components";
+import { Footer } from "../components";
+import { HelmetIndexLayout } from "../components";
 
 type AppProps = $Exact<LayoutProps> & {
   children: Node;

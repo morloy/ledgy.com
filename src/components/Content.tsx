@@ -17,7 +17,7 @@ export const PostLink = ({
   external,
   description
 }: {
-  post: PageProps;
+  post: ContentfulPageProps;
   to: string;
   defaultImage: {
     [key: string]: any;

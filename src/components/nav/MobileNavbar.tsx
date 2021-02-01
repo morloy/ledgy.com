@@ -4,8 +4,8 @@ import React, { Node } from "react";
 import { Link } from "gatsby";
 
 import { NavbarButtons } from "./NavbarButtons";
-import { getNavbarTitles, getNavbarLinks, formatUrl, isExternalUrl } from "./lib";
-import { targetBlank } from "../helpers";
+import { getNavbarTitles, getNavbarLinks, formatUrl, isExternalUrl } from "../lib";
+import { targetBlank } from "../../helpers";
 
 const {
   featuresTitle,

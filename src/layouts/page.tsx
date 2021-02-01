@@ -18,7 +18,7 @@ const Page = ({
   lang,
   prefix
 }: Props & {
-  data: {contentfulPage: PageProps;site: {siteMetadata: {siteUrl: string;};};};
+  data: {contentfulPage: ContentfulPageProps;site: {siteMetadata: {siteUrl: string;};};};
 }) => {
   if (!data) return null;
 

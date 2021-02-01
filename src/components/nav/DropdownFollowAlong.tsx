@@ -4,8 +4,8 @@ import React, { useState, Node } from "react";
 import { Link } from "gatsby";
 import { CSSTransition } from "react-transition-group";
 
-import { getNavbarTitles, getNavbarLinks, formatUrl, isExternalUrl } from "./lib";
-import { targetBlank } from "../helpers";
+import { getNavbarTitles, getNavbarLinks, formatUrl, isExternalUrl } from "../lib";
+import { targetBlank } from "../../helpers";
 
 type Event = React.SyntheticEvent<HTMLInputElement>;
 type ListItemProps = {title: Node;isTextShown: boolean;prefix: string;};

@@ -4,11 +4,11 @@ import React, { useState } from "react";
 import { Link } from "gatsby";
 import { CSSTransition } from "react-transition-group";
 
-import { name } from "../helpers";
-import logoInverted from "../img/logo-inverted.png";
+import { name } from "../../helpers";
+import logoInverted from "../../img/logo-inverted.png";
+import { toggleOverlay } from "../lib";
+import { Button } from "../Button";
 
-import { toggleOverlay } from "./lib";
-import { Button } from "./Button";
 import { NavbarButtons } from "./NavbarButtons";
 import { DropdownFollowAlong } from "./DropdownFollowAlong";
 import { MobileNavbar } from "./MobileNavbar";

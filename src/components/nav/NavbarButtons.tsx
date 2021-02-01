@@ -4,10 +4,10 @@ import React from "react";
 import { Link } from "gatsby";
 import { Trans } from "@lingui/macro";
 
-import { appUrl, track, demoPage } from "../helpers";
+import { appUrl, track, demoPage } from "../../helpers";
 
-import { Button } from "./Button";
-import { removeOverlay } from "./lib";
+import { Button } from "../Button";
+import { removeOverlay } from "../lib";
 
 export const NavbarButtons = ({
   className = '',
