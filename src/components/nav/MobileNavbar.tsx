@@ -1,12 +1,13 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
 
 import { NavbarButtons } from './NavbarButtons';
-import { getNavbarTitles, getNavbarLinks, formatUrl, isExternalUrl } from '../lib';
+import { NAVBAR_TITLES, NAVBAR_LINKS, formatUrl, isExternalUrl, NavbarMenuItem } from '../lib';
 import { targetBlank } from '../../helpers';
+import { DynamicTrans } from '../DynamicTrans';
 
-const { featuresTitle, resourcesTitle, pricingTitle, dataProtectionTitle } = getNavbarTitles();
-const { features, resources, pricing, dataProtection } = getNavbarLinks();
+const { featuresTitle, resourcesTitle, pricingTitle, dataProtectionTitle } = NAVBAR_TITLES;
+const { features, resources, pricing, dataProtection } = NAVBAR_LINKS;
 
 const MobileNavbarGroup = ({
   title,
@@ -16,27 +17,31 @@ const MobileNavbarGroup = ({
   setOpen,
   toggleOverlay,
 }: {
-  title: ReactNode;
-  links: {
-    [key: string]: any; // TS FIXME type this
-  };
+  title: string;
+  links: NavbarMenuItem[];
   prefix: string;
   isOpen: boolean;
   setOpen: (arg0: boolean) => void;
   toggleOverlay: (arg0: boolean, arg1: (arg0: boolean) => void) => void;
 }) => (
   <>
-    <p className="text-gray-neutral mb-1">{title}</p>
+    <p className="text-gray-neutral mb-1">
+      <DynamicTrans>{title}</DynamicTrans>
+    </p>
     <ul className="flex-column ml-2 ml-sm-4 mb-2 mb-sm-4">
-      {links.map(([to, name]: [string, string]) => {
-        const itemContent = <h5 className="text-primary mt-1">{name}</h5>;
+      {links.map(([to, name]) => {
+        const itemContent = (
+          <h5 className="text-primary mt-1">
+            <DynamicTrans>{name}</DynamicTrans>
+          </h5>
+        );
         const externalLink = (
           <a href={to} key={to} onClick={() => toggleOverlay(isOpen, setOpen)} {...targetBlank}>
             {itemContent}
           </a>
         );
         const internalLink = (
-          <Link href to={formatUrl(prefix, to)} onClick={() => toggleOverlay(isOpen, setOpen)}>
+          <Link to={formatUrl(prefix, to)} onClick={() => toggleOverlay(isOpen, setOpen)}>
             {itemContent}
           </Link>
         );
@@ -47,7 +52,7 @@ const MobileNavbarGroup = ({
   </>
 );
 
-const titlesAndLinks = [
+const titlesAndLinks: [string, NavbarMenuItem[]][] = [
   [featuresTitle, features],
   [resourcesTitle, resources],
   [pricingTitle, pricing],

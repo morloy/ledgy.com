@@ -1,4 +1,4 @@
-import React, { Node } from 'react';
+import React, { ReactNode } from 'react';
 import { Link } from 'gatsby';
 import { Trans } from '@lingui/macro';
 
@@ -12,37 +12,54 @@ import logoInvertedCompact from '../img/logo-inverted-compact.png';
 import { CTABanner } from './CTABanner';
 import { Dropdown } from './Dropdown';
 import { SubscriptionModal } from './SubscriptionModal';
-import { getFooterLinks, formatUrl } from './lib';
+import { FOOTER_LINKS, FooterLink, formatUrl } from './lib';
 import { isExternalUrl } from './lib/urlHelpers';
+import { DynamicTrans } from './DynamicTrans';
 
-const FooterCol = ({ order, children }: { order: number; children: Node }) => (
+const { companyLinks, legalLinks, productLinks, resourceLinks, socialLinks } = FOOTER_LINKS;
+
+const FooterCol = ({ order, children }: { order: number; children: ReactNode }) => (
   <div className={`col-6 col-md-3 order-md-${order}`}>{children}</div>
 );
 
-const FooterColBody = ({
-  title,
-  children,
-  className = '',
-}: {
-  title: Node;
-  children: Array<Node>;
-  className?: string;
-}) => (
-  <div className={`pl-4 ${className}`}>
-    <h6 className="mb-4">
-      <strong>{title}</strong>
-    </h6>
-    <div className="nav flex-column">{children}</div>
-  </div>
-);
-
 const LanguageLink = ({ language, to }: { language: string; to: string }) => (
-  <Link className="d-flex justify-content-center text-primary" to={to} href>
+  <Link className="d-flex justify-content-center text-primary" to={to}>
     {language}
   </Link>
 );
 
-const { companyLinks, legalLinks, productLinks, resourceLinks, socialLinks } = getFooterLinks();
+const FooterLinks = ({
+  title,
+  links,
+  prefix,
+  className = '',
+}: {
+  title: string;
+  links: FooterLink[];
+  prefix: string;
+  className?: string;
+}) => (
+  <div className={`pl-4 ${className}`}>
+    <h6 className="mb-4">
+      <strong>
+        <DynamicTrans>{title}</DynamicTrans>
+      </strong>
+    </h6>
+    <div className="nav flex-column">
+      {links.map(([label, link]) =>
+        isExternalUrl(link) ? (
+          <a className="nav-link" href={link} key={link} {...targetBlank}>
+            <DynamicTrans>{label}</DynamicTrans>
+          </a>
+        ) : (
+          <Link className="nav-link" to={formatUrl(prefix, link)} key={link}>
+            <DynamicTrans>{label}</DynamicTrans>
+          </Link>
+        )
+      )}
+    </div>
+  </div>
+);
 
 export const Footer = ({ location, ...props }: LayoutProps) => {
   const isPartners = location.pathname.includes('partners');
@@ -56,40 +73,16 @@ export const Footer = ({ location, ...props }: LayoutProps) => {
         <div className="container">
           <div className="row m-0 h-100 justify-content-md-center position-relative z-index-base">
             <FooterCol order={2}>
-              <FooterColBody title={<Trans>Company</Trans>}>
-                {companyLinks.map(([label, link]) => (
-                  <Link className="nav-link" href to={formatUrl(prefix, link)} key={link}>
-                    {label}
-                  </Link>
-                ))}
-              </FooterColBody>
-              <FooterColBody title={<Trans>Legal</Trans>} className="mt-5">
-                {legalLinks.map(([label, link]) => (
-                  <Link className="nav-link" href to={formatUrl(prefix, link)} key={link}>
-                    {label}
-                  </Link>
-                ))}
-              </FooterColBody>
+              <FooterLinks title="Company" links={companyLinks} prefix={prefix} />
+              <FooterLinks title="Legal" links={legalLinks} prefix={prefix} className="mt-5" />
             </FooterCol>
             <FooterCol order={3}>
-              <FooterColBody title={<Trans>Resources</Trans>}>
-                {resourceLinks.map(([label, link]) =>
-                  isExternalUrl(link) ? (
-                    <a className="nav-link" href={link} key={link} {...targetBlank}>
-                      {label}
-                    </a>
-                  ) : (
-                    <Link className="nav-link" href to={formatUrl(prefix, link)} key={link}>
-                      {label}
-                    </Link>
-                  )
-                )}
-              </FooterColBody>
+              <FooterLinks title="Resources" links={resourceLinks} prefix={prefix} />
             </FooterCol>
-            <FooterCol order={1} wide>
+            <FooterCol order={1}>
               <div className="footer--logo-section d-flex flex-column justify-content-between mt-5 mt-md-0">
                 <div className="d-flex flex-column align-items-center p-0 px-md-4">
-                  <Link href to={`${prefix}/#start`} className="mb-2 mb-md-4">
+                  <Link to={`${prefix}/#start`} className="mb-2 mb-md-4">
                     <img src={logoInvertedCompact} width={80} alt={name} />
                   </Link>
                   <div className="py-lg-4">
@@ -100,12 +93,18 @@ export const Footer = ({ location, ...props }: LayoutProps) => {
                       toggleClass="w-100"
                       toggleProps={{ outline: true }}
                       items={[
-                        <LanguageLink language="English" to={deprefix(location.pathname)} />,
                         <LanguageLink
+                          key="locale-en"
+                          language="English"
+                          to={deprefix(location.pathname)}
+                        />,
+                        <LanguageLink
+                          key="locale-de"
                           language="Deutsch"
                           to={`/de${deprefix(location.pathname)}`}
                         />,
                         <LanguageLink
+                          key="locale-fr"
                           language="Français"
                           to={`/fr${deprefix(location.pathname)}`}
                         />,
@@ -128,13 +127,12 @@ export const Footer = ({ location, ...props }: LayoutProps) => {
               </div>
             </FooterCol>
             <FooterCol order={4}>
-              <FooterColBody title={<Trans>Product</Trans>} className="mt-5 mt-md-0">
-                {productLinks.map(([label, link]) => (
-                  <Link className="nav-link" href to={formatUrl(prefix, link)} key={link}>
-                    {label}
-                  </Link>
-                ))}
-              </FooterColBody>
+              <FooterLinks
+                title="Product"
+                links={productLinks}
+                prefix={prefix}
+                className="mt-5 mt-md-0"
+              />
             </FooterCol>
           </div>
         </div>

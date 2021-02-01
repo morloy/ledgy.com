@@ -1,7 +1,7 @@
-import React, { useState, Node } from 'react';
+import React, { useState, ReactNode } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 import { Button } from './Button';
 
@@ -13,11 +13,11 @@ export const Dropdown = ({
   items,
   itemClass = '',
 }: {
-  toggleText: Node;
-  toggleIcon?: string;
+  toggleText: ReactNode;
+  toggleIcon?: IconDefinition;
   toggleClass?: string;
   toggleProps?: UnknownObject;
-  items: Node[];
+  items: ReactNode[];
   itemClass?: string;
 }) => {
   const [isOpen, setOpen] = useState(false);

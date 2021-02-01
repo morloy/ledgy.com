@@ -1,25 +1,24 @@
-import React, { useState, Node, MouseEventHandler } from 'react';
+import React, { useState, SyntheticEvent, MouseEventHandler } from 'react';
 import { Link } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
 
-import { getNavbarTitles, getNavbarLinks, formatUrl, isExternalUrl } from '../lib';
+import { NAVBAR_TITLES, NAVBAR_LINKS, formatUrl, isExternalUrl, NavbarMenuItem } from '../lib';
 import { targetBlank } from '../../helpers';
+import { DynamicTrans } from '../DynamicTrans';
 
-type Event = React.SyntheticEvent<HTMLInputElement>;
-type ListItemProps = { title: Node; isTextShown: boolean; prefix: string };
+type Event = MouseEventHandler<HTMLAnchorElement>;
+type ListItemProps = { title: string; isTextShown: boolean; prefix: string };
 
 type ListItemHoverProps = ListItemProps & {
   to: string;
-  text?: Node;
+  text?: string;
   onClick: MouseEventHandler<HTMLAnchorElement>;
 };
 
 type ParentListItemProps = ListItemProps & {
   eventHandlingProps: { onMouseEnter: (arg0: Event) => void; onMouseLeave: (arg0: Event) => void };
-  menuItems: {
-    [key: string]: any; // TS FIXME type this
-  }[];
-  disappear: (arg0: MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+  menuItems: NavbarMenuItem[];
+  disappear: MouseEventHandler<HTMLAnchorElement>;
   className: string;
 };
 
@@ -29,8 +28,14 @@ const getNavbar = () => document.getElementById(NAV_ID);
 const ListItemHover = ({ to, prefix, title, text, onClick, isTextShown }: ListItemHoverProps) => {
   const itemContent = (
     <>
-      <h4 className={`text-primary mt-2 ${text ? 'mb-1' : 'mb-2'}`}>{title}</h4>
-      {text && <div className="list-item-hover-text mb-3">{text}</div>}
+      <h4 className={`text-primary mt-2 ${text ? 'mb-1' : 'mb-2'}`}>
+        <DynamicTrans>{title}</DynamicTrans>
+      </h4>
+      {!!text && (
+        <div className="list-item-hover-text mb-3">
+          <DynamicTrans>{text}</DynamicTrans>
+        </div>
+      )}
     </>
   );
 
@@ -41,7 +46,7 @@ const ListItemHover = ({ to, prefix, title, text, onClick, isTextShown }: ListIt
           {itemContent}
         </a>
       ) : (
-        <Link href to={formatUrl(prefix, to)} onClick={onClick}>
+        <Link to={formatUrl(prefix, to)} onClick={onClick}>
           {itemContent}
         </Link>
       )}
@@ -59,7 +64,9 @@ const ParentListItem = ({
   className,
 }: ParentListItemProps) => (
   <li {...eventHandlingProps}>
-    <p>{parentTitle}</p>
+    <p>
+      <DynamicTrans>{parentTitle}</DynamicTrans>
+    </p>
     <ul className={`hover-list-child ${className}`}>
       {menuItems.map((
         [to, title, text] //TS FIXME
@@ -78,8 +85,8 @@ const ParentListItem = ({
   </li>
 );
 
-const { featuresTitle, resourcesTitle, pricingTitle, dataProtectionTitle } = getNavbarTitles();
-const { features, resources, pricing, dataProtection } = getNavbarLinks();
+const { featuresTitle, resourcesTitle, pricingTitle, dataProtectionTitle } = NAVBAR_TITLES;
+const { features, resources, pricing, dataProtection } = NAVBAR_LINKS;
 
 const parentListItems = [
   [featuresTitle, features, 'features-dd'],
@@ -95,7 +102,7 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
   const [firstHover, setFirstHover] = useState(true);
   const [isTextShown, setShowText] = useState(true);
 
-  const hoverIn = (e) => {
+  const hoverIn = (e: SyntheticEvent) => {
     setShowText(true);
     const navbar = getNavbar();
     if (navbar) {
@@ -118,7 +125,7 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
     }
   };
 
-  const hoverOut = (e) => {
+  const hoverOut = (e: SyntheticEvent) => {
     const { currentTarget } = e;
     currentTarget.classList.remove('trigger-enter');
     setTimeout(() => currentTarget.classList.remove('trigger-enter-active'), 100);
@@ -133,8 +140,8 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
   };
 
   const eventHandlingProps = {
-    onMouseEnter: (e) => hoverIn(e),
-    onMouseLeave: (e) => hoverOut(e),
+    onMouseEnter: (e: SyntheticEvent) => hoverIn(e),
+    onMouseLeave: (e: SyntheticEvent) => hoverOut(e),
   };
   return (
     <>
@@ -172,8 +179,8 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
             />
           ))}
           <li>
-            <Link href to={`${props.prefix}/${dataProtection[0][0]}`}>
-              {dataProtectionTitle}
+            <Link to={`${props.prefix}/${dataProtection[0][0]}`}>
+              <DynamicTrans>{dataProtectionTitle}</DynamicTrans>
             </Link>
           </li>
         </ul>
