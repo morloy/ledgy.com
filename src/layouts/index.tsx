@@ -15,11 +15,7 @@ import { animateLaptop, loadSegment } from "../helpers";
 import { Title } from "./utils";
 import { langFromPath, langPrefix, deprefix } from "../i18n-config";
 
-import PublicityBanner from "../components";
-import Loader from "../components";
-import { Nav } from "../components";
-import { Footer } from "../components";
-import { HelmetIndexLayout } from "../components";
+import { HelmetIndexLayout, Footer, Loader, Nav, PublicityBanner } from "../components";
 
 type AppProps = $Exact<LayoutProps> & {
   children: Node;

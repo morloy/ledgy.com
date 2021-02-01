@@ -43,9 +43,7 @@ const bannerQuery = graphql`
   }
 `;
 
-export default (({
-  pathname
-}: {pathname: string;}) => {
+const PublicityBanner = () => ({ pathname }: {pathname: string;}) => {
   const result = useStaticQuery(bannerQuery);
   const [banner] = result.allContentfulBanner.edges;
   if (!banner) return null;
@@ -63,4 +61,6 @@ export default (({
   }, []);
 
   return show ? <Banner content={content} hide={() => setShow(false)} /> : null;
-});
+};
+
+export default PublicityBanner;
