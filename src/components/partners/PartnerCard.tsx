@@ -8,6 +8,7 @@ import { targetBlank } from '../../helpers';
 export const PartnerCard = (props: { logo: UnknownObject; email: string; website: string }) => {
   const { logo, email, website } = props;
   return (
+    // TS FIXME
     <div className="col col-12 col-md-6 col-lg-3 mb-6">
       <div className="partner-card card border shadow-8 p-4 mx-auto text-center" key={website}>
         <div className="h-70 row m-auto align-content-center">

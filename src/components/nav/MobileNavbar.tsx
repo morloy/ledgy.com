@@ -1,4 +1,4 @@
-import React, { Node } from 'react';
+import React, { ReactNode } from 'react';
 import { Link } from 'gatsby';
 
 import { NavbarButtons } from './NavbarButtons';
@@ -16,7 +16,7 @@ const MobileNavbarGroup = ({
   setOpen,
   toggleOverlay,
 }: {
-  title: Node;
+  title: ReactNode;
   links: {
     [key: string]: any; // TS FIXME type this
   };
@@ -28,7 +28,7 @@ const MobileNavbarGroup = ({
   <>
     <p className="text-gray-neutral mb-1">{title}</p>
     <ul className="flex-column ml-2 ml-sm-4 mb-2 mb-sm-4">
-      {links.map(([to, name]) => {
+      {links.map(([to, name]: [string, string]) => {
         const itemContent = <h5 className="text-primary mt-1">{name}</h5>;
         const externalLink = (
           <a href={to} key={to} onClick={() => toggleOverlay(isOpen, setOpen)} {...targetBlank}>

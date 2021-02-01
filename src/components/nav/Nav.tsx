@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
-import { CSSTransition } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group'; // TS FIXME
 
 import { name } from '../../helpers';
-import logoInverted from '../../img/logo-inverted.png';
+import logoInverted from '../../img/logo-inverted.png'; // TS FIXME
 import { toggleOverlay } from '../lib';
 import { Button } from '../Button';
 

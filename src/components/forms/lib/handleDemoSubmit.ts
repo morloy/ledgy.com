@@ -62,8 +62,8 @@ export const handleDemoSubmit = async ({
   setFormStatus,
 }: {
   values: FormValues;
-  event: React.SyntheticEvent<HTMLInputElement>;
-  setFormStatus: (arg0: FormStatus) => void;
+  event: React.FormEvent<HTMLFormElement>;
+  setFormStatus: (arg0: string) => void;
 }): Promise<void> => {
   event.preventDefault();
   setFormStatus(LOADING);

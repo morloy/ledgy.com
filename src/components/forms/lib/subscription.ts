@@ -1,6 +1,24 @@
 import { MIXPANEL_TOKEN, track } from '../../../helpers';
 
-const encodeBase64 = (JsonObject) => btoa(JSON.stringify(JsonObject));
+declare type MixpanelEngageObjectProps = {
+  $token: string;
+  $distinct_id: string;
+  $set: {
+    $first_name: string;
+    $email: string;
+  };
+};
+
+declare type MixpanelTrackingObjectProps = {
+  event: string;
+  properties: {
+    distinct_id: string;
+    token: string;
+  };
+};
+
+const encodeBase64 = (JsonObject: MixpanelEngageObjectProps | MixpanelTrackingObjectProps) =>
+  btoa(JSON.stringify(JsonObject));
 
 export const generateBase64SignupJSON = (email: string, token: string) => {
   const mixpanelEngageObject = {
@@ -25,7 +43,9 @@ const generateBase64TrackingJSON = (email: string, token: string, trackingEvent:
   return encodeBase64(mixpanelTrackingObject);
 };
 
-const generateMixpanelUrl = (data, endpoint) => `${endpoint}/?data=${data}`;
+declare type EndPoint = 'engage' | 'track';
+
+const generateMixpanelUrl = (data: string, endpoint: EndPoint) => `${endpoint}/?data=${data}`;
 
 export const signupOnMixpanel = async (email: string) => {
   const mixpanelSignupJSON = generateBase64SignupJSON(email, MIXPANEL_TOKEN);

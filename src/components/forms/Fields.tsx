@@ -1,9 +1,9 @@
-import React, { Node } from 'react';
+import React, { ReactNode } from 'react';
 import { Trans } from '@lingui/macro';
 
 import { FORM_STATUSES } from '../../helpers';
 
-export const Label = ({ text }: { text: Node }) => <span>{text}</span>;
+export const Label = ({ text }: { text: ReactNode }) => <span>{text}</span>;
 
 export const Input = ({
   state,
@@ -13,15 +13,17 @@ export const Input = ({
   name,
   wrapperClassName,
   className = '',
+  type,
   ...props
 }: {
   state: string;
   setState: (arg0: string) => void;
   placeholder: string;
-  setFormStatus: (arg0: FormStatus) => void;
+  setFormStatus: (arg0: FormStatus | string) => void; // TS FIXME
   name: string;
   wrapperClassName: string;
   className?: string;
+  type?: string;
 }) => (
   <div className={`input-group ${wrapperClassName}`}>
     <input
@@ -42,7 +44,7 @@ export const InvalidFieldHints = ({
   formStatus,
   className = '',
 }: {
-  formStatus: FormStatus;
+  formStatus: string;
   className?: string;
 }) => {
   const { INVALID_FIELDS, INVALID_REQUIRED_FIELDS, INVALID_EMAIL, FETCH_ERROR } = FORM_STATUSES;

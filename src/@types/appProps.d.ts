@@ -18,7 +18,7 @@ declare type LayoutProps = Props & {
 declare type Mdx = { childMdx: { body: string } };
 
 declare type Image = {
-  localFile?: { childImageSharp: UnknownObject };
+  localFile?: { childImageSharp: DisableTypeScript }; // TS FIXME
   title: string;
   description?: string;
 };

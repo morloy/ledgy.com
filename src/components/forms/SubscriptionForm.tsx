@@ -14,12 +14,12 @@ const { FETCH_ERROR, IDLE, INVALID_EMAIL, LOADING } = FORM_STATUSES;
 
 export class SubscriptionForm extends Component<
   { toggle?: () => void; trackingEvent: string },
-  { email: string; status: FormStatus }
+  { email: string; status: FormStatus | string } //TS FIXME
 > {
   state = { email: '', status: IDLE };
   handleChange = (e: SyntheticEvent<HTMLInputElement>) => {
     e.preventDefault();
-    this.setState({ email: e.target.value, status: IDLE });
+    this.setState({ email: e.target.value, status: IDLE }); //TS FIXME
   };
   handleSubmit = async (e: SyntheticEvent<HTMLInputElement>) => {
     e.preventDefault();

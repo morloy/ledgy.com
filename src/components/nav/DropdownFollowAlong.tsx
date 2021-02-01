@@ -1,4 +1,4 @@
-import React, { useState, Node } from 'react';
+import React, { useState, Node, MouseEventHandler } from 'react';
 import { Link } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
 
@@ -11,7 +11,7 @@ type ListItemProps = { title: Node; isTextShown: boolean; prefix: string };
 type ListItemHoverProps = ListItemProps & {
   to: string;
   text?: Node;
-  onClick: (arg0: Event) => void;
+  onClick: MouseEventHandler<HTMLAnchorElement>;
 };
 
 type ParentListItemProps = ListItemProps & {
@@ -19,7 +19,7 @@ type ParentListItemProps = ListItemProps & {
   menuItems: {
     [key: string]: any; // TS FIXME type this
   }[];
-  disappear: (arg0: Event) => void;
+  disappear: (arg0: MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
   className: string;
 };
 
@@ -61,7 +61,9 @@ const ParentListItem = ({
   <li {...eventHandlingProps}>
     <p>{parentTitle}</p>
     <ul className={`hover-list-child ${className}`}>
-      {menuItems.map(([to, title, text]) => (
+      {menuItems.map((
+        [to, title, text] //TS FIXME
+      ) => (
         <ListItemHover
           to={to}
           title={title}

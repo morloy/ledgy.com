@@ -9,7 +9,15 @@ const getHubspotUserToken = (): string =>
     HUBSPOTUTK.length
   );
 
-const encodeBody = (data) =>
+declare type EncodeBodyData = {
+  demorequestdate: string;
+  pipelinevalue: number;
+  email: string;
+  numberofemployees?: number;
+  numberofinvestments?: number;
+};
+
+const encodeBody = (data: EncodeBodyData) =>
   JSON.stringify({
     fields: Object.entries(data).map(([name, value]) => ({ name, value })),
     context: { hutk: getHubspotUserToken() },

@@ -1,7 +1,12 @@
-import React, { Node } from 'react';
+import React, { ReactNode } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
-export const ReadMore = (props: { icon: string; title: Node; subtitle: Node }) => {
+export const ReadMore = (props: {
+  icon: IconDefinition;
+  title: ReactNode;
+  subtitle: ReactNode;
+}) => {
   const { icon, title, subtitle } = props;
   return (
     <>
