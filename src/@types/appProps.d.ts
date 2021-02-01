@@ -3,7 +3,7 @@ declare type Language = 'en' | 'de' | 'fr';
 declare type Props = {
   prefix: string;
   lang: Language;
-  data: UnknownObject; // TS FIXME
+  data: UntypedObject; // TS FIXME
 };
 
 declare type LocationProps = {
@@ -23,18 +23,6 @@ declare type Image = {
   description?: string;
 };
 
-declare type ContentfulPageProps = {
-  id: string;
-  title: string;
-  description: string;
-  date?: string;
-  author?: string;
-  content: Mdx;
-  slug: string;
-  language: Language;
-  cover?: Image;
-};
-
 declare type Company = {
   name: string;
   logo: Image;
@@ -43,7 +31,7 @@ declare type Company = {
   contactTitle: string;
   mainQuote: Mdx;
   yearFounded: string;
-  funding: ?string;
+  funding?: string;
   employeeCount: string;
   sector: string;
   location: string;

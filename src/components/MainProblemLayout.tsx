@@ -4,15 +4,8 @@ import Img from 'gatsby-image';
 import { DynamicTrans, dynamicI18n } from '../components/DynamicTrans';
 import { getUnderlineHtml } from './lib';
 
-export const MainProblemLayout = ({
-  title,
-  description,
-  image,
-}: {
-  title: string;
-  description: string;
-  image: Image;
-}) => {
+export const MainProblemLayout = ({ title, description, image }: ContentfulIndexEntry) => {
+  if (!description || !image) return null;
   return (
     <div className="container p-4 p-lg-7 my-4 my-lg-7 position-relative z-index-base">
       <div className="row justify-content-center">

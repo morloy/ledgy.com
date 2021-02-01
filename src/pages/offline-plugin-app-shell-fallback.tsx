@@ -1,3 +1,5 @@
 import React from 'react';
 
-export default () => <div />;
+const AppShellFallback = () => <div />;
+
+export default AppShellFallback;

@@ -19,6 +19,7 @@ const DecoShapes = () => (
 const IndexPage = (props: Props) => {
   const [content] = props.data.page.edges;
   const { title, entries } = content.node;
+
   return (
     <main className="position-relative overflow-hidden">
       {!!title && (
@@ -29,7 +30,8 @@ const IndexPage = (props: Props) => {
       <DecoShapes />
       <HomePageHeader {...props} />
 
-      {entries.map(({ __typename, id, ...entry }, index) => {
+      {(entries as ContentfulIndexEntry[]).map((entry, index) => {
+        const { __typename, id } = entry;
         const { prefix } = props;
 
         if (index === 0) {

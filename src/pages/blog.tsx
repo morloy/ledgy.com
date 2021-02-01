@@ -15,7 +15,7 @@ const Blog = ({ data, prefix }: Props) => {
       <PageHeader title={title} subtitle={description} />
 
       <ContentBody>
-        {data.allContentfulPage.edges.map((edge) => {
+        {data.allContentfulPage.edges.map((edge: DisableTypeScript) => {
           const { node } = edge;
           const { id, slug, description: postDescription } = node;
           return (

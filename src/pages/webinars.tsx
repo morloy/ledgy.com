@@ -8,33 +8,36 @@ import { PageHeader } from '../components/PageHeader';
 
 import { Title } from '../layouts/utils';
 
-const Webinars = ({ data }: Props) => (
-  <div>
-    <Title
-      title={t`Webinars`}
-      description={t`Webinars on cap tables, financing rounds, and legal issues around running and managing a startup.`}
-    />
+const Webinars = ({ data }: Props) => {
+  console.log({ data });
+  return (
+    <div>
+      <Title
+        title={t`Webinars`}
+        description={t`Webinars on cap tables, financing rounds, and legal issues around running and managing a startup.`}
+      />
 
-    <PageHeader title={t`Ledgy Webinars`} />
+      <PageHeader title={t`Ledgy Webinars`} />
 
-    <ContentBody>
-      {data.allContentfulWebinar.edges.map((edge) => {
-        const { node } = edge;
-        const { id, youtube, description } = node;
-        return (
-          <PostLink
-            external
-            key={id}
-            to={youtube}
-            post={node}
-            defaultImage={data.ledgy}
-            description={<MDXRenderer>{description.childMdx.body}</MDXRenderer>}
-          />
-        );
-      })}
-    </ContentBody>
-  </div>
-);
+      <ContentBody>
+        {data.allContentfulWebinar.edges.map((edge: DisableTypeScript) => {
+          const { node } = edge;
+          const { id, youtube, description } = node;
+          return (
+            <PostLink
+              external
+              key={id}
+              to={youtube}
+              post={node}
+              defaultImage={data.ledgy}
+              description={<MDXRenderer>{description.childMdx.body}</MDXRenderer>}
+            />
+          );
+        })}
+      </ContentBody>
+    </div>
+  );
+};
 
 export default Webinars;
 

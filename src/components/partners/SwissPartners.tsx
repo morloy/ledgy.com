@@ -2,7 +2,7 @@ import React from 'react';
 import { Trans } from '@lingui/macro';
 import { PartnerCard } from './PartnerCard';
 
-export const SwissPartners = ({ data }: Props) => (
+export const SwissPartners = ({ data }: DisableTypeScript) => (
   <div className="container pb-4">
     <h5 className="text-center pb-6">
       <Trans>Swiss Law Partners</Trans>

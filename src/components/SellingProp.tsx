@@ -16,16 +16,8 @@ export const SellingProp = ({
   prefix,
   imgFirst = false,
   hideLink = false,
-}: {
-  title: string;
-  description: string;
-  link: string;
-  linkTo: string;
-  image: Image;
-  prefix: string;
-  imgFirst?: boolean;
-  hideLink?: boolean;
-}) => {
+}: ContentfulIndexEntry & { prefix: string; imgFirst?: boolean; hideLink?: boolean }) => {
+  if (!description || !link) return null;
   return (
     <div className="container text-center p-4 p-lg-7 selling-prop">
       <div className="row justify-content-center align-items-center">
@@ -38,7 +30,7 @@ export const SellingProp = ({
             <DynamicTrans>{description}</DynamicTrans>
           </p>
           {!hideLink && (
-            <Link href to={`${prefix}/${linkTo}`} className="d-flex align-items-center">
+            <Link to={`${prefix}/${linkTo}`} className="d-flex align-items-center">
               <FontAwesomeIcon icon={faArrowCircleRight} className="fa-sm" />
               <span className="deco-link ml-2">
                 <DynamicTrans>{link}</DynamicTrans>

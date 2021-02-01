@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default (props: UnknownObject) => (
+const Html = (props: UnknownObject) => (
   <html lang="en" {...props.htmlAttributes}>
     <head>
       <meta charSet="utf-8" />
@@ -15,9 +15,11 @@ export default (props: UnknownObject) => (
       <div
         key="body"
         id="___gatsby"
-        dangerouslySetInnerHTML={{ __html: props.body }} // eslint-disable-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: props.body as string }} // eslint-disable-line react/no-danger
       />
       {props.postBodyComponents}
     </body>
   </html>
 );
+
+export default Html;

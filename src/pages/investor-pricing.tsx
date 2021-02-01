@@ -1,13 +1,14 @@
-import React, { Node } from 'react';
+import React, { ReactNode } from 'react';
 import { Trans, t } from '@lingui/macro';
 
 import { Title } from '../layouts/utils';
-import { appUrl, getInvestorFeaturePricing } from '../helpers';
+import { appUrl, INVESTOR_FEATURES } from '../helpers';
 import { PageHeader } from '../components/PageHeader';
 import { RequestDemoButton } from '../components/RequestDemoButton';
 import { Button } from '../components/Button';
+import { DynamicTrans } from '../components';
 
-const { angelFeatures, fundFeatures } = getInvestorFeaturePricing();
+const { angelFeatures, fundFeatures } = INVESTOR_FEATURES;
 
 const InvestorTypeCard = ({
   type,
@@ -16,10 +17,10 @@ const InvestorTypeCard = ({
   button,
   highlight = false,
 }: {
-  type: Node;
-  price: Node;
-  features: Node[];
-  button: Node;
+  type: ReactNode;
+  price: ReactNode;
+  features: string[];
+  button: ReactNode;
   highlight?: boolean;
 }) => (
   <div className="col-12 col-md-6 col-lg-5 mb-4">
@@ -32,8 +33,10 @@ const InvestorTypeCard = ({
         <h3 className="font-weight-bold">{type}</h3>
         <div className="text-xl font-weight-light mb-4 mt-2">{price}</div>
         <ul className="p-0 mb-3 list-style-none">
-          {features.map((feature) => (
-            <li className="mb-4">{feature}</li>
+          {features.map((feature, i) => (
+            <li className="mb-4" key={`${feature}-${i}`}>
+              <DynamicTrans>{feature}</DynamicTrans>
+            </li>
           ))}
         </ul>
       </div>
