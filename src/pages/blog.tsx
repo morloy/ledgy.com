@@ -1,37 +1,36 @@
+import React from 'react';
+import { graphql } from 'gatsby';
+import { t } from '@lingui/macro';
 
+import { ContentBody, PostLink } from '../components/Content';
+import { Title } from '../layouts/utils';
+import { PageHeader } from '../components/PageHeader';
 
-import React from "react";
-import { graphql } from "gatsby";
-import { t } from "@lingui/macro";
-
-import { ContentBody, PostLink } from "../components/Content";
-import { Title } from "../layouts/utils";
-import { PageHeader } from "../components/PageHeader";
-
-const Blog = ({
-  data,
-  prefix
-}: Props) => {
+const Blog = ({ data, prefix }: Props) => {
   const title = t`Blog`;
   const description = t`Thoughts on cap tables, financing rounds, and legal issues around running and managing a startup.`;
-  return <div>
+  return (
+    <div>
       <Title title={title} description={description} />
       <PageHeader title={title} subtitle={description} />
 
       <ContentBody>
-        {data.allContentfulPage.edges.map(edge => {
-        const {
-          node
-        } = edge;
-        const {
-          id,
-          slug,
-          description: postDescription
-        } = node;
-        return <PostLink key={id} to={`${prefix}/blog/${slug}`} post={node} defaultImage={data.ledgy} description={postDescription} />;
-      })}
+        {data.allContentfulPage.edges.map((edge) => {
+          const { node } = edge;
+          const { id, slug, description: postDescription } = node;
+          return (
+            <PostLink
+              key={id}
+              to={`${prefix}/blog/${slug}`}
+              post={node}
+              defaultImage={data.ledgy}
+              description={postDescription}
+            />
+          );
+        })}
       </ContentBody>
-    </div>;
+    </div>
+  );
 };
 
 export default Blog;

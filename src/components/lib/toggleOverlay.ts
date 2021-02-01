@@ -1,5 +1,3 @@
-
-
 const addOverlay = () => document.body?.classList.add('overlay');
 export const removeOverlay = () => document.body?.classList.remove('overlay');
 

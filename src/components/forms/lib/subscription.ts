@@ -1,8 +1,6 @@
+import { MIXPANEL_TOKEN, track } from '../../../helpers';
 
-
-import { MIXPANEL_TOKEN, track } from "../../../helpers";
-
-const encodeBase64 = JsonObject => btoa(JSON.stringify(JsonObject));
+const encodeBase64 = (JsonObject) => btoa(JSON.stringify(JsonObject));
 
 export const generateBase64SignupJSON = (email: string, token: string) => {
   const mixpanelEngageObject = {
@@ -10,8 +8,8 @@ export const generateBase64SignupJSON = (email: string, token: string) => {
     $distinct_id: email,
     $set: {
       $first_name: email,
-      $email: email
-    }
+      $email: email,
+    },
   };
   return encodeBase64(mixpanelEngageObject);
 };
@@ -21,8 +19,8 @@ const generateBase64TrackingJSON = (email: string, token: string, trackingEvent:
     event: trackingEvent,
     properties: {
       distinct_id: email,
-      token
-    }
+      token,
+    },
   };
   return encodeBase64(mixpanelTrackingObject);
 };
@@ -37,7 +35,11 @@ export const signupOnMixpanel = async (email: string) => {
 
 export const trackOnMixpanel = async (email: string, trackingEvent: string) => {
   track(trackingEvent); // google analytics
-  const mixpanelTrackingJSON = generateBase64TrackingJSON(email, MIXPANEL_TOKEN, `user.${trackingEvent}`);
+  const mixpanelTrackingJSON = generateBase64TrackingJSON(
+    email,
+    MIXPANEL_TOKEN,
+    `user.${trackingEvent}`
+  );
   const mixpanelTrackingUrl = generateMixpanelUrl(mixpanelTrackingJSON, 'track');
   await fetch(mixpanelTrackingUrl);
 };

@@ -34,6 +34,3 @@ export * from './SellingProp';
 export * from './SubscriptionModal';
 export * from './TeamMembers';
 export * from './Testimonial';
-
-
-

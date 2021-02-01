@@ -1,26 +1,21 @@
+import React, { Component } from 'react';
+import { Trans, t } from '@lingui/macro';
+import 'isomorphic-fetch';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { navigate } from 'gatsby';
 
+import { isValidEmail, FORM_STATUSES } from '../../helpers';
+import { Button } from '../Button';
+import { signupOnMixpanel, trackOnMixpanel } from './lib';
+import { InvalidFieldHints } from './Fields';
 
-import React, { Component } from "react";
-import { Trans, t } from "@lingui/macro";
-import "isomorphic-fetch";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { navigate } from "gatsby";
+const { FETCH_ERROR, IDLE, INVALID_EMAIL, LOADING } = FORM_STATUSES;
 
-import { isValidEmail, FORM_STATUSES } from "../../helpers";
-import { Button } from "../Button";
-import { signupOnMixpanel, trackOnMixpanel } from "./lib";
-import { InvalidFieldHints } from "./Fields";
-
-const {
-  FETCH_ERROR,
-  IDLE,
-  INVALID_EMAIL,
-  LOADING
-} = FORM_STATUSES;
-
-export class SubscriptionForm extends Component<{toggle?: () => void;trackingEvent: string;}, {email: string;status: FormStatus;}> {
-
+export class SubscriptionForm extends Component<
+  { toggle?: () => void; trackingEvent: string },
+  { email: string; status: FormStatus }
+> {
   state = { email: '', status: IDLE };
   handleChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -29,9 +24,7 @@ export class SubscriptionForm extends Component<{toggle?: () => void;trackingEve
   handleSubmit = async (e: any) => {
     e.preventDefault();
     this.setState({ status: LOADING });
-    const {
-      email
-    } = this.state;
+    const { email } = this.state;
     if (isValidEmail(email)) {
       try {
         const signupResponse = await signupOnMixpanel(email);
@@ -51,25 +44,38 @@ export class SubscriptionForm extends Component<{toggle?: () => void;trackingEve
     }
   };
   render = () => {
-    const {
-      state
-    } = this;
-    const {
-      status
-    } = state;
+    const { state } = this;
+    const { status } = state;
     const invalid = status === INVALID_EMAIL;
     const error = status === FETCH_ERROR;
     const loading = status === LOADING;
-    return <>
+    return (
+      <>
         <form method="post" className="input-round py-4" onSubmit={this.handleSubmit} noValidate>
           <div className="form-group input-group bg-white p-2 my-4 position-relative">
-            <input type="email" className="form-control" placeholder={t`Enter your email…`} onChange={this.handleChange} value={this.state.email} style={{ height: 'inherit' }} />
-            <Button type="submit" className="button-embedded min-width-110px" disabled={invalid || error || loading}>
-              {loading ? <FontAwesomeIcon icon={faSpinner} className="fa-lg spin" /> : <Trans>Subscribe</Trans>}
+            <input
+              type="email"
+              className="form-control"
+              placeholder={t`Enter your email…`}
+              onChange={this.handleChange}
+              value={this.state.email}
+              style={{ height: 'inherit' }}
+            />
+            <Button
+              type="submit"
+              className="button-embedded min-width-110px"
+              disabled={invalid || error || loading}
+            >
+              {loading ? (
+                <FontAwesomeIcon icon={faSpinner} className="fa-lg spin" />
+              ) : (
+                <Trans>Subscribe</Trans>
+              )}
             </Button>
             <InvalidFieldHints formStatus={status} className="position-absolute" />
           </div>
         </form>
-      </>;
+      </>
+    );
   };
 }

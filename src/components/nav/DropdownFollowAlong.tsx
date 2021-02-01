@@ -1,14 +1,12 @@
+import React, { useState, Node } from 'react';
+import { Link } from 'gatsby';
+import { CSSTransition } from 'react-transition-group';
 
-
-import React, { useState, Node } from "react";
-import { Link } from "gatsby";
-import { CSSTransition } from "react-transition-group";
-
-import { getNavbarTitles, getNavbarLinks, formatUrl, isExternalUrl } from "../lib";
-import { targetBlank } from "../../helpers";
+import { getNavbarTitles, getNavbarLinks, formatUrl, isExternalUrl } from '../lib';
+import { targetBlank } from '../../helpers';
 
 type Event = React.SyntheticEvent<HTMLInputElement>;
-type ListItemProps = {title: Node;isTextShown: boolean;prefix: string;};
+type ListItemProps = { title: Node; isTextShown: boolean; prefix: string };
 
 type ListItemHoverProps = ListItemProps & {
   to: string;
@@ -17,7 +15,7 @@ type ListItemHoverProps = ListItemProps & {
 };
 
 type ParentListItemProps = ListItemProps & {
-  eventHandlingProps: {onMouseEnter: (arg0: Event) => void;onMouseLeave: (arg0: Event) => void;};
+  eventHandlingProps: { onMouseEnter: (arg0: Event) => void; onMouseLeave: (arg0: Event) => void };
   menuItems: {
     [key: string]: any;
   }[];
@@ -28,26 +26,27 @@ type ParentListItemProps = ListItemProps & {
 const NAV_ID = 'custom-hover-nav';
 const getNavbar = () => document.getElementById(NAV_ID);
 
-const ListItemHover = ({
-  to,
-  prefix,
-  title,
-  text,
-  onClick,
-  isTextShown
-}: ListItemHoverProps) => {
-  const itemContent = <>
+const ListItemHover = ({ to, prefix, title, text, onClick, isTextShown }: ListItemHoverProps) => {
+  const itemContent = (
+    <>
       <h4 className={`text-primary mt-2 ${text ? 'mb-1' : 'mb-2'}`}>{title}</h4>
       {text && <div className="list-item-hover-text mb-3">{text}</div>}
-    </>;
+    </>
+  );
 
-  return <li className={`list-item-hover ${isTextShown ? 'show' : 'hide'}`}>
-      {isExternalUrl(to) ? <a href={to} onClick={onClick} {...targetBlank}>
+  return (
+    <li className={`list-item-hover ${isTextShown ? 'show' : 'hide'}`}>
+      {isExternalUrl(to) ? (
+        <a href={to} onClick={onClick} {...targetBlank}>
           {itemContent}
-        </a> : <Link href to={formatUrl(prefix, to)} onClick={onClick}>
+        </a>
+      ) : (
+        <Link href to={formatUrl(prefix, to)} onClick={onClick}>
           {itemContent}
-        </Link>}
-    </li>;
+        </Link>
+      )}
+    </li>
+  );
 };
 
 const ParentListItem = ({
@@ -57,28 +56,34 @@ const ParentListItem = ({
   prefix,
   disappear,
   isTextShown,
-  className
-}: ParentListItemProps) => <li {...eventHandlingProps}>
+  className,
+}: ParentListItemProps) => (
+  <li {...eventHandlingProps}>
     <p>{parentTitle}</p>
     <ul className={`hover-list-child ${className}`}>
-      {menuItems.map(([to, title, text]) => <ListItemHover to={to} title={title} text={text} prefix={prefix} key={to} onClick={e => disappear(e)} isTextShown={isTextShown} />)}
+      {menuItems.map(([to, title, text]) => (
+        <ListItemHover
+          to={to}
+          title={title}
+          text={text}
+          prefix={prefix}
+          key={to}
+          onClick={(e) => disappear(e)}
+          isTextShown={isTextShown}
+        />
+      ))}
     </ul>
-  </li>;
+  </li>
+);
 
-const {
-  featuresTitle,
-  resourcesTitle,
-  pricingTitle,
-  dataProtectionTitle
-} = getNavbarTitles();
-const {
-  features,
-  resources,
-  pricing,
-  dataProtection
-} = getNavbarLinks();
+const { featuresTitle, resourcesTitle, pricingTitle, dataProtectionTitle } = getNavbarTitles();
+const { features, resources, pricing, dataProtection } = getNavbarLinks();
 
-const parentListItems = [[featuresTitle, features, 'features-dd'], [resourcesTitle, resources, 'resources-dd'], [pricingTitle, pricing, 'pricing-dd']];
+const parentListItems = [
+  [featuresTitle, features, 'features-dd'],
+  [resourcesTitle, resources, 'resources-dd'],
+  [pricingTitle, pricing, 'pricing-dd'],
+];
 
 export const DropdownFollowAlong = (props: LayoutProps) => {
   const [isFloatingBackground, setFloatingBackground] = useState(false);
@@ -88,13 +93,11 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
   const [firstHover, setFirstHover] = useState(true);
   const [isTextShown, setShowText] = useState(true);
 
-  const hoverIn = e => {
+  const hoverIn = (e) => {
     setShowText(true);
     const navbar = getNavbar();
     if (navbar) {
-      const {
-        currentTarget
-      } = e;
+      const { currentTarget } = e;
       currentTarget.classList.add('trigger-enter');
       setTimeout(() => currentTarget.classList.add('trigger-enter-active'), 100);
       const dropdown = currentTarget.querySelector('.hover-list-child');
@@ -113,10 +116,8 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
     }
   };
 
-  const hoverOut = e => {
-    const {
-      currentTarget
-    } = e;
+  const hoverOut = (e) => {
+    const { currentTarget } = e;
     currentTarget.classList.remove('trigger-enter');
     setTimeout(() => currentTarget.classList.remove('trigger-enter-active'), 100);
     setFloatingBackground(false);
@@ -130,24 +131,44 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
   };
 
   const eventHandlingProps = {
-    onMouseEnter: e => hoverIn(e),
-    onMouseLeave: e => hoverOut(e)
+    onMouseEnter: (e) => hoverIn(e),
+    onMouseLeave: (e) => hoverOut(e),
   };
-  return <>
+  return (
+    <>
       <nav id={NAV_ID}>
-        <CSSTransition in={isFloatingBackground} timeout={500} classNames="dropdown-background-transition" unmountOnExit>
-          <div className="dropdown-background d-flex justify-content-center position-absolute bg-white" style={{
-          width: backgroundWidth,
-          height: backgroundHeight,
-          transform: backgroundTransform,
-          transition: firstHover ? 'opacity 300ms' : 'all 200ms'
-        }}>
+        <CSSTransition
+          in={isFloatingBackground}
+          timeout={500}
+          classNames="dropdown-background-transition"
+          unmountOnExit
+        >
+          <div
+            className="dropdown-background d-flex justify-content-center position-absolute bg-white"
+            style={{
+              width: backgroundWidth,
+              height: backgroundHeight,
+              transform: backgroundTransform,
+              transition: firstHover ? 'opacity 300ms' : 'all 200ms',
+            }}
+          >
             <span className="arrow" />
           </div>
         </CSSTransition>
 
         <ul className="hover-list-parent">
-          {parentListItems.map(([parentTitle, menuItems, className]) => <ParentListItem key={className} eventHandlingProps={eventHandlingProps} title={parentTitle} menuItems={menuItems} prefix={props.prefix} disappear={disappear} isTextShown={isTextShown} className={className} />)}
+          {parentListItems.map(([parentTitle, menuItems, className]) => (
+            <ParentListItem
+              key={className}
+              eventHandlingProps={eventHandlingProps}
+              title={parentTitle}
+              menuItems={menuItems}
+              prefix={props.prefix}
+              disappear={disappear}
+              isTextShown={isTextShown}
+              className={className}
+            />
+          ))}
           <li>
             <Link href to={`${props.prefix}/${dataProtection[0][0]}`}>
               {dataProtectionTitle}
@@ -155,5 +176,6 @@ export const DropdownFollowAlong = (props: LayoutProps) => {
           </li>
         </ul>
       </nav>
-    </>;
+    </>
+  );
 };

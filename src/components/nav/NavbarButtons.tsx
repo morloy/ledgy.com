@@ -1,24 +1,28 @@
+import React from 'react';
+import { Link } from 'gatsby';
+import { Trans } from '@lingui/macro';
 
+import { appUrl, track, demoPage } from '../../helpers';
 
-import React from "react";
-import { Link } from "gatsby";
-import { Trans } from "@lingui/macro";
-
-import { appUrl, track, demoPage } from "../../helpers";
-
-import { Button } from "../Button";
-import { removeOverlay } from "../lib";
+import { Button } from '../Button';
+import { removeOverlay } from '../lib';
 
 export const NavbarButtons = ({
   className = '',
   isMobile = false,
-  prefix
+  prefix,
 }: {
   prefix: string;
   className?: string;
   isMobile?: boolean;
-}) => <div className={`d-flex align-items-center ${className}`}>
-    <Button outline={!isMobile} href={`${appUrl}/login`} className="px-3 py-1" onClick={() => track('click.login')}>
+}) => (
+  <div className={`d-flex align-items-center ${className}`}>
+    <Button
+      outline={!isMobile}
+      href={`${appUrl}/login`}
+      className="px-3 py-1"
+      onClick={() => track('click.login')}
+    >
       <Trans>Log In</Trans>
     </Button>
     <Link href to={`${prefix}${demoPage}`} onClick={removeOverlay}>
@@ -26,4 +30,5 @@ export const NavbarButtons = ({
         <Trans>Book a Demo</Trans>
       </Button>
     </Link>
-  </div>;
+  </div>
+);

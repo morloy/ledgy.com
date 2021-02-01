@@ -1,11 +1,10 @@
+import React from 'react';
+import { Trans } from '@lingui/macro';
 
+import { FullWidthBanner } from '../FullWidthBanner';
 
-import React from "react";
-import { Trans } from "@lingui/macro";
-
-import { FullWidthBanner } from "../FullWidthBanner";
-
-export const CollaborationBanner = () => <FullWidthBanner>
+export const CollaborationBanner = () => (
+  <FullWidthBanner>
     <div className="container">
       <div className="col col-8 col-lg-6 offset-2 offset-lg-3">
         <p className="text-center">
@@ -22,4 +21,5 @@ export const CollaborationBanner = () => <FullWidthBanner>
         </p>
       </div>
     </div>
-  </FullWidthBanner>;
+  </FullWidthBanner>
+);

@@ -1,51 +1,56 @@
+import React from 'react';
+import { graphql } from 'gatsby';
 
-
-import React from "react";
-import { graphql } from "gatsby";
-
-import { PublishDate } from "../components/Content";
-import { Author } from "../components/Markdown";
-import { LongText } from "../components/LongText";
-import { PageHeader } from "../components/PageHeader";
-import { CalculatorHeader } from "../components/CalculatorHeader";
-import { dynamicI18n } from "../components/DynamicTrans";
-import { Title } from "../layouts/utils";
+import { PublishDate } from '../components/Content';
+import { Author } from '../components/Markdown';
+import { LongText } from '../components/LongText';
+import { PageHeader } from '../components/PageHeader';
+import { CalculatorHeader } from '../components/CalculatorHeader';
+import { dynamicI18n } from '../components/DynamicTrans';
+import { Title } from '../layouts/utils';
 
 const CALCULATOR_SLUG = 'calculator';
 
 const Page = ({
   data,
   lang,
-  prefix
+  prefix,
 }: Props & {
-  data: {contentfulPage: ContentfulPageProps;site: {siteMetadata: {siteUrl: string;};};};
+  data: { contentfulPage: ContentfulPageProps; site: { siteMetadata: { siteUrl: string } } };
 }) => {
   if (!data) return null;
 
-  const {
-    slug,
-    title,
-    description,
-    language,
-    content,
-    author,
-    date,
-    cover
-  } = data.contentfulPage;
-  const {
-    siteUrl
-  } = data.site.siteMetadata;
+  const { slug, title, description, language, content, author, date, cover } = data.contentfulPage;
+  const { siteUrl } = data.site.siteMetadata;
   const showCalculatorHeader = slug === CALCULATOR_SLUG;
 
-  return <div>
-      <Title title={dynamicI18n(title)} description={dynamicI18n(description)} thumbnailUrl={cover && cover.localFile ? `${siteUrl}${cover.localFile.childImageSharp.fixed.src}` : ''} />
-      {showCalculatorHeader ? <CalculatorHeader data={data} /> : <PageHeader lang={lang} documentLang={language} title={dynamicI18n(title)} subtitle={dynamicI18n(description)} textCenter />}
+  return (
+    <div>
+      <Title
+        title={dynamicI18n(title)}
+        description={dynamicI18n(description)}
+        thumbnailUrl={
+          cover && cover.localFile ? `${siteUrl}${cover.localFile.childImageSharp.fixed.src}` : ''
+        }
+      />
+      {showCalculatorHeader ? (
+        <CalculatorHeader data={data} />
+      ) : (
+        <PageHeader
+          lang={lang}
+          documentLang={language}
+          title={dynamicI18n(title)}
+          subtitle={dynamicI18n(description)}
+          textCenter
+        />
+      )}
       <div className="container container-small">
         <LongText content={content} prefix={prefix} />
         <PublishDate date={date} />
         {author && <Author prefix={prefix} name={author} />}
       </div>
-    </div>;
+    </div>
+  );
 };
 
 export default Page;

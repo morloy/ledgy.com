@@ -1,56 +1,51 @@
+import React from 'react';
+import { graphql } from 'gatsby';
+import { Helmet } from 'react-helmet';
 
+import { HomePageHeader } from '../components/HomePageHeader';
+import { MainProblemLayout } from '../components/MainProblemLayout';
+import { ExternalLogoRow } from '../components/ExternalLogoRow';
+import { SellingProp } from '../components/SellingProp';
+import { dynamicI18n } from '../components/DynamicTrans';
+import { G2AndCapterraStrip } from '../components/G2AndCapterraStrip';
 
-import React from "react";
-import { graphql } from "gatsby";
-import { Helmet } from "react-helmet";
-
-import { HomePageHeader } from "../components/HomePageHeader";
-import { MainProblemLayout } from "../components/MainProblemLayout";
-import { ExternalLogoRow } from "../components/ExternalLogoRow";
-import { SellingProp } from "../components/SellingProp";
-import { dynamicI18n } from "../components/DynamicTrans";
-import { G2AndCapterraStrip } from "../components/G2AndCapterraStrip";
-
-const DecoShapes = () => <>
+const DecoShapes = () => (
+  <>
     <div className="top-deco-shape top-deco-shape--one" />
     <div className="top-deco-shape top-deco-shape--two" />
-  </>;
+  </>
+);
 
 const IndexPage = (props: Props) => {
   const [content] = props.data.page.edges;
-  const {
-    title,
-    entries
-  } = content.node;
-  return <main className="position-relative overflow-hidden">
-      {!!title && <Helmet>
+  const { title, entries } = content.node;
+  return (
+    <main className="position-relative overflow-hidden">
+      {!!title && (
+        <Helmet>
           <title>{`Ledgy: ${dynamicI18n(title)}`}</title>
-        </Helmet>}
+        </Helmet>
+      )}
       <DecoShapes />
       <HomePageHeader {...props} />
 
-      {entries.map(({
-      __typename,
-      id,
-      ...entry
-    }, index) => {
-      const {
-        prefix
-      } = props;
+      {entries.map(({ __typename, id, ...entry }, index) => {
+        const { prefix } = props;
 
-      if (index === 0) {
-        return <MainProblemLayout key={id} {...entry} />;
-      }
-      if (__typename === 'ContentfulExternalLogos') {
-        return <ExternalLogoRow key={id} {...entry} />;
-      }
-      if (__typename === 'ContentfulSellingProposition') {
-        return <SellingProp key={id} {...entry} prefix={prefix} imgFirst={index % 2 === 0} />;
-      }
-      return null;
-    })}
+        if (index === 0) {
+          return <MainProblemLayout key={id} {...entry} />;
+        }
+        if (__typename === 'ContentfulExternalLogos') {
+          return <ExternalLogoRow key={id} {...entry} />;
+        }
+        if (__typename === 'ContentfulSellingProposition') {
+          return <SellingProp key={id} {...entry} prefix={prefix} imgFirst={index % 2 === 0} />;
+        }
+        return null;
+      })}
       <G2AndCapterraStrip />
-    </main>;
+    </main>
+  );
 };
 
 export default IndexPage;

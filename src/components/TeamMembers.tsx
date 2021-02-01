@@ -1,15 +1,13 @@
+import React, { useState, useEffect } from 'react';
+import { Link } from 'gatsby';
+import Img from 'gatsby-image';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
-import React, { useState, useEffect } from "react";
-import { Link } from "gatsby";
-import Img from "gatsby-image";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-
-import { shuffleArray } from "../helpers";
-import { AuthorProps } from "../layouts/team";
+import { shuffleArray } from '../helpers';
+import { AuthorProps } from '../layouts/team';
 
 const TeamMember = ({
   name,
@@ -19,20 +17,25 @@ const TeamMember = ({
   twitter,
   linkedIn,
   mail,
-  article
+  article,
 }: AuthorProps & {
   img: {
     [key: string]: any;
   };
 }) => {
   const ProfileImage = <Img {...img} className="mx-auto" alt={name} />;
-  return <div className="ledgista col-12 col-md-6 col-lg-4">
+  return (
+    <div className="ledgista col-12 col-md-6 col-lg-4">
       <div className="pb-6 h-100 d-flex flex-column align-items-center justify-content-between">
         <div className="d-flex flex-column align-items-center">
           <div className="ledgista-image-wrapper">
-            {article ? <Link href to={`/updates/${article}/`}>
+            {article ? (
+              <Link href to={`/updates/${article}/`}>
                 {ProfileImage}
-              </Link> : ProfileImage}
+              </Link>
+            ) : (
+              ProfileImage
+            )}
           </div>
           <div className="text-center d-flex flex-column align-items-center">
             <div>
@@ -54,19 +57,22 @@ const TeamMember = ({
           </a>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
 
-export const TeamMembers = ({
-  teamData
-}: {teamData: [AuthorProps, any][];}) => {
+export const TeamMembers = ({ teamData }: { teamData: [AuthorProps, any][] }) => {
   const [team, setTeam] = useState(teamData);
 
   useEffect(() => {
-    setTeam(prev => shuffleArray(prev));
+    setTeam((prev) => shuffleArray(prev));
   }, []);
 
-  return <div className="row justify-content-center my-5">
-      {team.map(([memberProps, img]) => <TeamMember {...memberProps} img={img} key={`team-${memberProps.name}`} />)}
-    </div>;
+  return (
+    <div className="row justify-content-center my-5">
+      {team.map(([memberProps, img]) => (
+        <TeamMember {...memberProps} img={img} key={`team-${memberProps.name}`} />
+      ))}
+    </div>
+  );
 };

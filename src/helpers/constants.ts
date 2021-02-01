@@ -1,5 +1,3 @@
-
-
 export const name = 'Ledgy';
 
 export const youtubeUrl = 'https://www.youtube.com/channel/UCRkvNQptxoE-ckmTsrme1_w';
@@ -51,7 +49,9 @@ export const demoPage = '/demo/ledgy';
 // netlify & mixpanel
 const isNetlify = typeof window !== 'undefined' && window.location.hostname !== 'localhost';
 
-export const MIXPANEL_TOKEN = isNetlify ? '258b9724a7ad7271dd2e3e3440bb68fd' : '7f124dd9a799a7c687dc38ee554d9876';
+export const MIXPANEL_TOKEN = isNetlify
+  ? '258b9724a7ad7271dd2e3e3440bb68fd'
+  : '7f124dd9a799a7c687dc38ee554d9876';
 
 // form states
 export const FORM_STATUSES = Object.freeze({
@@ -61,14 +61,14 @@ export const FORM_STATUSES = Object.freeze({
   SUBMITTED: 'submitted',
   INVALID_EMAIL: 'invalid-email',
   INVALID_FIELDS: 'invalid-fields',
-  INVALID_REQUIRED_FIELDS: 'invalid-required-fields'
+  INVALID_REQUIRED_FIELDS: 'invalid-required-fields',
 });
 
 // plan names
 export const LEDGY_PLANS = Object.freeze({
   STARTUP: 'Startup',
   SCALEUP: 'Premium', // will be named Scaleup soon
-  ENTERPRISE: 'Enterprise'
+  ENTERPRISE: 'Enterprise',
 });
 
 // company sizes

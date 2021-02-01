@@ -1,48 +1,47 @@
+import { graphql } from 'gatsby';
+import { Trans } from '@lingui/macro';
+import React from 'react';
 
+import { DemoForm } from '../components/forms';
+import { ExternalLogoRow } from '../components/ExternalLogoRow';
+import { SellingProp } from '../components/SellingProp';
+import { CTABanner } from '../components/CTABanner';
+import { formatUrl } from '../components/lib';
+import { dynamicI18n, DynamicTrans } from '../components/DynamicTrans';
+import logoInvertedCompact from '../img/logo-inverted-compact.png';
+import { targetBlank } from '../helpers';
 
-import { graphql } from "gatsby";
-import { Trans } from "@lingui/macro";
-import React from "react";
-
-import { DemoForm } from "../components/forms";
-import { ExternalLogoRow } from "../components/ExternalLogoRow";
-import { SellingProp } from "../components/SellingProp";
-import { CTABanner } from "../components/CTABanner";
-import { formatUrl } from "../components/lib";
-import { dynamicI18n, DynamicTrans } from "../components/DynamicTrans";
-import logoInvertedCompact from "../img/logo-inverted-compact.png";
-import { targetBlank } from "../helpers";
-
-import { Title } from "./utils";
+import { Title } from './utils';
 
 const Logo = () => <img width={80} src={logoInvertedCompact} alt="Ledgy" />;
 
-const Quote = (quoteProps: {quote: string;name: string;}) => <div className="container text-center py-7 line-height-lg">
+const Quote = (quoteProps: { quote: string; name: string }) => (
+  <div className="container text-center py-7 line-height-lg">
     <h3 className="mb-3">“{quoteProps.quote}”</h3>
     <h6>— {quoteProps.name}</h6>
-  </div>;
+  </div>
+);
 
-const DecoShapes = () => <>
+const DecoShapes = () => (
+  <>
     <div className="one-pager-deco-shape one-pager-deco-shape--one" />
     <div className="one-pager-deco-shape one-pager-deco-shape--two" />
-  </>;
+  </>
+);
 
 const DemoPage = (props: LayoutProps) => {
-  const {
-    data,
-    prefix,
-    location
-  } = props;
+  const { data, prefix, location } = props;
   const {
     title,
     description,
     formTitle,
     formButtonText,
     content,
-    type
+    type,
   } = data.contentfulSignupPage; // TODO rename in Contentful
 
-  return <>
+  return (
+    <>
       <Title title={dynamicI18n(title)} description={dynamicI18n(description)} />
       <header className="header d-flex home-banner px-1 text-left bg-primary overflow-hidden">
         <div className="container my-4 my-md-auto position-relative z-index-base">
@@ -59,40 +58,51 @@ const DemoPage = (props: LayoutProps) => {
               </div>
             </div>
             <div className="text-dark col-lg-6 d-flex flex-column justify-content-center mt-4 mt-lg-0">
-              <DemoForm title={dynamicI18n(formTitle)} buttonText={dynamicI18n(formButtonText)} contentfulRequesterType={type} />
+              <DemoForm
+                title={dynamicI18n(formTitle)}
+                buttonText={dynamicI18n(formButtonText)}
+                contentfulRequesterType={type}
+              />
             </div>
           </div>
         </div>
         <DecoShapes />
       </header>
       <div className="position-relative bg-white z-index-base">
-        {content.map(({
-        __typename,
-        id,
-        ...entry
-      }, i) => {
-        if (__typename === 'ContentfulQuote') {
-          return <Quote key={id} {...entry} />;
-        }
-        if (__typename === 'ContentfulExternalLogos') {
-          return <ExternalLogoRow key={id} {...entry} />;
-        }
-        if (__typename === 'ContentfulSellingProposition') {
-          return <SellingProp key={id} {...entry} prefix={prefix} imgFirst={i % 2 === 0} hideLink />;
-        }
-        return null;
-      })}
+        {content.map(({ __typename, id, ...entry }, i) => {
+          if (__typename === 'ContentfulQuote') {
+            return <Quote key={id} {...entry} />;
+          }
+          if (__typename === 'ContentfulExternalLogos') {
+            return <ExternalLogoRow key={id} {...entry} />;
+          }
+          if (__typename === 'ContentfulSellingProposition') {
+            return (
+              <SellingProp key={id} {...entry} prefix={prefix} imgFirst={i % 2 === 0} hideLink />
+            );
+          }
+          return null;
+        })}
         <CTABanner location={location} {...props} />
       </div>
       <footer className="footer d-flex align-items-center justify-content-center text-white bg-primary p-2">
-        <a {...targetBlank} className="nav-link mx-1 mx-md-5" href={formatUrl(prefix, 'legal/privacy-policy')}>
+        <a
+          {...targetBlank}
+          className="nav-link mx-1 mx-md-5"
+          href={formatUrl(prefix, 'legal/privacy-policy')}
+        >
           <Trans>Privacy policy</Trans>
         </a>
-        <a {...targetBlank} className="nav-link mx-1 mx-md-5" href={formatUrl(prefix, 'data-protection')}>
+        <a
+          {...targetBlank}
+          className="nav-link mx-1 mx-md-5"
+          href={formatUrl(prefix, 'data-protection')}
+        >
           <Trans>Data protection</Trans>
         </a>
       </footer>
-    </>;
+    </>
+  );
 };
 
 export default DemoPage;

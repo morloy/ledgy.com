@@ -1,12 +1,11 @@
+import React from 'react';
 
+import { PageHeader } from '../components/PageHeader';
+import { helpUrl } from '../helpers';
+import { Button } from '../components/Button';
 
-import React from "react";
-
-import { PageHeader } from "../components/PageHeader";
-import { helpUrl } from "../helpers";
-import { Button } from "../components/Button";
-
-export default (() => <>
+const Subscribed = () => (
+  <>
     <PageHeader title="Subscription confirmed" />
     <div className="container">
       <div className="bg-gray h-full p-5 imprint">
@@ -28,4 +27,7 @@ export default (() => <>
         </div>
       </div>
     </div>
-  </>);
+  </>
+);
+
+export default Subscribed;

@@ -1,17 +1,18 @@
+import React from 'react';
+import Img from 'gatsby-image';
 
+import { calculatorUrl, track } from '../helpers';
+import { ProductHuntButton } from './ProductHuntButton';
+import { MainHeaderLayout } from './MainHeaderLayout';
+import { Button } from './Button';
 
-import React from "react";
-import Img from "gatsby-image";
-
-import { calculatorUrl, track } from "../helpers";
-import { ProductHuntButton } from "./ProductHuntButton";
-import { MainHeaderLayout } from "./MainHeaderLayout";
-import { Button } from "./Button";
-
-export const CalculatorHeader = ({
-  data
-}: {data: any;}) => {
-  return <MainHeaderLayout className="mb-5" title="The calculator you need if you’re raising capital" subtitle={<>
+export const CalculatorHeader = ({ data }: { data: any }) => {
+  return (
+    <MainHeaderLayout
+      className="mb-5"
+      title="The calculator you need if you’re raising capital"
+      subtitle={
+        <>
           <ul>
             <li>
               See <strong>who owns what</strong> after fundraising
@@ -30,7 +31,27 @@ export const CalculatorHeader = ({
               <strong> employee pools</strong>
             </li>
           </ul>
-        </>} buttonOne={<Button cta href={calculatorUrl} onClick={() => track('click.calculator')} className="mr-2 mb-2">
+        </>
+      }
+      buttonOne={
+        <Button
+          cta
+          href={calculatorUrl}
+          onClick={() => track('click.calculator')}
+          className="mr-2 mb-2"
+        >
           Launch calculator
-        </Button>} customButton={<ProductHuntButton productHuntLink="https://www.producthunt.com/posts/startup-fundraising-calculator?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-startup-fundraising-calculator" trackSignupKey="clickProductHunt" postId="169181" altText="Startup Fundraising Calculator - The calculator you need if you're raising money. | Product Hunt Embed" />} image={<Img {...data.calculator} alt="Financing Round Calculator" />} />;
+        </Button>
+      }
+      customButton={
+        <ProductHuntButton
+          productHuntLink="https://www.producthunt.com/posts/startup-fundraising-calculator?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-startup-fundraising-calculator"
+          trackSignupKey="clickProductHunt"
+          postId="169181"
+          altText="Startup Fundraising Calculator - The calculator you need if you're raising money. | Product Hunt Embed"
+        />
+      }
+      image={<Img {...data.calculator} alt="Financing Round Calculator" />}
+    />
+  );
 };

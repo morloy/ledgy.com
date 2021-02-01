@@ -1,10 +1,18 @@
+import { FORM_STATUSES, isFieldMissing, isValidEmail, track } from '../../../helpers';
 
-
-import { FORM_STATUSES, isFieldMissing, isValidEmail, track } from "../../../helpers";
-
-import { FormValues, ParsedFormValues } from "./formTypes";
-import { submitToHubspot } from "./hubspot";
-import { deerCompanyUrl, investorUrl, fundUrl, COMPANY, EMPLOYEE_VALUE, INVESTMENT_VALUE, DEER_COMPANY_THRESHOLD, FUND_INVESTMENT_THRESHOLD, smallCompanyUrl } from "./constants";
+import { FormValues, ParsedFormValues } from './formTypes';
+import { submitToHubspot } from './hubspot';
+import {
+  deerCompanyUrl,
+  investorUrl,
+  fundUrl,
+  COMPANY,
+  EMPLOYEE_VALUE,
+  INVESTMENT_VALUE,
+  DEER_COMPANY_THRESHOLD,
+  FUND_INVESTMENT_THRESHOLD,
+  smallCompanyUrl,
+} from './constants';
 
 type ErrorResponse = {
   errorType: string;
@@ -15,15 +23,10 @@ type JsonResponse = {
   errors: ErrorResponse[];
 };
 
-const {
-  INVALID_EMAIL,
-  INVALID_FIELDS,
-  LOADING,
-  SUBMITTED,
-  FETCH_ERROR
-} = FORM_STATUSES;
+const { INVALID_EMAIL, INVALID_FIELDS, LOADING, SUBMITTED, FETCH_ERROR } = FORM_STATUSES;
 
-const isInvalidEmailError = (errors: ErrorResponse[]): boolean => errors.some(error => ['INVALID_EMAIL', 'BLOCKED_EMAIL'].includes(error.errorType));
+const isInvalidEmailError = (errors: ErrorResponse[]): boolean =>
+  errors.some((error) => ['INVALID_EMAIL', 'BLOCKED_EMAIL'].includes(error.errorType));
 
 const isDeerCompany = (size: number) => size >= DEER_COMPANY_THRESHOLD;
 const isFund = (size: number) => size >= FUND_INVESTMENT_THRESHOLD;
@@ -37,12 +40,10 @@ const getInvestmentValue = (size: number) => {
   return 0;
 };
 
-const getPipelineValue = (size: number, isCompany: boolean) => isCompany ? getEmployeeValue(size) : getInvestmentValue(size);
+const getPipelineValue = (size: number, isCompany: boolean) =>
+  isCompany ? getEmployeeValue(size) : getInvestmentValue(size);
 
-const getUrl = ({
-  isCompany,
-  size
-}: ParsedFormValues) => {
+const getUrl = ({ isCompany, size }: ParsedFormValues) => {
   if (!isCompany) {
     return isFund(size) ? fundUrl : investorUrl;
   }
@@ -58,7 +59,7 @@ const redirect = (values: ParsedFormValues) => {
 export const handleDemoSubmit = async ({
   values,
   event,
-  setFormStatus
+  setFormStatus,
 }: {
   values: FormValues;
   event: React.SyntheticEvent<HTMLInputElement>;
@@ -66,11 +67,7 @@ export const handleDemoSubmit = async ({
 }): Promise<void> => {
   event.preventDefault();
   setFormStatus(LOADING);
-  const {
-    requesterType,
-    email,
-    size: sizeString
-  } = values;
+  const { requesterType, email, size: sizeString } = values;
 
   if (isFieldMissing({ requesterType, sizeString })) {
     setFormStatus(INVALID_FIELDS);

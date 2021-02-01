@@ -1,6 +1,4 @@
-
-
-import React, { Node } from "react";
+import React, { Node } from 'react';
 
 type MainHeaderLayoutProps = {
   title: Node | string;
@@ -19,8 +17,9 @@ export const MainHeaderLayout = ({
   buttonTwo,
   customButton,
   image,
-  className = ''
-}: MainHeaderLayoutProps) => <header className={`header d-flex home-banner px-1 text-left bg-primary ${className}`}>
+  className = '',
+}: MainHeaderLayoutProps) => (
+  <header className={`header d-flex home-banner px-1 text-left bg-primary ${className}`}>
     <div className="container my-auto position-relative z-index-base">
       <div className="row mt-md-4 pb-4 pb-md-6">
         <div className="col-xl-5 d-flex flex-column justify-content-center">
@@ -43,4 +42,5 @@ export const MainHeaderLayout = ({
         </div>
       </div>
     </div>
-  </header>;
+  </header>
+);

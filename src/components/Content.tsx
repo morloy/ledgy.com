@@ -1,21 +1,19 @@
+import React, { Node } from 'react';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
+import { CardLink } from './CardLink';
 
-import React, { Node } from "react";
-import { graphql } from "gatsby";
-import Img from "gatsby-image";
-
-import { CardLink } from "./CardLink";
-
-export const ContentBody = ({
-  children
-}: {children: Node | Array<Node>;}) => <div className="container">{children}</div>;
+export const ContentBody = ({ children }: { children: Node | Array<Node> }) => (
+  <div className="container">{children}</div>
+);
 
 export const PostLink = ({
   post,
   to,
   defaultImage,
   external,
-  description
+  description,
 }: {
   post: ContentfulPageProps;
   to: string;
@@ -25,12 +23,25 @@ export const PostLink = ({
   external?: boolean;
   description: string | Node;
 }) => {
-  const image = <Img className="fit-cover" {...post.cover?.localFile ? post.cover.localFile.childImageSharp : defaultImage} />;
+  const image = (
+    <Img
+      className="fit-cover"
+      {...(post.cover?.localFile ? post.cover.localFile.childImageSharp : defaultImage)}
+    />
+  );
   const title = <h5>{post.title}</h5>;
-  const {
-    date
-  } = post;
-  return <CardLink title={title} type="blog" description={description} date={date} to={to} image={image} external={external} />;
+  const { date } = post;
+  return (
+    <CardLink
+      title={title}
+      type="blog"
+      description={description}
+      date={date}
+      to={to}
+      image={image}
+      external={external}
+    />
+  );
 };
 
 export const CoverImageFragment = graphql`
@@ -46,10 +57,11 @@ export const CoverImageFragment = graphql`
   }
 `;
 
-export const PublishDate = ({
-  date
-}: {date?: string;}) => date ? <div className="d-flex py-4 justify-content-center">
+export const PublishDate = ({ date }: { date?: string }) =>
+  date ? (
+    <div className="d-flex py-4 justify-content-center">
       <div className="markdown-width">
         <small>{date}</small>
       </div>
-    </div> : null;
+    </div>
+  ) : null;

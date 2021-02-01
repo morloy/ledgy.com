@@ -1,8 +1,6 @@
+import { useState } from 'react';
 
-
-import { useState } from "react";
-
-import { toggleOverlay } from "./toggleOverlay";
+import { toggleOverlay } from './toggleOverlay';
 
 export const useModal = () => {
   const [isOpen, setOpen] = useState(false);

@@ -1,12 +1,8 @@
+import { i18n } from '@lingui/core';
+import { isBrowser } from '../helpers';
+import { addTranslation } from '../helpers/dynamicTranslations';
 
-
-import { i18n } from "@lingui/core";
-import { isBrowser } from "../helpers";
-import { addTranslation } from "../helpers/dynamicTranslations";
-
-export const DynamicTrans = ({
-  children: text
-}: {children: string;}) => {
+export const DynamicTrans = ({ children: text }: { children: string }) => {
   if (!isBrowser) addTranslation(text);
 
   return i18n._(text);

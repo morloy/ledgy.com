@@ -1,4 +1,2 @@
-
-
-export * from "./DemoForm";
-export * from "./SubscriptionForm";
+export * from './DemoForm';
+export * from './SubscriptionForm';

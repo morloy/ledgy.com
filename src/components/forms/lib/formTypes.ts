@@ -1,6 +1,4 @@
-
-
-export type RequesterType = "company" | "investor";
+export type RequesterType = 'company' | 'investor';
 
 export type FormValues = {
   requesterType: RequesterType;

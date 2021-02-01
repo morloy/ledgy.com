@@ -1,28 +1,24 @@
-import { t } from "@lingui/macro";
-import { Helmet } from "react-helmet";
-import React from "react";
-import { name, getLdJson } from "../helpers";
+import { t } from '@lingui/macro';
+import { Helmet } from 'react-helmet';
+import React from 'react';
+import { name, getLdJson } from '../helpers';
 
-export const HelmetIndexLayout = ({
-  lang,
-  siteUrl,
-  pathname
-}) => <Helmet>
+export const HelmetIndexLayout = ({ lang, siteUrl, pathname }) => (
+  <Helmet>
     <html lang={lang} />
-    <meta name="keywords" content={t`cap table, stock ledger, share register, startup, modeling, financing round, equity, esop, phantom, option plan, virtual, portfolio, reporting, investors`} />
+    <meta
+      name="keywords"
+      content={t`cap table, stock ledger, share register, startup, modeling, financing round, equity, esop, phantom, option plan, virtual, portfolio, reporting, investors`}
+    />
     <meta name="author" content="Ledgy" />
     <script type="application/ld+json">{getLdJson(siteUrl)}</script>
 
-    {
-    /* Facebook social card */
-  }
+    {/* Facebook social card */}
     <meta property="og:site_name" content={name} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={`${siteUrl}${pathname}`} />
 
-    {
-    /* Twitter social card */
-  }
+    {/* Twitter social card */}
     <meta name="twitter:site" content="@Ledgy" />
     <meta name="twitter:card" content="summary_large_image" />
 
@@ -62,9 +58,7 @@ export const HelmetIndexLayout = ({
               `}
     </script>
 
-    {
-    /* Disable AOS for Google */
-  }
+    {/* Disable AOS for Google */}
     <noscript>
       {`
                 <style>
@@ -75,4 +69,5 @@ export const HelmetIndexLayout = ({
                 </style>
               `}
     </noscript>
-  </Helmet>;
+  </Helmet>
+);

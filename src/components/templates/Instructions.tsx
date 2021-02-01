@@ -1,20 +1,33 @@
+import React, { Node } from 'react';
+import { Trans } from '@lingui/macro';
+import { CircleBadge } from '../Badge';
 
-
-import React, { Node } from "react";
-import { Trans } from "@lingui/macro";
-import { CircleBadge } from "../Badge";
-
-const STEPS = [[1, <Trans>Sign up for a free account</Trans>], [2, <Trans>
+const STEPS = [
+  [1, <Trans>Sign up for a free account</Trans>],
+  [
+    2,
+    <Trans>
       Our interactive guide will help you understand and select terms for your employee
       participation plan
-    </Trans>], [3, <Trans>
+    </Trans>,
+  ],
+  [
+    3,
+    <Trans>
       Send your customized template and term sheet to your lawyer – or to one of our trusted
       partners
-    </Trans>], [4, <Trans>
+    </Trans>,
+  ],
+  [
+    4,
+    <Trans>
       As a bonus, you can keep track of your new employee participation plan and grants in Ledgy
-    </Trans>]];
+    </Trans>,
+  ],
+];
 
-export const Instructions = (): Node => <>
+export const Instructions = (): Node => (
+  <>
     <div className="row text-center justify-content-center mt-7 mb-4">
       <h2 className="pb-0">
         <Trans>The fastest way to set up your employee participation plan</Trans>
@@ -24,11 +37,14 @@ export const Instructions = (): Node => <>
       </p>
     </div>
     <div className="row row-small mx-auto">
-      {STEPS.map(([step, text]) => <div className="media my-4" key={step}>
+      {STEPS.map(([step, text]) => (
+        <div className="media my-4" key={step}>
           <CircleBadge>{step}</CircleBadge>
           <div className="media-body">
             <div>{text}</div>
           </div>
-        </div>)}
+        </div>
+      ))}
     </div>
-  </>;
+  </>
+);

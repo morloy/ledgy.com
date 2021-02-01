@@ -1,17 +1,19 @@
+import React from 'react';
+import { graphql } from 'gatsby';
+import { t } from '@lingui/macro';
 
+import { Title } from '../layouts/utils';
+import {
+  LawyerCTABanner,
+  SwissPartners,
+  CollaborationBanner,
+  UniqueSellingPropositions,
+} from '../components/partners';
 
-import React from "react";
-import { graphql } from "gatsby";
-import { t } from "@lingui/macro";
+import { PageHeader } from '../components/PageHeader';
 
-import { Title } from "../layouts/utils";
-import { LawyerCTABanner, SwissPartners, CollaborationBanner, UniqueSellingPropositions } from "../components/partners";
-
-import { PageHeader } from "../components/PageHeader";
-
-const Partners = ({
-  data
-}: Props) => <>
+const Partners = ({ data }: Props) => (
+  <>
     <Title title={t`Partners`} description={t`Our trusted law firm partners are here to help`} />
     <PageHeader title="Our trusted law firm partners are here to help" />
 
@@ -21,7 +23,8 @@ const Partners = ({
       <UniqueSellingPropositions />
     </div>
     <LawyerCTABanner />
-  </>;
+  </>
+);
 
 export default Partners;
 

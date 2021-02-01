@@ -1,8 +1,7 @@
-import React from "react";
+import React from 'react';
 
-export default ((props: {
-  [key: string]: any;
-}) => <html lang="en" {...props.htmlAttributes}>
+export default (props: { [key: string]: any }) => (
+  <html lang="en" {...props.htmlAttributes}>
     <head>
       <meta charSet="utf-8" />
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -13,8 +12,12 @@ export default ((props: {
     </head>
     <body {...props.bodyAttributes}>
       {props.preBodyComponents}
-      <div key="body" id="___gatsby" dangerouslySetInnerHTML={{ __html: props.body }} // eslint-disable-line react/no-danger
-    />
+      <div
+        key="body"
+        id="___gatsby"
+        dangerouslySetInnerHTML={{ __html: props.body }} // eslint-disable-line react/no-danger
+      />
       {props.postBodyComponents}
     </body>
-  </html>);
+  </html>
+);

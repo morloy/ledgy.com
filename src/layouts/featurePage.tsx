@@ -1,12 +1,10 @@
+import React from 'react';
+import { graphql } from 'gatsby';
 
-
-import React from "react";
-import { graphql } from "gatsby";
-
-import { PageHeader } from "../components/PageHeader";
-import { Feature } from "../components/Feature";
-import { Title } from "../layouts/utils";
-import { dynamicI18n } from "../components/DynamicTrans";
+import { PageHeader } from '../components/PageHeader';
+import { Feature } from '../components/Feature';
+import { Title } from '../layouts/utils';
+import { dynamicI18n } from '../components/DynamicTrans';
 
 declare type FeatureProps = {
   id: string;
@@ -24,7 +22,7 @@ type FeaturePageProps = {
 };
 
 const FeaturePage = ({
-  data
+  data,
 }: Props & {
   data: {
     contentfulFeaturePage: FeaturePageProps;
@@ -33,24 +31,26 @@ const FeaturePage = ({
     };
   };
 }) => {
-  const {
-    title,
-    description,
-    features,
-    startOnRight
-  } = data.contentfulFeaturePage;
+  const { title, description, features, startOnRight } = data.contentfulFeaturePage;
 
-  return <div>
+  return (
+    <div>
       <Title title={dynamicI18n(title)} description={dynamicI18n(description)} />
 
       <PageHeader title={dynamicI18n(title)} subtitle={dynamicI18n(description)} />
-      {features.map(({
-      id,
-      title: featureTitle,
-      description: featureDescription,
-      image
-    }, index) => <Feature key={id} title={featureTitle} description={featureDescription} imgProps={image?.localFile?.childImageSharp} imgFirst={index % 2 !== Number(startOnRight)} />)}
-    </div>;
+      {features.map(
+        ({ id, title: featureTitle, description: featureDescription, image }, index) => (
+          <Feature
+            key={id}
+            title={featureTitle}
+            description={featureDescription}
+            imgProps={image?.localFile?.childImageSharp}
+            imgFirst={index % 2 !== Number(startOnRight)}
+          />
+        )
+      )}
+    </div>
+  );
 };
 
 export default FeaturePage;

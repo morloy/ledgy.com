@@ -1,8 +1,9 @@
-import React from "react";
-import { Link } from "gatsby";
-import { helpUrl, targetBlank } from "../helpers";
+import React from 'react';
+import { Link } from 'gatsby';
+import { helpUrl, targetBlank } from '../helpers';
 
-const NotFoundPage = () => <div>
+const NotFoundPage = () => (
+  <div>
     <header className="header py-40" style={{ backgroundColor: '#29363d' }} />
 
     <div className="container py-200">
@@ -31,6 +32,7 @@ const NotFoundPage = () => <div>
         </p>
       </header>
     </div>
-  </div>;
+  </div>
+);
 
 export default NotFoundPage;

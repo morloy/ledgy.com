@@ -1,8 +1,6 @@
-
-
-import React, { Node } from "react";
-import Img from "gatsby-image";
-import { targetBlank } from "../helpers";
+import React, { Node } from 'react';
+import Img from 'gatsby-image';
+import { targetBlank } from '../helpers';
 
 export const Testimonial = ({
   img,
@@ -11,7 +9,7 @@ export const Testimonial = ({
   col,
   url,
   rounded,
-  minHeight = 80
+  minHeight = 80,
 }: {
   img: {
     [key: string]: any;
@@ -22,8 +20,14 @@ export const Testimonial = ({
   url?: string;
   rounded?: boolean;
   minHeight?: number;
-}) => <div className={`testimonial col-lg-${col} d-flex flex-column justify-content-start align-items-center mb-4 mb-lg-0`}>
-    <div className="d-flex align-items-center justify-content-center mt-4" style={minHeight ? { minHeight } : {}}>
+}) => (
+  <div
+    className={`testimonial col-lg-${col} d-flex flex-column justify-content-start align-items-center mb-4 mb-lg-0`}
+  >
+    <div
+      className="d-flex align-items-center justify-content-center mt-4"
+      style={minHeight ? { minHeight } : {}}
+    >
       <a {...targetBlank} href={url}>
         <Img {...img} alt={name} className={rounded ? 'avatar' : ''} />
       </a>
@@ -34,4 +38,5 @@ export const Testimonial = ({
         {name}
       </small>
     </div>
-  </div>;
+  </div>
+);

@@ -1,17 +1,15 @@
+import React from 'react';
+import { graphql } from 'gatsby';
 
+import { LongText } from '../components/LongText';
+import { PageHeader } from '../components/PageHeader';
+import { CompanySummary, OtherCustomerStories } from '../components/customerStories';
+import { Title, Hr } from '../layouts/utils';
 
-import React from "react";
-import { graphql } from "gatsby";
-
-import { LongText } from "../components/LongText";
-import { PageHeader } from "../components/PageHeader";
-import { CompanySummary, OtherCustomerStories } from "../components/customerStories";
-import { Title, Hr } from "../layouts/utils";
-
-export default (({
+export default ({
   data,
   lang,
-  prefix
+  prefix,
 }: Props & {
   data: {
     contentfulCustomerStory: CustomerStory;
@@ -20,21 +18,13 @@ export default (({
     };
   };
 }) => {
-  const {
-    id,
-    title,
-    subtitle,
-    language,
-    content,
-    company
-  } = data.contentfulCustomerStory;
-  const otherUserStories = data.allContentfulCustomerStory.edges.filter(({
-    node
-  }) => node.id !== id).map(({
-    node
-  }) => node);
+  const { id, title, subtitle, language, content, company } = data.contentfulCustomerStory;
+  const otherUserStories = data.allContentfulCustomerStory.edges
+    .filter(({ node }) => node.id !== id)
+    .map(({ node }) => node);
   const hasOtherCustomerStories = otherUserStories.length > 0;
-  return <div>
+  return (
+    <div>
       <Title title={title} description={subtitle} />
       <PageHeader lang={lang} documentLang={language} title={title} subtitle={subtitle} />
       <main className="main-content">
@@ -50,19 +40,22 @@ export default (({
                 </div>
               </div>
             </div>
-            {hasOtherCustomerStories && <>
+            {hasOtherCustomerStories && (
+              <>
                 <Hr />
                 <div className="row pb-6">
                   <div className="col-md-12">
                     <OtherCustomerStories customerStories={otherUserStories} prefix={prefix} />
                   </div>
                 </div>
-              </>}
+              </>
+            )}
           </div>
         </section>
       </main>
-    </div>;
-});
+    </div>
+  );
+};
 
 export const pageQuery = graphql`
   query($id: String!) {

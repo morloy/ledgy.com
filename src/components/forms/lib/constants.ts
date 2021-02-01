@@ -1,6 +1,4 @@
-
-
-import { RequesterType } from "./formTypes";
+import { RequesterType } from './formTypes';
 
 export const COMPANY: RequesterType = 'company';
 export const INVESTOR: RequesterType = 'investor';
