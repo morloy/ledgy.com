@@ -7,11 +7,12 @@ import {
   faUserFriends,
   faIndustry,
   faSeedling,
+  IconDefinition,
 } from '@fortawesome/free-solid-svg-icons';
 
 import { LongText } from '../LongText';
 
-const getCompanySummaries = (company: Company) => [
+const getCompanySummaries = (company: Company): [IconDefinition, string, string][] => [
   [faClock, 'Founded year', `Founded in ${company.yearFounded}`],
   [faMoneyBillAlt, 'Funding', company.funding ? `${company.funding} in Funding` : ''],
   [faUserFriends, 'Employees count', `${company.employeeCount} Employees`],
