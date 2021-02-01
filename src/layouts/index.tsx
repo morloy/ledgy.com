@@ -1,10 +1,10 @@
-import React, { useEffect, Node } from 'react';
+import React, { useEffect, ReactElement } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { i18n } from '@lingui/core';
 import { I18nProvider } from '@lingui/react';
 import { t } from '@lingui/macro';
 
-import 'typeface-open-sans'; // eslint-disable-line import/extensions
+import 'typeface-open-sans';
 import 'katex/dist/katex.min.css';
 import 'prism-themes/themes/prism-ghcolors.css';
 import '../styles/_index.scss';
@@ -15,8 +15,8 @@ import { langFromPath, langPrefix, deprefix } from '../i18n-config';
 
 import { HelmetIndexLayout, Footer, Loader, Nav, PublicityBanner } from '../components';
 
-type AppProps = $Exact<LayoutProps> & {
-  children: Node;
+type AppProps = LayoutProps & {
+  children: ReactElement;
 };
 
 const Initialize = ({ segmentDestinations }: { segmentDestinations: string[] }) => {
@@ -63,7 +63,7 @@ const App = ({ children, ...props }: AppProps) => {
       ) : (
         <>
           <PublicityBanner pathname={pathname} />
-          {React.cloneElement(children as UnknownObject, { prefix, lang })}
+          {React.cloneElement(children, { prefix, lang })}
           {!isDemoPage && <Footer {...props} prefix={prefix} />}
         </>
       )}
