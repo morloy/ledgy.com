@@ -29,7 +29,6 @@
     "src/components/index.ts",
     "src/helpers/index.ts",
     "src/layouts/tsIndex.ts",
-    "src/pages/tsIndex.ts",
     "src/html.tsx",
     "src/i18n-config.ts",
     "src/pages/contact",
