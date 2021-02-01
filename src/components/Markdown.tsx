@@ -10,15 +10,7 @@ import { targetBlank, youtubeEmbedBaseUrl, ledgyUrl } from '../helpers';
 import { getWholeTeam, getTeamImages, AuthorProps } from '../layouts/team';
 import { Embed } from './Embed';
 
-const About = ({
-  about,
-  img,
-}: {
-  about: AuthorProps;
-  img: {
-    [key: string]: any;
-  };
-}) => (
+const About = ({ about, img }: { about: AuthorProps; img: UnknownObject }) => (
   <div className="about d-flex justify-content-center pt-3 mt-3">
     <Img {...img} alt={about.name} className="m-4 rounded-circle float-left" />
     <div className="d-flex flex-column justify-content-center align-items-end">

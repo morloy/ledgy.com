@@ -17,7 +17,7 @@ type ListItemHoverProps = ListItemProps & {
 type ParentListItemProps = ListItemProps & {
   eventHandlingProps: { onMouseEnter: (arg0: Event) => void; onMouseLeave: (arg0: Event) => void };
   menuItems: {
-    [key: string]: any;
+    [key: string]: any; // TS FIXME type this
   }[];
   disappear: (arg0: Event) => void;
   className: string;

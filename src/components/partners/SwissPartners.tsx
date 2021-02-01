@@ -2,7 +2,7 @@ import React from 'react';
 import { Trans } from '@lingui/macro';
 import { PartnerCard } from './PartnerCard';
 
-export const SwissPartners = ({ data }: { [key: string]: any }) => (
+export const SwissPartners = ({ data }: Props) => (
   <div className="container pb-4">
     <h5 className="text-center pb-6">
       <Trans>Swiss Law Partners</Trans>

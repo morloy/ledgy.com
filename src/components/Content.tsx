@@ -17,9 +17,7 @@ export const PostLink = ({
 }: {
   post: ContentfulPageProps;
   to: string;
-  defaultImage: {
-    [key: string]: any;
-  };
+  defaultImage: UnknownObject;
   external?: boolean;
   description: string | Node;
 }) => {

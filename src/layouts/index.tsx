@@ -63,12 +63,7 @@ const App = ({ children, ...props }: AppProps) => {
       ) : (
         <>
           <PublicityBanner pathname={pathname} />
-          {React.cloneElement(
-            children as {
-              [key: string]: any;
-            },
-            { prefix, lang }
-          )}
+          {React.cloneElement(children as UnknownObject, { prefix, lang })}
           {!isDemoPage && <Footer {...props} prefix={prefix} />}
         </>
       )}

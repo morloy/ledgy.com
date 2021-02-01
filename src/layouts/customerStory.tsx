@@ -13,9 +13,7 @@ export default ({
 }: Props & {
   data: {
     contentfulCustomerStory: CustomerStory;
-    allContentfulCustomerStory: {
-      [key: string]: any;
-    };
+    allContentfulCustomerStory: UnknownObject;
   };
 }) => {
   const { id, title, subtitle, language, content, company } = data.contentfulCustomerStory;

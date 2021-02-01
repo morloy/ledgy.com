@@ -16,9 +16,7 @@ const Investor = ({
 }: {
   name: string;
   description: string;
-  img: {
-    [key: string]: any;
-  };
+  img: UnknownObject;
 }) => (
   <div className="col-12 col-md-4 mb-4">
     {img && <Img {...img} alt={name} className="rounded-circle" />}

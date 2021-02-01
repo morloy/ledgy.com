@@ -3,7 +3,7 @@ import { Trans, t } from '@lingui/macro';
 
 import { Testimonial } from '../Testimonial';
 
-export const Testimonials = ({ data }: { [key: string]: any }): Node => {
+export const Testimonials = ({ data }: UnknownObject): Node => {
   const TESTIMONIALS = [
     {
       name: 'Johannes Reck, CEO @ GetYourGuide',

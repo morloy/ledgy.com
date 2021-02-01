@@ -18,7 +18,7 @@ const MobileNavbarGroup = ({
 }: {
   title: Node;
   links: {
-    [key: string]: any;
+    [key: string]: any; // TS FIXME type this
   };
   prefix: string;
   isOpen: boolean;

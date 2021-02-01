@@ -26,9 +26,7 @@ const FeaturePage = ({
 }: Props & {
   data: {
     contentfulFeaturePage: FeaturePageProps;
-    allContentfulFeaturePage: {
-      [key: string]: any;
-    };
+    allContentfulFeaturePage: UnknownObject;
   };
 }) => {
   const { title, description, features, startOnRight } = data.contentfulFeaturePage;

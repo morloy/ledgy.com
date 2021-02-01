@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default (props: { [key: string]: any }) => (
+export default (props: UnknownObject) => (
   <html lang="en" {...props.htmlAttributes}>
     <head>
       <meta charSet="utf-8" />

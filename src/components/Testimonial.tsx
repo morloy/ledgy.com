@@ -11,9 +11,7 @@ export const Testimonial = ({
   rounded,
   minHeight = 80,
 }: {
-  img: {
-    [key: string]: any;
-  };
+  img: UnknownObject;
   name: string;
   description: Node;
   col: number;

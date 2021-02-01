@@ -1,9 +1,4 @@
-export const track = (
-  event: string,
-  properties?: {
-    [key: string]: any;
-  }
-): void => {
+export const track = (event: string, properties?: UnknownObject): void => {
   if (window.analytics) window.analytics.track(event, properties);
 };
 
@@ -25,7 +20,7 @@ export const animateLaptop = () => {
   }, 50);
 };
 
-export const isFieldMissing = (object: { [key: string]: any }) =>
+export const isFieldMissing = (object: UnknownObject) =>
   Object.values(object).some((field) => !field);
 
 export const shuffleArray = <T>(array: T[]): T[] =>

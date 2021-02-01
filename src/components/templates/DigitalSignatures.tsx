@@ -1,4 +1,4 @@
-import React, { Node } from 'react';
+import React, { ReactNode } from 'react';
 import { Trans } from '@lingui/macro';
 import Img from 'gatsby-image';
 import { CircleBadge } from '../Badge';
@@ -9,7 +9,7 @@ const STEPS = [
   [3, <Trans>Send and receive valid signatures in a matter of seconds</Trans>],
 ];
 
-export const DigitalSignatures = ({ data }: { [key: string]: any }): Node => {
+export const DigitalSignatures = ({ data }: UnknownObject): ReactNode => {
   return (
     <div id="signatories-coming-soon" className="row justify-content-between py-6">
       <div className="col-lg-5 text-center text-md-left d-flex flex-column justify-content-center align-items-center mb-4 mb-lg-0">

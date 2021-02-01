@@ -19,9 +19,7 @@ const TeamMember = ({
   mail,
   article,
 }: AuthorProps & {
-  img: {
-    [key: string]: any;
-  };
+  img: UnknownObject;
 }) => {
   const ProfileImage = <Img {...img} className="mx-auto" alt={name} />;
   return (
@@ -61,7 +59,7 @@ const TeamMember = ({
   );
 };
 
-export const TeamMembers = ({ teamData }: { teamData: [AuthorProps, any][] }) => {
+export const TeamMembers = ({ teamData }: { teamData: [AuthorProps, DisableTypeScript][] }) => {
   const [team, setTeam] = useState(teamData);
 
   useEffect(() => {

@@ -16,9 +16,7 @@ export const Dropdown = ({
   toggleText: Node;
   toggleIcon?: string;
   toggleClass?: string;
-  toggleProps?: {
-    [key: string]: any;
-  };
+  toggleProps?: UnknownObject;
   items: Node[];
   itemClass?: string;
 }) => {

@@ -5,13 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLink } from '@fortawesome/free-solid-svg-icons';
 import { targetBlank } from '../../helpers';
 
-export const PartnerCard = (props: {
-  logo: {
-    [key: string]: any;
-  };
-  email: string;
-  website: string;
-}) => {
+export const PartnerCard = (props: { logo: UnknownObject; email: string; website: string }) => {
   const { logo, email, website } = props;
   return (
     <div className="col col-12 col-md-6 col-lg-3 mb-6">

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, SyntheticEvent } from 'react';
 import { Trans, t } from '@lingui/macro';
 import 'isomorphic-fetch';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
@@ -17,11 +17,11 @@ export class SubscriptionForm extends Component<
   { email: string; status: FormStatus }
 > {
   state = { email: '', status: IDLE };
-  handleChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
+  handleChange = (e: SyntheticEvent<HTMLInputElement>) => {
     e.preventDefault();
     this.setState({ email: e.target.value, status: IDLE });
   };
-  handleSubmit = async (e: any) => {
+  handleSubmit = async (e: SyntheticEvent<HTMLInputElement>) => {
     e.preventDefault();
     this.setState({ status: LOADING });
     const { email } = this.state;

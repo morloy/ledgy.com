@@ -6,7 +6,11 @@ import { ProductHuntButton } from './ProductHuntButton';
 import { MainHeaderLayout } from './MainHeaderLayout';
 import { Button } from './Button';
 
-export const CalculatorHeader = ({ data }: { data: any }) => {
+export const CalculatorHeader = ({
+  data,
+}: {
+  data: { contentfulPage: ContentfulPageProps; site: { siteMetadata: { siteUrl: string } } };
+}) => {
   return (
     <MainHeaderLayout
       className="mb-5"
