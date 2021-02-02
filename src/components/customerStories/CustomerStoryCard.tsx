@@ -12,8 +12,9 @@ export const CustomerStoryCard = ({
   const { slug, company } = customerStory;
   const pagePath = `${prefix}/customer-stories/${slug}/`;
   const { logo, cover } = company;
-  const logoImage = <Img {...logo.localFile?.childImageSharp} />;
-  const coverImage = cover ? <Img {...cover.localFile?.childImageSharp} /> : null;
+  const { childImageSharp } = logo.localFile || {};
+  const logoImage = childImageSharp ? <Img {...childImageSharp} /> : null;
+  const coverImage = cover && childImageSharp ? <Img {...childImageSharp} /> : null;
   return (
     <Link to={pagePath}>
       <div className="card card-more-stories mb-4 mx-auto px-4">

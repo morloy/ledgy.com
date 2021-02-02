@@ -19,7 +19,7 @@ const DecoShapes = () => (
 const IndexPage = (props: Props) => {
   const [content] = props.data.page.edges;
   const { title, entries } = content.node;
-  console.log('index', entries);
+
   return (
     <main className="position-relative overflow-hidden">
       {!!title && (

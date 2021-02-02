@@ -28,7 +28,6 @@ const Webinars = ({ data }: Props) => (
             key={id}
             to={youtube}
             post={node}
-            defaultImage={data.ledgy}
             description={<MDXRenderer>{description.childMdx.body}</MDXRenderer>}
           />
         );

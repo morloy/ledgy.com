@@ -11,22 +11,15 @@ export const ContentBody = ({ children }: { children: ReactNode | ReactNode[] })
 export const PostLink = ({
   post,
   to,
-  defaultImage,
   external,
   description,
 }: {
   post: ContentfulPageProps;
   to: string;
-  defaultImage: UnknownObject;
   external?: boolean;
   description: string | ReactNode;
 }) => {
-  const image = (
-    <Img
-      className="fit-cover"
-      {...(post.cover?.localFile ? post.cover.localFile.childImageSharp : defaultImage)}
-    />
-  );
+  const image = <Img className="fit-cover" {...post.cover?.localFile?.childImageSharp} />;
   const title = <h5>{post.title}</h5>;
   const { date } = post;
   return (

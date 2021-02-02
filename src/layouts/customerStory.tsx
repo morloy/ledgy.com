@@ -16,7 +16,6 @@ const CustomerStory = ({
     allContentfulCustomerStory: { edges: { node: AllContentfulCustomerStoryProps }[] };
   };
 }) => {
-  console.log({ data: data.allContentfulCustomerStory });
   const { id, title, subtitle, language, content, company } = data.contentfulCustomerStory;
   const otherUserStories = data.allContentfulCustomerStory.edges
     .filter(({ node }) => node.id !== id)

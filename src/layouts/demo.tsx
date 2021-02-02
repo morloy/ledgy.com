@@ -40,7 +40,7 @@ const DemoPage = (props: LayoutProps) => {
     content,
     type,
   } = data.contentfulSignupPage; // TODO rename in Contentful
-  console.log('demo', content);
+
   return (
     <>
       <Title title={dynamicI18n(title)} description={dynamicI18n(description)} />

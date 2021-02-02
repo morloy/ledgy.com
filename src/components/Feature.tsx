@@ -1,4 +1,6 @@
 import React from 'react';
+import type { GatsbyImageFluidProps } from 'gatsby-image';
+
 import { DynamicTrans } from '../components/DynamicTrans';
 import { ImageModal } from './ImageModal';
 
@@ -10,7 +12,7 @@ export const Feature = ({
 }: {
   title: string;
   description: string[];
-  imgProps?: Image;
+  imgProps: GatsbyImageFluidProps;
   imgFirst?: boolean;
 }) => (
   <div className="container text-center py-4 py-lg-6 my-7">

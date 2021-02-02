@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import Img from 'gatsby-image';
+import Img, { GatsbyImageProps } from 'gatsby-image';
 import { targetBlank } from '../helpers';
 
 export const Testimonial = ({
@@ -11,7 +11,7 @@ export const Testimonial = ({
   rounded,
   minHeight = 80,
 }: {
-  img: Image;
+  img: GatsbyImageProps;
   name: string;
   description: ReactNode;
   col: number;

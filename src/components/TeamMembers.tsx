@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
-import Img from 'gatsby-image';
+import Img, { GatsbyImageFluidProps } from 'gatsby-image';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
@@ -19,21 +19,16 @@ const TeamMember = ({
   mail,
   article,
 }: AuthorProps & {
-  img: UnknownObject;
+  img: GatsbyImageFluidProps;
 }) => {
+  console.log({ img });
   const ProfileImage = <Img {...img} className="mx-auto" alt={name} />;
   return (
     <div className="ledgista col-12 col-md-6 col-lg-4">
       <div className="pb-6 h-100 d-flex flex-column align-items-center justify-content-between">
         <div className="d-flex flex-column align-items-center">
           <div className="ledgista-image-wrapper">
-            {article ? (
-              <Link href to={`/updates/${article}/`}>
-                {ProfileImage}
-              </Link>
-            ) : (
-              ProfileImage
-            )}
+            {article ? <Link to={`/updates/${article}/`}>{ProfileImage}</Link> : ProfileImage}
           </div>
           <div className="text-center d-flex flex-column align-items-center">
             <div>
@@ -59,7 +54,9 @@ const TeamMember = ({
   );
 };
 
-export const TeamMembers = ({ teamData }: { teamData: [AuthorProps, DisableTypeScript][] }) => {
+export type TeamDataProps = [AuthorProps, DisableTypeScript][];
+
+export const TeamMembers = ({ teamData }: { teamData: TeamDataProps }) => {
   const [team, setTeam] = useState(teamData);
 
   useEffect(() => {

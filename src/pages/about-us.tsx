@@ -1,5 +1,5 @@
 import React from 'react';
-import Img from 'gatsby-image';
+import Img, { GatsbyImageFixedProps } from 'gatsby-image';
 import { graphql } from 'gatsby';
 import { Trans, t } from '@lingui/macro';
 
@@ -7,7 +7,7 @@ import { Title, Hr } from '../layouts/utils';
 import { getWholeTeam } from '../layouts/team';
 
 import { PageHeader } from '../components/PageHeader';
-import { TeamMembers } from '../components/TeamMembers';
+import { TeamMembers, TeamDataProps } from '../components/TeamMembers';
 
 const Investor = ({
   name,
@@ -16,7 +16,7 @@ const Investor = ({
 }: {
   name: string;
   description: string;
-  img: UnknownObject;
+  img: GatsbyImageFixedProps;
 }) => (
   <div className="col-12 col-md-4 mb-4">
     {img && <Img {...img} alt={name} className="rounded-circle" />}
@@ -30,7 +30,7 @@ const IndexPage = (props: Props) => {
   const team = getWholeTeam(props.prefix);
   const title = t`About us`;
   const description = t`We believe that entrepreneurship is the main driver of positive change in the world. That is why we build beautiful and intuitive software for startups, helping them be more successful`;
-  const teamData = [
+  const teamData: TeamDataProps = [
     [team.timo, data.timo],
     [team.yoko, data.yoko],
     [team.ben, data.ben],

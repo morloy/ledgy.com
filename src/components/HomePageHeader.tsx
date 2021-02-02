@@ -9,7 +9,6 @@ import { RequestDemoButton } from './RequestDemoButton';
 import { DynamicTrans } from './DynamicTrans';
 import { demoUrl } from '../helpers';
 
-// eslint-disable-next-line import/prefer-default-export
 export const HomePageHeader = ({ data, prefix }: Props) => {
   const [content] = data.page.edges;
   const title = <DynamicTrans>{content.node.mainHeader}</DynamicTrans>;

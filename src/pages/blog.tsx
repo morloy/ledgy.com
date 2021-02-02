@@ -24,7 +24,6 @@ const Blog = ({ data, prefix }: Props) => {
               key={id}
               to={`${prefix}/blog/${slug}`}
               post={node}
-              defaultImage={data.ledgy}
               description={postDescription}
             />
           );
