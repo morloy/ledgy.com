@@ -61,7 +61,7 @@ const EquityPlans = (props: Props) => {
         <CallToAction />
         <Testimonials data={data} />
         <Video />
-        <TemplateFAQs {...props} />
+        <TemplateFAQs />
         <DigitalSignatures data={data} />
       </ContentBody>
     </>

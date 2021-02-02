@@ -1,10 +1,10 @@
-import React, { Node } from 'react';
+import React from 'react';
 import { Trans } from '@lingui/macro';
 
 import { Accordion, AccordionItem } from '../Accordion';
 import { SubscriptionModal } from '../SubscriptionModal';
 
-const getQuestions = (props: Props) => [
+const QUESTIONS = [
   {
     slug: 'why-use-these-templates',
     question: <Trans>Why use these templates?</Trans>,
@@ -60,20 +60,20 @@ const getQuestions = (props: Props) => [
         </span>
         <br />
         <div className="d-flex justify-content-center my-5">
-          <SubscriptionModal {...props} />
+          <SubscriptionModal />
         </div>
       </>
     ),
   },
 ];
 
-export const TemplateFAQs = (props: Props): Node => (
+export const TemplateFAQs = () => (
   <div className="row-small mx-auto my-6">
     <h2 className="text-center">
       <Trans>FAQs</Trans>
     </h2>
     <Accordion>
-      {getQuestions(props).map(({ slug, question, answer }) => (
+      {QUESTIONS.map(({ slug, question, answer }) => (
         <AccordionItem id={slug} key={slug} title={question}>
           {answer}
         </AccordionItem>

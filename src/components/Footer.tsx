@@ -86,7 +86,7 @@ export const Footer = ({ location, ...props }: LayoutProps) => {
                     <img src={logoInvertedCompact} width={80} alt={name} />
                   </Link>
                   <div className="py-lg-4">
-                    <SubscriptionModal {...props} buttonClass="w-100" />
+                    <SubscriptionModal buttonClass="w-100" />
                     <Dropdown
                       toggleText={<Trans>Language</Trans>}
                       toggleIcon={faGlobeEurope}

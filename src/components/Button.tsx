@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react';
 import { targetBlank } from '../helpers';
 
+type ButtonType = 'button' | 'submit' | 'reset';
+
 export const Button = ({
   children,
   outline = false,
@@ -25,7 +27,7 @@ export const Button = ({
   href?: string;
   id?: string;
   disabled?: boolean;
-  type?: string;
+  type?: ButtonType;
 }) => {
   const color =
     (cta && 'btn-red') ||
@@ -37,7 +39,7 @@ export const Button = ({
   const classes = `btn ${color} ${className} ${disabled ? 'button-disabled' : ''}`;
   const props = { ...buttonProps, onClick, className: classes };
   return href ? (
-    <a {...props} id={id} href={disabled ? null : href} {...targetBlank}>
+    <a {...props} id={id} href={disabled ? undefined : href} {...targetBlank}>
       {children}
     </a>
   ) : (
