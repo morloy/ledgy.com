@@ -21,7 +21,6 @@ const TeamMember = ({
 }: AuthorProps & {
   img: GatsbyImageFluidProps;
 }) => {
-  console.log({ img });
   const ProfileImage = <Img {...img} className="mx-auto" alt={name} />;
   return (
     <div className="ledgista col-12 col-md-6 col-lg-4">

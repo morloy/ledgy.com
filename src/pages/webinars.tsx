@@ -19,7 +19,6 @@ const Webinars = ({ data }: Props) => (
 
     <ContentBody>
       {data.allContentfulWebinar.edges.map((edge: UntypedObject) => {
-        // TS FIXME
         const { node } = edge;
         const { id, youtube, description } = node;
         return (
