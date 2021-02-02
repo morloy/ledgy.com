@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs');
 const { text } = require('micro');
 const _ = require('lodash');
