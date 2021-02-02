@@ -1,6 +1,9 @@
 import { GatsbyImageProps } from 'gatsby-image';
 
 declare global {
+  interface Window {
+    analytics: UntypedObject;
+  }
   type Image = {
     localFile?: { childImageSharp: GatsbyImageProps };
     title: string;

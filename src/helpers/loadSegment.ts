@@ -3,7 +3,7 @@
 const getDestinations = (destinations: string[]) => destinations.reduce((res, v) => ({ ...res, [v]: true }), { All: false });
 
 export const loadSegment = (destinations: string[]): void => {
-  const analytics = (window as DisableTypeScript).analytics = (window as DisableTypeScript).analytics || [];
+  const analytics = window.analytics = window.analytics || [];
   if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error('Segment snippet included twice.');else {
     analytics.invoked = !0;
     analytics.methods = ['trackSubmit', 'trackClick', 'trackLink', 'trackForm', 'pageview', 'identify', 'reset', 'group', 'track', 'ready', 'alias', 'debug', 'page', 'once', 'off', 'on'];
