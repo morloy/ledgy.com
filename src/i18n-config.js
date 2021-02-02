@@ -1,19 +1,19 @@
+/* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
-
 const compose = require('lodash/fp/compose');
 const pick = require('lodash/fp/pick');
 const flatten = require('lodash/fp/flatten');
 const values = require('lodash/fp/values');
 const compact = require('lodash/fp/compact');
+
 const { i18n } = require('@lingui/core');
 const { en, de, fr } = require('make-plural/plurals');
-
-const defaultLanguage = 'en';
-const languages = [defaultLanguage, 'de', 'fr'];
-
 const enCollection = require('./locale/en/messages'); // eslint-disable-line
 const deCollection = require('./locale/de/messages'); // eslint-disable-line
 const frCollection = require('./locale/fr/messages'); // eslint-disable-line
+
+const defaultLanguage = 'en';
+const languages = [defaultLanguage, 'de', 'fr'];
 
 i18n.loadLocaleData('en', { plurals: en });
 i18n.loadLocaleData('de', { plurals: de });

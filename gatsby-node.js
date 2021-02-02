@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
-const { redirects } = require('./src/redirects.ts');
+const { redirects } = require('./src/redirects.js');
 
-const { languages, defaultLanguage } = require('./src/i18n-config.ts');
+const { languages, defaultLanguage } = require('./src/i18n-config.js');
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
