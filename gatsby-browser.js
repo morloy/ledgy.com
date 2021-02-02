@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 exports.onRouteUpdate = () => {
   if (window.analytics) window.analytics.page();
 
