@@ -19,7 +19,7 @@ export const PostLink = ({
   to: string;
   defaultImage: UnknownObject;
   external?: boolean;
-  description: string | Node;
+  description: string | ReactNode;
 }) => {
   const image = (
     <Img

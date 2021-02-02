@@ -1,15 +1,16 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Trans } from '@lingui/macro';
 import Img from 'gatsby-image';
 import { CircleBadge } from '../Badge';
 
 const STEPS = [
-  [1, <Trans>Upload the document</Trans>],
-  [2, <Trans>Select signatories</Trans>],
-  [3, <Trans>Send and receive valid signatures in a matter of seconds</Trans>],
+  { key: 1, text: <Trans>Upload the document</Trans> },
+  { key: 2, text: <Trans>Select signatories</Trans> },
+  { key: 3, text: <Trans>Send and receive valid signatures in a matter of seconds</Trans> },
 ];
 
-export const DigitalSignatures = ({ data }: UnknownObject): ReactNode => {
+export const DigitalSignatures = ({ data }: UntypedObject) => {
+  console.log({ data });
   return (
     <div id="signatories-coming-soon" className="row justify-content-between py-6">
       <div className="col-lg-5 text-center text-md-left d-flex flex-column justify-content-center align-items-center mb-4 mb-lg-0">
@@ -17,9 +18,9 @@ export const DigitalSignatures = ({ data }: UnknownObject): ReactNode => {
           <Trans>Sign grants online in seconds</Trans>
         </h4>
         <div className="row row-small mx-auto text-left flex-column">
-          {STEPS.map(([step, text]) => (
-            <div className="d-flex align-items-start my-3" key={step}>
-              <CircleBadge>{step}</CircleBadge>
+          {STEPS.map(({ key, text }) => (
+            <div className="d-flex align-items-start my-3" key={key}>
+              <CircleBadge>{key}</CircleBadge>
               <div className="flex-1">
                 <div>{text}</div>
               </div>

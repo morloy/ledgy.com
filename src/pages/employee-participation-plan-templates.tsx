@@ -57,14 +57,12 @@ const EquityPlans = (props: Props) => {
         image={<Img {...(isGerman ? data.templatesDe : data.templates)} alt="Templates" />}
       />
       <ContentBody>
-        <>
-          <Instructions />
-          <CallToAction />
-          <Testimonials data={data} />
-          <Video />
-          <TemplateFAQs {...props} />
-          <DigitalSignatures data={data} />
-        </>
+        <Instructions />
+        <CallToAction />
+        <Testimonials data={data} />
+        <Video />
+        <TemplateFAQs {...props} />
+        <DigitalSignatures data={data} />
       </ContentBody>
     </>
   );

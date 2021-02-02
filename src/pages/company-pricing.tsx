@@ -1,4 +1,4 @@
-import React, { Node } from 'react';
+import React, { ReactNode } from 'react';
 import { Trans, t } from '@lingui/macro';
 import { graphql } from 'gatsby';
 import { LedgyPricing } from '@ledgy/pricing/dist/LedgyPricing';
@@ -10,7 +10,7 @@ import { appUrl } from '../helpers';
 import { PageHeader } from '../components/PageHeader';
 import { DynamicTrans, dynamicI18n } from '../components/DynamicTrans';
 
-const PricingCTA = ({ title, description }: { title: Node; description: Node }) => (
+const PricingCTA = ({ title, description }: { title: ReactNode; description: ReactNode }) => (
   <div className="col-12 col-lg-6 col-xl-4">
     <h5>{title}</h5>
     <p className="pb-5">{description}</p>
