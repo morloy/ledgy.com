@@ -1,16 +1,16 @@
-import React, { Node } from 'react';
+import React, { ReactNode } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
-import { Trans } from '@lingui/macro';
+import Img, { GatsbyImageFluidProps } from 'gatsby-image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import { targetBlank, youtubeEmbedBaseUrl, ledgyUrl } from '../helpers';
 
+import { targetBlank, youtubeEmbedBaseUrl, ledgyUrl } from '../helpers';
 import { getWholeTeam, getTeamImages, AuthorProps } from '../layouts/team';
 import { Embed } from './Embed';
+import { DynamicTrans } from './DynamicTrans';
 
-const About = ({ about, img }: { about: AuthorProps; img: UnknownObject }) => (
+const About = ({ about, img }: { about: AuthorProps; img: GatsbyImageFluidProps }) => (
   <div className="about d-flex justify-content-center pt-3 mt-3">
     <Img {...img} alt={about.name} className="m-4 rounded-circle float-left" />
     <div className="d-flex flex-column justify-content-center align-items-end">
@@ -68,40 +68,35 @@ export const Image = ({ alt, src, title }: { alt: string; src: string; title?: s
     }
   `);
   const contentfulId = src.split('/')[4];
-  const record = data.allContentfulAsset.nodes.find((v) => v.contentful_id === contentfulId);
+  const record = data.allContentfulAsset.nodes.find(
+    (v: UntypedObject) => v.contentful_id === contentfulId
+  );
   const { align, w } = getImageParams(title);
   const img = record?.localFile?.childImageSharp;
-  return (
-    !!img && (
-      <figure
-        className={align ? `mx-auto float-md-${align} size-md-small m-6` : 'mx-auto my-6'}
-        style={w ? { maxWidth: `${w}px` } : {}}
-      >
-        <a href={img.fluid.src} data-provide="lightbox">
-          <Img {...img} />
-        </a>
-        {alt && (
-          <figcaption className="text-muted text-center px-4 font-weight-light mt-2">
-            {alt}
-          </figcaption>
-        )}
-      </figure>
-    )
-  );
+  return img ? (
+    <figure
+      className={align ? `mx-auto float-md-${align} size-md-small m-6` : 'mx-auto my-6'}
+      style={w ? { maxWidth: `${w}px` } : {}}
+    >
+      <a href={img.fluid.src} data-provide="lightbox">
+        <Img {...img} />
+      </a>
+      {alt && (
+        <figcaption className="text-muted text-center px-4 font-weight-light mt-2">
+          {alt}
+        </figcaption>
+      )}
+    </figure>
+  ) : null;
 };
 
-const languages = {
-  en: <Trans>English</Trans>,
-  de: <Trans>German</Trans>,
-  fr: <Trans>French</Trans>,
-};
+const languages = { en: 'English', de: 'German', fr: 'French' };
 
-export const LanguageHint = ({ lang, documentLang }: { lang: string; documentLang: string }) =>
-  lang !== documentLang && (
-    <>
-      <Trans>This page is only available in</Trans> {languages[documentLang]}
-    </>
-  );
+export const LanguageHint = ({ lang, documentLang }: { lang: string; documentLang: Language }) => {
+  if (lang === documentLang) return null;
+  const hint = `This page is only available in ${languages[documentLang]}`;
+  return <DynamicTrans>{hint}</DynamicTrans>;
+};
 
 export const Lead = ({ children }: { children: Node }) => <div className="lead">{children}</div>;
 
@@ -130,7 +125,7 @@ export const Anchor = ({
   children,
   prefix,
 }: {
-  children: Node;
+  children: ReactNode;
   href: string;
   title: string;
   prefix?: string;

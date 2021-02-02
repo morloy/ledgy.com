@@ -4,8 +4,23 @@ import { MDXProvider } from '@mdx-js/react';
 
 import { Image, Lead, Anchor } from '../components/Markdown';
 
+// eslint-disable-next-line react/display-name
+const getAnchorComponent = (prefix: string) => ({
+  children,
+  href,
+  title,
+}: {
+  children: string;
+  href: string;
+  title: string;
+}) => (
+  <Anchor href={href} title={title} prefix={prefix}>
+    {children}
+  </Anchor>
+);
+
 const getProviderComponents = (prefix: string) => ({
-  a: (props) => <Anchor {...props} prefix={prefix} />,
+  a: getAnchorComponent(prefix),
   img: Image,
   Lead,
 });
