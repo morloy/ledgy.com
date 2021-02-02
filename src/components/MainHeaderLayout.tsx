@@ -1,12 +1,12 @@
-import React, { Node } from 'react';
+import React, { ReactNode } from 'react';
 
 type MainHeaderLayoutProps = {
-  title: Node | string;
-  subtitle: Node | string;
-  buttonOne: Node;
-  buttonTwo?: Node;
-  customButton?: Node;
-  image: Node;
+  title: ReactNode | string;
+  subtitle: ReactNode | string;
+  buttonOne: ReactNode;
+  buttonTwo?: ReactNode;
+  customButton?: ReactNode;
+  image: ReactNode;
   className?: string;
 };
 

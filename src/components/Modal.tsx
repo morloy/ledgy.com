@@ -1,8 +1,4 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-
-import React, { Node } from 'react';
+import React, { ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 
@@ -27,7 +23,7 @@ const CloseButton = ({
   </Button>
 );
 
-const ModalHeader = ({ title, close }: { title: Node; close: () => void }) => (
+const ModalHeader = ({ title, close }: { title: ReactNode; close: () => void }) => (
   <div className="modal-header-custom d-flex justify-content-between align-items-center bg-primary text-white px-4 py-3">
     <h5 className="m-0">{title}</h5>
     <CloseButton close={close} />
@@ -46,8 +42,8 @@ export const Modal = ({
 }: {
   isOpen: boolean;
   close: () => void;
-  title?: Node;
-  children: Node;
+  title?: ReactNode;
+  children: ReactNode;
   className?: string;
   size?: ModalSize;
 }) => {

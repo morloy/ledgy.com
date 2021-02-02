@@ -3,7 +3,15 @@ import { Helmet } from 'react-helmet';
 import React from 'react';
 import { name, getLdJson } from '../helpers';
 
-export const HelmetIndexLayout = ({ lang, siteUrl, pathname }) => (
+export const HelmetIndexLayout = ({
+  lang,
+  siteUrl,
+  pathname,
+}: {
+  lang: string;
+  siteUrl: string;
+  pathname: string;
+}) => (
   <Helmet>
     <html lang={lang} />
     <meta

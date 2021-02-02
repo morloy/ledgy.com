@@ -1,4 +1,4 @@
-import React, { Node } from 'react';
+import React, { ReactNode } from 'react';
 
 import { Trans } from '@lingui/macro';
 import { RequestDemoButton } from './RequestDemoButton';
@@ -8,7 +8,7 @@ const Banner = ({
   prefix,
   location,
 }: {
-  title: Node;
+  title: ReactNode;
   prefix: string;
   location?: LocationProps;
 }) => (

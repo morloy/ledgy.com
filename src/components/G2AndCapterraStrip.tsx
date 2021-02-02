@@ -31,7 +31,6 @@ export const G2AndCapterraStrip = () => (
         >
           <img
             className="capterra-badge"
-            border="0"
             src="https://assets.capterra.com/badge/4700aedd505fa5881254166d19949239.png?v=2120646&p=173939"
             alt="Ledgy high Capterra rating"
           />
