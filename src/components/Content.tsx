@@ -19,7 +19,8 @@ export const PostLink = ({
   external?: boolean;
   description: string | ReactNode;
 }) => {
-  const image = <Img className="fit-cover" {...post.cover?.localFile?.childImageSharp} />;
+  const { childImageSharp } = post.cover?.localFile || {};
+  const image = childImageSharp ? <Img className="fit-cover" {...childImageSharp} /> : null;
   const title = <h5>{post.title}</h5>;
   const { date } = post;
   return (

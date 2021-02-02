@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, MouseEvent } from 'react';
 import ReactDOM from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 
@@ -6,7 +6,7 @@ import { Button } from './Button';
 
 const getDocumentBody = () => (typeof document !== 'undefined' ? document.body : null);
 
-const closeWithOutsideClick = (e: React.SyntheticEvent<HTMLInputElement>, close: () => void) => {
+const closeWithOutsideClick = (e: MouseEvent, close: () => void) => {
   e.stopPropagation();
   close();
 };

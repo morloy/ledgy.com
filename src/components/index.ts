@@ -28,8 +28,6 @@ export * from './ProductHuntButton';
 export * from './PublicityBanner';
 export * from './ReadMore';
 export * from './RequestDemoButton';
-export * from './Section';
-export * from './SecurityRow';
 export * from './SellingProp';
 export * from './SubscriptionModal';
 export * from './TeamMembers';

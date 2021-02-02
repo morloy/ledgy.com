@@ -6,6 +6,7 @@ import { getUnderlineHtml } from './lib';
 
 export const MainProblemLayout = ({ title, description, image }: ContentfulIndexEntry) => {
   if (!description || !image) return null;
+  const { childImageSharp } = image?.localFile || {};
   return (
     <div className="container p-4 p-lg-7 my-4 my-lg-7 position-relative z-index-base">
       <div className="row justify-content-center">
@@ -18,7 +19,7 @@ export const MainProblemLayout = ({ title, description, image }: ContentfulIndex
             <DynamicTrans>{description}</DynamicTrans>
           </p>
           <div className="px-4 px-sm-6 px-lg-7 px-xl-9">
-            <Img {...image?.localFile?.childImageSharp} />
+            {!!childImageSharp && <Img {...childImageSharp} />}
           </div>
         </div>
       </div>

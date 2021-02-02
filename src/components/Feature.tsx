@@ -1,5 +1,5 @@
 import React from 'react';
-import type { GatsbyImageFluidProps } from 'gatsby-image';
+import type { GatsbyImageProps } from 'gatsby-image';
 
 import { DynamicTrans } from '../components/DynamicTrans';
 import { ImageModal } from './ImageModal';
@@ -12,7 +12,7 @@ export const Feature = ({
 }: {
   title: string;
   description: string[];
-  imgProps: GatsbyImageFluidProps;
+  imgProps?: GatsbyImageProps;
   imgFirst?: boolean;
 }) => (
   <div className="container text-center py-4 py-lg-6 my-7">
@@ -33,7 +33,7 @@ export const Feature = ({
         </ul>
       </div>
       <div className={`col-12 col-md-5 py-3 px-2 px-md-4 ${imgFirst ? 'order-md-first' : ''}`}>
-        <ImageModal imgProps={imgProps} />
+        {!!imgProps && <ImageModal imgProps={imgProps} />}
       </div>
     </div>
   </div>

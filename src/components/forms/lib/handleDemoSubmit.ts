@@ -52,7 +52,7 @@ const getUrl = ({ isCompany, size }: ParsedFormValues) => {
 
 const redirect = (values: ParsedFormValues) => {
   if (window) {
-    window.location = getUrl(values);
+    (window as DisableTypeScript).location = getUrl(values);
   }
 };
 

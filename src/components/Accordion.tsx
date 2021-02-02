@@ -10,7 +10,7 @@ export const AccordionItem = ({
   children,
 }: {
   id: string;
-  title: string | ReactNode;
+  title: ReactNode;
   children: ReactNode;
 }) => {
   return (

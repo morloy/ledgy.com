@@ -33,7 +33,7 @@ export const RequestDemoButton = ({
     </Button>
   ) : (
     <>
-      <Link href to={`${prefix}${demoPage}`}>
+      <Link to={`${prefix}${demoPage}`}>
         <Button cta className={buttonClassName}>
           {ButtonText}
         </Button>

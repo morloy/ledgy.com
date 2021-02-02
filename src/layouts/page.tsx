@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { GatsbyImageFluidProps } from 'gatsby-image';
 
 import { PublishDate } from '../components/Content';
 import { Author } from '../components/Markdown';
@@ -16,22 +17,30 @@ const ContentfulPage = ({
   lang,
   prefix,
 }: Props & {
-  data: { contentfulPage: ContentfulPageProps; site: { siteMetadata: { siteUrl: string } } };
+  data: {
+    contentfulPage: ContentfulPageProps;
+    site: { siteMetadata: { siteUrl: string } };
+    calculator: GatsbyImageFluidProps;
+  };
 }) => {
   if (!data) return null;
 
   const { slug, title, description, language, content, author, date, cover } = data.contentfulPage;
   const { siteUrl } = data.site.siteMetadata;
   const showCalculatorHeader = slug === CALCULATOR_SLUG;
+  const { childImageSharp } = cover?.localFile || {};
+  const src =
+    childImageSharp && 'fixed' in childImageSharp && 'src' in childImageSharp.fixed
+      ? childImageSharp.fixed.src
+      : '';
+  const thumbnailUrl = cover && cover.localFile && src ? `${siteUrl}${src}` : '';
 
   return (
     <div>
       <Title
         title={dynamicI18n(title)}
         description={dynamicI18n(description)}
-        thumbnailUrl={
-          cover && cover.localFile ? `${siteUrl}${cover.localFile.childImageSharp.fixed.src}` : ''
-        }
+        thumbnailUrl={thumbnailUrl}
       />
       {showCalculatorHeader ? (
         <CalculatorHeader data={data} />

@@ -1,4 +1,4 @@
-import React, { Component, SyntheticEvent } from 'react';
+import React, { Component, ChangeEvent, FormEvent } from 'react';
 import { Trans, t } from '@lingui/macro';
 import 'isomorphic-fetch';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
@@ -14,14 +14,14 @@ const { FETCH_ERROR, IDLE, INVALID_EMAIL, LOADING } = FORM_STATUSES;
 
 export class SubscriptionForm extends Component<
   { toggle?: () => void; trackingEvent: string },
-  { email: string; status: FormStatus | string } //TS FIXME
+  { email: string; status: FormStatus | string }
 > {
   state = { email: '', status: IDLE };
-  handleChange = (e: SyntheticEvent<HTMLInputElement>) => {
+  handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    this.setState({ email: e.target.value, status: IDLE }); //TS FIXME
+    this.setState({ email: e.target.value, status: IDLE });
   };
-  handleSubmit = async (e: SyntheticEvent<HTMLInputElement>) => {
+  handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     this.setState({ status: LOADING });
     const { email } = this.state;

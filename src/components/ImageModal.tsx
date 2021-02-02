@@ -1,10 +1,10 @@
 import React from 'react';
-import Img, { GatsbyImageFluidProps } from 'gatsby-image';
+import Img, { GatsbyImageProps } from 'gatsby-image';
 
 import { useModal } from './lib';
 import { Modal } from './Modal';
 
-export const ImageModal = ({ imgProps }: { imgProps: GatsbyImageFluidProps }) => {
+export const ImageModal = ({ imgProps }: { imgProps: GatsbyImageProps }) => {
   const [isOpen, toggle] = useModal();
 
   return (

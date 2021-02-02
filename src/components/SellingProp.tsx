@@ -18,6 +18,7 @@ export const SellingProp = ({
   hideLink = false,
 }: ContentfulIndexEntry & { prefix: string; imgFirst?: boolean; hideLink?: boolean }) => {
   if (!description || !link) return null;
+  const { childImageSharp } = image?.localFile || {};
   return (
     <div className="container text-center p-4 p-lg-7 selling-prop">
       <div className="row justify-content-center align-items-center">
@@ -43,7 +44,7 @@ export const SellingProp = ({
             imgFirst ? 'order-md-first' : ''
           }`}
         >
-          <Img {...image?.localFile?.childImageSharp} />
+          {!!childImageSharp && <Img {...childImageSharp} />}
         </div>
       </div>
     </div>
