@@ -12,7 +12,7 @@ import { DropdownFollowAlong } from './DropdownFollowAlong';
 import { MobileNavbar } from './MobileNavbar';
 
 const Logo = (props: { prefix: string }) => (
-  <Link href to={`${props.prefix}/#start`}>
+  <Link to={`${props.prefix}/#start`}>
     <img className="navbar-logo" src={logoInverted} alt={name} />
   </Link>
 );

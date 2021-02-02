@@ -1,5 +1,6 @@
-import React, { Node } from 'react';
+import React, { ReactNode } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 export const PrivacyElement = ({
   icon,
@@ -7,9 +8,9 @@ export const PrivacyElement = ({
   body,
   size,
 }: {
-  icon: string;
-  title: string | Node;
-  body?: string | Node;
+  icon: IconDefinition;
+  title: ReactNode;
+  body?: ReactNode;
   size?: string;
 }) => (
   <div className={`col-12 col-lg-${String(size)}`}>

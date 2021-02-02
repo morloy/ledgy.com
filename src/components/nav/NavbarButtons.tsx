@@ -25,7 +25,7 @@ export const NavbarButtons = ({
     >
       <Trans>Log In</Trans>
     </Button>
-    <Link href to={`${prefix}${demoPage}`} onClick={removeOverlay}>
+    <Link to={`${prefix}${demoPage}`} onClick={removeOverlay}>
       <Button inverted outline={isMobile} className="ml-2 px-3 py-1">
         <Trans>Book a Demo</Trans>
       </Button>
