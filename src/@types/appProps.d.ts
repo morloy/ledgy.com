@@ -17,27 +17,6 @@ declare type LayoutProps = Props & {
 
 declare type Mdx = { childMdx: { body: string } };
 
-declare type Image = {
-  localFile?: { childImageSharp: DisableTypeScript }; // TS FIXME
-  title: string;
-  description?: string;
-};
-
-declare type Company = {
-  name: string;
-  logo: Image;
-  cover: Image;
-  contactName: string;
-  contactTitle: string;
-  mainQuote: Mdx;
-  yearFounded: string;
-  funding?: string;
-  employeeCount: string;
-  sector: string;
-  location: string;
-  stage: string;
-};
-
 declare const graphql: DisableTypeScript;
 
 declare type FormStatus =
