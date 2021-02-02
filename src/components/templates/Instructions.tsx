@@ -1,32 +1,27 @@
-import React, { Node } from 'react';
+import React from 'react';
 import { Trans } from '@lingui/macro';
 import { CircleBadge } from '../Badge';
 
 const STEPS = [
-  [1, <Trans>Sign up for a free account</Trans>],
-  [
-    2,
-    <Trans>
-      Our interactive guide will help you understand and select terms for your employee
-      participation plan
-    </Trans>,
-  ],
-  [
-    3,
-    <Trans>
-      Send your customized template and term sheet to your lawyer – or to one of our trusted
-      partners
-    </Trans>,
-  ],
-  [
-    4,
-    <Trans>
-      As a bonus, you can keep track of your new employee participation plan and grants in Ledgy
-    </Trans>,
-  ],
+  { key: 1, text: 'Sign up for a free account' },
+  {
+    key: 2,
+    text:
+      'Our interactive guide will help you understand and select terms for your employee participation plan',
+  },
+  {
+    key: 3,
+    text:
+      'Send your customized template and term sheet to your lawyer – or to one of our trusted partners',
+  },
+  {
+    key: 4,
+    text:
+      'As a bonus, you can keep track of your new employee participation plan and grants in Ledgy',
+  },
 ];
 
-export const Instructions = (): Node => (
+export const Instructions = () => (
   <>
     <div className="row text-center justify-content-center mt-7 mb-4">
       <h2 className="pb-0">
@@ -37,9 +32,9 @@ export const Instructions = (): Node => (
       </p>
     </div>
     <div className="row row-small mx-auto">
-      {STEPS.map(([step, text]) => (
-        <div className="media my-4" key={step}>
-          <CircleBadge>{step}</CircleBadge>
+      {STEPS.map(({ key, text }) => (
+        <div className="media my-4" key={key}>
+          <CircleBadge>{key}</CircleBadge>
           <div className="media-body">
             <div>{text}</div>
           </div>

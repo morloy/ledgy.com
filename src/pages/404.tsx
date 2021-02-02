@@ -12,19 +12,9 @@ const NotFoundPage = () => (
         <hr />
         <p className="lead">Oh no! We couldn’t find that page.</p>
         <p className="lead">
-          Were you looking for features for{' '}
-          <Link href to="/finance">
-            finance
-          </Link>
-          ,{' '}
-          <Link href to="/human-resources">
-            human resources
-          </Link>
-          , or{' '}
-          <Link href to="/investors">
-            investors
-          </Link>
-          ? Maybe need some{' '}
+          Were you looking for features for <Link to="/finance">finance</Link>,{' '}
+          <Link to="/human-resources">human resources</Link>, or{' '}
+          <Link to="/investors">investors</Link>? Maybe need some{' '}
           <a href={helpUrl} {...targetBlank}>
             help
           </a>
