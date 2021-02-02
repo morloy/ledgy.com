@@ -1,3 +1,3 @@
 import './appProps';
-import './generics';
 import './contentful';
+import './generics';

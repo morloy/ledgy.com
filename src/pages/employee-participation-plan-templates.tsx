@@ -18,7 +18,7 @@ import {
 } from '../components/templates';
 import { ProductHuntButton } from '../components/ProductHuntButton';
 
-const EquityPlans = (props: Props) => {
+const esopTemplates = (props: Props) => {
   const { data, lang } = props;
   const title = t`Employee Participation Plan Templates`;
   const description = t`Get free templates from top Swiss and German law firms for your employee participation plans. Use the Ledgy term sheet guide to easily draft a document with the conditions of your participation plans.`;
@@ -68,9 +68,9 @@ const EquityPlans = (props: Props) => {
   );
 };
 
-export default EquityPlans;
+export default esopTemplates;
 
-export const PageQuery = graphql`
+export const esopTemplatesPageQuery = graphql`
   query {
     templates: imageSharp(fluid: { originalName: { regex: "/mac-templates.png/" } }) {
       fluid(maxWidth: 1000) {

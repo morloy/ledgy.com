@@ -35,7 +35,7 @@ const Glossary = ({ data }: Props) => {
 
 export default Glossary;
 
-export const pageQuery = graphql`
+export const glossaryPageQuery = graphql`
   query {
     allContentfulGlossary(sort: { order: ASC, fields: [title] }) {
       edges {

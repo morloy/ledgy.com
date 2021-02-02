@@ -11,7 +11,7 @@ import { Title } from '../layouts/utils';
 
 const CALCULATOR_SLUG = 'calculator';
 
-const Page = ({
+const ContentfulPage = ({
   data,
   lang,
   prefix,
@@ -53,9 +53,9 @@ const Page = ({
   );
 };
 
-export default Page;
+export default ContentfulPage;
 
-export const pageQuery = graphql`
+export const contentfulPageQuery = graphql`
   query($id: String!) {
     contentfulPage(id: { eq: $id }) {
       id

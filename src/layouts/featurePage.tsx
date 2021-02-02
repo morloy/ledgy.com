@@ -53,7 +53,7 @@ const FeaturePage = ({
 
 export default FeaturePage;
 
-export const pageQuery = graphql`
+export const featurePageQuery = graphql`
   query($id: String!) {
     contentfulFeaturePage(id: { eq: $id }) {
       id

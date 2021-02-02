@@ -28,7 +28,7 @@ const Partners = ({ data }: Props) => (
 
 export default Partners;
 
-export const pageQuery = graphql`
+export const partnersPageQuery = graphql`
   query {
     kellerhalsCarrard: imageSharp(fluid: { originalName: { regex: "/kellerhals-carrard.png/" } }) {
       fixed(width: 100) {

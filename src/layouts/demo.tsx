@@ -15,12 +15,13 @@ import { Title } from './utils';
 
 const Logo = () => <img width={80} src={logoInvertedCompact} alt="Ledgy" />;
 
-const Quote = (quoteProps: { quote: string; name: string }) => (
-  <div className="container text-center py-7 line-height-lg">
-    <h3 className="mb-3">“{quoteProps.quote}”</h3>
-    <h6>— {quoteProps.name}</h6>
-  </div>
-);
+const Quote = ({ name, quote }: ContentfulIndexEntry) =>
+  name && quote ? (
+    <div className="container text-center py-7 line-height-lg">
+      <h3 className="mb-3">“{quote}”</h3>
+      <h6>— {name}</h6>
+    </div>
+  ) : null;
 
 const DecoShapes = () => (
   <>
@@ -30,7 +31,7 @@ const DecoShapes = () => (
 );
 
 const DemoPage = (props: LayoutProps) => {
-  const { data, prefix, location } = props;
+  const { data, prefix } = props;
   const {
     title,
     description,
@@ -39,7 +40,7 @@ const DemoPage = (props: LayoutProps) => {
     content,
     type,
   } = data.contentfulSignupPage; // TODO rename in Contentful
-
+  console.log('demo', content);
   return (
     <>
       <Title title={dynamicI18n(title)} description={dynamicI18n(description)} />
@@ -69,7 +70,9 @@ const DemoPage = (props: LayoutProps) => {
         <DecoShapes />
       </header>
       <div className="position-relative bg-white z-index-base">
-        {content.map(({ __typename, id, ...entry }, i) => {
+        {(content as ContentfulIndexEntry[]).map((entry, i) => {
+          const { __typename, id } = entry;
+
           if (__typename === 'ContentfulQuote') {
             return <Quote key={id} {...entry} />;
           }
@@ -83,7 +86,7 @@ const DemoPage = (props: LayoutProps) => {
           }
           return null;
         })}
-        <CTABanner location={location} {...props} />
+        <CTABanner {...props} />
       </div>
       <footer className="footer d-flex align-items-center justify-content-center text-white bg-primary p-2">
         <a
@@ -107,7 +110,7 @@ const DemoPage = (props: LayoutProps) => {
 
 export default DemoPage;
 
-export const pageQuery = graphql`
+export const demoQuery = graphql`
   query($id: String!) {
     contentfulSignupPage(id: { eq: $id }) {
       id

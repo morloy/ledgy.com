@@ -7,7 +7,7 @@ export const CustomerStoryLink = ({
   customerStory,
   prefix,
 }: {
-  customerStory: CustomerStory;
+  customerStory: CustomerStoryBaseProps;
   prefix: string;
 }) => {
   const { title, subtitle, slug, company } = customerStory;

@@ -36,7 +36,7 @@ const Blog = ({ data, prefix }: Props) => {
 
 export default Blog;
 
-export const pageQuery = graphql`
+export const blogPageQuery = graphql`
   query {
     ...DefaultCover
     allContentfulPage(

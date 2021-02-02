@@ -39,7 +39,7 @@ const Webinars = ({ data }: Props) => (
 
 export default Webinars;
 
-export const pageQuery = graphql`
+export const webinarsPageQuery = graphql`
   query {
     ...DefaultCover
     allContentfulWebinar(sort: { order: DESC, fields: [date] }) {

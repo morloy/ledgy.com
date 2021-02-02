@@ -6,16 +6,17 @@ import { PageHeader } from '../components/PageHeader';
 import { CompanySummary, OtherCustomerStories } from '../components/customerStories';
 import { Title, Hr } from '../layouts/utils';
 
-export default ({
+const CustomerStory = ({
   data,
   lang,
   prefix,
 }: Props & {
   data: {
-    contentfulCustomerStory: CustomerStory;
-    allContentfulCustomerStory: UnknownObject;
+    contentfulCustomerStory: CustomerStoryProps;
+    allContentfulCustomerStory: { edges: { node: AllContentfulCustomerStoryProps }[] };
   };
 }) => {
+  console.log({ data: data.allContentfulCustomerStory });
   const { id, title, subtitle, language, content, company } = data.contentfulCustomerStory;
   const otherUserStories = data.allContentfulCustomerStory.edges
     .filter(({ node }) => node.id !== id)
@@ -55,7 +56,9 @@ export default ({
   );
 };
 
-export const pageQuery = graphql`
+export default CustomerStory;
+
+export const customerStoryQuery = graphql`
   query($id: String!) {
     contentfulCustomerStory(id: { eq: $id }) {
       id

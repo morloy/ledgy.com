@@ -19,7 +19,7 @@ const DecoShapes = () => (
 const IndexPage = (props: Props) => {
   const [content] = props.data.page.edges;
   const { title, entries } = content.node;
-
+  console.log('index', entries);
   return (
     <main className="position-relative overflow-hidden">
       {!!title && (
@@ -52,8 +52,7 @@ const IndexPage = (props: Props) => {
 
 export default IndexPage;
 
-// eslint-disable-next-line no-undef
-export const pageQuery = graphql`
+export const indexPageQuery = graphql`
   query {
     page: allContentfulFrontPage {
       edges {

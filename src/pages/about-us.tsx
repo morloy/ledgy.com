@@ -131,7 +131,7 @@ const IndexPage = (props: Props) => {
 export default IndexPage;
 
 // eslint-disable-next-line no-undef
-export const pageQuery = graphql`
+export const aboutUsPageQuery = graphql`
   query {
     ...TeamFragment
 

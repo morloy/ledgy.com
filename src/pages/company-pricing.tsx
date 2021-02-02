@@ -106,7 +106,7 @@ const CompanyPricing = ({ prefix }: Props) => {
 
 export default CompanyPricing;
 
-export const pageQuery = graphql`
+export const companyPricingPageQuery = graphql`
   query {
     startupIcon: imageSharp(fluid: { originalName: { regex: "/startup-icon.png/" } }) {
       fixed(height: 80) {

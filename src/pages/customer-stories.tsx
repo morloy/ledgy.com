@@ -17,7 +17,7 @@ const CustomerStories = ({ prefix, data }: Props) => {
       <PageHeader title={title} subtitle={description} />
 
       <ContentBody>
-        {data.allContentfulCustomerStory.edges.map(({ node }) => (
+        {data.allContentfulCustomerStory.edges.map(({ node }: { node: CustomerStoryBaseProps }) => (
           <CustomerStoryLink key={node.id} customerStory={node} prefix={prefix} />
         ))}
       </ContentBody>
@@ -27,7 +27,7 @@ const CustomerStories = ({ prefix, data }: Props) => {
 
 export default CustomerStories;
 
-export const pageQuery = graphql`
+export const customerStoriesPageQuery = graphql`
   query {
     ...DefaultCover
     allContentfulCustomerStory(sort: { order: DESC, fields: [date] }) {

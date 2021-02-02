@@ -8,7 +8,7 @@ export const OtherCustomerStories = ({
   customerStories,
   prefix,
 }: {
-  customerStories: CustomerStory[];
+  customerStories: AllContentfulCustomerStoryProps[];
   prefix: string;
 }) => {
   if (customerStories.length === 0) return null;

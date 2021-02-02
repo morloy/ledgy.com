@@ -3,7 +3,7 @@ declare type Language = 'en' | 'de' | 'fr';
 declare type Props = {
   prefix: string;
   lang: Language;
-  data: UntypedObject; // TS FIXME
+  data: UntypedObject;
 };
 
 declare type LocationProps = {
@@ -36,18 +36,6 @@ declare type Company = {
   sector: string;
   location: string;
   stage: string;
-};
-
-declare type CustomerStory = {
-  id: string;
-  title: string;
-  slug: string;
-  subtitle: string;
-  company: Company;
-  content: Mdx;
-  date: string;
-  language: Language;
-  author?: string;
 };
 
 declare const graphql: DisableTypeScript;
