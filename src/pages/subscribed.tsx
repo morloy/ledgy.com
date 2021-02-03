@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { PageHeader } from '../components/PageHeader';
+import { PageHeader, Button } from '../components';
 import { helpUrl } from '../helpers';
-import { Button } from '../components/Button';
 
 const Subscribed = () => (
   <>

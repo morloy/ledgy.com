@@ -1,9 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import { LongText } from '../components/LongText';
-import { PageHeader } from '../components/PageHeader';
-import { CompanySummary, OtherCustomerStories } from '../components/customerStories';
+import { LongText, PageHeader, CompanySummary, OtherCustomerStories } from '../components';
 import { Title, Hr } from '../layouts/utils';
 
 const CustomerStory = ({

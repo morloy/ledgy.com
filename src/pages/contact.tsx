@@ -2,7 +2,7 @@ import React from 'react';
 import { Trans, t } from '@lingui/macro';
 
 import { Title } from '../layouts/utils';
-import { PageHeader } from '../components/PageHeader';
+import { PageHeader } from '../components';
 import { helpUrl, targetBlank } from '../helpers';
 
 const Contact = () => (
