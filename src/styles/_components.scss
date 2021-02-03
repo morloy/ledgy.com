@@ -416,3 +416,23 @@ $deco-dot-size: 8px;
     opacity: 1;
   }
 }
+
+
+// Border with accent
+$border-width: 2px;
+$padding: 3rem;
+.left-border-with-accent {
+  padding-left: $padding;
+  border-left: $border-width solid $pale-energetic-blue;
+  .accent-border {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      left: calc(-#{$padding} - #{$border-width});
+      width: $border-width;
+      height: 100%;
+      background-color: $energetic-blue;
+    }
+  }
+}
