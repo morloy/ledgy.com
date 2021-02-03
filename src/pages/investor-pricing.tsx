@@ -3,10 +3,7 @@ import { Trans, t } from '@lingui/macro';
 
 import { Title } from '../layouts/utils';
 import { appUrl, INVESTOR_FEATURES } from '../helpers';
-import { PageHeader } from '../components/PageHeader';
-import { RequestDemoButton } from '../components/RequestDemoButton';
-import { Button } from '../components/Button';
-import { DynamicTrans } from '../components';
+import { PageHeader, RequestDemoButton, Button, DynamicTrans } from '../components';
 
 const { angelFeatures, fundFeatures } = INVESTOR_FEATURES;
 

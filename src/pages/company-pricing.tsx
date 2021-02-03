@@ -3,12 +3,9 @@ import { Trans, t } from '@lingui/macro';
 import { graphql } from 'gatsby';
 import { LedgyPricing } from '@ledgy/pricing/dist/LedgyPricing';
 
-import { Button } from '../components/Button';
 import { Title } from '../layouts/utils';
-import { RequestDemoButton } from '../components/RequestDemoButton';
 import { appUrl } from '../helpers';
-import { PageHeader } from '../components/PageHeader';
-import { DynamicTrans, dynamicI18n } from '../components/DynamicTrans';
+import { Button, RequestDemoButton, PageHeader, DynamicTrans, dynamicI18n } from '../components';
 
 const PricingCTA = ({ title, description }: { title: ReactNode; description: ReactNode }) => (
   <div className="col-12 col-lg-6 col-xl-4">

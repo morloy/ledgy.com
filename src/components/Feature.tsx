@@ -1,7 +1,7 @@
 import React from 'react';
 import type { GatsbyImageProps } from 'gatsby-image';
 
-import { DynamicTrans } from '../components/DynamicTrans';
+import { DynamicTrans } from '../components';
 import { ImageModal } from './ImageModal';
 
 export const Feature = ({

@@ -6,8 +6,7 @@ import { Trans, t } from '@lingui/macro';
 import { Title, Hr } from '../layouts/utils';
 import { getWholeTeam } from '../layouts/team';
 
-import { PageHeader } from '../components/PageHeader';
-import { TeamMembers, TeamDataProps } from '../components/TeamMembers';
+import { PageHeader, TeamMembers, TeamDataProps } from '../components';
 
 const Investor = ({
   name,

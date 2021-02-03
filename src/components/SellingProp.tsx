@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
 
-import { DynamicTrans, dynamicI18n } from '../components/DynamicTrans';
+import { DynamicTrans, dynamicI18n } from '../components';
 import { getUnderlineHtml } from './lib';
 
 export const SellingProp = ({

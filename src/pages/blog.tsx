@@ -2,9 +2,8 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { t } from '@lingui/macro';
 
-import { ContentBody, PostLink } from '../components/Content';
+import { ContentBody, PostLink, PageHeader } from '../components';
 import { Title } from '../layouts/utils';
-import { PageHeader } from '../components/PageHeader';
 
 const Blog = ({ data, prefix }: Props) => {
   const title = t`Blog`;

@@ -2,12 +2,16 @@ import { graphql } from 'gatsby';
 import { Trans } from '@lingui/macro';
 import React from 'react';
 
-import { DemoForm } from '../components/forms';
-import { ExternalLogoRow } from '../components/ExternalLogoRow';
-import { SellingProp } from '../components/SellingProp';
-import { CTABanner } from '../components/CTABanner';
 import { formatUrl } from '../components/lib';
-import { dynamicI18n, DynamicTrans } from '../components/DynamicTrans';
+import {
+  DemoForm,
+  ExternalLogoRow,
+  SellingProp,
+  CTABanner,
+  dynamicI18n,
+  DynamicTrans,
+} from '../components';
+
 import logoInvertedCompact from '../img/logo-inverted-compact.png';
 import { targetBlank } from '../helpers';
 

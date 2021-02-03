@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { LanguageHint } from '../components/Markdown';
+import { LanguageHint } from '../components';
 
 const DEFAULT_LANG = 'en';
 
