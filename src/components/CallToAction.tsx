@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 
-import { demoUrl, demoPage } from '../helpers';
+import { demoUrl, demoPage, targetBlank } from '../helpers';
 import { Button } from './Button';
 import { DynamicTrans } from './DynamicTrans';
 import { formatUrl } from './lib';
@@ -35,7 +35,7 @@ export const CallToAction = ({
                   <DynamicTrans>{demoButtonText}</DynamicTrans>
                 </Button>
               </Link>
-              <a href={demoUrl}>
+              <a href={demoUrl} {...targetBlank}>
                 <DynamicTrans>{tourLinkText}</DynamicTrans>
               </a>
             </div>
