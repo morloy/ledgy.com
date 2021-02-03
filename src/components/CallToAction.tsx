@@ -19,10 +19,10 @@ export const CallToAction = ({
   secondaryLinkText,
 }: { prefix: string } & CallToActionProps) => {
   return (
-    <section>
+    <section className="py-4 py-lg-7">
       <div className="container p-2">
         <div className="row">
-          <div className="col-md-8 pr-5">
+          <div className="col-md-8 mb-6 mb-md-0 pr-5">
             <h2 className="mb-4">
               <DynamicTrans>{header}</DynamicTrans>
             </h2>
