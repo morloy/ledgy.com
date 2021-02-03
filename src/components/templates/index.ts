@@ -1,4 +1,4 @@
-export * from './CallToAction';
+export * from './CallToActionEsop';
 export * from './Instructions';
 export * from './DigitalSignatures';
 export * from './TemplateFAQs';
