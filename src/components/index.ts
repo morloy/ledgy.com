@@ -1,6 +1,7 @@
 export * from './Accordion';
 export * from './Badge';
 export * from './Button';
+export * from './CallToAction';
 export * from './CalculatorHeader';
 export * from './CardLink';
 export * from './Content';

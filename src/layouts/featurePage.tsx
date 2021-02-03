@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import { PageHeader, dynamicI18n, Feature } from '../components';
 import { Title } from '../layouts/utils';
 
-declare type FeatureProps = {
+type FeatureProps = {
   id: string;
   title: string;
   description: string[];
