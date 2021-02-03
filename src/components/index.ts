@@ -44,3 +44,4 @@ export * from './TeamMembers';
 export * from './templates';
 export * from './TestimonialCards';
 export * from './TitleWithGraphic';
+export * from './Testimonial';
