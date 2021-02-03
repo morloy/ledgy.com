@@ -36,3 +36,40 @@ declare type CustomerStoryBaseProps = AllContentfulCustomerStoryProps & {
 };
 
 declare type CustomerStoryProps = CustomerStoryBaseProps & { content: Mdx; language: Language };
+
+declare type FeatureGridProps = {
+  header: string;
+  sections: { icon: Image; title: string; description: string }[];
+};
+
+declare type TestimonialCardProps = {
+  logo: Image;
+  text: string;
+  signature: string;
+  link: string;
+};
+
+declare type TitleWithGraphicProps = {
+  image: Image;
+  motivationText: string;
+  header: string;
+  description: string;
+};
+
+declare type ContentWithChecklistProps = {
+  header: string;
+  description: string;
+  linkText: string;
+  checklist: string[];
+};
+
+declare type CallToActionProps = {
+  header: string;
+  description: string;
+  demoButtonText: string;
+  tourLinkText: string;
+  icon: Image;
+  secondaryHeader: string;
+  secondaryDescription: string;
+  secondaryLinkText: string;
+};
