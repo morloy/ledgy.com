@@ -37,9 +37,11 @@ declare type CustomerStoryBaseProps = AllContentfulCustomerStoryProps & {
 
 declare type CustomerStoryProps = CustomerStoryBaseProps & { content: Mdx; language: Language };
 
-declare type FeatureGridProps = {
+declare type FeatureGridCardContentProps = { icon: any; title: string; description: string };
+
+declare type FeatureGridContentProps = {
   header: string;
-  sections: { icon: Image; title: string; description: string }[];
+  sections: FeatureGridCardContentProps[];
 };
 
 declare type TestimonialCardProps = {

@@ -11,6 +11,7 @@ import {
   G2AndCapterraStrip,
 } from '../components';
 import { CallToAction } from '../components';
+import { FeatureGrid } from '../components/FeatureGridCard';
 
 const DecoShapes = () => (
   <>
@@ -30,38 +31,32 @@ const CTA_DUMMY_DATA = {
   secondaryLinkText: 'Explore pricing',
 };
 
-const FeatureGridCard = ({ title, text }: { title: string; text: string }) => (
-  <div className="col-12 col-sm-6 col-md-3 container-fluid">
-    <img
-      src="https://images.g2crowd.com/uploads/report_medal/image/1239/medal.svg"
-      width={50}
-      alt="super good icon"
-    />
-    <h5 className="my-4">{title}</h5>
-    <p className="my-4 ">{text}</p>
-  </div>
-);
-
-const FeatureGrid = ({ header }: { header: string }) => (
-  <div className="container p-4 p-lg-7 selling-prop">
-    <h2 className="text-left text-weight-bold">{header}</h2>
-    <div className="row my-4 align-top">
-      <FeatureGridCard
-        title="Employee equity plans"
-        text="Attract retain and empower your employees with ownership"
-      />
-      <FeatureGridCard title="Scenario modeling" text="Predict the future in just a few clicks" />
-      <FeatureGridCard
-        title="Investor relations"
-        text="Impress investors with accurate financial models and transparent dashboard"
-      />
-      <FeatureGridCard
-        title="Flexible data reports"
-        text="Customize yourt tables to your needs and export what you want"
-      />
-    </div>
-  </div>
-);
+const GF_DUMMY_DATA = {
+  header: 'Feature packed flatform for company owners',
+  sections: [
+    {
+      icon: '',
+      title: 'Employee equity plans',
+      description: 'Attract retain and empower your employees with ownership',
+    },
+    {
+      icon: '',
+      title: 'Scenario modeling',
+      description:
+        'Predict the future in just a few clicks, with robust scenario and exit modelling ',
+    },
+    {
+      icon: '',
+      title: 'Investor relations',
+      description: 'Impress investors with accurate financial models and transparent dashboard',
+    },
+    {
+      icon: '',
+      title: 'Flexible data reports',
+      description: 'Customize yourt tables to your needs and export what you want',
+    },
+  ],
+};
 
 const IndexPage = (props: Props) => {
   const { data, prefix } = props;
@@ -99,7 +94,7 @@ const IndexPage = (props: Props) => {
       })}
       <CallToAction prefix={prefix} {...callToActionProps} />
       <G2AndCapterraStrip />
-      <FeatureGrid header={'Feature packed platform for company owners'} />
+      <FeatureGrid FeatureGridContent={GF_DUMMY_DATA} icon={data.countriesIcon} />
     </main>
   );
 };
