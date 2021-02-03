@@ -68,7 +68,7 @@ declare type CallToActionProps = {
   description: string;
   demoButtonText: string;
   tourLinkText: string;
-  icon: Image;
+  icon: DisableTypeScript; // FIXME Image
   secondaryHeader: string;
   secondaryDescription: string;
   secondaryLinkText: string;
