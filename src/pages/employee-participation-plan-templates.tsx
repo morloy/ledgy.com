@@ -9,7 +9,7 @@ import {
   TemplateFAQs,
   Testimonials,
   Instructions,
-  CallToAction,
+  CallToActionEsop,
   DigitalSignatures,
   Video,
   Button,
@@ -58,7 +58,7 @@ const esopTemplates = (props: Props) => {
       />
       <ContentBody>
         <Instructions />
-        <CallToAction />
+        <CallToActionEsop />
         <Testimonials data={data} />
         <Video />
         <TemplateFAQs />
