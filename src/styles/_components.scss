@@ -436,3 +436,19 @@ $padding: 3rem;
     }
   }
 }
+$small-padding: 1rem;
+.left-border-with-accent-small-padding {
+  padding-left: small-padding;
+  border-left: $border-width solid $pale-energetic-blue;
+  .accent-border {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      left: calc(-#{$small-padding} - #{$border-width});
+      width: $border-width;
+      height: 100%;
+      background-color: $energetic-blue;
+    }
+  }
+}
