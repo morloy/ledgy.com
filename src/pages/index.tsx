@@ -10,8 +10,7 @@ import {
   dynamicI18n,
   G2AndCapterraStrip,
 } from '../components';
-import { CallToAction } from '../components';
-import { FeatureGrid } from '../components/FeatureGrid';
+import { CallToAction, FeatureGrid } from '../components';
 
 const DecoShapes = () => (
   <>
@@ -94,7 +93,7 @@ const IndexPage = (props: Props) => {
       })}
       <CallToAction prefix={prefix} {...callToActionProps} />
       <G2AndCapterraStrip />
-      <FeatureGrid FeatureGridContent={GF_DUMMY_DATA} icon={data.countriesIcon} />
+      <FeatureGrid featureGridContent={GF_DUMMY_DATA} icon={data.countriesIcon} />
     </main>
   );
 };

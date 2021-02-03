@@ -12,6 +12,7 @@ export * from './DynamicTrans';
 export * from './Embed';
 export * from './ExternalLogoRow';
 export * from './Feature';
+export * from './FeatureGrid';
 export * from './Footer';
 export * from './forms';
 export * from './FullWidthBanner';
