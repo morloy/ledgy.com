@@ -11,7 +11,7 @@ import {
   G2AndCapterraStrip,
 } from '../components';
 import { CallToAction } from '../components';
-import { FeatureGrid } from '../components/FeatureGridCard';
+import { FeatureGrid } from '../components/FeatureGrid';
 
 const DecoShapes = () => (
   <>
