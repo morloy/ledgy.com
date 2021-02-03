@@ -8,9 +8,8 @@ import {
   SwissPartners,
   CollaborationBanner,
   UniqueSellingPropositions,
-} from '../components/partners';
-
-import { PageHeader } from '../components/PageHeader';
+  PageHeader,
+} from '../components';
 
 const Partners = ({ data }: Props) => (
   <>

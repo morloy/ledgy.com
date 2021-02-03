@@ -1,7 +1,7 @@
 import React from 'react';
 import Img from 'gatsby-image';
 
-import { DynamicTrans } from '../components/DynamicTrans';
+import { DynamicTrans } from '../components';
 import { targetBlank } from '../helpers';
 
 export const ExternalLogoRow = ({ title, logos }: ContentfulIndexEntry) =>

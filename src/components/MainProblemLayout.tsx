@@ -1,7 +1,7 @@
 import React from 'react';
 import Img from 'gatsby-image';
 
-import { DynamicTrans, dynamicI18n } from '../components/DynamicTrans';
+import { DynamicTrans, dynamicI18n } from '../components';
 import { getUnderlineHtml } from './lib';
 
 export const MainProblemLayout = ({ title, description, image }: ContentfulIndexEntry) => {

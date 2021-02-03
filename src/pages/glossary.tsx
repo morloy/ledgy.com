@@ -3,10 +3,8 @@ import { t } from '@lingui/macro';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-import { ContentBody } from '../components/Content';
-import { PageHeader } from '../components/PageHeader';
+import { Accordion, AccordionItem, ContentBody, PageHeader } from '../components';
 import { Title } from '../layouts/utils';
-import { Accordion, AccordionItem } from '../components/Accordion';
 
 type GlossaryEdge = { node: { description: Mdx; slug: string; title: string } };
 

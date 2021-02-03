@@ -2,10 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { t } from '@lingui/macro';
 
-import { ContentBody } from '../components/Content';
-import { PageHeader } from '../components/PageHeader';
-
-import { CustomerStoryLink } from '../components/customerStories';
+import { ContentBody, PageHeader, CustomerStoryLink } from '../components';
 import { Title } from '../layouts/utils';
 
 const CustomerStories = ({ prefix, data }: Props) => {

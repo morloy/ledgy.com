@@ -2,12 +2,14 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
-import { HomePageHeader } from '../components/HomePageHeader';
-import { MainProblemLayout } from '../components/MainProblemLayout';
-import { ExternalLogoRow } from '../components/ExternalLogoRow';
-import { SellingProp } from '../components/SellingProp';
-import { dynamicI18n } from '../components/DynamicTrans';
-import { G2AndCapterraStrip } from '../components/G2AndCapterraStrip';
+import {
+  HomePageHeader,
+  MainProblemLayout,
+  ExternalLogoRow,
+  SellingProp,
+  dynamicI18n,
+  G2AndCapterraStrip,
+} from '../components';
 
 const DecoShapes = () => (
   <>
