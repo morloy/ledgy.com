@@ -175,6 +175,7 @@ $small-width: 560px;
   overflow: hidden;
 }
 
-.card-border-radius {
+.card-border-style {
   border-radius: 10px;
+  box-shadow: $box-shadow-light;
 }

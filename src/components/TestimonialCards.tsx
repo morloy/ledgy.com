@@ -9,7 +9,7 @@ const TestimonialCard = ({ card }: { card: TestimonialCardProps }) => {
 
   return (
     <div className="col-12 mb-4 mb-xl-0 col-xl-6">
-      <div className="p-5 border border-gray-light card-border-radius h-100 d-flex flex-column justify-content-between">
+      <div className="p-5 card-border-style h-100 d-flex flex-column justify-content-between">
         <div>
           {!!childImageSharp && <Img {...childImageSharp} />}
           <p className="my-5">
