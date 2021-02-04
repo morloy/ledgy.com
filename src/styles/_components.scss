@@ -249,6 +249,16 @@ $deco-dot-size: 8px;
   }
 }
 
+.testimonial-image-wrapper{
+  height: 40px;
+  width: auto;
+}
+
+.testimonial-image {
+  height: 100%;
+  object-fit: cover;
+}
+
 .testimonial-description::before {
   content: '“';
   margin-left: -13px;

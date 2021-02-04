@@ -1,52 +1,44 @@
 import React from 'react';
-import { Icon } from './Icon';
+import Img from 'gatsby-image';
 
-declare type TestimonialCardContentProps = {
-  icon: IconType;
-  description: string;
-  name: string;
-  position: string;
-  link: string;
-  url: string;
-};
+const TestimonialCard = ({ card }: { card: TestimonialCardProps }) => {
+  const { logo, signature, text } = card;
+  const { localFile } = logo;
+  const { childImageSharp } = localFile || {};
 
-declare type TestimonialContentProps = TestimonialCardContentProps[];
+  const dummyUrl = 'hiddenBoost';
+  const dummyText =
+    'my textd sdfasd sdf asdf asdf asdf asd fasd fa sdf my textd sdfasd sdf asdf asdf asdf asd fasd fa sdf my textd sdfasd sdf asdf asdf asdf asd fasd fa sdf my textd sdfasd sdf asdf asdf asdf asd fasd fa sdf';
+  //    imgStyle={{ objectFit: 'contain' }}
 
-const TestimonialCard = ({
-  testimonialCardContent,
-}: {
-  testimonialCardContent: TestimonialCardContentProps;
-}) => {
-  const { description, name, position, link, url, icon } = testimonialCardContent;
   return (
     <div className="col-12 col-xl-6 p-3">
       <div className="col-12 p-5 testimonial-card">
-        <Icon icon={icon} />
-        <p className="my-5">{description}</p>
-        <p className="my-0 text-muted">{name}</p>
-        <div className="row">
-          <p className=" col-6 m-0 text-muted">{position}</p>
-          <div className="col-6 align-items-right text-right align-item-bottom">
-            <a href={url} className="my-0 link-right">
-              {`${link} >`}
-            </a>
-          </div>
+        <div className="testimonial-image-wrapper ">
+          {!!childImageSharp && (
+            <Img {...childImageSharp} className="testimonial-image img-responsive" />
+          )}
+        </div>
+        <p className="my-5">{text}</p>
+        <div className="row d-flex justify-content-between">
+          <p className="col-6 my-0 text-muted">{signature}</p>
+          <a href={dummyUrl} className="my-0 ">
+            {`Customer Story >`}
+          </a>
         </div>
       </div>
     </div>
   );
 };
 
-export const TestimonialGrid = ({
-  testimonialContent,
-}: {
-  testimonialContent: TestimonialContentProps;
-}) => {
-  const firstCard = testimonialContent[0];
+export const TestimonialGrid = ({ cards }: { cards: TestimonialCardProps[] }) => {
+  const firstCardContentful = cards[0];
+  console.log({ firstCardContentful });
   return (
     <div className="container p-4 d-flex">
-      <TestimonialCard testimonialCardContent={firstCard} />
-      <TestimonialCard testimonialCardContent={firstCard} />
+      {cards.map((v) => (
+        <TestimonialCard key={v.logo.title} card={v} />
+      ))}
     </div>
   );
 };
