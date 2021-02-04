@@ -78,10 +78,13 @@ declare type ContentWithChecklistProps = {
 declare type CallToActionProps = {
   header: string;
   description: string;
-  demoButtonText: string;
-  tourLinkText: string;
+  buttonText: string;
+  buttonPath: string;
+  externalLinkText: string;
+  externalLinkUrl: string;
   icon: IconType;
   secondaryHeader: string;
   secondaryDescription: string;
   secondaryLinkText: string;
+  secondaryLinkPath: string;
 };
