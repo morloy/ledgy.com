@@ -9,8 +9,6 @@ import {
   SellingProp,
   dynamicI18n,
   G2AndCapterraStrip,
-  TestimonialGrid,
-  FeatureGrid,
 } from '../components';
 
 const DecoShapes = () => (
@@ -20,49 +18,11 @@ const DecoShapes = () => (
   </>
 );
 
-const GF_DUMMY_DATA = {
-  header: 'Feature packed flatform for company owners',
-  sections: [
-    {
-      icon: 'hr' as IconType,
-      title: 'Employee equity plans',
-      description: 'Attract retain and empower your employees with ownership',
-    },
-    {
-      icon: 'chart' as IconType,
-      title: 'Scenario modeling',
-      description:
-        'Predict the future in just a few clicks, with robust scenario and exit modelling ',
-    },
-    {
-      icon: 'rocket' as IconType,
-      title: 'Investor relations',
-      description: 'Impress investors with accurate financial models and transparent dashboard',
-    },
-    {
-      icon: 'calculator' as IconType,
-      title: 'Flexible data reports',
-      description: 'Customize yourt tables to your needs and export what you want',
-    },
-  ],
-};
-
-const TTMN_DUMMY_DATA = [
-  {
-    icon: 'rocket' as IconType,
-    description:
-      'Employee participation plans are key to taking a startup to the next level. Ledgy provides us with the tools and services we need to really make use of it. It reduces our time and money spend significantly and our employees now report seeing much higher value in their participation plan.',
-    name: 'Fabian Wesemann',
-    position: 'CFO',
-    link: 'Customer Story',
-    url: 'ledgy.com',
-  },
-];
-
 const IndexPage = (props: Props) => {
   const { data, prefix } = props;
   const [content] = data.page.edges;
   const { title, entries } = content.node;
+  console.log({ entries });
 
   return (
     <main className="position-relative overflow-hidden">
@@ -73,7 +33,6 @@ const IndexPage = (props: Props) => {
       )}
       <DecoShapes />
       <HomePageHeader {...props} />
-
       {(entries as ContentfulIndexEntry[]).map((entry, index) => {
         const { __typename, id } = entry;
 
@@ -89,8 +48,6 @@ const IndexPage = (props: Props) => {
         return null;
       })}
       <G2AndCapterraStrip />
-      <FeatureGrid featureGridContent={GF_DUMMY_DATA} />
-      <TestimonialGrid testimonialContent={TTMN_DUMMY_DATA} />
     </main>
   );
 };
