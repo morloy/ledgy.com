@@ -28,7 +28,7 @@ const TestimonialCard = ({ card }: { card: TestimonialCardProps }) => {
 };
 
 export const TestimonialCards = ({ cards }: { cards: TestimonialCardProps[] }) => (
-  <div className="container p-4 d-flex">
+  <div className="container p-4">
     <div className="row">
       {cards.map((v) => (
         <TestimonialCard key={v.logo.title} card={v} />
