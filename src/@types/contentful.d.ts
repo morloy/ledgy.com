@@ -37,7 +37,18 @@ declare type CustomerStoryBaseProps = AllContentfulCustomerStoryProps & {
 
 declare type CustomerStoryProps = CustomerStoryBaseProps & { content: Mdx; language: Language };
 
-declare type FeatureGridCardContentProps = { icon: any; title: string; description: string };
+declare type IconType =
+  | 'calculator'
+  | 'chart'
+  | 'documents'
+  | 'hr'
+  | 'lock'
+  | 'map'
+  | 'moneybag'
+  | 'robot'
+  | 'rocket';
+
+declare type FeatureGridCardContentProps = { icon: IconType; title: string; description: string };
 
 declare type FeatureGridContentProps = {
   header: string;
@@ -70,7 +81,7 @@ declare type CallToActionProps = {
   description: string;
   demoButtonText: string;
   tourLinkText: string;
-  icon: DisableTypeScript; // FIXME Image
+  icon: IconType;
   secondaryHeader: string;
   secondaryDescription: string;
   secondaryLinkText: string;
