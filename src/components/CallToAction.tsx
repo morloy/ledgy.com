@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import Img from 'gatsby-image';
 
 import { demoUrl, demoPage, targetBlank } from '../helpers';
 import { Button } from './Button';
 import { DynamicTrans } from './DynamicTrans';
 import { formatUrl } from './lib';
+import { Icon } from './Icon';
 
 export const CallToAction = ({
   prefix,
@@ -41,7 +41,7 @@ export const CallToAction = ({
             </div>
           </div>
           <div className="col-md-4 left-border-with-accent">
-            <Img {...icon} className="mb-3" />
+            <Icon icon={icon} className="mb-3" height={50} width={50} />
             <div>
               <p className="accent-border font-weight-semi-bold mb-2">
                 <DynamicTrans>{secondaryHeader}</DynamicTrans>
