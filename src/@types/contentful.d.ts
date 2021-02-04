@@ -48,18 +48,17 @@ declare type IconType =
   | 'robot'
   | 'rocket';
 
-declare type FeatureGridCardContentProps = { icon: IconType; title: string; description: string };
+declare type FeatureGridSectionProps = { icon: IconType; title: string; description: string };
 
 declare type FeatureGridContentProps = {
   header: string;
-  sections: FeatureGridCardContentProps[];
+  sections: FeatureGridSectionProps[];
 };
 
 declare type TestimonialCardProps = {
   logo: Image;
   text: string;
   signature: string;
-  link: string;
 };
 
 declare type TitleWithGraphicProps = {
