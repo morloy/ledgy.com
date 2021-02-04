@@ -19,6 +19,7 @@ export * from './FullWidthBanner';
 export * from './G2AndCapterraStrip';
 export * from './HelmetIndexLayout';
 export * from './HomePageHeader';
+export * from './Icon';
 export * from './ImageModal';
 export * from './Loader';
 export * from './LongText';
