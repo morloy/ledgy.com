@@ -233,6 +233,11 @@ $deco-dot-size: 8px;
   height: 48px;
 }
 
+.testimonial-card {
+  border: 1px solid $gray-300 !important;
+  border-radius: 15px;
+}
+
 .testimonial {
   line-height: 1.8;
   small {
@@ -369,6 +374,7 @@ $deco-dot-size: 8px;
     width: 220px;
     height: 350px;
   }
+
 }
 
 .accordion > .card {
