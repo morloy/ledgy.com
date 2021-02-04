@@ -52,7 +52,7 @@ const HiddenBoostPage = (props: Props) => {
   );
 };
 
-export const indexPageQuery = graphql`
+export const hiddenBoostQuery = graphql`
   query {
     allContentfulTestimonialCards {
       edges {
@@ -68,7 +68,7 @@ export const indexPageQuery = graphql`
             logo {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 1000) {
+                  fluid(maxWidth: 150) {
                     ...GatsbyImageSharpFluid
                   }
                 }
