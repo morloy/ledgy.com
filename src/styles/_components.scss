@@ -436,35 +436,30 @@ $deco-dot-size: 8px;
 
 // Border with accent
 $border-width: 2px;
-$padding: 3rem;
+$padding-default: 1.25rem;
+$padding-lg: 3rem;
+@mixin getLeft($padding){
+ left: calc(-#{$padding} - #{$border-width});
+}
+
 .left-border-with-accent {
-  padding-left: $padding;
+  padding-left: $padding-default;
   border-left: $border-width solid $pale-energetic-blue;
   .accent-border {
     position: relative;
     &::before {
+      @include getLeft($padding-default);
       content: '';
       position: absolute;
-      left: calc(-#{$padding} - #{$border-width});
       width: $border-width;
       height: 100%;
       background-color: $energetic-blue;
     }
   }
-}
-$small-padding: 1rem;
-.left-border-with-accent-small-padding {
-  padding-left: small-padding;
-  border-left: $border-width solid $pale-energetic-blue;
-  .accent-border {
-    position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      left: calc(-#{$small-padding} - #{$border-width});
-      width: $border-width;
-      height: 100%;
-      background-color: $energetic-blue;
+  &-lg {
+    padding-left: $padding-lg;
+    .accent-border::before {
+      @include getLeft($padding-lg);
     }
   }
 }

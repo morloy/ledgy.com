@@ -9,14 +9,16 @@ const FeatureGridCard = ({
 }) => {
   const { title, description, icon } = featureGridSection;
   return (
-    <div className="col-12 col-sm-6 col-xl-3 left-border-with-accent-small-padding">
-      <Icon icon={icon} />
-      <h5 className="my-2 accent-border">
-        <DynamicTrans>{title}</DynamicTrans>
-      </h5>
-      <p className="my-2">
-        <DynamicTrans>{description}</DynamicTrans>
-      </p>
+    <div className="col-12 col-sm-6 col-xl-3">
+      <div className="left-border-with-accent">
+        <Icon icon={icon} />
+        <h5 className="my-2 accent-border">
+          <DynamicTrans>{title}</DynamicTrans>
+        </h5>
+        <p className="my-2">
+          <DynamicTrans>{description}</DynamicTrans>
+        </p>
+      </div>
     </div>
   );
 };
@@ -28,7 +30,7 @@ export const FeatureGrid = ({
 }) => {
   const { header, sections } = featureGridContent;
   return (
-    <div className="container p-4 p-lg-7">
+    <div className="container p-4">
       <h2 className="text-left text-weight-bold mb-4">
         <DynamicTrans>{header}</DynamicTrans>
       </h2>
