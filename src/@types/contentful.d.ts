@@ -57,7 +57,7 @@ declare type FeatureGridContentProps = {
 
 declare type TestimonialCardProps = {
   logo: Image;
-  text: string;
+  text: Mdx;
   signature: string;
 };
 
