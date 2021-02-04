@@ -11,7 +11,7 @@ const FeatureGridCard = ({
     <div className="col-12 col-sm-6 col-xl-3 left-border-with-accent-small-padding">
       <Icon icon={icon} />
       <h5 className="my-2 accent-border">{title}</h5>
-      <p className="my-2 ">{description}</p>
+      <p className="my-2">{description}</p>
     </div>
   );
 };
