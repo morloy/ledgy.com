@@ -8,15 +8,14 @@ const HiddenBoostPage = (props: Props) => {
     allContentfulCallToAction2021,
     allContentfulTestimonialCards,
   } = data;
-  const featureGridContent = allContentfulFeatureGrid.edges[0].node as FeatureGridContentProps;
-  const callToActionContent = allContentfulCallToAction2021.edges[0].node as CallToActionProps;
-  const testimonialContent = allContentfulTestimonialCards.edges[0].node as TestimonialCardProps[];
-
+  const featureGridContent: FeatureGridContentProps = allContentfulFeatureGrid.edges[0].node;
+  const callToActionContent: CallToActionProps = allContentfulCallToAction2021.edges[0].node;
+  const { cards }: { cards: TestimonialCardProps[] } = allContentfulTestimonialCards.edges[0].node;
   return (
     <>
       <CallToAction prefix={prefix} {...callToActionContent} />
       <FeatureGrid featureGridContent={featureGridContent} />
-      <TestimonialCards cards={testimonialContent} />
+      <TestimonialCards cards={cards} />
     </>
   );
 };
