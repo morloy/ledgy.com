@@ -1,22 +1,25 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import { demoUrl, demoPage, targetBlank } from '../helpers';
+import { targetBlank } from '../helpers';
 import { Button } from './Button';
 import { DynamicTrans } from './DynamicTrans';
 import { formatUrl } from './lib';
 import { Icon } from './Icon';
 
 export const CallToAction = ({
-  prefix,
   header,
   description,
-  demoButtonText,
-  tourLinkText,
+  buttonText,
+  buttonPath,
+  externalLinkText,
+  externalLinkUrl,
   icon,
   secondaryHeader,
   secondaryDescription,
   secondaryLinkText,
+  secondaryLinkPath,
+  prefix,
 }: { prefix: string } & CallToActionProps) => {
   return (
     <section className="py-4 py-lg-7">
@@ -30,13 +33,13 @@ export const CallToAction = ({
               <DynamicTrans>{description}</DynamicTrans>
             </p>
             <div className="d-flex align-items-center">
-              <Link to={`${prefix}${demoPage}`}>
+              <Link to={formatUrl(prefix, buttonPath)}>
                 <Button className="btn-xl mr-4">
-                  <DynamicTrans>{demoButtonText}</DynamicTrans>
+                  <DynamicTrans>{buttonText}</DynamicTrans>
                 </Button>
               </Link>
-              <a href={demoUrl} {...targetBlank}>
-                <DynamicTrans>{tourLinkText}</DynamicTrans>
+              <a href={externalLinkUrl} {...targetBlank}>
+                <DynamicTrans>{externalLinkText}</DynamicTrans>
               </a>
             </div>
           </div>
@@ -50,7 +53,7 @@ export const CallToAction = ({
             <p className="mb-2">
               <DynamicTrans>{secondaryDescription}</DynamicTrans>
             </p>
-            <Link to={formatUrl(prefix, 'company-pricing')}>
+            <Link to={formatUrl(prefix, secondaryLinkPath)}>
               <DynamicTrans>{secondaryLinkText}</DynamicTrans>
             </Link>
           </div>
