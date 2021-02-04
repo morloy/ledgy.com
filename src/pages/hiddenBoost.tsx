@@ -42,6 +42,7 @@ const GF_DUMMY_DATA = {
 
 const HiddenBoostPage = (props: Props) => {
   const { data, prefix } = props;
+  console.log({ data });
 
   return (
     <>
