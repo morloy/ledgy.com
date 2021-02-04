@@ -2,11 +2,11 @@ import React from 'react';
 import { Icon } from './Icon';
 
 const FeatureGridCard = ({
-  featureGridCardContent,
+  featureGridSection,
 }: {
-  featureGridCardContent: FeatureGridCardContentProps;
+  featureGridSection: FeatureGridSectionProps;
 }) => {
-  const { title, description, icon } = featureGridCardContent;
+  const { title, description, icon } = featureGridSection;
   return (
     <div className="col-12 col-sm-6 col-xl-3 left-border-with-accent-small-padding">
       <Icon icon={icon} />
@@ -27,7 +27,7 @@ export const FeatureGrid = ({
       <h2 className="text-left text-weight-bold mb-4">{header}</h2>
       <div className="row my-4 align-top">
         {sections.map((v) => (
-          <FeatureGridCard key={v.title} featureGridCardContent={v} />
+          <FeatureGridCard key={v.title} featureGridSection={v} />
         ))}
       </div>
     </div>
