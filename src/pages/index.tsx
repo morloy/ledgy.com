@@ -28,29 +28,30 @@ const CTA_DUMMY_DATA = {
   secondaryHeader: 'Know what you’ll get',
   secondaryDescription: 'Explore pricing plans available for different company sizes',
   secondaryLinkText: 'Explore pricing',
+  icon: 'map' as IconType,
 };
 
 const GF_DUMMY_DATA = {
   header: 'Feature packed flatform for company owners',
   sections: [
     {
-      icon: '',
+      icon: 'hr' as IconType,
       title: 'Employee equity plans',
       description: 'Attract retain and empower your employees with ownership',
     },
     {
-      icon: '',
+      icon: 'chart' as IconType,
       title: 'Scenario modeling',
       description:
         'Predict the future in just a few clicks, with robust scenario and exit modelling ',
     },
     {
-      icon: '',
+      icon: 'rocket' as IconType,
       title: 'Investor relations',
       description: 'Impress investors with accurate financial models and transparent dashboard',
     },
     {
-      icon: '',
+      icon: 'calculator' as IconType,
       title: 'Flexible data reports',
       description: 'Customize yourt tables to your needs and export what you want',
     },
@@ -61,11 +62,6 @@ const IndexPage = (props: Props) => {
   const { data, prefix } = props;
   const [content] = data.page.edges;
   const { title, entries } = content.node;
-  const callToActionProps = {
-    ...CTA_DUMMY_DATA,
-    icon: data.countriesIcon,
-  };
-  console.log({ data });
 
   return (
     <main className="position-relative overflow-hidden">
@@ -91,9 +87,9 @@ const IndexPage = (props: Props) => {
         }
         return null;
       })}
-      <CallToAction prefix={prefix} {...callToActionProps} />
+      <CallToAction prefix={prefix} {...CTA_DUMMY_DATA} />
       <G2AndCapterraStrip />
-      <FeatureGrid featureGridContent={GF_DUMMY_DATA} icon={data.countriesIcon} />
+      <FeatureGrid featureGridContent={GF_DUMMY_DATA} />
     </main>
   );
 };
@@ -102,11 +98,6 @@ export default IndexPage;
 
 export const indexPageQuery = graphql`
   query {
-    countriesIcon: imageSharp(fluid: { originalName: { regex: "/countries.png/" } }) {
-      fixed(width: 50, height: 50) {
-        ...GatsbyImageSharpFixed
-      }
-    }
     page: allContentfulFrontPage {
       edges {
         node {
