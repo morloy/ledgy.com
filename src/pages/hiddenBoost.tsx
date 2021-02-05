@@ -16,7 +16,9 @@ const HiddenBoostPage = (props: Props) => {
     allContentfulContentWithChecklist,
     allContentfulTitleWithGraphic,
   } = data;
-  console.log(allContentfulTitleWithGraphic);
+
+  console.log({ allContentfulTitleWithGraphic });
+
   const featureGridContent: FeatureGridContentProps = allContentfulFeatureGrid.edges[0].node;
   const callToActionContent: CallToActionProps = allContentfulCallToAction2021.edges[0].node;
   const { cards }: { cards: TestimonialCardProps[] } = allContentfulTestimonialCards.edges[0].node;
