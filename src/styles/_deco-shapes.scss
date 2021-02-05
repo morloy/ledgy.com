@@ -131,3 +131,32 @@
     }
    }
 }
+
+.tilted-background {
+  transform: rotate(8deg);
+  height: 150%;
+  width:120%;
+  left:50%;
+  margin-left: -10%;
+}
+
+.counter-tilted-background {
+  transform: rotate(-8deg);
+}
+
+.tilted-background-deco-one {
+  height: 10px;
+  width:40%;
+  border-radius: 0.25rem;
+  background-color:  $energetic-blue;
+}
+
+.tilted-background-deco-two {
+  height: 10px;
+  width:32%;
+  border-radius: 0.25rem;
+  background-color: $vibrant-green ;
+}
+
+
+
