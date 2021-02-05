@@ -1,5 +1,11 @@
 import React from 'react';
-import { CallToAction, ContentWithChecklist, FeatureGrid, TestimonialCards } from '../components';
+import {
+  CallToAction,
+  ContentWithChecklist,
+  FeatureGrid,
+  TitleWithGraphic,
+  TestimonialCards,
+} from '../components';
 
 const HiddenBoostPage = (props: Props) => {
   const { data, prefix } = props;
@@ -8,17 +14,22 @@ const HiddenBoostPage = (props: Props) => {
     allContentfulCallToAction2021,
     allContentfulTestimonialCards,
     allContentfulContentWithChecklist,
+    allContentfulTitleWithGraphic,
   } = data;
+  console.log(allContentfulTitleWithGraphic);
   const featureGridContent: FeatureGridContentProps = allContentfulFeatureGrid.edges[0].node;
   const callToActionContent: CallToActionProps = allContentfulCallToAction2021.edges[0].node;
   const { cards }: { cards: TestimonialCardProps[] } = allContentfulTestimonialCards.edges[0].node;
   const contentWithChecklist: ContentWithChecklistProps =
     allContentfulContentWithChecklist.edges[0].node;
+  const titleWithGraphicContent: TitleWithGraphicProps =
+    allContentfulTitleWithGraphic.edges[0].node;
 
   return (
     <>
       <FeatureGrid featureGridContent={featureGridContent} />
       <TestimonialCards cards={cards} />
+      <TitleWithGraphic {...titleWithGraphicContent} />;
       <FeatureGrid featureGridContent={featureGridContent} />
       <ContentWithChecklist {...contentWithChecklist} />
       <CallToAction prefix={prefix} {...callToActionContent} />
@@ -91,6 +102,21 @@ export const hiddenBoostQuery = graphql`
           linkText
           linkUrl
           checklist
+    allContentfulTitleWithGraphic {
+      edges {
+        node {
+          title
+          motivationText
+          description
+          graphic {
+            localFile {
+              childImageSharp {
+                fixed(height: 200) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
+          }
         }
       }
     }
