@@ -2,6 +2,7 @@ import React from 'react';
 import Img from 'gatsby-image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { Section } from './Section';
+import { DynamicTrans } from './DynamicTrans';
 
 const TestimonialCard = ({ card }: { card: TestimonialCardProps }) => {
   const { logo, signature, text, linkText, linkPath } = card;
@@ -19,7 +20,7 @@ const TestimonialCard = ({ card }: { card: TestimonialCardProps }) => {
         <div className="d-flex justify-content-between">
           <p className="my-0 text-muted">{signature}</p>
           <a href={linkPath} className="my-0 ">
-            {`${linkText} >`}
+            <DynamicTrans>{linkText}</DynamicTrans>
           </a>
         </div>
       </div>
