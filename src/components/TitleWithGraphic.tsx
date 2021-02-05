@@ -1,6 +1,7 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import { DynamicTrans } from './DynamicTrans';
+import { getUnderlineHtml } from './lib';
 
 export const TitleWithGraphic = ({
   title,
@@ -12,15 +13,16 @@ export const TitleWithGraphic = ({
 
   return (
     <div>
-      <div className="container bg-dark text-white p-4">
-        <div className="row">
-          <div className="col-xl-4">{!!childImageSharp && <Img {...childImageSharp} />}</div>
+      <div className="container bg-primary text-secondary position-relative z-index-base p-4">
+        <div className="row justify-content-center">
+          <div className="col-3">{!!childImageSharp && <Img {...childImageSharp} />}</div>
 
-          <div className="col-xl-8">
+          <div className="col-5">
             <p className="text-uppercase">{motivationText}</p>
-            <h2 className="mb-4">
-              <DynamicTrans>{title}</DynamicTrans>
-            </h2>
+            <h1
+              className="custom-underline my-4 font-weight-bold"
+              dangerouslySetInnerHTML={{ __html: getUnderlineHtml(title) }}
+            />
             <p>{description}</p>
           </div>
         </div>
