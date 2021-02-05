@@ -58,6 +58,8 @@ export const hiddenBoostQuery = graphql`
           cards {
             id
             signature
+            linkText
+            linkPath
             text {
               childMdx {
                 body
