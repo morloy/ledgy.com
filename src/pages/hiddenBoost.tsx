@@ -104,6 +104,9 @@ export const hiddenBoostQuery = graphql`
           linkText
           linkUrl
           checklist
+        }
+      }
+    }
     allContentfulTitleWithGraphic {
       edges {
         node {
