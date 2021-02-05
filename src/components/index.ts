@@ -5,6 +5,7 @@ export * from './CallToAction';
 export * from './CalculatorHeader';
 export * from './CardLink';
 export * from './Content';
+export * from './ContentWithChecklist';
 export * from './CTABanner';
 export * from './customerStories';
 export * from './Dropdown';

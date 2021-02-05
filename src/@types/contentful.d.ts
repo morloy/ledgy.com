@@ -64,9 +64,9 @@ declare type TestimonialCardProps = {
 };
 
 declare type TitleWithGraphicProps = {
-  image: Image;
+  title: string;
+  graphic: Image;
   motivationText: string;
-  header: string;
   description: string;
 };
 
@@ -74,6 +74,7 @@ declare type ContentWithChecklistProps = {
   header: string;
   description: string;
   linkText: string;
+  linkUrl: string;
   checklist: string[];
 };
 
