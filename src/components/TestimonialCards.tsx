@@ -12,9 +12,9 @@ const TestimonialCard = ({ card }: { card: TestimonialCardProps }) => {
       <div className="p-5 card-border-style h-100 d-flex flex-column justify-content-between">
         <div>
           {!!childImageSharp && <Img {...childImageSharp} />}
-          <p className="my-5">
+          <div className="my-5">
             <MDXRenderer>{text.childMdx.body}</MDXRenderer>
-          </p>
+          </div>
         </div>
         <div className="d-flex justify-content-between">
           <p className="my-0 text-muted">{signature}</p>
@@ -31,7 +31,7 @@ export const TestimonialCards = ({ cards }: { cards: TestimonialCardProps[] }) =
   <div className="container p-4">
     <div className="row">
       {cards.map((v) => (
-        <TestimonialCard key={v.logo.title} card={v} />
+        <TestimonialCard key={v.signature} card={v} />
       ))}
     </div>
   </div>
