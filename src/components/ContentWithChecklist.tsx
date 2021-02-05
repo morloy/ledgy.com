@@ -48,10 +48,10 @@ export const ContentWithChecklist = ({
       intervalCheck
     >
       <section ref={sectionRef} className="py-4 py-lg-7">
-        <div className="container p-4">
+        <div className="container my-4">
           <div className="row">
-            <div className="col-md-5">
-              <div className="d-flex flex-column">
+            <div className="col-md-6">
+              <div className="d-flex flex-column justify-content-center h-100">
                 <h2 className="mb-4">
                   <DynamicTrans>{header}</DynamicTrans>
                 </h2>
@@ -63,7 +63,7 @@ export const ContentWithChecklist = ({
                 </a>
               </div>
             </div>
-            <div className="col-md-7">
+            <div className="col-md-6">
               <div className="follow-along-line ml-4 d-flex">
                 <span style={{ height: liHeight, transform }} />
                 <ul className="pl-6 mb-0">

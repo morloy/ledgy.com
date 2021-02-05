@@ -1,6 +1,7 @@
 import React from 'react';
 import { DynamicTrans } from './DynamicTrans';
 import { Icon } from './Icon';
+import { Section } from './Section';
 
 const FeatureGridCard = ({
   featureGridSection,
@@ -30,8 +31,8 @@ export const FeatureGrid = ({
 }) => {
   const { header, sections } = featureGridContent;
   return (
-    <div className="container p-4">
-      <h2 className="text-left text-weight-bold mb-4">
+    <Section>
+      <h2 className="text-left text-weight-bold mb-5">
         <DynamicTrans>{header}</DynamicTrans>
       </h2>
       <div className="row my-4 align-top">
@@ -39,6 +40,6 @@ export const FeatureGrid = ({
           <FeatureGridCard key={v.title} featureGridSection={v} />
         ))}
       </div>
-    </div>
+    </Section>
   );
 };

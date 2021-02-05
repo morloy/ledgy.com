@@ -17,10 +17,11 @@ const HiddenBoostPage = (props: Props) => {
 
   return (
     <>
-      <CallToAction prefix={prefix} {...callToActionContent} />
       <FeatureGrid featureGridContent={featureGridContent} />
       <TestimonialCards cards={cards} />
+      <FeatureGrid featureGridContent={featureGridContent} />
       <ContentWithChecklist {...contentWithChecklist} />
+      <CallToAction prefix={prefix} {...callToActionContent} />
     </>
   );
 };
