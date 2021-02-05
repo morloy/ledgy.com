@@ -3,9 +3,8 @@ import Img from 'gatsby-image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 const TestimonialCard = ({ card }: { card: TestimonialCardProps }) => {
-  const { logo, signature, text } = card;
+  const { logo, signature, text, linkText, linkPath } = card;
   const { childImageSharp } = logo?.localFile || {};
-  const dummyUrl = 'hiddenBoost';
 
   return (
     <div className="col-12 mb-4 mb-xl-0 col-xl-6">
@@ -18,8 +17,8 @@ const TestimonialCard = ({ card }: { card: TestimonialCardProps }) => {
         </div>
         <div className="d-flex justify-content-between">
           <p className="my-0 text-muted">{signature}</p>
-          <a href={dummyUrl} className="my-0 ">
-            {`Customer Story >`}
+          <a href={linkPath} className="my-0 ">
+            {`${linkText} >`}
           </a>
         </div>
       </div>
