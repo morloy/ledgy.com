@@ -1,5 +1,5 @@
 import React from 'react';
-import { CallToAction, FeatureGrid, TestimonialCards } from '../components';
+import { CallToAction, ContentWithChecklist, FeatureGrid, TestimonialCards } from '../components';
 
 const HiddenBoostPage = (props: Props) => {
   const { data, prefix } = props;
@@ -7,19 +7,23 @@ const HiddenBoostPage = (props: Props) => {
     allContentfulFeatureGrid,
     allContentfulCallToAction2021,
     allContentfulTestimonialCards,
+    allContentfulContentWithChecklist,
   } = data;
   const featureGridContent: FeatureGridContentProps = allContentfulFeatureGrid.edges[0].node;
   const callToActionContent: CallToActionProps = allContentfulCallToAction2021.edges[0].node;
   const { cards }: { cards: TestimonialCardProps[] } = allContentfulTestimonialCards.edges[0].node;
+  const contentWithChecklist: ContentWithChecklistProps =
+    allContentfulContentWithChecklist.edges[0].node;
+
   return (
     <>
       <CallToAction prefix={prefix} {...callToActionContent} />
       <FeatureGrid featureGridContent={featureGridContent} />
       <TestimonialCards cards={cards} />
+      <ContentWithChecklist {...contentWithChecklist} />
     </>
   );
 };
-
 export const hiddenBoostQuery = graphql`
   query {
     allContentfulFeatureGrid {
@@ -75,6 +79,17 @@ export const hiddenBoostQuery = graphql`
               }
             }
           }
+        }
+      }
+    }
+    allContentfulContentWithChecklist {
+      edges {
+        node {
+          header
+          description
+          linkText
+          linkUrl
+          checklist
         }
       }
     }
