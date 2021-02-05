@@ -59,6 +59,8 @@ declare type TestimonialCardProps = {
   logo: Image;
   text: Mdx;
   signature: string;
+  linkText: string;
+  linkPath: string;
 };
 
 declare type TitleWithGraphicProps = {
