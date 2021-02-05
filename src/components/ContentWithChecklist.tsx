@@ -6,23 +6,23 @@ import VisibilitySensor from 'react-visibility-sensor';
 import { DynamicTrans } from './DynamicTrans';
 
 const handleScrollBehavior = (
-  ref: MutableRefObject<HTMLElement | null>,
+  sectionRef: MutableRefObject<HTMLElement | null>,
   setActiveIndex: (arg: number) => void,
-  indexCount: number
+  listCount: number
 ) => (isVisible: boolean) => {
   if (!isVisible) {
     window.onscroll = () => null;
     return;
   }
   window.onscroll = () => {
-    const { current } = ref || {};
+    const { current } = sectionRef || {};
     if (!current) return;
     const bounding = current.getBoundingClientRect();
     if (!bounding) return;
     const positionReference = window.innerHeight - bounding.bottom;
-    const interval = window.innerHeight / indexCount;
-    const index = Math.max(0, Math.round(positionReference / interval));
-    setActiveIndex(Math.min(index, indexCount - 1));
+    const interval = window.innerHeight / listCount;
+    const index = Math.max(0, Math.round(positionReference / interval) + 1);
+    setActiveIndex(Math.min(index, listCount - 1));
   };
 };
 
@@ -33,18 +33,21 @@ export const ContentWithChecklist = ({
   linkUrl,
   checklist,
 }: ContentWithChecklistProps) => {
-  const ref = useRef(null);
+  const sectionRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const indexCount = checklist.length;
+
+  const listCount = checklist.length;
+  const liHeight = '50px';
+  const transform = `translateX(-2px) translateY(${100 * activeIndex}%)`;
 
   return (
     <VisibilitySensor
-      onChange={handleScrollBehavior(ref, setActiveIndex, indexCount)}
+      onChange={handleScrollBehavior(sectionRef, setActiveIndex, listCount)}
       partialVisibility
       scrollCheck
       intervalCheck
     >
-      <section ref={ref} id="content-with-checklist" className="py-4 py-lg-7">
+      <section ref={sectionRef} className="py-4 py-lg-7">
         <div className="container p-4">
           <div className="row">
             <div className="col-md-5">
@@ -61,17 +64,20 @@ export const ContentWithChecklist = ({
               </div>
             </div>
             <div className="col-md-7">
-              <div className="border-left border-pale-energetic-blue ml-4">
-                <ul className="pl-6">
+              <div className="follow-along-line ml-4 d-flex">
+                <span style={{ height: liHeight, transform }} />
+                <ul className="pl-6 mb-0">
                   {checklist.map((point, i) => {
                     const isActive = activeIndex === i;
                     return (
-                      <li key={point} className="media mb-3 d-flex align-items-center">
+                      <li
+                        key={point}
+                        className="media d-flex align-items-center"
+                        style={{ height: liHeight }}
+                      >
                         <FontAwesomeIcon
                           icon={faCheck}
-                          className={`text-${
-                            isActive ? 'energetic-blue' : 'pale-energetic-blue'
-                          } mr-3 mt-1`}
+                          className={`icon ${isActive ? 'active' : ''} mr-3 mt-1`}
                           size="lg"
                         />
                         <DynamicTrans>{point}</DynamicTrans>

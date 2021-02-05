@@ -463,3 +463,21 @@ $padding-lg: 3rem;
     }
   }
 }
+
+// Content with checklist
+.follow-along-line {
+  border-left: 2px solid $pale-energetic-blue;
+  span {
+    width: 2px;
+    background-color: $energetic-blue;
+    transition: all 200ms;
+  }
+  .icon {
+    color: $pale-energetic-blue;
+    transition: all 200ms;
+    &.active {
+      color: $energetic-blue;
+      transition: all 200ms;
+    }
+  }
+}
