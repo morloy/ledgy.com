@@ -1,6 +1,6 @@
 import React from 'react';
 import Img from 'gatsby-image';
-import { dynamicI18n } from './DynamicTrans';
+import { dynamicI18n, DynamicTrans } from './DynamicTrans';
 import { getUnderlineHtml } from './lib';
 
 export const TitleWithGraphic = ({
@@ -21,12 +21,16 @@ export const TitleWithGraphic = ({
             </div>
 
             <div className="col-8 col-lg-5">
-              <p className="text-uppercase">{motivationText}</p>
+              <p>
+                <DynamicTrans>{motivationText.toUpperCase()}</DynamicTrans>
+              </p>
               <h1
                 className="custom-underline my-4 font-weight-bold"
                 dangerouslySetInnerHTML={{ __html: getUnderlineHtml(dynamicI18n(title)) }}
               />
-              <p>{description}</p>
+              <p>
+                <DynamicTrans>{description}</DynamicTrans>
+              </p>
             </div>
           </div>
         </div>
