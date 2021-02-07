@@ -14,10 +14,12 @@ export const TitleWithGraphic = ({
   return (
     <div className="tilted-background my-9">
       <div className="bg-primary text-secondary py-9 ">
-        <div className="container my-6">
+        <div className="container my-9">
           <div className="row justify-content-center counter-tilted-background">
             <div className="col-8 col-lg-3">
-              {!!childImageSharp && <Img {...childImageSharp} />}
+              <div className="float-lg-right">
+                {!!childImageSharp && <Img {...childImageSharp} />}
+              </div>
             </div>
 
             <div className="col-8 col-lg-5">
