@@ -133,28 +133,27 @@
 }
 
 .tilted-background {
-  transform: rotate(6deg);
-  height: 150%;
-  width:120%;
+  transform: rotate($background-rotate-degree);
+  width:120vw;
   left:50%;
   margin-left: -10%;
 }
 
 .counter-tilted-background {
-  transform: rotate(-6deg);
+  transform: rotate(-$background-rotate-degree);
 }
 
 .tilted-background-deco-one {
   height: 10px;
   width:40%;
-  border-radius: 0.25rem;
+  border-radius: $deco-line-radius;
   background-color:  $energetic-blue;
 }
 
 .tilted-background-deco-two {
   height: 10px;
   width:32%;
-  border-radius: 0.25rem;
+  border-radius: $deco-line-radius;
   background-color: $vibrant-green ;
 }
 
