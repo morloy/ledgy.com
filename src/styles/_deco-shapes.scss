@@ -131,3 +131,34 @@
     }
    }
 }
+
+.tilted-background {
+  transform: rotate($background-rotate-degree);
+  top: 0;
+  left: -10vw;
+  width: 120vw;
+  height: 100%;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    height: 10px;
+    width: 40%;
+    border-radius: $deco-line-radius;
+    background-color:  $energetic-blue;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    height: 10px;
+    width: 32%;
+    border-radius: $deco-line-radius;
+    background-color:  $vibrant-green;
+    z-index: 5;
+   }
+  }
+
+
+
+
