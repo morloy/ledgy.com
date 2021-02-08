@@ -1,0 +1,26 @@
+import React from 'react';
+import Img from 'gatsby-image';
+import { Section } from './Section';
+
+const Logo = ({ logo }: { logo: Image }) => {
+  const { childImageSharp } = logo?.localFile || {};
+  return (
+    <div className="col-12 col-sm-6 col-md-4 col-xl-2 my-2 d-flex justify-content-center align-items-center">
+      {' '}
+      {!!childImageSharp && <Img {...childImageSharp} />}
+    </div>
+  );
+};
+
+export const LogoBanner = ({ logoBannerContent }: { logoBannerContent: LogoBannerProps }) => {
+  const { logos } = logoBannerContent;
+  return (
+    <Section>
+      <div className="row align-items-center justify-content-around">
+        {logos.map((v) => (
+          <Logo logo={v} key={v.title} />
+        ))}
+      </div>
+    </Section>
+  );
+};
