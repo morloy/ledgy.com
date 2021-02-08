@@ -5,6 +5,7 @@ import {
   FeatureGrid,
   TitleWithGraphic,
   TestimonialCards,
+  LogoBanner,
 } from '../components';
 
 const HiddenBoostPage = (props: Props) => {
@@ -15,6 +16,7 @@ const HiddenBoostPage = (props: Props) => {
     allContentfulTestimonialCards,
     allContentfulContentWithChecklist,
     allContentfulTitleWithGraphic,
+    allContentfulLogoBanner,
   } = data;
 
   const featureGridContent: FeatureGridContentProps = allContentfulFeatureGrid.edges[0].node;
@@ -24,9 +26,11 @@ const HiddenBoostPage = (props: Props) => {
     allContentfulContentWithChecklist.edges[0].node;
   const titleWithGraphicContent: TitleWithGraphicProps =
     allContentfulTitleWithGraphic.edges[0].node;
+  const logoBannerContent: LogoBannerProps = allContentfulLogoBanner.edges[0].node;
 
   return (
     <>
+      <LogoBanner logoBannerContent={logoBannerContent} />
       <FeatureGrid featureGridContent={featureGridContent} />
       <TestimonialCards cards={cards} />
       <TitleWithGraphic {...titleWithGraphicContent} />
@@ -115,6 +119,21 @@ export const hiddenBoostQuery = graphql`
             localFile {
               childImageSharp {
                 fixed(height: 225) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    allContentfulLogoBanner {
+      edges {
+        node {
+          logos {
+            localFile {
+              childImageSharp {
+                fixed(width: 150) {
                   ...GatsbyImageSharpFixed
                 }
               }
