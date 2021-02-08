@@ -167,6 +167,10 @@ $small-width: 560px;
   z-index: $zindex-base;
 }
 
+.z-index-background {
+  z-index: -2;
+}
+
 .z-index-deco {
   z-index: $zindex-deco-shape;
 }
