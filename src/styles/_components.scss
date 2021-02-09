@@ -488,7 +488,7 @@ $padding-lg: 3rem;
   transition: all 200ms;
   &:hover {
     transition: all 200ms;
-    background-color: $gray-100;
+    background-color: $gray-050 !important;
   }
 }
 
@@ -502,5 +502,19 @@ $padding-lg: 3rem;
     width: 2px;
     background-color: $energetic-blue;
     transition: all 200ms;
+  }
+}
+
+.screenshot {
+  box-shadow: $box-shadow-light;
+  position: relative;
+  z-index: $zindex-base;
+  border-radius: 8px;
+  height: 100%;
+  &.gatsby-image-wrapper {
+    position: static !important;
+  }
+  img {
+    border-radius: 8px;
   }
 }
