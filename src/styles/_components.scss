@@ -510,10 +510,6 @@ $padding-lg: 3rem;
   position: relative;
   z-index: $zindex-base;
   border-radius: 8px;
-  height: 100%;
-  & .gatsby-image-wrapper {
-    position: static !important;
-  }
   img {
     border-radius: 8px;
   }
