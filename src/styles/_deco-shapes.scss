@@ -133,6 +133,7 @@
 }
 
 .tilted-background {
+  will-change: transform;
   transform: rotate($background-rotate-degree);
   top: 0;
   left: -10vw;

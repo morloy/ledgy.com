@@ -21,7 +21,7 @@ const SelectableCard = ({
 }) => {
   const ref = useRef(null);
   const isActive = activeIndex === index;
-  const backgroundColor = isActive ? 'bg-light' : 'bg-transparent';
+  const backgroundColor = isActive ? 'bg-lightest' : 'bg-transparent';
 
   const observer = new ResizeObserver((entries) => {
     entries.forEach((v) => {
@@ -60,7 +60,7 @@ export const SelectableCardsWithScreenshots = ({
 
   return (
     <Section>
-      <h2>
+      <h2 className="mb-5 text-center">
         <DynamicTrans>{title}</DynamicTrans>
       </h2>
       <div className="row">
@@ -69,7 +69,7 @@ export const SelectableCardsWithScreenshots = ({
             const { childImageSharp } = v.screenshot.localFile || {};
             const isActive = activeIndex === i;
             return (
-              <div key={`img-${v.header}`} className={isActive ? '' : 'd-none'}>
+              <div key={`img-${v.header}`} className={`screenshot ${isActive ? '' : 'd-none'}`}>
                 {!!childImageSharp && <Img {...childImageSharp} />}
               </div>
             );
