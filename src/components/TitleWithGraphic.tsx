@@ -16,7 +16,7 @@ export const TitleWithGraphic = ({
     <Section className="position-relative">
       <div className="bg-primary position-absolute tilted-background z-index-background"></div>
       <div className="row justify-content-center">
-        <div className="col-lg-4 d-flex align-items-center justify-content-end">
+        <div className="col-lg-4 d-flex align-items-center justify-content-center justify-content-md-end">
           {!!childImageSharp && <Img {...childImageSharp} />}
         </div>
 
