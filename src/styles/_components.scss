@@ -99,7 +99,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100%;
     background-color: $vibrant-green;
     border-radius: $border-radius;
-    z-index: -1;
+    z-index: 1;
   }
 }
 
@@ -513,4 +513,20 @@ $padding-lg: 3rem;
   img {
     border-radius: 8px;
   }
+}
+
+
+// Page wrappers
+@mixin gray-deco-shape() {
+  background-image: url("../img/svg/gray-deco-shape.svg");
+  background-repeat: no-repeat;
+}
+.main-wrapper-1 {
+ @include gray-deco-shape;
+  background-position: -10% 25%;
+}
+
+.main-wrapper-2 {
+ @include gray-deco-shape;
+  background-position: 50% 90%;
 }
