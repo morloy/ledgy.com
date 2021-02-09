@@ -50,7 +50,7 @@ export const ContentWithChecklist = ({
       <section ref={sectionRef} className="py-4 py-lg-7">
         <div className="container my-4">
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-6 mb-4 mb-md-0">
               <div className="d-flex flex-column justify-content-center h-100">
                 <h2 className="mb-4">
                   <DynamicTrans>{header}</DynamicTrans>
@@ -66,7 +66,7 @@ export const ContentWithChecklist = ({
             <div className="col-md-6">
               <div className="follow-along-line ml-4 d-flex">
                 <span style={{ height: liHeight, transform }} />
-                <ul className="pl-6 mb-0">
+                <ul className="pl-4 pl-md-6 mb-0">
                   {checklist.map((point, i) => {
                     const isActive = activeIndex === i;
                     return (

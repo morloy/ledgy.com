@@ -29,7 +29,7 @@ const HiddenBoostPage = (props: Props) => {
   const logoBannerContent: LogoBannerProps = allContentfulLogoBanner.edges[0].node;
 
   return (
-    <>
+    <main className="overflow-hidden">
       <LogoBanner logoBannerContent={logoBannerContent} />
       <FeatureGrid featureGridContent={featureGridContent} />
       <TestimonialCards cards={cards} />
@@ -37,7 +37,7 @@ const HiddenBoostPage = (props: Props) => {
       <FeatureGrid featureGridContent={featureGridContent} />
       <ContentWithChecklist {...contentWithChecklist} />
       <CallToAction prefix={prefix} {...callToActionContent} />
-    </>
+    </main>
   );
 };
 export const hiddenBoostQuery = graphql`
@@ -131,9 +131,11 @@ export const hiddenBoostQuery = graphql`
       edges {
         node {
           logos {
+            title
+            description
             localFile {
               childImageSharp {
-                fixed(width: 150) {
+                fixed(width: 130) {
                   ...GatsbyImageSharpFixed
                 }
               }

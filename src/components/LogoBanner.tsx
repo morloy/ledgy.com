@@ -5,9 +5,15 @@ import { Section } from './Section';
 const Logo = ({ logo }: { logo: Image }) => {
   const { childImageSharp } = logo?.localFile || {};
   return (
-    <div className="col-12 col-sm-6 col-md-4 col-xl-2 my-2 d-flex justify-content-center align-items-center">
-      {' '}
-      {!!childImageSharp && <Img {...childImageSharp} />}
+    <div className="col-12 col-sm-6 col-md-4 col-xl-2 my-2">
+      {!!childImageSharp && (
+        <div
+          className="d-flex align-items-center justify-content-center"
+          style={{ minHeight: '70px' }}
+        >
+          <Img {...childImageSharp} />
+        </div>
+      )}
     </div>
   );
 };
@@ -18,7 +24,7 @@ export const LogoBanner = ({ logoBannerContent }: { logoBannerContent: LogoBanne
     <Section>
       <div className="row align-items-center justify-content-around">
         {logos.map((v) => (
-          <Logo logo={v} key={v.title} />
+          <Logo logo={v} key={`logo-banner-${v.title}`} />
         ))}
       </div>
     </Section>
