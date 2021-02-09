@@ -23,7 +23,7 @@ export const MainHeaderLayout = ({
   image,
   className = 'bg-primary',
   titleClassName = 'text-white',
-  subtitleClassName = 'text-lg font-weight-light ',
+  subtitleClassName = 'text-lg font-weight-light line-height-lg',
 }: MainHeaderLayoutProps) => (
   <header className={`header d-flex home-banner px-1 text-left ${className}`}>
     <div className="container my-auto position-relative z-index-base">
@@ -31,7 +31,7 @@ export const MainHeaderLayout = ({
         <div className="col-xl-5 d-flex flex-column justify-content-center">
           <div className="mb-md-4">
             <h1 className={`${titleClassName} mt-4 mb-2 mb-sm-3`}>{title}</h1>
-            <div className={`${subtitleClassName} line-height-lg  pb-3`}>{subtitle}</div>
+            <div className={`${subtitleClassName} pb-3`}>{subtitle}</div>
           </div>
           <div className="d-flex align-items-center flex-wrap mb-2 mb-lg-4 mb-xl-0">
             {buttonOne}
