@@ -6,6 +6,7 @@ import {
   TitleWithGraphic,
   TestimonialCards,
   LogoBanner,
+  SelectableCardsWithScreenshots,
 } from '../components';
 
 const HiddenBoostPage = (props: Props) => {
@@ -17,6 +18,7 @@ const HiddenBoostPage = (props: Props) => {
     allContentfulContentWithChecklist,
     allContentfulTitleWithGraphic,
     allContentfulLogoBanner,
+    allContentfulSelectableCardsWithScreenshots,
   } = data;
 
   const featureGridContent: FeatureGridContentProps = allContentfulFeatureGrid.edges[0].node;
@@ -27,11 +29,14 @@ const HiddenBoostPage = (props: Props) => {
   const titleWithGraphicContent: TitleWithGraphicProps =
     allContentfulTitleWithGraphic.edges[0].node;
   const logoBannerContent: LogoBannerProps = allContentfulLogoBanner.edges[0].node;
+  const selectableCardsWithScreenshots: SelectableCardsWithScreenshotsProps =
+    allContentfulSelectableCardsWithScreenshots.edges[0].node;
 
   return (
     <main className="overflow-hidden">
       <LogoBanner logoBannerContent={logoBannerContent} />
       <FeatureGrid featureGridContent={featureGridContent} />
+      <SelectableCardsWithScreenshots {...selectableCardsWithScreenshots} />
       <TestimonialCards cards={cards} />
       <TitleWithGraphic {...titleWithGraphicContent} />
       <FeatureGrid featureGridContent={featureGridContent} />
@@ -137,6 +142,27 @@ export const hiddenBoostQuery = graphql`
               childImageSharp {
                 fixed(width: 130) {
                   ...GatsbyImageSharpFixed
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    allContentfulSelectableCardsWithScreenshots {
+      edges {
+        node {
+          title
+          content {
+            id
+            header
+            description
+            screenshot {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1000, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                  }
                 }
               }
             }

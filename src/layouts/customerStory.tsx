@@ -23,10 +23,10 @@ const CustomerStory = ({
     <div>
       <Title title={title} description={subtitle} />
       <PageHeader lang={lang} documentLang={language} title={title} subtitle={subtitle} />
-      <main className="main-content">
+      <main>
         <section className="section ">
           <div className="container container-medium">
-            <div className="customer-story-section row">
+            <div className="row">
               <div className="col-md-4 mb-6">
                 <CompanySummary company={company} prefix={prefix} />
               </div>
