@@ -515,7 +515,6 @@ $padding-lg: 3rem;
   }
 }
 
-
 // Page wrappers
 @mixin gray-deco-shape() {
   background-image: url("../img/svg/gray-deco-shape.svg");
@@ -525,8 +524,8 @@ $padding-lg: 3rem;
  @include gray-deco-shape;
   background-position: -10% 25%;
 }
-
 .main-wrapper-2 {
  @include gray-deco-shape;
   background-position: 50% 90%;
 }
+

@@ -199,8 +199,8 @@
       @include media-breakpoint-up(xl){
         width: 0.8*$new-top-deco-one-width;
         height: 0.8*$new-top-deco-one-height;
-        left: 32%;
-        top: 16%;
+        left: 36%;
+        top: 24%;
       }
     }
     &--two {
@@ -221,7 +221,7 @@
       @include media-breakpoint-up(xl){
         width: 0.8*$new-top-deco-two-width;
         height: 0.8*$new-top-deco-two-height;
-        left: 38%;
+        left: 42%;
         top: 40%;
       }
     }

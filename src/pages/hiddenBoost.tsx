@@ -189,7 +189,7 @@ export const hiddenBoostQuery = graphql`
           image {
             localFile {
               childImageSharp {
-                fluid(maxWidth: 700, quality: 100) {
+                fluid(maxWidth: 800, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
