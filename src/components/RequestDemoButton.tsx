@@ -1,21 +1,23 @@
 import React from 'react';
-import { Trans } from '@lingui/macro';
 import { Link } from 'gatsby';
 
 import { Button } from './Button';
 import { demoPage } from '../helpers';
+import { DynamicTrans } from './DynamicTrans';
 
 export const RequestDemoButton = ({
   buttonClassName,
   prefix,
   location,
+  buttonText = 'Book a Demo',
 }: {
   buttonClassName: string;
   prefix: string;
   location?: LocationProps;
+  buttonText?: string;
 }) => {
   const isDemoPage = !!location && location.pathname.includes('demo');
-  const ButtonText = <Trans>Book a Demo</Trans>;
+  const ButtonText = <DynamicTrans>{buttonText}</DynamicTrans>;
 
   return isDemoPage ? (
     <Button
@@ -34,9 +36,7 @@ export const RequestDemoButton = ({
   ) : (
     <>
       <Link to={`${prefix}${demoPage}`}>
-        <Button cta className={buttonClassName}>
-          {ButtonText}
-        </Button>
+        <Button className={buttonClassName}>{ButtonText}</Button>
       </Link>
     </>
   );

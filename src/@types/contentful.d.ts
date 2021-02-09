@@ -106,3 +106,13 @@ declare type SelectableCardsWithScreenshotsProps = {
   title: string;
   content: SelectableCardWithScreenshotProps[];
 };
+
+declare type TopBannerProps = {
+  mainHeader: string;
+  description: string;
+  firstButtonText: string;
+  firstButtonUrl: string;
+  secondButtonText: string;
+  secondButtonUrl: string;
+  image: Image;
+};
