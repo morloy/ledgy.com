@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Img from 'gatsby-image';
 
 import { DynamicTrans } from './DynamicTrans';
@@ -10,17 +10,33 @@ const SelectableCard = ({
   index,
   activeIndex,
   setActiveIndex,
+  setHeight,
 }: {
   header: string;
   description: string;
   index: number;
   activeIndex: number;
   setActiveIndex: (i: number) => void;
+  setHeight: (i: number) => void;
 }) => {
+  const ref = useRef(null);
   const isActive = activeIndex === index;
   const backgroundColor = isActive ? 'bg-light' : 'bg-transparent';
+
+  const observer = new ResizeObserver((entries) => {
+    entries.forEach((v) => {
+      setHeight(v.target.clientHeight);
+    });
+  });
+
+  useEffect(() => {
+    const card = ref.current;
+    if (card) observer.observe(card);
+  }, [activeIndex]);
+
   return (
     <div
+      ref={ref}
       onClick={() => setActiveIndex(index)}
       className={`selectable-card flex-1 d-flex flex-column justify-content-center p-4 ${backgroundColor}`}
     >
@@ -39,11 +55,7 @@ export const SelectableCardsWithScreenshots = ({
   content,
 }: SelectableCardsWithScreenshotsProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const cardsRef = useRef(null);
-  const cardCount = content.length;
-  const defaultHeight = 150;
-  const { current } = (cardsRef as MutableRefObject<null | HTMLElement>) || {};
-  const cardHeight = current ? current.offsetHeight / cardCount : defaultHeight;
+  const [height, setHeight] = useState(0);
   const transform = `translateY(${100 * activeIndex}%)`;
 
   return (
@@ -65,15 +77,16 @@ export const SelectableCardsWithScreenshots = ({
         </div>
         <div className="col-lg-4 pl-lg-0">
           <div className="fluid-border-right h-100">
-            <span style={{ height: `${cardHeight}px`, transform }} />
-            <div ref={cardsRef} className="d-flex flex-column h-100">
+            <span style={{ height: `${height}px`, transform }} />
+            <div className="d-flex flex-column h-100">
               {content.map((v, i) => (
                 <SelectableCard
-                  key={v.header}
                   {...v}
+                  key={v.header}
                   index={i}
                   activeIndex={activeIndex}
                   setActiveIndex={setActiveIndex}
+                  setHeight={setHeight}
                 />
               ))}
             </div>
