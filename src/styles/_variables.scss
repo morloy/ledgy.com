@@ -30,9 +30,11 @@ $theme-colors: (
   "info": $energetic-blue,
   "success": $vibrant-green,
   "danger": $highlight-red,
+  "gray-light":$gray-100,
   "gray-neutral": $gray-500,
   "black": black,
   "lightest": $gray-050,
+  "gray-dark": $gray-700,
 );
 
 $box-shadow:                        0 8px 16px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
