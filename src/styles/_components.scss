@@ -480,3 +480,27 @@ $padding-lg: 3rem;
     }
   }
 }
+
+
+// Selectable card
+.selectable-card {
+  cursor: pointer;
+  transition: all 200ms;
+  &:hover {
+    transition: all 200ms;
+    background-color: $gray-100;
+  }
+}
+
+.fluid-border-right {
+  position: relative;
+  transition: all 200ms;
+  border-right: 2px solid $pale-energetic-blue;
+  span {
+    position: absolute;
+    right: -2px;
+    width: 2px;
+    background-color: $energetic-blue;
+    transition: all 200ms;
+  }
+}
