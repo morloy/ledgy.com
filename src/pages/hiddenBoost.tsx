@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import {
   CallToAction,
   ContentWithChecklist,
@@ -33,15 +34,17 @@ const HiddenBoostPage = (props: Props) => {
     allContentfulSelectableCardsWithScreenshots.edges[0].node;
 
   return (
-    <main className="overflow-hidden">
-      <LogoBanner logoBannerContent={logoBannerContent} />
-      <FeatureGrid featureGridContent={featureGridContent} />
-      <SelectableCardsWithScreenshots {...selectableCardsWithScreenshots} />
-      <TestimonialCards cards={cards} />
-      <TitleWithGraphic {...titleWithGraphicContent} />
-      <FeatureGrid featureGridContent={featureGridContent} />
-      <ContentWithChecklist {...contentWithChecklist} />
-      <CallToAction prefix={prefix} {...callToActionContent} />
+    <main className="main-wrapper-1 overflow-hidden">
+      <div className="main-wrapper-2">
+        <LogoBanner logoBannerContent={logoBannerContent} />
+        <FeatureGrid featureGridContent={featureGridContent} />
+        <SelectableCardsWithScreenshots {...selectableCardsWithScreenshots} />
+        <TestimonialCards cards={cards} />
+        <TitleWithGraphic {...titleWithGraphicContent} />
+        <FeatureGrid featureGridContent={featureGridContent} />
+        <ContentWithChecklist {...contentWithChecklist} />
+        <CallToAction prefix={prefix} {...callToActionContent} />
+      </div>
     </main>
   );
 };
