@@ -6,6 +6,19 @@ import { DynamicTrans } from './DynamicTrans';
 import { t } from '@lingui/macro';
 import { MainHeaderLayout } from './MainHeaderLayout';
 
+const RequestDemo = ({ text, prefix }: { text: string; prefix: string }) => (
+  <RequestDemoButton
+    prefix={prefix}
+    buttonText={text}
+    buttonClassName="my-sm-0 my-2 btn-xl d-inline mx-1"
+  />
+);
+const CustomButton = ({ url, text }: { url: string; text: string }) => (
+  <Button href={url} className="btn-xl mx-1 my-1 align-self-center" inverted outline>
+    <DynamicTrans>{text}</DynamicTrans>
+  </Button>
+);
+
 export const TopBanner = ({
   topBannerContent,
   prefix,
@@ -26,19 +39,6 @@ export const TopBanner = ({
   const { childImageSharp } = image?.localFile || {};
   const requestDemoLink = 'ledgy.com/demo/ledgy';
 
-  const RequestDemo = ({ text }: { text: string }) => (
-    <RequestDemoButton
-      prefix={prefix}
-      buttonText={text}
-      buttonClassName="my-sm-0 my-2 btn-xl d-inline mx-1"
-    />
-  );
-  const CustomButton = ({ url, text }: { url: string; text: string }) => (
-    <Button href={url} className="btn-xl mx-1 my-1 align-self-center" inverted outline>
-      <DynamicTrans>{text}</DynamicTrans>
-    </Button>
-  );
-
   return (
     <div>
       <MainHeaderLayout
@@ -49,20 +49,20 @@ export const TopBanner = ({
         subtitleClassName="text-gray-dark"
         buttonOne={
           firstButtonUrl.includes(requestDemoLink) ? (
-            <RequestDemo text={firstButtonText} />
+            <RequestDemo text={firstButtonText} prefix={prefix} />
           ) : (
             <CustomButton url={firstButtonUrl} text={firstButtonText} />
           )
         }
         buttonTwo={
           secondButtonUrl.includes(requestDemoLink) ? (
-            <RequestDemo text={secondButtonText} />
+            <RequestDemo text={secondButtonText} prefix={prefix} />
           ) : (
             <CustomButton url={secondButtonUrl} text={secondButtonText} />
           )
         }
         image={
-          <div id="laptop-ledgy" className="mt-sm-4 mt-xl-0 p-0 p-xl-5">
+          <div id="laptop-ledgy " className="mt-sm-4 mt-xl-0 p-0 top-banner-screenshot">
             {!!childImageSharp && <Img {...childImageSharp} alt={t`Screenshot of the Ledgy app`} />}
           </div>
         }
@@ -76,6 +76,3 @@ export const TopBanner = ({
     </div>
   );
 };
-
-// <div className="new-top-deco-shape new-top-deco-shape--one"></div>
-// <div className="new-top-deco-shape new-top-deco-shape--two"></div>
