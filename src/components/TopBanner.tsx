@@ -6,13 +6,6 @@ import { DynamicTrans } from './DynamicTrans';
 import { t } from '@lingui/macro';
 import { MainHeaderLayout } from './MainHeaderLayout';
 
-const RequestDemo = ({ text, prefix }: { text: string; prefix: string }) => (
-  <RequestDemoButton
-    prefix={prefix}
-    buttonText={text}
-    buttonClassName="my-sm-0 my-2 btn-xl d-inline mx-1"
-  />
-);
 const CustomButton = ({ url, text }: { url: string; text: string }) => (
   <Button href={url} className="btn-xl mx-1 my-1 align-self-center" inverted outline>
     <DynamicTrans>{text}</DynamicTrans>
@@ -38,6 +31,7 @@ export const TopBanner = ({
 
   const { childImageSharp } = image?.localFile || {};
   const requestDemoLink = 'ledgy.com/demo/ledgy';
+  const buttonClassName = 'my-sm-0 my-2 btn-xl d-inline mx-1';
 
   return (
     <div>
@@ -49,14 +43,22 @@ export const TopBanner = ({
         subtitleClassName="text-gray-dark"
         buttonOne={
           firstButtonUrl.includes(requestDemoLink) ? (
-            <RequestDemo text={firstButtonText} prefix={prefix} />
+            <RequestDemoButton
+              prefix={prefix}
+              buttonText={firstButtonText}
+              buttonClassName={buttonClassName}
+            />
           ) : (
             <CustomButton url={firstButtonUrl} text={firstButtonText} />
           )
         }
         buttonTwo={
           secondButtonUrl.includes(requestDemoLink) ? (
-            <RequestDemo text={secondButtonText} prefix={prefix} />
+            <RequestDemoButton
+              prefix={prefix}
+              buttonText={secondButtonText}
+              buttonClassName={buttonClassName}
+            />
           ) : (
             <CustomButton url={secondButtonUrl} text={secondButtonText} />
           )
