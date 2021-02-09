@@ -91,3 +91,7 @@ declare type CallToActionProps = {
   secondaryLinkText: string;
   secondaryLinkPath: string;
 };
+
+declare type LogoBannerProps = {
+  logos: Image[];
+};

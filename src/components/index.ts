@@ -23,6 +23,7 @@ export * from './HomePageHeader';
 export * from './Icon';
 export * from './ImageModal';
 export * from './Loader';
+export * from './LogoBanner';
 export * from './LongText';
 export * from './MainHeaderLayout';
 export * from './MainProblemLayout';
