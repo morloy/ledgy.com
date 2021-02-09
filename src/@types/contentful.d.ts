@@ -95,3 +95,14 @@ declare type CallToActionProps = {
 declare type LogoBannerProps = {
   logos: Image[];
 };
+
+type SelectableCardWithScreenshotProps = {
+  header: string;
+  description: string;
+  screenshot: Image;
+};
+
+declare type SelectableCardsWithScreenshotsProps = {
+  title: string;
+  content: SelectableCardWithScreenshotProps[];
+};
