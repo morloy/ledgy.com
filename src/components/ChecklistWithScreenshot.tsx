@@ -1,10 +1,11 @@
 import React from 'react';
 import Img from 'gatsby-image';
+
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { DynamicTrans } from './DynamicTrans';
 import { Section } from './Section';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const ChecklistWithScreenshot = ({
   header,
