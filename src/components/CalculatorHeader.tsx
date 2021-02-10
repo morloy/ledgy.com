@@ -16,7 +16,6 @@ export const CalculatorHeader = ({
   };
 }) => (
   <MainHeaderLayout
-    className="mb-5"
     title="The calculator you need if you’re raising capital"
     subtitle={
       <>

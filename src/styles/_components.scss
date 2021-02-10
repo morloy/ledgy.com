@@ -505,6 +505,8 @@ $padding-lg: 3rem;
   }
 }
 
+
+// Rounded screenshots
 .screenshot {
   box-shadow: $box-shadow-light;
   position: relative;
@@ -528,4 +530,3 @@ $padding-lg: 3rem;
  @include gray-deco-shape;
   background-position: 50% 90%;
 }
-

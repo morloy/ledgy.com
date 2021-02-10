@@ -8,9 +8,8 @@ type MainHeaderLayoutProps = {
   deco?: ReactNode;
   customButton?: ReactNode;
   image: ReactNode;
-  className?: string;
-  titleClassName?: string;
-  subtitleClassName?: string;
+  backgroundColor?: string;
+  fontColor?: string;
 };
 
 export const MainHeaderLayout = ({
@@ -21,17 +20,18 @@ export const MainHeaderLayout = ({
   customButton,
   deco,
   image,
-  className = 'bg-primary',
-  titleClassName = 'text-white',
-  subtitleClassName = 'text-lg font-weight-light line-height-lg',
+  backgroundColor = 'primary',
+  fontColor = 'white',
 }: MainHeaderLayoutProps) => (
-  <header className={`header d-flex home-banner px-1 text-left ${className}`}>
+  <header className={`header d-flex home-banner px-1 text-left bg-${backgroundColor}`}>
     <div className="container my-auto position-relative z-index-base">
       <div className="row mt-md-4 pb-4 pb-md-6">
         <div className="col-xl-5 d-flex flex-column justify-content-center">
           <div className="mb-md-4">
-            <h1 className={`${titleClassName} mt-4 mb-2 mb-sm-3`}>{title}</h1>
-            <div className={`${subtitleClassName} pb-3`}>{subtitle}</div>
+            <h1 className={`text-${fontColor} mt-4 mb-2 mb-sm-3`}>{title}</h1>
+            <div className={`text-${fontColor} pb-3 text-lg font-weight-light line-height-lg`}>
+              {subtitle}
+            </div>
           </div>
           <div className="d-flex align-items-center flex-wrap mb-2 mb-lg-4 mb-xl-0">
             {buttonOne}

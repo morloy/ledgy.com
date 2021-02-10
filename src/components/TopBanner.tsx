@@ -38,9 +38,8 @@ export const TopBanner = ({
       <MainHeaderLayout
         title={<DynamicTrans>{mainHeader}</DynamicTrans>}
         subtitle={<DynamicTrans>{description}</DynamicTrans>}
-        className="bg-gray-light"
-        titleClassName="text-gray-dark"
-        subtitleClassName="text-gray-dark"
+        backgroundColor="gray-light"
+        fontColor="gray-dark"
         buttonOne={
           firstButtonUrl.includes(requestDemoLink) ? (
             <RequestDemoButton
@@ -64,7 +63,7 @@ export const TopBanner = ({
           )
         }
         image={
-          <div id="laptop-ledgy " className="mt-sm-4 mt-xl-0 p-0 top-banner-screenshot">
+          <div id="laptop-ledgy " className="mt-sm-4 mt-xl-0 p-0 screenshot">
             {!!childImageSharp && <Img {...childImageSharp} alt={t`Screenshot of the Ledgy app`} />}
           </div>
         }
