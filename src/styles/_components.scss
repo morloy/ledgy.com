@@ -1,10 +1,7 @@
 
 .container {
-  @include media-breakpoint-up(xl) {
-    max-width: 1050px;
-  }
    @media screen and (min-width: 1440px) {
-    max-width: 1200px !important;
+    max-width: 1250px !important;
   }
 }
 
@@ -13,7 +10,7 @@
   min-height: 80vh;
 }
 
-.home-banner h1 {
+.home-banner h1, .top-banner h1 {
   font-weight: bold;
   @include media-breakpoint-up(lg) {
     font-size: $huge-font-size;
