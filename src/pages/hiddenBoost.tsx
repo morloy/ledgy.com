@@ -35,7 +35,7 @@ const HiddenBoostPage = (props: Props) => {
   const selectableCardsWithScreenshots: SelectableCardsWithScreenshotsProps =
     allContentfulSelectableCardsWithScreenshots.edges[0].node;
   const topBannerContent: TopBannerProps = allContentfulTopBanner.edges[0].node;
-
+  console.log({ data });
   return (
     <main className="main-wrapper-1 overflow-hidden">
       <div className="main-wrapper-2">
@@ -189,7 +189,7 @@ export const hiddenBoostQuery = graphql`
           image {
             localFile {
               childImageSharp {
-                fluid(maxWidth: 800, quality: 100) {
+                fluid(maxWidth: 1200, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }

@@ -156,73 +156,75 @@
     border-radius: $deco-line-radius;
     background-color:  $vibrant-green;
     z-index: 5;
-   }
   }
+}
 
-  @mixin new-deco-shape-base {
-    z-index: $zindex-deco-shape;
-    position: absolute;
-    border-radius: 20px;
-  }
+$new-top-deco-one-width: 700px;
+$new-top-deco-one-height: 130px;
+$new-top-deco-two-width: 550px;
+$new-top-deco-two-height: 120px;
 
-  @mixin new-deco-shape {
-    @include new-deco-shape-base;
+@mixin new-deco-shape {
+  z-index: $zindex-deco-shape;
+  position: absolute;
+  border-radius: 60px;
+}
+
+.new-top-deco-shape {
+  @include new-deco-shape;
+  &--one {
+    background-color: $vibrant-green;
+    opacity: 0.84;
+    width: $new-top-deco-one-width / 1.75;
+    height: $new-top-deco-one-height / 1.75;
+    top: -260px;
+    left: -200px;
     @include media-breakpoint-up(md){
-      border-radius: 60px;
+      top: -250px;
+      width: $new-top-deco-two-width / 1.25;
+      height: $new-top-deco-two-height / 1.25;
+    }
+    @include media-breakpoint-up(lg){
+      top: -280px;
+      width: $new-top-deco-one-width;
+      height: $new-top-deco-one-height;
+    }
+    @include media-breakpoint-up(xl){
+      top: 10px;
+      left: -230px;
+    }
+    @media screen and (min-width: 1440px) {
+      top: 0;
+      left: -260px;
     }
   }
-
-  $new-top-deco-one-width: 701px;
-  $new-top-deco-one-height: 139px;
-  $new-top-deco-two-width: 547px;
-  $new-top-deco-two-height: 119px;
-
-  .new-top-deco-shape {
-   @include new-deco-shape;
-    &--one {
-      background-color: $vibrant-green;
-      opacity: 0.84;
-      width: 0.6*$new-top-deco-one-width;
-      height: 0.6*$new-top-deco-one-height;
-      left: 18%;
-      top: 12%;
-
-      @media (orientation: landscape) {
-        top: 4%;
-      }
-      @include media-breakpoint-up(md){
-        width: 0.8*$new-top-deco-one-width;
-        height: 0.8*$new-top-deco-one-height;
-        left: 20%;
-        top: 16%;
-      }
-      @include media-breakpoint-up(xl){
-        width: 0.8*$new-top-deco-one-width;
-        height: 0.8*$new-top-deco-one-height;
-        left: 36%;
-        top: 24%;
-      }
+  &--two {
+    background-color: $energetic-blue;
+    opacity: 0.9;
+    width: $new-top-deco-two-width / 1.75;
+    height: $new-top-deco-two-height / 1.75;
+    top: 10px;
+    right: -40px;
+    @include media-breakpoint-up(sm){
+      top: 25px;
     }
-    &--two {
-      background-color: $energetic-blue;
-      opacity: 0.9;
-      width: 0.6*$new-top-deco-two-width;
-      height: 0.6*$new-top-deco-two-height;
-      left: 35%;
-      top: 35%;
-
-      @include media-breakpoint-up(md){
-        width: 0.8*$new-top-deco-two-width;
-        height: 0.8*$new-top-deco-two-height;
-        left: 38%;
-        top: 36%;
-
-      }
-      @include media-breakpoint-up(xl){
-        width: 0.8*$new-top-deco-two-width;
-        height: 0.8*$new-top-deco-two-height;
-        left: 42%;
-        top: 40%;
-      }
+    @include media-breakpoint-up(md){
+      width: $new-top-deco-two-width / 1.25;
+      height: $new-top-deco-two-height / 1.25;
+      top: 20px;
+      right: -10px;
+    }
+    @include media-breakpoint-up(lg){
+      width: $new-top-deco-two-width;
+      height: $new-top-deco-two-height;
+    }
+    @include media-breakpoint-up(xl){
+      right: unset;
+      left: -110px;
+      top: 175px;
+    }
+    @media screen and (min-width: 1440px) {
+      top: 162px;
     }
   }
+}

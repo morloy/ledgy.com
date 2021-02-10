@@ -4,13 +4,24 @@ import { RequestDemoButton } from './RequestDemoButton';
 import { Button } from './Button';
 import { DynamicTrans } from './DynamicTrans';
 import { t } from '@lingui/macro';
-import { MainHeaderLayout } from './MainHeaderLayout';
+import { TopBannerLayout } from './TopBannerLayout';
+import { demoPage } from '../helpers';
 
 const CustomButton = ({ url, text }: { url: string; text: string }) => (
   <Button href={url} className="btn-xl mx-1 my-1 align-self-center" inverted outline>
     <DynamicTrans>{text}</DynamicTrans>
   </Button>
 );
+
+const Screenshot = ({ image }: { image: Image }) => {
+  const { childImageSharp } = image?.localFile || {};
+
+  return (
+    <div className="mt-sm-4 mt-xl-0 p-0 screenshot">
+      {!!childImageSharp && <Img {...childImageSharp} alt={t`Screenshot of the Ledgy app`} />}
+    </div>
+  );
+};
 
 export const TopBanner = ({
   topBannerContent,
@@ -29,50 +40,36 @@ export const TopBanner = ({
     secondButtonUrl,
   } = topBannerContent;
 
-  const { childImageSharp } = image?.localFile || {};
-  const requestDemoLink = 'ledgy.com/demo/ledgy';
   const buttonClassName = 'my-sm-0 my-2 btn-xl d-inline mx-1';
+
+  const buttonOne = firstButtonUrl.includes(demoPage) ? (
+    <RequestDemoButton
+      prefix={prefix}
+      buttonText={firstButtonText}
+      buttonClassName={buttonClassName}
+    />
+  ) : (
+    <CustomButton url={firstButtonUrl} text={firstButtonText} />
+  );
+
+  const buttonTwo = secondButtonUrl.includes(demoPage) ? (
+    <RequestDemoButton
+      prefix={prefix}
+      buttonText={secondButtonText}
+      buttonClassName={buttonClassName}
+    />
+  ) : (
+    <CustomButton url={secondButtonUrl} text={secondButtonText} />
+  );
 
   return (
     <div>
-      <MainHeaderLayout
+      <TopBannerLayout
         title={<DynamicTrans>{mainHeader}</DynamicTrans>}
         subtitle={<DynamicTrans>{description}</DynamicTrans>}
-        backgroundColor="gray-light"
-        fontColor="gray-dark"
-        buttonOne={
-          firstButtonUrl.includes(requestDemoLink) ? (
-            <RequestDemoButton
-              prefix={prefix}
-              buttonText={firstButtonText}
-              buttonClassName={buttonClassName}
-            />
-          ) : (
-            <CustomButton url={firstButtonUrl} text={firstButtonText} />
-          )
-        }
-        buttonTwo={
-          secondButtonUrl.includes(requestDemoLink) ? (
-            <RequestDemoButton
-              prefix={prefix}
-              buttonText={secondButtonText}
-              buttonClassName={buttonClassName}
-            />
-          ) : (
-            <CustomButton url={secondButtonUrl} text={secondButtonText} />
-          )
-        }
-        image={
-          <div id="laptop-ledgy " className="mt-sm-4 mt-xl-0 p-0 screenshot">
-            {!!childImageSharp && <Img {...childImageSharp} alt={t`Screenshot of the Ledgy app`} />}
-          </div>
-        }
-        deco={
-          <div>
-            <div className="new-top-deco-shape new-top-deco-shape--one" />
-            <div className="new-top-deco-shape new-top-deco-shape--two" />
-          </div>
-        }
+        buttonOne={buttonOne}
+        buttonTwo={buttonTwo}
+        image={<Screenshot image={image} />}
       />
     </div>
   );
