@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import {
   CallToAction,
+  ChecklistWithScreenshot,
   ContentWithChecklist,
   FeatureGrid,
   TitleWithGraphic,
@@ -22,6 +23,7 @@ const HiddenBoostPage = (props: Props) => {
     allContentfulLogoBanner,
     allContentfulSelectableCardsWithScreenshots,
     allContentfulTopBanner,
+    allContentfulChecklistWithScreenshot,
   } = data;
 
   const featureGridContent: FeatureGridContentProps = allContentfulFeatureGrid.edges[0].node;
@@ -35,6 +37,9 @@ const HiddenBoostPage = (props: Props) => {
   const selectableCardsWithScreenshots: SelectableCardsWithScreenshotsProps =
     allContentfulSelectableCardsWithScreenshots.edges[0].node;
   const topBannerContent: TopBannerProps = allContentfulTopBanner.edges[0].node;
+  const checklistWithScreenshot: checklistWithScreenshotProps =
+    allContentfulChecklistWithScreenshot.edges[0].node;
+
   console.log({ data });
   return (
     <main className="main-wrapper-1 overflow-hidden">
@@ -46,12 +51,14 @@ const HiddenBoostPage = (props: Props) => {
         <TestimonialCards cards={cards} />
         <TitleWithGraphic {...titleWithGraphicContent} />
         <FeatureGrid featureGridContent={featureGridContent} />
+        <ChecklistWithScreenshot {...checklistWithScreenshot} />
         <ContentWithChecklist {...contentWithChecklist} />
         <CallToAction prefix={prefix} {...callToActionContent} />
       </div>
     </main>
   );
 };
+
 export const hiddenBoostQuery = graphql`
   query {
     allContentfulFeatureGrid {
@@ -186,6 +193,26 @@ export const hiddenBoostQuery = graphql`
           firstButtonUrl
           secondButtonText
           secondButtonUrl
+          image {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 1200, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    allContentfulChecklistWithScreenshot {
+      edges {
+        node {
+          header
+          description
+          checklists {
+            checklistText
+          }
           image {
             localFile {
               childImageSharp {

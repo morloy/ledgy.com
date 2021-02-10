@@ -116,3 +116,10 @@ declare type TopBannerProps = {
   secondButtonUrl: string;
   image: Image;
 };
+
+declare type checklistWithScreenshotProps = {
+  header: string;
+  description: string;
+  image: Image;
+  checklists: { checklistText: string }[];
+};
