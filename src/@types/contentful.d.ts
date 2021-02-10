@@ -128,7 +128,8 @@ declare type TopBannerProps = Id & {
   image: Image;
 };
 
-declare type ChecklistWithScreenshotProps = {
+declare type ChecklistWithScreenshotProps = Id & {
+  __typename: 'ContentfulChecklistWithScreenshot';
   header: string;
   description: string;
   image: Image;

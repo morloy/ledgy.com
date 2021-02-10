@@ -12,7 +12,7 @@ export const ChecklistWithScreenshot = ({
   description,
   checklists,
   image,
-}: checklistWithScreenshotProps) => {
+}: ChecklistWithScreenshotProps) => {
   const { childImageSharp } = image.localFile || {};
   const checklistTexts = checklists.map((v) => v.checklistText);
 

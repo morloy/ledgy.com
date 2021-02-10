@@ -1,15 +1,14 @@
 import React from 'react';
 
-import {
-  CallToAction,
-  ContentWithChecklist,
-  FeatureGrid,
-  TitleWithGraphic,
-  TestimonialCards,
-  LogoBanner,
-  SelectableCardsWithScreenshots,
-  TopBanner,
-} from '../components';
+import { CallToAction } from './CallToAction';
+import { ContentWithChecklist } from './ContentWithChecklist';
+import { FeatureGrid } from './FeatureGrid';
+import { TitleWithGraphic } from './TitleWithGraphic';
+import { TestimonialCards } from './TestimonialCards';
+import { LogoBanner } from './LogoBanner';
+import { SelectableCardsWithScreenshots } from './SelectableCardsWithScreenshots';
+import { TopBanner } from './TopBanner';
+import { ChecklistWithScreenshot } from './ChecklistWithScreenshot';
 
 export const ComponentPicker = ({
   entry,
@@ -39,6 +38,9 @@ export const ComponentPicker = ({
 
     case 'ContentfulContentWithChecklist':
       return <ContentWithChecklist {...entry} />;
+
+    case 'ContentfulChecklistWithScreenshot':
+      return <ChecklistWithScreenshot {...entry} />;
 
     case 'ContentfulCallToAction2021':
       return <CallToAction {...entry} prefix={prefix} />;

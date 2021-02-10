@@ -143,23 +143,20 @@ export const hiddenBoostQuery = graphql`
               secondaryLinkText
               secondaryLinkPath
             }
-          }
-        }
-      }
-    }
-    allContentfulChecklistWithScreenshot {
-      edges {
-        node {
-          header
-          description
-          checklists {
-            checklistText
-          }
-          image {
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 1200, quality: 100) {
-                  ...GatsbyImageSharpFluid
+            ... on ContentfulChecklistWithScreenshot {
+              id
+              header
+              description
+              checklists {
+                checklistText
+              }
+              image {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1200, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
                 }
               }
             }
