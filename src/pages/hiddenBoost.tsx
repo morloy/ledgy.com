@@ -8,6 +8,7 @@ import {
   TestimonialCards,
   LogoBanner,
   SelectableCardsWithScreenshots,
+  TopBanner,
 } from '../components';
 
 const HiddenBoostPage = (props: Props) => {
@@ -20,6 +21,7 @@ const HiddenBoostPage = (props: Props) => {
     allContentfulTitleWithGraphic,
     allContentfulLogoBanner,
     allContentfulSelectableCardsWithScreenshots,
+    allContentfulTopBanner,
   } = data;
 
   const featureGridContent: FeatureGridContentProps = allContentfulFeatureGrid.edges[0].node;
@@ -32,10 +34,12 @@ const HiddenBoostPage = (props: Props) => {
   const logoBannerContent: LogoBannerProps = allContentfulLogoBanner.edges[0].node;
   const selectableCardsWithScreenshots: SelectableCardsWithScreenshotsProps =
     allContentfulSelectableCardsWithScreenshots.edges[0].node;
-
+  const topBannerContent: TopBannerProps = allContentfulTopBanner.edges[0].node;
+  console.log({ data });
   return (
     <main className="main-wrapper-1 overflow-hidden">
       <div className="main-wrapper-2">
+        <TopBanner prefix={prefix} topBannerContent={topBannerContent} />
         <LogoBanner logoBannerContent={logoBannerContent} />
         <FeatureGrid featureGridContent={featureGridContent} />
         <SelectableCardsWithScreenshots {...selectableCardsWithScreenshots} />
@@ -166,6 +170,27 @@ export const hiddenBoostQuery = graphql`
                   fluid(maxWidth: 1500, quality: 100) {
                     ...GatsbyImageSharpFluid
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    allContentfulTopBanner {
+      edges {
+        node {
+          mainHeader
+          description
+          firstButtonText
+          firstButtonUrl
+          secondButtonText
+          secondButtonUrl
+          image {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 1200, quality: 100) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

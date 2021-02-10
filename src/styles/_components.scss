@@ -1,10 +1,7 @@
 
 .container {
-  @include media-breakpoint-up(xl) {
-    max-width: 1050px;
-  }
    @media screen and (min-width: 1440px) {
-    max-width: 1200px !important;
+    max-width: 1250px !important;
   }
 }
 
@@ -13,7 +10,7 @@
   min-height: 80vh;
 }
 
-.home-banner h1 {
+.home-banner h1, .top-banner h1 {
   font-weight: bold;
   @include media-breakpoint-up(lg) {
     font-size: $huge-font-size;
@@ -505,6 +502,8 @@ $padding-lg: 3rem;
   }
 }
 
+
+// Rounded screenshots
 .screenshot {
   box-shadow: $box-shadow-light;
   position: relative;
@@ -515,7 +514,6 @@ $padding-lg: 3rem;
   }
 }
 
-
 // Page wrappers
 @mixin gray-deco-shape() {
   background-image: url("../img/svg/gray-deco-shape.svg");
@@ -525,7 +523,6 @@ $padding-lg: 3rem;
  @include gray-deco-shape;
   background-position: -10% 25%;
 }
-
 .main-wrapper-2 {
  @include gray-deco-shape;
   background-position: 50% 90%;
