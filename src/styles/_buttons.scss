@@ -1,4 +1,5 @@
 .btn {
+  will-change: transform;
   transition: all 0.3s;
   padding: 7px 21px;
   &:hover {
