@@ -19,16 +19,18 @@ const TestimonialCard = ({ card }: { card: TestimonialCardProps }) => {
         </div>
         <div className="d-flex justify-content-between">
           <p className="my-0 text-muted">{signature}</p>
-          <a href={linkPath} className="my-0 ">
-            <DynamicTrans>{linkText}</DynamicTrans>
-          </a>
+          {!!(linkText && linkPath) && (
+            <a href={linkPath} className="my-0 ">
+              <DynamicTrans>{linkText}</DynamicTrans>
+            </a>
+          )}
         </div>
       </div>
     </div>
   );
 };
 
-export const TestimonialCards = ({ cards }: { cards: TestimonialCardProps[] }) => (
+export const TestimonialCards = ({ cards }: TestimonialCardsProps) => (
   <Section>
     <div className="row">
       {cards.map((v) => (

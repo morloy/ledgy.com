@@ -22,7 +22,6 @@ const IndexPage = (props: Props) => {
   const { data, prefix } = props;
   const [content] = data.page.edges;
   const { title, entries } = content.node;
-  console.log({ entries });
 
   return (
     <main className="position-relative overflow-hidden">

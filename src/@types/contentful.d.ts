@@ -1,5 +1,6 @@
-declare type ContentfulPageProps = {
-  id: string;
+type Id = { id: string };
+
+declare type ContentfulPageProps = Id & {
   title: string;
   description: string;
   date?: string;
@@ -10,9 +11,8 @@ declare type ContentfulPageProps = {
   cover?: Image;
 };
 
-declare type ContentfulIndexEntry = {
+declare type ContentfulIndexEntry = Id & {
   __typename: string;
-  id: string;
   title: string;
   description?: string;
   image?: Image;
@@ -23,8 +23,7 @@ declare type ContentfulIndexEntry = {
   quote?: string;
 };
 
-declare type AllContentfulCustomerStoryProps = {
-  id: string;
+declare type AllContentfulCustomerStoryProps = Id & {
   company: Company;
   slug: string;
 };
@@ -50,7 +49,8 @@ declare type IconType =
 
 declare type FeatureGridSectionProps = { icon: IconType; title: string; description: string };
 
-declare type FeatureGridContentProps = {
+declare type FeatureGridContentProps = Id & {
+  __typename: 'ContentfulFeatureGrid';
   header: string;
   sections: FeatureGridSectionProps[];
 };
@@ -59,18 +59,25 @@ declare type TestimonialCardProps = {
   logo: Image;
   text: Mdx;
   signature: string;
-  linkText: string;
-  linkPath: string;
+  linkText?: string;
+  linkPath?: string;
 };
 
-declare type TitleWithGraphicProps = {
+declare type TestimonialCardsProps = Id & {
+  __typename: 'ContentfulTestimonialCards';
+  cards: TestimonialCardProps[];
+};
+
+declare type TitleWithGraphicProps = Id & {
+  __typename: 'ContentfulTitleWithGraphic';
   graphic: Image;
   motivationText: string;
   title: string;
   description: string;
 };
 
-declare type ContentWithChecklistProps = {
+declare type ContentWithChecklistProps = Id & {
+  __typename: 'ContentfulContentWithChecklist';
   header: string;
   description: string;
   linkText: string;
@@ -78,21 +85,23 @@ declare type ContentWithChecklistProps = {
   checklist: string[];
 };
 
-declare type CallToActionProps = {
+declare type CallToActionProps = Id & {
+  __typename: 'ContentfulCallToAction2021';
   header: string;
   description: string;
   buttonText: string;
   buttonPath: string;
-  externalLinkText: string;
-  externalLinkUrl: string;
   icon: IconType;
   secondaryHeader: string;
   secondaryDescription: string;
   secondaryLinkText: string;
   secondaryLinkPath: string;
+  externalLinkText?: string;
+  externalLinkUrl?: string;
 };
 
-declare type LogoBannerProps = {
+declare type LogoBannerProps = Id & {
+  __typename: 'ContentfulLogoBanner';
   logos: Image[];
 };
 
@@ -102,12 +111,14 @@ type SelectableCardWithScreenshotProps = {
   screenshot: Image;
 };
 
-declare type SelectableCardsWithScreenshotsProps = {
+declare type SelectableCardsWithScreenshotsProps = Id & {
+  __typename: 'ContentfulSelectableCardsWithScreenshots';
   title: string;
   content: SelectableCardWithScreenshotProps[];
 };
 
-declare type TopBannerProps = {
+declare type TopBannerProps = Id & {
+  __typename: 'ContentfulTopBanner';
   mainHeader: string;
   description: string;
   firstButtonText: string;
@@ -116,3 +127,13 @@ declare type TopBannerProps = {
   secondButtonUrl: string;
   image: Image;
 };
+
+declare type MainPageEntryProps =
+  | TopBannerProps
+  | LogoBannerProps
+  | SelectableCardsWithScreenshotsProps
+  | FeatureGridContentProps
+  | TestimonialCardsProps
+  | TitleWithGraphicProps
+  | ContentWithChecklistProps
+  | CallToActionProps;

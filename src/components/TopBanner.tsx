@@ -24,22 +24,15 @@ const Screenshot = ({ image }: { image: Image }) => {
 };
 
 export const TopBanner = ({
-  topBannerContent,
+  mainHeader,
+  description,
+  image,
+  firstButtonText,
+  firstButtonUrl,
+  secondButtonText,
+  secondButtonUrl,
   prefix,
-}: {
-  topBannerContent: TopBannerProps;
-  prefix: string;
-}) => {
-  const {
-    mainHeader,
-    description,
-    image,
-    firstButtonText,
-    firstButtonUrl,
-    secondButtonText,
-    secondButtonUrl,
-  } = topBannerContent;
-
+}: TopBannerProps & { prefix: string }) => {
   const buttonClassName = 'my-sm-0 my-2 btn-xl d-inline mx-1';
 
   const buttonOne = firstButtonUrl.includes(demoPage) ? (

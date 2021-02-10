@@ -24,22 +24,15 @@ const FeatureGridCard = ({
   );
 };
 
-export const FeatureGrid = ({
-  featureGridContent,
-}: {
-  featureGridContent: FeatureGridContentProps;
-}) => {
-  const { header, sections } = featureGridContent;
-  return (
-    <Section>
-      <h2 className="text-left text-weight-bold mb-5">
-        <DynamicTrans>{header}</DynamicTrans>
-      </h2>
-      <div className="row my-4">
-        {sections.map((v) => (
-          <FeatureGridCard key={v.title} featureGridSection={v} />
-        ))}
-      </div>
-    </Section>
-  );
-};
+export const FeatureGrid = ({ header, sections }: FeatureGridContentProps) => (
+  <Section>
+    <h2 className="text-left text-weight-bold mb-5">
+      <DynamicTrans>{header}</DynamicTrans>
+    </h2>
+    <div className="row my-4">
+      {sections.map((v) => (
+        <FeatureGridCard key={v.title} featureGridSection={v} />
+      ))}
+    </div>
+  </Section>
+);

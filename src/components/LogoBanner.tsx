@@ -18,15 +18,12 @@ const Logo = ({ logo }: { logo: Image }) => {
   );
 };
 
-export const LogoBanner = ({ logoBannerContent }: { logoBannerContent: LogoBannerProps }) => {
-  const { logos } = logoBannerContent;
-  return (
-    <Section>
-      <div className="row align-items-center justify-content-around">
-        {logos.map((v) => (
-          <Logo logo={v} key={`logo-banner-${v.title}`} />
-        ))}
-      </div>
-    </Section>
-  );
-};
+export const LogoBanner = (props: LogoBannerProps) => (
+  <Section>
+    <div className="row align-items-center justify-content-around">
+      {props.logos.map((v) => (
+        <Logo logo={v} key={`logo-banner-${v.title}`} />
+      ))}
+    </div>
+  </Section>
+);
