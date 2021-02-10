@@ -128,6 +128,13 @@ declare type TopBannerProps = Id & {
   image: Image;
 };
 
+declare type ChecklistWithScreenshotProps = {
+  header: string;
+  description: string;
+  image: Image;
+  checklists: { checklistText: string }[];
+};
+
 declare type MainPageEntryProps =
   | TopBannerProps
   | LogoBannerProps
@@ -136,4 +143,5 @@ declare type MainPageEntryProps =
   | TestimonialCardsProps
   | TitleWithGraphicProps
   | ContentWithChecklistProps
-  | CallToActionProps;
+  | CallToActionProps
+  | ChecklistWithScreenshotProps;

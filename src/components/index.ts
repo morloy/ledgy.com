@@ -4,6 +4,7 @@ export * from './Button';
 export * from './CallToAction';
 export * from './CalculatorHeader';
 export * from './CardLink';
+export * from './ChecklistWithScreenshot';
 export * from './Content';
 export * from './ContentWithChecklist';
 export * from './CTABanner';

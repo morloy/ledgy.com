@@ -6,6 +6,7 @@ $energetic-blue:                  #43aadc;
 $vibrant-green:                   #1edeb7;
 $highlight-red:                   #e64c49;
 $pale-energetic-blue:             #eaf5fa;
+$light-energetic-blue:            #cbe6f3;
 
 $gray-050: #fbfcfd;
 $gray-100: #f8fafc;
@@ -27,6 +28,7 @@ $theme-colors: (
   "pale-energetic-blue": $pale-energetic-blue,
   "primary": $deep-blue,
   "secondary": $pale-energetic-blue,
+  "light-energetic-blue": $light-energetic-blue,
   "info": $energetic-blue,
   "success": $vibrant-green,
   "danger": $highlight-red,
