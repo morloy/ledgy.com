@@ -32,7 +32,7 @@ export const Button = ({
   const color =
     (cta && 'btn-red') ||
     (energetic && 'btn-info text-white hover-brigthen') ||
-    (inverted && outline && 'btn-light border border-primary') ||
+    (inverted && outline && 'btn-white border border-primary') ||
     (outline && 'btn-primary border border-white') ||
     (inverted && 'btn-light') ||
     'btn-primary';

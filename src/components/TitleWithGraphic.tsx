@@ -13,10 +13,10 @@ export const TitleWithGraphic = ({
   const { childImageSharp } = graphic?.localFile || {};
 
   return (
-    <Section className="position-relative">
+    <Section className="position-relative my-7">
       <div className="bg-primary position-absolute tilted-background z-index-background"></div>
-      <div className="row justify-content-center">
-        <div className="col-lg-4 d-flex align-items-center justify-content-center justify-content-md-end">
+      <div className="row justify-content-center my-7 py-7">
+        <div className="col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end">
           {!!childImageSharp && <Img {...childImageSharp} />}
         </div>
 

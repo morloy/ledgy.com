@@ -26,8 +26,8 @@ export const TopBannerLayout = ({
   customButton,
   image,
 }: TopBannerLayoutProps) => (
-  <header className="top-banner d-flex">
-    <Section className="w-100 mt-xl-7">
+  <header className="top-banner d-flex bg-lightest">
+    <Section className="w-100 my-xl-9">
       <div className="row">
         <div className="col-xl-5 d-flex flex-column justify-content-center position-relative z-index-base">
           <div className="mt-md-4 mt-lg-2 text-gray-dark">

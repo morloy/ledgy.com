@@ -62,7 +62,8 @@ const FooterLinks = ({
 );
 
 export const Footer = ({ location, ...props }: LayoutProps) => {
-  const isPartners = location.pathname.includes('partners');
+  const { pathname } = location;
+  const isPartners = pathname.includes('partners') || pathname.includes('hiddenBoost');
   const { prefix } = props;
 
   return (

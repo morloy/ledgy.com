@@ -91,7 +91,7 @@ export const hiddenBoostQuery = graphql`
               graphic {
                 localFile {
                   childImageSharp {
-                    fixed(height: 225) {
+                    fixed(height: 300) {
                       ...GatsbyImageSharpFixed
                     }
                   }
