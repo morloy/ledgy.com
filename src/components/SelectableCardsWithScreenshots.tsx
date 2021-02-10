@@ -3,6 +3,7 @@ import Img from 'gatsby-image';
 
 import { DynamicTrans } from './DynamicTrans';
 import { Section } from './Section';
+import { isBrowser } from '../helpers';
 
 const SelectableCard = ({
   header,
@@ -23,15 +24,17 @@ const SelectableCard = ({
   const isActive = activeIndex === index;
   const backgroundColor = isActive ? 'bg-lightest' : 'bg-transparent';
 
-  const observer = new ResizeObserver((entries) => {
-    entries.forEach((v) => {
-      setHeight(v.target.clientHeight);
-    });
-  });
+  const observer = isBrowser
+    ? new ResizeObserver((entries) => {
+        entries.forEach((v) => {
+          setHeight(v.target.clientHeight);
+        });
+      })
+    : null;
 
   useEffect(() => {
     const card = ref.current;
-    if (card) observer.observe(card);
+    if (card && observer) observer.observe(card);
   }, [activeIndex]);
 
   return (
