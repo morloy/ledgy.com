@@ -36,9 +36,7 @@ export const RequestDemoButton = ({
   ) : (
     <>
       <Link to={`${prefix}${demoPage}`}>
-        <Button cta className={buttonClassName}>
-          {ButtonText}
-        </Button>
+        <Button className={buttonClassName}>{ButtonText}</Button>
       </Link>
     </>
   );
