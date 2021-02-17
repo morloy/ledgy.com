@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
 
 import { name } from '../../helpers';
+import logo from '../../img/logo.png';
 
 import { toggleOverlay } from '../lib';
 import { Button } from '../utils';
@@ -11,14 +12,7 @@ import { NavbarButtons } from './NavbarButtons';
 import { DropdownFollowAlong } from './DropdownFollowAlong';
 import { MobileNavbar } from './MobileNavbar';
 
-const isLight = (props: LayoutProps) => {
-  const { pathname } = props.location;
-  return pathname === '/' || pathname.includes('demo');
-};
-
 const Logo = (props: LayoutProps) => {
-  const fileName = isLight(props) ? 'logo' : 'logo-inverted';
-  const logo = require(`../../img/${fileName}.png`);
   return (
     <Link to={`${props.prefix}/#start`}>
       <img className="navbar-logo" src={logo} alt={name} />
@@ -45,29 +39,19 @@ const toggleNav = (navRef: MutableRefObject<HTMLElement | null>) => {
 export const Nav = (props: LayoutProps) => {
   const [isOpen, setOpen] = useState(false);
   const navRef = useRef(null);
-  const isLightBg = isLight(props);
   useEffect(() => {
     toggleNav(navRef);
   }, []);
 
   return (
     <>
-      <nav
-        ref={navRef}
-        className={`navbar bg-${isLightBg ? 'lightest' : 'primary'} text-${
-          isLightBg ? 'dark-gray' : 'white'
-        } sticky-top p-0`}
-      >
+      <nav ref={navRef} className="navbar bg-lightest text-dark-gray sticky-top p-0">
         <div className="container flex-nowrap">
           <Logo {...props} />
 
           <div className="desktop-navbar">
             <DropdownFollowAlong {...props} />
-            <NavbarButtons
-              className="justify-content-end ml-2 ml-lg-4"
-              prefix={props.prefix}
-              isLightBg={isLightBg}
-            />
+            <NavbarButtons className="justify-content-end ml-2 ml-lg-4" prefix={props.prefix} />
           </div>
           <Button
             id="mobile-navbar-toggler"

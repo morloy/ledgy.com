@@ -78,16 +78,16 @@ const teams: NavbarMenuColumn = {
       icon: 'hr',
     },
     {
-      link: 'finance-legal-accounting',
-      title: 'Finance, Legal, & Accounting',
-      description: 'Cap table, scenario modeling, investor relations',
-      icon: 'calculator',
-    },
-    {
       link: 'vcs-business-angels',
       title: 'VCs & Business Angels',
       description: 'Portfolio management, real-time company insights',
       icon: 'rocket',
+    },
+    {
+      link: 'finance-legal-accounting',
+      title: 'Finance, Legal, & Accounting',
+      description: 'Cap table, scenario modeling, investor relations',
+      icon: 'calculator',
     },
   ],
 };
