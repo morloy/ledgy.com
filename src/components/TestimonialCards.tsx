@@ -12,7 +12,7 @@ const TestimonialCard = ({
   prefix: string;
   index: number;
 }) => {
-  const { logo, signature, text, linkText, linkPath } = card;
+  const { logo, signature, text, linkText, linkUrl } = card;
 
   return (
     <CustomFade translate="0, 100px" delay={index * 200} className="col-12 mb-4 mb-xl-0 col-xl-6">
@@ -25,9 +25,9 @@ const TestimonialCard = ({
         </div>
         <div className="d-flex justify-content-between">
           <p className="my-0 text-muted flex-1">{signature}</p>
-          {!!(linkText && linkPath) && (
+          {!!(linkText && linkUrl) && (
             <LinkWithChevron
-              to={linkPath}
+              to={linkUrl}
               text={linkText}
               className="my-0 d-flex align-items-end justify-content-end flex-1"
               prefix={prefix}

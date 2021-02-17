@@ -60,7 +60,7 @@ export const TestimonialCardsFragment = graphql`
     cards {
       signature
       linkText
-      linkPath
+      linkUrl
       text {
         childMdx {
           body
@@ -152,13 +152,13 @@ export const CallToAction2021Fragment = graphql`
     description
     buttonText
     buttonPath
-    externalLinkText
-    externalLinkUrl
+    linkText
+    linkUrl
     icon
     secondaryHeader
     secondaryDescription
     secondaryLinkText
-    secondaryLinkPath
+    secondaryLinkUrl
   }
 `;
 

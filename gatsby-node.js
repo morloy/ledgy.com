@@ -38,12 +38,12 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   const typeDefinitions = `
   type ContentfulCallToAction2021 implements Node {
-    externalLinkText: String
-    externalLinkUrl: String
+    linkText: String
+    linkUrl: String
   }
   type ContentfulTestimonialCardBuildingBlock implements Node {
     linkText: String
-    linkPath: String
+    linkUrl: String
   }
   union EntryProps = ContentfulTopBanner | ContentfulLogoBanner | ContentfulSelectableCardsWithScreenshots | ContentfulFeatureGrid | ContentfulTestimonialCards | ContentfulTitleWithGraphic | ContentfulContentWithChecklist | ContentfulCallToAction2021 | ContentfulChecklistWithScreenshot
   type ContentfulDemoPage2021 implements Node {

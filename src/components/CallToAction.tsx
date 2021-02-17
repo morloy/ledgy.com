@@ -17,13 +17,13 @@ export const CallToAction = ({
   description,
   buttonText,
   buttonPath,
-  externalLinkText,
-  externalLinkUrl,
+  linkText,
+  linkUrl,
   icon,
   secondaryHeader,
   secondaryDescription,
   secondaryLinkText,
-  secondaryLinkPath,
+  secondaryLinkUrl,
   prefix,
 }: { prefix: string } & CallToActionProps) => (
   <Section>
@@ -40,13 +40,8 @@ export const CallToAction = ({
                 <DynamicTrans>{buttonText}</DynamicTrans>
               </Button>
             </Link>
-            {!!(externalLinkText && externalLinkUrl) && (
-              <LinkWithChevron
-                to={externalLinkUrl}
-                text={externalLinkText}
-                className="mb-4"
-                prefix={prefix}
-              />
+            {!!(linkText && linkUrl) && (
+              <LinkWithChevron to={linkUrl} text={linkText} className="mb-4" prefix={prefix} />
             )}
           </div>
         </CustomFade>
@@ -62,7 +57,7 @@ export const CallToAction = ({
           <p className="mb-2">
             <DynamicTrans>{secondaryDescription}</DynamicTrans>
           </p>
-          <LinkWithChevron to={secondaryLinkPath} text={secondaryLinkText} prefix={prefix} />
+          <LinkWithChevron to={secondaryLinkUrl} text={secondaryLinkText} prefix={prefix} />
         </div>
       </div>
     </div>

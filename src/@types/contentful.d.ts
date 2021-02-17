@@ -47,7 +47,7 @@ declare type TestimonialCardProps = {
   text: Mdx;
   signature: string;
   linkText?: string;
-  linkPath?: string;
+  linkUrl?: string;
 };
 
 declare type TestimonialCardsProps = Id & {
@@ -90,9 +90,9 @@ declare type CallToActionProps = Id & {
   secondaryHeader: string;
   secondaryDescription: string;
   secondaryLinkText: string;
-  secondaryLinkPath: string;
-  externalLinkText?: string;
-  externalLinkUrl?: string;
+  secondaryLinkUrl: string;
+  linkText?: string;
+  linkUrl?: string;
 };
 
 declare type LogoBannerProps = Id & {
