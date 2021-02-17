@@ -9,7 +9,6 @@ import { deprefix } from '../i18n-config';
 
 import logoInvertedCompact from '../img/logo-inverted-compact.png';
 
-import { CTABanner } from './CTABanner';
 import { SubscriptionModal } from './SubscriptionModal';
 import { FOOTER_LINKS, FooterLink, formatUrl } from './lib';
 import { isExternalUrl } from './lib/urlHelpers';
@@ -61,13 +60,9 @@ const FooterLinks = ({
 );
 
 export const Footer = ({ location, ...props }: LayoutProps) => {
-  const { pathname } = location;
-  const hideOldCTA = pathname.includes('partners') || pathname === '/';
   const { prefix } = props;
-
   return (
     <div>
-      {hideOldCTA ? '' : <CTABanner location={location} {...props} />}
       <footer className="footer py-8 px-2 px-md-4 text-white bg-primary overflow-hidden position-relative">
         <div className="footer-deco-shape" />
         <div className="container">
