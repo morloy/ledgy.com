@@ -16,8 +16,8 @@ import {
   ContentBody,
   ProductHuntButton,
   DynamicTrans,
+  TopBannerLayout,
 } from '../components';
-import { TopBannerLayout } from '../components/TopBannerLayout';
 
 const esopTemplates = (props: Props) => {
   const { data, lang } = props;

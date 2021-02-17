@@ -56,11 +56,13 @@ export const CalculatorHeader = ({
     calculator: GatsbyImageFluidProps;
   };
 }) => (
-  <TopBannerLayout
-    title={title}
-    subtitle={subtitle}
-    buttonOne={buttonOne}
-    buttonTwo={productHuntLaunchButton}
-    componentRight={<Img {...data.calculator} alt="Financing Round Calculator" />}
-  />
+  <div className="mb-3 mb-lg-4">
+    <TopBannerLayout
+      title={title}
+      subtitle={subtitle}
+      buttonOne={buttonOne}
+      buttonTwo={productHuntLaunchButton}
+      componentRight={<Img {...data.calculator} alt="Financing Round Calculator" />}
+    />
+  </div>
 );

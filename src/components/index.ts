@@ -30,5 +30,5 @@ export * from './templates';
 export * from './TestimonialCards';
 export * from './TitleWithGraphic';
 export * from './Testimonial';
-export * from './TopBanner';
+export * from './TopBannerLayout';
 export * from './utils';

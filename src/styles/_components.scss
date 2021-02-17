@@ -5,20 +5,12 @@
   }
 }
 
-// Home Banner
-.home-banner {
-  min-height: 80vh;
-}
-
-.home-banner h1, .top-banner h1 {
+// Top Banner
+.top-banner h1 {
   font-weight: bold;
   @include media-breakpoint-up(lg) {
     font-size: $huge-font-size;
   }
-}
-
-.home-banner h1 {
-  max-width: 50vw;
 }
 
 // Footer
