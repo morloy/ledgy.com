@@ -30,7 +30,7 @@ const esopTemplates = (props: Props) => {
     <Button
       href={`${appUrl}/templates`}
       onClick={() => track('click.templates')}
-      className="mr-2 mb-2 btn-red"
+      className="mr-2 mb-2"
     >
       <DynamicTrans>Get started</DynamicTrans>
     </Button>

@@ -23,6 +23,7 @@ export const ProductHuntButton = ({
       src={`https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=${postId}&theme=light`}
       alt={altText}
       className="product-hunt-logo"
+      height="39.6px"
     />
   </Button>
 );

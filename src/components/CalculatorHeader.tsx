@@ -33,7 +33,7 @@ const subtitle = (
 );
 
 const buttonOne = (
-  <Button cta href={calculatorUrl} onClick={() => track('click.calculator')} className="mr-2 mb-2">
+  <Button href={calculatorUrl} onClick={() => track('click.calculator')} className="mr-2 mb-2">
     <DynamicTrans>Launch calculator</DynamicTrans>
   </Button>
 );
