@@ -38,7 +38,7 @@ export const LongText = ({
 }) => {
   const components = getProviderComponents(prefix);
   return (
-    <div className="d-flex justify-content-center mb-5">
+    <div className="d-flex justify-content-center mb-4 mb-lg-5">
       <div className={`${isMarkdown ? 'markdown' : ''} ${className}`}>
         {content && (
           <MDXProvider components={components}>
