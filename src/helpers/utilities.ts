@@ -2,24 +2,6 @@ export const track = (event: string, properties?: UnknownObject): void => {
   if (window.analytics) window.analytics.track(event, properties);
 };
 
-export const animateLaptop = () => {
-  let scrolling = false;
-  window.onscroll = () => {
-    scrolling = true;
-  };
-  setInterval(() => {
-    if (scrolling) {
-      scrolling = false;
-      const laptop = document.getElementById('laptop-ledgy');
-      const banner = document.querySelector('header');
-      const { scrollY } = window;
-      if (laptop && banner && scrollY <= banner.clientHeight) {
-        laptop.style.transform = `translateY(${scrollY / 50}%)`;
-      }
-    }
-  }, 50);
-};
-
 export const isFieldMissing = (object: UnknownObject) =>
   Object.values(object).some((field) => !field);
 

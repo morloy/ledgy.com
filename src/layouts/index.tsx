@@ -9,7 +9,7 @@ import 'katex/dist/katex.min.css';
 import 'prism-themes/themes/prism-ghcolors.css';
 import '../styles/_index.scss';
 
-import { animateLaptop, loadSegment } from '../helpers';
+import { loadSegment } from '../helpers';
 import { Title } from './utils';
 import { langFromPath, langPrefix, deprefix } from '../i18n-config';
 
@@ -21,7 +21,6 @@ type AppProps = LayoutProps & {
 
 const Initialize = ({ segmentDestinations }: { segmentDestinations: string[] }) => {
   useEffect(() => {
-    animateLaptop();
     setTimeout(() => {
       loadSegment(segmentDestinations);
     }, 1414);
