@@ -28,9 +28,9 @@ const legalLinks: FooterLink[] = [
 ];
 
 const productLinks: FooterLink[] = [
-  ['For finance', 'finance'],
-  ['For human resources', 'human-resources'],
-  ['For investors', 'investors'],
+  ['For finance', 'finance-legal-accounting'],
+  ['For human resources', 'hr-and-compensation'],
+  ['For investors', 'vcs-business-angels'],
   ['Data protection', 'data-protection'],
   ['Pricing for companies', 'company-pricing'],
   ['Pricing for investors', 'investor-pricing'],
@@ -72,20 +72,20 @@ const teams: NavbarMenuColumn = {
   header: 'Teams',
   items: [
     {
-      link: 'human-resources',
+      link: 'hr-and-compensation',
       title: 'HR & Compensation',
       description: 'Automated equity plans, employee dashboards',
       icon: 'hr',
     },
     {
-      link: 'finance',
+      link: 'finance-legal-accounting',
       title: 'Finance, Legal, & Accounting',
       description: 'Cap table, scenario modeling, investor relations',
       icon: 'calculator',
     },
     {
-      link: 'investors',
-      title: 'Business Angels & VCs',
+      link: 'vcs-business-angels',
+      title: 'VCs & Business Angels',
       description: 'Portfolio management, real-time company insights',
       icon: 'rocket',
     },

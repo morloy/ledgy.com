@@ -12,7 +12,7 @@ import { RequesterType } from '../components/forms/lib';
 import { TopBannerLayout } from '../components/TopBannerLayout';
 
 type DemoPageProps = {
-  content: DemoPageEntryProps[];
+  content: EntryProps[];
   title: string;
   description: string;
   formButtonText: string;
@@ -111,120 +111,14 @@ export const demoQuery = graphql`
       formButtonText
       requesterType
       content {
-        ... on ContentfulFeatureGrid {
-          id
-          header
-          sections {
-            icon
-            title
-            description
-          }
-        }
-        ... on ContentfulTestimonialCards {
-          id
-          cards {
-            signature
-            linkText
-            linkPath
-            text {
-              childMdx {
-                body
-              }
-            }
-            logo {
-              localFile {
-                childImageSharp {
-                  fixed(height: 60) {
-                    ...GatsbyImageSharpFixed
-                  }
-                }
-              }
-            }
-          }
-        }
-        ... on ContentfulContentWithChecklist {
-          id
-          header
-          description
-          linkText
-          linkUrl
-          checklist
-        }
-        ... on ContentfulTitleWithGraphic {
-          id
-          title
-          motivationText
-          description
-          graphic {
-            localFile {
-              childImageSharp {
-                fixed(height: 300) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
-          }
-        }
-        ... on ContentfulLogoBanner {
-          id
-          logos {
-            title
-            description
-            localFile {
-              childImageSharp {
-                fixed(width: 130) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
-          }
-        }
-        ... on ContentfulSelectableCardsWithScreenshots {
-          id
-          header
-          content {
-            title
-            description
-            screenshot {
-              localFile {
-                childImageSharp {
-                  fluid(maxWidth: 1500, quality: 100) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
-        }
-        ... on ContentfulCallToAction2021 {
-          id
-          header
-          description
-          buttonText
-          buttonPath
-          externalLinkText
-          externalLinkUrl
-          icon
-          secondaryHeader
-          secondaryDescription
-          secondaryLinkText
-          secondaryLinkPath
-        }
-        ... on ContentfulChecklistWithScreenshot {
-          id
-          header
-          description
-          checklist
-          image {
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 1200, quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
+        ...FeatureGridFramgent
+        ...TestimonialCardsFragment
+        ...ContentWithChecklistFragment
+        ...TitleWithGraphicFragment
+        ...LogoBannerFragment
+        ...SelectableCardsWithScreenshotsFragment
+        ...CallToAction2021Fragment
+        ...ContentWithScreenshotFragment
       }
     }
   }

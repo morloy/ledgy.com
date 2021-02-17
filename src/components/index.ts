@@ -14,7 +14,6 @@ export * from './Footer';
 export * from './forms';
 export * from './FullWidthBanner';
 export * from './HelmetIndexLayout';
-export * from './HomePageHeader';
 export * from './Loader';
 export * from './LogoBanner';
 export * from './MainHeaderLayout';

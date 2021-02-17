@@ -45,14 +45,16 @@ exports.createSchemaCustomization = ({ actions }) => {
     linkText: String
     linkPath: String
   }
-  union DemoPage2021Content = ContentfulLogoBanner | ContentfulSelectableCardsWithScreenshots | ContentfulFeatureGrid | ContentfulTestimonialCards | ContentfulTitleWithGraphic | ContentfulContentWithChecklist | ContentfulCallToAction2021 | ContentfulChecklistWithScreenshot
+  union EntryProps = ContentfulTopBanner | ContentfulLogoBanner | ContentfulSelectableCardsWithScreenshots | ContentfulFeatureGrid | ContentfulTestimonialCards | ContentfulTitleWithGraphic | ContentfulContentWithChecklist | ContentfulCallToAction2021 | ContentfulChecklistWithScreenshot
   type ContentfulDemoPage2021 implements Node {
     requesterType: String
-    content: [DemoPage2021Content] @link(by: "id", from: "content___NODE")
+    content: [EntryProps] @link(by: "id", from: "content___NODE")
   }
-  union FrontPage2021Content = ContentfulTopBanner | ContentfulLogoBanner | ContentfulSelectableCardsWithScreenshots | ContentfulFeatureGrid | ContentfulTestimonialCards | ContentfulTitleWithGraphic | ContentfulContentWithChecklist | ContentfulCallToAction2021 | ContentfulChecklistWithScreenshot
   type ContentfulFrontPage2021 implements Node {
-    entries: [FrontPage2021Content] @link(by: "id", from: "entries___NODE")
+    entries: [EntryProps] @link(by: "id", from: "entries___NODE")
+  }
+  type ContentfulFeaturePage2021 implements Node {
+    entries: [EntryProps] @link(by: "id", from: "entries___NODE")
   }
 `;
   createTypes(typeDefinitions);
@@ -87,7 +89,7 @@ const customerStoryQuery = `
 
 const featurePageQuery = `
       {
-        allContentfulFeaturePage(limit: 1000) {
+        allContentfulFeaturePage2021(limit: 1000) {
           edges {
             node {
               id
@@ -165,7 +167,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   const featurePageComponent = path.resolve(`${basePath}/featurePage.tsx`);
   const createFeaturePages = resolvePagePromise(graphql(featurePageQuery), (data) =>
-    data.allContentfulFeaturePage.edges.forEach(({ node }) => {
+    data.allContentfulFeaturePage2021.edges.forEach(({ node }) => {
       const { id, slug } = node;
       const pagePath = `/${slug}/`;
       const context = { id };

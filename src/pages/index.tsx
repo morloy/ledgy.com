@@ -43,6 +43,143 @@ const IndexPage = (props: Props) => {
 
 export default IndexPage;
 
+export const FeatureGridFragment = graphql`
+  fragment FeatureGridFramgent on ContentfulFeatureGrid {
+    id
+    header
+    sections {
+      icon
+      title
+      description
+    }
+  }
+`;
+export const TestimonialCardsFragment = graphql`
+  fragment TestimonialCardsFragment on ContentfulTestimonialCards {
+    id
+    cards {
+      signature
+      linkText
+      linkPath
+      text {
+        childMdx {
+          body
+        }
+      }
+      logo {
+        localFile {
+          childImageSharp {
+            fixed(height: 60) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const ContentWithChecklistFragment = graphql`
+  fragment ContentWithChecklistFragment on ContentfulContentWithChecklist {
+    id
+    header
+    description
+    linkText
+    linkUrl
+    checklist
+  }
+`;
+
+export const TitleWithGraphicFragment = graphql`
+  fragment TitleWithGraphicFragment on ContentfulTitleWithGraphic {
+    id
+    title
+    motivationText
+    description
+    graphic {
+      localFile {
+        childImageSharp {
+          fixed(height: 300) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const LogoBannerFragment = graphql`
+  fragment LogoBannerFragment on ContentfulLogoBanner {
+    id
+    logos {
+      title
+      description
+      localFile {
+        childImageSharp {
+          fixed(width: 130) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const SelectableCardsWithScreenshotsFragment = graphql`
+  fragment SelectableCardsWithScreenshotsFragment on ContentfulSelectableCardsWithScreenshots {
+    id
+    header
+    content {
+      title
+      description
+      screenshot {
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 1500, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const CallToAction2021Fragment = graphql`
+  fragment CallToAction2021Fragment on ContentfulCallToAction2021 {
+    id
+    header
+    description
+    buttonText
+    buttonPath
+    externalLinkText
+    externalLinkUrl
+    icon
+    secondaryHeader
+    secondaryDescription
+    secondaryLinkText
+    secondaryLinkPath
+  }
+`;
+
+export const ContentWithScreenshotFragment = graphql`
+  fragment ContentWithScreenshotFragment on ContentfulChecklistWithScreenshot {
+    id
+    header
+    description
+    checklist
+    image {
+      localFile {
+        childImageSharp {
+          fluid(maxWidth: 1200, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`;
+
 export const indexPageQuery = graphql`
   query {
     page: allContentfulFrontPage2021 {
@@ -67,120 +204,14 @@ export const indexPageQuery = graphql`
                 }
               }
             }
-            ... on ContentfulFeatureGrid {
-              id
-              header
-              sections {
-                icon
-                title
-                description
-              }
-            }
-            ... on ContentfulTestimonialCards {
-              id
-              cards {
-                signature
-                linkText
-                linkPath
-                text {
-                  childMdx {
-                    body
-                  }
-                }
-                logo {
-                  localFile {
-                    childImageSharp {
-                      fixed(height: 60) {
-                        ...GatsbyImageSharpFixed
-                      }
-                    }
-                  }
-                }
-              }
-            }
-            ... on ContentfulContentWithChecklist {
-              id
-              header
-              description
-              linkText
-              linkUrl
-              checklist
-            }
-            ... on ContentfulTitleWithGraphic {
-              id
-              title
-              motivationText
-              description
-              graphic {
-                localFile {
-                  childImageSharp {
-                    fixed(height: 300) {
-                      ...GatsbyImageSharpFixed
-                    }
-                  }
-                }
-              }
-            }
-            ... on ContentfulLogoBanner {
-              id
-              logos {
-                title
-                description
-                localFile {
-                  childImageSharp {
-                    fixed(width: 130) {
-                      ...GatsbyImageSharpFixed
-                    }
-                  }
-                }
-              }
-            }
-            ... on ContentfulSelectableCardsWithScreenshots {
-              id
-              header
-              content {
-                title
-                description
-                screenshot {
-                  localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 1500, quality: 100) {
-                        ...GatsbyImageSharpFluid
-                      }
-                    }
-                  }
-                }
-              }
-            }
-            ... on ContentfulCallToAction2021 {
-              id
-              header
-              description
-              buttonText
-              buttonPath
-              externalLinkText
-              externalLinkUrl
-              icon
-              secondaryHeader
-              secondaryDescription
-              secondaryLinkText
-              secondaryLinkPath
-            }
-            ... on ContentfulChecklistWithScreenshot {
-              id
-              header
-              description
-              checklist
-              image {
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 1200, quality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
+            ...FeatureGridFramgent
+            ...TestimonialCardsFragment
+            ...ContentWithChecklistFragment
+            ...TitleWithGraphicFragment
+            ...LogoBannerFragment
+            ...SelectableCardsWithScreenshotsFragment
+            ...CallToAction2021Fragment
+            ...ContentWithScreenshotFragment
           }
         }
       }

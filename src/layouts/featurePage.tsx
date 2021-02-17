@@ -1,50 +1,35 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import { PageHeader, dynamicI18n, Feature } from '../components';
+import { dynamicI18n, ComponentPicker, TitleWithGraphic } from '../components';
 import { Title } from '../layouts/utils';
-
-type FeatureProps = {
-  id: string;
-  title: string;
-  description: string[];
-  image: Image;
-};
-
-type FeaturePageProps = {
-  id: string;
-  title: string;
-  description: string;
-  features: FeatureProps[];
-  startOnRight?: boolean;
-};
 
 const FeaturePage = ({
   data,
+  prefix,
 }: Props & {
   data: {
-    contentfulFeaturePage: FeaturePageProps;
-    allContentfulFeaturePage: UnknownObject;
+    contentfulFeaturePage2021: FeaturePageProps;
+    allContentfulFeaturePage2021: UnknownObject;
   };
 }) => {
-  const { title, description, features, startOnRight } = data.contentfulFeaturePage;
-
+  const { title, description, graphic, motivationText, entries } = data.contentfulFeaturePage2021;
+  console.log({ data });
   return (
     <div>
       <Title title={dynamicI18n(title)} description={dynamicI18n(description)} />
-
-      <PageHeader title={dynamicI18n(title)} subtitle={dynamicI18n(description)} />
-      {features.map(
-        ({ id, title: featureTitle, description: featureDescription, image }, index) => (
-          <Feature
-            key={id}
-            title={featureTitle}
-            description={featureDescription}
-            imgProps={image?.localFile?.childImageSharp}
-            imgFirst={index % 2 !== Number(startOnRight)}
-          />
-        )
-      )}
+      <TitleWithGraphic
+        id={title}
+        title={title}
+        description={description}
+        graphic={graphic}
+        motivationText={motivationText}
+        light
+        mirrored
+      />
+      {entries.map((entry) => (
+        <ComponentPicker key={entry.id} entry={entry} prefix={prefix} />
+      ))}
     </div>
   );
 };
@@ -53,25 +38,30 @@ export default FeaturePage;
 
 export const featurePageQuery = graphql`
   query($id: String!) {
-    contentfulFeaturePage(id: { eq: $id }) {
+    contentfulFeaturePage2021(id: { eq: $id }) {
       id
       slug
       title
       description
-      startOnRight
-      features {
-        id
-        title
-        description
-        image {
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 1000) {
-                ...GatsbyImageSharpFluid
-              }
+      motivationText
+      graphic {
+        localFile {
+          childImageSharp {
+            fixed(height: 300) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
+      }
+      entries {
+        ...FeatureGridFramgent
+        ...TestimonialCardsFragment
+        ...ContentWithChecklistFragment
+        ...TitleWithGraphicFragment
+        ...LogoBannerFragment
+        ...SelectableCardsWithScreenshotsFragment
+        ...CallToAction2021Fragment
+        ...ContentWithScreenshotFragment
       }
     }
   }

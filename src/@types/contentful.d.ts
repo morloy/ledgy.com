@@ -1,5 +1,15 @@
 type Id = { id: string };
 
+declare type EntryProps =
+  | LogoBannerProps
+  | SelectableCardsWithScreenshotsProps
+  | FeatureGridContentProps
+  | TestimonialCardsProps
+  | TitleWithGraphicProps
+  | ContentWithChecklistProps
+  | CallToActionProps
+  | ChecklistWithScreenshotProps;
+
 declare type ContentfulPageProps = Id & {
   title: string;
   description: string;
@@ -57,12 +67,20 @@ declare type TestimonialCardsProps = Id & {
   cards: TestimonialCardProps[];
 };
 
-declare type TitleWithGraphicProps = Id & {
-  __typename: 'ContentfulTitleWithGraphic';
-  graphic: Image;
-  motivationText: string;
+declare type BaseFeatureProps = Id & {
   title: string;
   description: string;
+  graphic: Image;
+  motivationText: string;
+};
+
+declare type FeaturePageProps = BaseFeatureProps & {
+  slug: string;
+  entries: EntryProps[];
+};
+
+declare type TitleWithGraphicProps = BaseFeatureProps & {
+  __typename: 'ContentfulTitleWithGraphic';
 };
 
 declare type ContentWithChecklistProps = Id & {
@@ -125,23 +143,4 @@ declare type ChecklistWithScreenshotProps = Id & {
   checklist: string[];
 };
 
-declare type MainPageEntryProps =
-  | TopBannerProps
-  | LogoBannerProps
-  | SelectableCardsWithScreenshotsProps
-  | FeatureGridContentProps
-  | TestimonialCardsProps
-  | TitleWithGraphicProps
-  | ContentWithChecklistProps
-  | CallToActionProps
-  | ChecklistWithScreenshotProps;
-
-declare type DemoPageEntryProps =
-  | LogoBannerProps
-  | SelectableCardsWithScreenshotsProps
-  | FeatureGridContentProps
-  | TestimonialCardsProps
-  | TitleWithGraphicProps
-  | ContentWithChecklistProps
-  | CallToActionProps
-  | ChecklistWithScreenshotProps;
+declare type MainPageEntryProps = TopBannerProps | EntryProps;
