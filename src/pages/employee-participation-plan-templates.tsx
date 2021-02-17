@@ -1,5 +1,5 @@
 import React from 'react';
-import { Trans, t } from '@lingui/macro';
+import { t } from '@lingui/macro';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
@@ -14,22 +14,25 @@ import {
   Video,
   Button,
   ContentBody,
-  MainHeaderLayout,
   ProductHuntButton,
+  DynamicTrans,
 } from '../components';
+import { TopBannerLayout } from '../components/TopBannerLayout';
 
 const esopTemplates = (props: Props) => {
   const { data, lang } = props;
   const title = t`Employee Participation Plan Templates`;
   const description = t`Get free templates from top Swiss and German law firms for your employee participation plans. Use the Ledgy term sheet guide to easily draft a document with the conditions of your participation plans.`;
   const { siteUrl } = data.site.siteMetadata;
+  const isGerman = lang === 'de';
+
   const buttonOne = (
     <Button
       href={`${appUrl}/templates`}
       onClick={() => track('click.templates')}
       className="mr-2 mb-2 btn-red"
     >
-      <Trans>Get started</Trans>
+      <DynamicTrans>Get started</DynamicTrans>
     </Button>
   );
 
@@ -41,7 +44,7 @@ const esopTemplates = (props: Props) => {
       altText="Free Employee Participation Plan Templates - Using Ledgy! | Product Hunt Embed"
     />
   );
-  const isGerman = lang === 'de';
+
   return (
     <>
       <Title
@@ -49,12 +52,12 @@ const esopTemplates = (props: Props) => {
         description={description}
         thumbnailUrl={`${siteUrl}/banners/employee-participation-plans.png`}
       />
-      <MainHeaderLayout
-        title={title}
-        subtitle={description}
+      <TopBannerLayout
+        title={<DynamicTrans>{title}</DynamicTrans>}
+        subtitle={<DynamicTrans>{description}</DynamicTrans>}
         buttonOne={buttonOne}
-        customButton={productHuntLaunchButton}
-        image={<Img {...(isGerman ? data.templatesDe : data.templates)} alt="Templates" />}
+        buttonTwo={productHuntLaunchButton}
+        componentRight={<Img {...(isGerman ? data.templatesDe : data.templates)} alt="Templates" />}
       />
       <ContentBody>
         <Instructions />

@@ -38,7 +38,7 @@ const buttonOne = (
   </Button>
 );
 
-const buttonTwo = (
+const productHuntLaunchButton = (
   <ProductHuntButton
     productHuntLink="https://www.producthunt.com/posts/startup-fundraising-calculator?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-startup-fundraising-calculator"
     trackSignupKey="clickProductHunt"
@@ -70,7 +70,7 @@ export const CalculatorHeader = ({
     title={title}
     subtitle={subtitle}
     buttonOne={buttonOne}
-    buttonTwo={buttonTwo}
+    buttonTwo={productHuntLaunchButton}
     componentRight={<Image data={data} />}
   />
 );
