@@ -47,16 +47,6 @@ const productHuntLaunchButton = (
   />
 );
 
-const Image = ({
-  data,
-}: {
-  data: {
-    contentfulPage: ContentfulPageProps;
-    site: { siteMetadata: { siteUrl: string } };
-    calculator: GatsbyImageFluidProps;
-  };
-}) => <Img {...data.calculator} alt="Financing Round Calculator" />;
-
 export const CalculatorHeader = ({
   data,
 }: {
@@ -71,6 +61,6 @@ export const CalculatorHeader = ({
     subtitle={subtitle}
     buttonOne={buttonOne}
     buttonTwo={productHuntLaunchButton}
-    componentRight={<Image data={data} />}
+    componentRight={<Img {...data.calculator} alt="Financing Round Calculator" />}
   />
 );

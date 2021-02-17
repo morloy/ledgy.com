@@ -15,7 +15,6 @@ export * from './FullWidthBanner';
 export * from './HelmetIndexLayout';
 export * from './Loader';
 export * from './LogoBanner';
-export * from './MainHeaderLayout';
 export * from './markdown';
 export * from './nav';
 export * from './partners';
