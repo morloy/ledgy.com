@@ -24,8 +24,8 @@ const FeaturePage = ({
         description={description}
         graphic={graphic}
         motivationText={motivationText}
-        light
-        mirrored
+        __typename={'ContentfulTitleWithGraphic'}
+        isTopBanner
       />
       {entries.map((entry) => (
         <ComponentPicker key={entry.id} entry={entry} prefix={prefix} />

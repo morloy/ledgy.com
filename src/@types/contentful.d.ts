@@ -21,18 +21,6 @@ declare type ContentfulPageProps = Id & {
   cover?: Image;
 };
 
-declare type ContentfulIndexEntry = Id & {
-  __typename: string;
-  title: string;
-  description?: string;
-  image?: Image;
-  link?: string;
-  linkTo?: string;
-  logos?: Image[];
-  name?: string;
-  quote?: string;
-};
-
 declare type AllContentfulCustomerStoryProps = Id & {
   company: Company;
   slug: string;
