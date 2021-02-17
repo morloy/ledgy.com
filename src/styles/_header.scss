@@ -14,15 +14,6 @@
     position: relative;
     height: 100%;
   }
-  .header-img-wrapper {
-    width: 100%;
-    @include media-breakpoint-up(lg) {
-      width: 80%;
-    }
-    @include media-breakpoint-up(xl) {
-      width: 100%;
-    }
-  }
 }
 
 .header-custom {
