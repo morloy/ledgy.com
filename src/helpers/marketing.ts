@@ -21,8 +21,8 @@ export const setDomainCookie = (name: string, value: string) => {
 export const hasAcceptedCookies = () => !!getCookie(SEGMENT_COOKIE_ID);
 export const hasLedgyAccount = () => !!getCookie(HAS_ACCOUNT_COOKIE_ID);
 
-export const loadMarketingTools = (segmentDestinations: string[]) => {
-  loadSegment(getDestinations(segmentDestinations));
+export const loadMarketingTools = async (segmentDestinations: string[]) => {
+  await loadSegment(getDestinations(segmentDestinations));
   loadG2();
   loadCapterra();
 };

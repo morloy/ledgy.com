@@ -1,7 +1,7 @@
 // @ts-nocheck
 /* eslint-disable */
 
-export const loadSegment = (integrations: Record<string, boolean>): void => {
+export const loadSegment = (integrations: Record<string, boolean>): Promise<void> => new Promise((resolve) => {
   !(function () {
     const analytics = (window.analytics = window.analytics || []);
     if (!analytics.initialize)
@@ -48,16 +48,18 @@ export const loadSegment = (integrations: Record<string, boolean>): void => {
           n.type = 'text/javascript';
           n.async = !0;
           n.src = 'https://cdn.segment.com/analytics.js/v1/' + t + '/analytics.min.js';
+          n.onerror = resolve;
           const a = document.getElementsByTagName('script')[0];
           a.parentNode.insertBefore(n, a);
           analytics._loadOptions = e;
         };
         analytics.SNIPPET_VERSION = '4.1.0';
         analytics.load('mfLUo1gAa0xfzIR2xANV10NG8qN1IZnu', { integrations });
+        analytics.ready(resolve);
         analytics.page();
       }
   })();
-};
+});
 
 export const loadG2 = () => {
   (function (c, p, d, u, id, i) {
