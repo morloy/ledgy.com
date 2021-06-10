@@ -58,6 +58,7 @@ export const loadSegment = (integrations: Record<string, boolean>): Promise<void
         analytics.ready(resolve);
         analytics.page();
       }
+    else resolve();
   })();
 });
 
