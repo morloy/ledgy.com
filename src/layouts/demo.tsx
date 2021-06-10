@@ -49,13 +49,18 @@ const DemoPage = (props: Props) => {
   const { data, prefix } = props;
   const { content, title, header, description, formButtonText, requesterType }: DemoPageProps =
     data.contentfulDemoPage2021;
+  const { segmentDestinations } = data.site.siteMetadata;
 
   const buttonOne = <CapterraBadge />;
   const buttonTwo = <G2Badge />;
   const buttonThree = <SourceforgeBadge />;
 
   const form = (
-    <DemoForm buttonText={dynamicI18n(formButtonText)} contentfulRequesterType={requesterType} />
+    <DemoForm
+      buttonText={dynamicI18n(formButtonText)}
+      contentfulRequesterType={requesterType}
+      segmentDestinations={segmentDestinations}
+    />
   );
 
   return (
@@ -98,6 +103,11 @@ export default DemoPage;
 
 export const demoQuery = graphql`
   query ($id: String!) {
+    site {
+      siteMetadata {
+        segmentDestinations
+      }
+    }
     contentfulDemoPage2021(id: { eq: $id }) {
       id
       slug

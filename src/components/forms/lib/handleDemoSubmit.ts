@@ -1,4 +1,10 @@
-import { isFieldMissing, isValidEmail, track, setDomainCookie } from '../../../helpers';
+import {
+  isFieldMissing,
+  isValidEmail,
+  track,
+  setDomainCookie,
+  loadMarketingTools,
+} from '../../../helpers';
 
 import { FormValues, ParsedFormValues } from './formTypes';
 import { submitToHubspot } from './hubspot';
@@ -56,13 +62,16 @@ export const handleDemoSubmit = async ({
   values,
   event,
   setFormStatus,
+  segmentDestinations,
 }: {
   values: FormValues;
   event: React.FormEvent<HTMLFormElement>;
   setFormStatus: (arg0: string) => void;
+  segmentDestinations: string[];
 }): Promise<void> => {
   event.preventDefault();
   setFormStatus(LOADING);
+  await loadMarketingTools(segmentDestinations);
   const { requesterType, email, size: sizeString } = values;
 
   if (isFieldMissing({ requesterType, sizeString })) {
