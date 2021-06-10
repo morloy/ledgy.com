@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { t } from '@lingui/macro';
 
 import { Button } from '../utils';
 import { Input, InvalidFieldHints } from './Fields';
 import { handleDemoSubmit, RequesterType, COMPANY, INVESTOR, FORM_STATUSES } from './lib';
 
-const { IDLE, FETCH_ERROR } = FORM_STATUSES;
+const { IDLE, FETCH_ERROR, LOADING } = FORM_STATUSES;
 
 const REQUESTER_TYPES = [COMPANY, INVESTOR];
 
@@ -25,6 +27,7 @@ export const DemoForm = ({
   const inputClassName = 'height-42px bg-transparent text-dark border border-light-energetic-blue';
   const values = { requesterType, email, size };
   const isButtonDisabled = formStatus !== IDLE && formStatus !== FETCH_ERROR;
+  const isLoading = formStatus === LOADING;
 
   return (
     <div className="card-border-style bg-white mx-md-7 mx-xl-6">
@@ -85,6 +88,7 @@ export const DemoForm = ({
           energetic
           className="border-0 w-100 mx-1 mt-4 mb-1 align-self-center btn-xl"
         >
+          {isLoading && <FontAwesomeIcon icon={faSpinner} className="fa-lg spin mr-2" />}
           {buttonText}
         </Button>
         <InvalidFieldHints formStatus={formStatus} />
